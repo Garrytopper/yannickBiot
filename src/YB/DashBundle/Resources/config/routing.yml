@@ -1,0 +1,4 @@
+yb_dash_homepage:
+    path:     /
+    defaults: 
+        _controller: YBDashBundle:Dash:home 

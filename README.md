@@ -1,5 +1,7 @@
-# yannickBiot
-Corebundle de mon site
+yannickBiot
+===========
+
+A Symfony project created on November 2, 2017, 10:06 pm.
 
 02/11/2017
-Début de la création de mon application Web
+Objectif création du bundle Dash !
