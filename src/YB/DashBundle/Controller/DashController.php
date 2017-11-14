@@ -8,6 +8,6 @@ class DashController extends Controller
 {
     public function homeAction()
     {
-        return $this->render('YBDashBundle:Dash:home.html.twig');
+        return $this->render('YBDashBundle::DashLayout.html.twig');
     }
 }
