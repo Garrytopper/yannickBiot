@@ -2,8 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8"/>
-        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybdash/css/dashStyle.css') }}">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybdash/css/appStyle.css') }}">
+<!-- bloc pour charger le css approprié au template -->
+        {% block css %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybdash/css/dashStyle.css') }}">
+        {% endblock %}
 <!-- bloc pour changer le titre de l'onglet du navigateur -->
         {% block title %}
             <title>Bureau</title>
@@ -12,9 +15,23 @@
     <body>
 <!-- bloc pour le contenu du body -->
         {% block body %}
-            <p>template d'origine</p>
-            <span>test</span>
+                <nav id="navPrincipal">
+                    <div id="logoCentral"></div>
+                </nav>
+                <section id="bureau">
+                    <!-- menu des applications -->
+                    <div id="listApp">
+                        <a href="#"><div class="btnIxina menuApp btn"></div></a>
+                        <a href="#"><div class="btnTellingStory menuApp police-menu btn">Telling Story</div></a>
+                    </div>
+                    <!-- Espace réservé à l'application Ixina -->
+                    <div id="ixinaApp">
+
+                    </div>
+                </section>
+                <nav id="navSecondaire"></nav>
         {% endblock %}
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{ asset('bundles/ybdash/js/dashJquery.js') }}" type="text/javascript" charset="utf-8" async defer></script>
     </body>
 </html>

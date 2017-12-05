@@ -1,5 +1,116 @@
-p 
+/* zone de css pour les test de mon application : peuvent être modifié ou supprimé sans problème */
+
+.red
 {
-    color: red;
-    font-weight: ;
+    background-color: red;
+    height: 50px;
+    width: 50px;
 }
+
+.green
+{
+    background-color: green;
+    height: 50px;
+    width: 50px;
+}
+
+.grey
+{
+    background-color: grey;
+    height: 50px;
+    width: 50px;
+}
+
+/* zone de css de l'application  : ne pas faire n'importe quelles modifications */
+body
+{
+    background-color: white;
+}
+/* section des navigateur */
+    /* navigateur principal */
+#navPrincipal
+{
+    height: 75px;
+    display: flex;
+    border-bottom: 10px solid black;
+    margin-right: -10px;
+    margin-left: -10px;
+}
+
+#logoCentral
+{
+    height: 50px;
+    width: 150px;
+    margin: auto;
+}
+
+/* section du bureau */
+#bureau
+{
+    height: 500px;
+    background-image: url("../images/fond.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: -10px;
+    margin-left: -10px;
+    display: flex; 
+}
+/* partie qui concerne le menu des applications */
+#listApp
+{
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+    justify-content: space-around ;
+    height: 50%;
+    width: 33%;
+    border-radius: 20px;
+    background-color: white;
+    margin: auto;
+}
+
+.btnIxina
+{
+    height: 50px;
+    width: 150px;
+    background-image: url("../images/btnIxina.png");
+    background-size: 100%;
+    background-repeat: no-repeat ;
+}
+
+.btnTellingStory
+{
+    height: 50px;
+    width: 150px;
+    font-size: 1.7em;
+    text-align: center;
+    line-height: 50px;
+    font-family: 'messagesregular', arial, impact ;
+    color: grey;
+}
+
+.btn 
+{
+      border: 3px solid black;
+      border-radius: 5px;
+}
+/* partie qui concerne l'application Ixina */
+#ixinaApp
+{
+    background-color: white;
+    height: 50px;
+    width: 50px;
+    margin: auto;
+    border-radius: 20px;
+}
+
+
+/* section du sous-menu */
+#navSecondaire
+{
+    height: 75px;
+}
+
+
+

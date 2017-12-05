@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'quicksandbook';
+    src: url('polices/quicksand/quicksand_book-webfont.woff2') format('woff2'),
+         url('polices/quicksand/quicksand_book-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'messagesregular';
+    src: url('polices/message/messages-webfont.woff2') format('woff2'),
+         url('polices/message/messages-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* 
+{
+    font-family: 'quicksandbook', arial, impact ;
+}
+
