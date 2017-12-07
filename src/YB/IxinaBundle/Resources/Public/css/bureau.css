@@ -2,11 +2,17 @@ body
 {
 	background-image: url('../images/fondBody.jpg');
 	background-position: bottom;
+    display: flex;
 }
 
 #bureau
 {
-	width: 100%;
-	height: 100%;
+	height: 744px;
+    width: 1124px;
+    margin: auto;
+    margin-top: -10px;
 	background-image: url('../images/fondBureau.jpg');
+    background-size: 1124px 744px;
+    border-left: 7px solid black;
+    border-right: 7px solid black;
 }
