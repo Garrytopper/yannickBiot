@@ -1,3 +1,7 @@
+yb_ixina:
+    resource: "@YBIxinaBundle/Resources/config/routing.yml"
+    prefix:   /
+
 yb_dash:
     resource: "@YBDashBundle/Resources/config/routing.yml"
     prefix:   /

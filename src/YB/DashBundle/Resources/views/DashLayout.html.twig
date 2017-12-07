@@ -25,13 +25,25 @@
                         <a href="#"><div class="btnTellingStory menuApp police-menu btn">Telling Story</div></a>
                     </div>
                     <!-- Espace réservé à l'application Ixina -->
-                    <div id="ixinaApp">
-
+                    <div id="ixinaApp">                      
+                        <div class="ixinaAppMenu">
+                            :<div id="iconeSiteIxina"></div>
+                            <div class="intitule">
+                                <a href="{{ path('yb_ixina_homepage') }}">Se rendre sur le site Ixina </a>
+                             </div>
+                        </div> 
+                        <div class="ixinaAppMenu">
+                            <div id="iconeBdd"></div>
+                            <div class="intitule">Gestion de la base de donnée</div>
+                        </div>       
                     </div>
                 </section>
                 <nav id="navSecondaire"></nav>
         {% endblock %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="{{ asset('bundles/ybdash/js/dashJquery.js') }}" type="text/javascript" charset="utf-8" async defer></script>
+<!-- bloc pour insérer le fichier javaScript personnel de la page -->
+    {% block javaScript %}
+        <script src="{{ asset('bundles/ybdash/js/dashJquery.js') }}" type="text/javascript" charset="utf-8" async defer></script>
+    {% endblock %}
     </body>
 </html>

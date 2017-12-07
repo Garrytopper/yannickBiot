@@ -1,0 +1,4 @@
+services:
+#    yb_ixina.example:
+#        class: YB\IxinaBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

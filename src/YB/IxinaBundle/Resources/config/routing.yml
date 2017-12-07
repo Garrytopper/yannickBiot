@@ -1,0 +1,4 @@
+yb_ixina_homepage:
+    path:     /Ixina
+    defaults: 
+        _controller: YBIxinaBundle:Ixina:home 

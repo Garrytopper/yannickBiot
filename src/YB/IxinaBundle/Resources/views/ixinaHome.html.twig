@@ -1,0 +1,29 @@
+{# j'hérite de mon template de base dans le bundle Dash de mon application  #} 
+
+{% extends "YBDashBundle::DashLayout.html.twig" %}
+
+{# css #}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/bureau.css') }}">
+{% endblock %}
+
+{# title #}
+
+{% block title %}
+
+{% endblock %}
+
+{# body #}
+
+{% block body %}
+	<div id="bureau">
+
+	</div>
+{% endblock %}
+
+{# javaScript #}
+
+{% block javaScript %}
+	<script src="{{ asset('bundles/ybixina/js/bureau.js') }}" type="text/javascript" charset="utf-8" async defer></script>
+{% endblock %}

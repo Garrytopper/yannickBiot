@@ -98,14 +98,47 @@ body
 /* partie qui concerne l'application Ixina */
 #ixinaApp
 {
-    background-color: white;
+     background-color: white;
     height: 50px;
     width: 50px;
     margin: auto;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
 }
 
+.ixinaAppMenu
+{
+    display: flex;
+    justify-content: start;
+    width: 90%;
+    margin-left: 100px;
+    padding-bottom: 15px;
+}
 
+#iconeSiteIxina
+{
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/iconeSiteIxina.jpg");
+}
+
+#iconeBdd
+{
+    height: 50px;
+    width: 50px;
+    background-image:url("../images/iconeBdd.png");
+}
+
+.intitule
+{
+    line-height: 50px;
+    padding-left: 50px ;
+    font-size: 1.5em;
+    font-weight: bold;
+}
 /* section du sous-menu */
 #navSecondaire
 {
