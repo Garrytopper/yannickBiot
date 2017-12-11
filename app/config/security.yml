@@ -3,7 +3,7 @@
 security:
 
     encoders:
-        Symfony\Component\Core\User\User: plaintext
+        Symfony\Component\Security\Core\User\User: plaintext
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
 
     role_hierarchy:
@@ -16,6 +16,7 @@ security:
                     user: { password: userpass, roles: [ 'ROLE_USER' ] }
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
 
+    provider: in_memory
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
@@ -25,6 +26,12 @@ security:
         main:
             pattern: ^/
             anonymous: true
+            form_login:
+                login_path: login
+                check_path: login_check
+            logout:
+                path: logout
+                target: login 
             # activate different ways to authenticate
 
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
