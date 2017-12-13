@@ -1,4 +1,9 @@
 yb_ixina_homepage:
-    path:     /Ixina
+    path:     /
     defaults: 
         _controller: YBIxinaBundle:Ixina:home 
+
+yb_ixina_newUser:
+    path:    /newUser 
+    defaults:
+        _controller: YBIxinaBundle:Ixina:newUser

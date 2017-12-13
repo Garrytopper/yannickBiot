@@ -19,24 +19,61 @@
                     <div id="logoCentral"></div>
                 </nav>
                 <section id="bureau">
-                    <!-- menu des applications -->
-                    <div id="listApp">
-                        <a href="#"><div class="btnIxina menuApp btn"></div></a>
-                        <a href="#"><div class="btnTellingStory menuApp police-menu btn">Telling Story</div></a>
-                    </div>
-                    <!-- Espace réservé à l'application Ixina -->
-                    <div id="ixinaApp">                      
-                        <div class="ixinaAppMenu">
-                            :<div id="iconeSiteIxina"></div>
-                            <div class="intitule">
-                                <a href="{{ path('yb_ixina_homepage') }}">Se rendre sur le site Ixina </a>
-                             </div>
-                        </div> 
-                        <div class="ixinaAppMenu">
-                            <div id="iconeBdd"></div>
-                            <div class="intitule">Gestion de la base de donnée</div>
-                        </div>       
-                    </div>
+                    <!-- bloc pour la section -->
+                    {% block section %}
+                        <!-- menu des applications -->
+                        <div id="listApp">
+                            <a href="#"><div class="btnIxina menuApp btn"></div></a>
+                            <a href="#"><div class="btnTellingStory menuApp police-menu btn">Telling Story</div></a>
+                        </div>
+                        <!-- Espace réservé à l'application Ixina -->
+                        <!-- Menu Principal -->
+                        <div id="ixinaApp">                      
+                            <div class="ixinaAppMenu">
+                                <a href="{{ path('yb_ixina_homepage') }}">
+                                    <div id="iconeSiteIxina"></div>
+                                </a>
+                                <div class="intitule">
+                                    Se rendre sur le site Ixina 
+                                 </div>
+                            </div> 
+                            <div class="ixinaAppMenu">
+                                <div id="iconeBdd"></div>
+                                <div class="intitule">
+                                    Gestion de la base de donnée
+                                </div>
+                            </div> 
+                            <div class="ixinaAppMenu">
+                                <div id="iconeGestionUser"></div>
+                                <div class="intitule">
+                                    Gestion des Utilisateurs
+                                </div>
+                            </div>       
+                        </div>
+                        <!-- Section Gestion des Utilisateurs -->
+                        <div id="ixinaGestionUser">
+                            <div class="ixinaUserMenu">
+                                <a href="{{ path('yb_ixina_newUser') }}">
+                                    <div id="iconeAjouter"></div>
+                                </a>
+                                <div class="intitule">
+                                    Ajouter
+                                </div>
+                            </div>
+                            <div class="ixinaUserMenu">
+                                <div id="iconeModifier"></div>
+                                <div class="intitule">
+                                    Modifier
+                                </div>
+                            </div> 
+                            <div class="ixinaUserMenu">
+                                <div id="iconeSupprimer"></div>
+                                <div class="intitule">
+                                    Supprimer
+                                </div>
+                            </div>    
+                        </div>
+                    {% endblock %}
                 </section>
                 <nav id="navSecondaire"></nav>
         {% endblock %}

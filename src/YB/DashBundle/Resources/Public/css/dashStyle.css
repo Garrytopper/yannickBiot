@@ -132,6 +132,54 @@ body
     background-image:url("../images/iconeBdd.png");
 }
 
+#iconeGestionUser
+{
+    height: 50px;
+    width: 50px;
+    background-image:url("../images/iconeGestionUser.png");
+}
+
+#ixinaGestionUser
+{
+    background-color: white;
+    height: 50px;
+    width: 50px;
+    margin: auto;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.ixinaUserMenu
+{
+    display:flex;
+    margin-left: 220px;
+    padding-bottom: 15px;
+}
+
+#iconeAjouter
+{
+    height: 50px;
+    width: 50px;
+    background-image:url("../images/iconeAjouter.png");
+}
+
+#iconeModifier
+{
+    height: 50px;
+    width: 50px;
+    background-image:url("../images/iconeModifier.png");
+}
+
+#iconeSupprimer
+{
+    height: 50px;
+    width: 50px;
+    background-image:url("../images/iconeSupprimer.png");
+}
+
 .intitule
 {
     line-height: 50px;
@@ -139,6 +187,8 @@ body
     font-size: 1.5em;
     font-weight: bold;
 }
+
+
 /* section du sous-menu */
 #navSecondaire
 {

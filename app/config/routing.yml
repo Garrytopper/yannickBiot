@@ -11,11 +11,11 @@ logout:
 
 yb_ixina:
     resource: "@YBIxinaBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /ixina
 
 yb_dash:
     resource: "@YBDashBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin
 
 app:
     resource: '@AppBundle/Controller/'

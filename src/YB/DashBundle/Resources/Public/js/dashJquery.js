@@ -6,7 +6,10 @@ $('#bureau').css('height', hauteurApp);
 $('#listApp').hide();
 
 $('#ixinaApp').hide();
-$('.ixinaAppMenu').hide();
+    $('.ixinaAppMenu').hide();
+
+$('#ixinaGestionUser').hide();
+    $('.ixinaUserMenu').hide();
 
 /* La fonction qui s'assure que le DOM est bien défini */
 $(function(){
@@ -18,8 +21,12 @@ $(function(){
             $('#listApp').fadeOut('800').removeClass('visible');
         }
         else{
+            /* on efface tous les menus */
             $('#ixinaApp').hide().css('width', '50').css('height', '50');
             $('.ixinaAppMenu').hide();
+            $('#ixinaGestionUser').hide().css('width', '50').css('height', '50');
+            $('.ixinaUserMenu').hide();
+            /* on fait apparaitre la liste des applications */
             $('#listApp').fadeIn('800').addClass('visible');
             $('.btn').hide().delay('400').fadeIn('200');
         };
@@ -27,7 +34,6 @@ $(function(){
     });
     /* action quand on click sur les App du menu */
     /* IXINA */
-
     $('#listApp  .btnIxina').click(function(){
         $('#listApp').hide();
         $('#logoCentral').removeClass('btnTellingStory').html('').addClass('btnIxina');
@@ -37,6 +43,20 @@ $(function(){
     $('#listApp  .btnTellingStory').click(function(){
         $('#listApp').fadeOut('800');
         $('#logoCentral').removeClass('btnIxina').addClass('btnTellingStory').html('Telling Story');
+    });
+    /* IXINA User */
+    $('#iconeGestionUser').click(function(){
+        /* disparition des éléments du menu */
+        $('.ixinaAppMenu').fadeOut('200');
+        /* rétrécissement de ixinaMenu et disparition */
+        $('#ixinaApp').delay('200').animate({"width": "50px"}, 750, function(){
+            $('#ixinaApp').hide();
+            /* apparition du menu de gestion des users */
+            $('#ixinaGestionUser').css('height', hauteurApp).fadeIn('200').animate({"width": "700px"}, 750);
+            /* apparition du menu User */
+            $('.ixinaUserMenu').delay('1000').fadeIn('200');
+        });
+        
     });
     
 });
