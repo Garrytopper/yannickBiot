@@ -4,7 +4,7 @@ yb_ixina:
 
 yb_dash:
     resource: "@YBDashBundle/Resources/config/routing.yml"
-    prefix:   /admin
+    prefix:   /
 
 app:
     resource: '@AppBundle/Controller/'

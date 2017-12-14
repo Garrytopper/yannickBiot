@@ -75,7 +75,15 @@
                         </div>
                     {% endblock %}
                 </section>
-                <nav id="navSecondaire"></nav>
+                <nav id="navSecondaire">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    Connecté en tant que {{ app.user.username }}
+                    -
+                        <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                    {% else %}
+                        <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                    {% endif %}
+                </nav>
         {% endblock %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- bloc pour insérer le fichier javaScript personnel de la page -->
