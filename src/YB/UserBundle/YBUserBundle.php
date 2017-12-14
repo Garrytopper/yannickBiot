@@ -4,7 +4,7 @@ namespace YB\UserBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class OCUserBundle extends Bundle
+class YBUserBundle extends Bundle
 {
   public function getParent()
   {

@@ -3,12 +3,11 @@
 namespace YB\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
- * @ORM\Table(name="oc_user")
- * @ORM\Entity(repositoryClass="OC\UserBundle\Repository\UserRepository")
+ * @ORM\Table(name="yb_user")
+ * @ORM\Entity(repositoryClass="YB\UserBundle\Repository\UserRepository")
  */
 class User extends BaseUser
 {

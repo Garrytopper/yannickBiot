@@ -4,7 +4,7 @@ security:
 
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
-        YB\UserBundle\Entity\User: plaintext
+        YB\UserBundle\Entity\User: sha512
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
 
     role_hierarchy:
@@ -12,11 +12,8 @@ security:
 
     providers: 
         main:
-            entity:
-                class: YB\UserBundle\Entity\User
-                property: username
+            id: fos_user.user_provider.username
 
-    provider: in_memory
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
@@ -28,11 +25,13 @@ security:
             anonymous: true
             provider: main
             form_login:
-                login_path: login
-                check_path: login_check
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
             logout:
-                path: logout
-                target: login 
+                path: fos_user_security_logout
+                target: fos_user_security_login 
+            remember_me:
+                secret:    %secret%
             # activate different ways to authenticate
 
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
