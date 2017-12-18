@@ -16,7 +16,9 @@
 <!-- bloc pour le contenu du body -->
         {% block body %}
                 <nav id="navPrincipal">
-                    <div id="logoCentral"></div>
+                    {% block navPrincipal %}
+                        <div id="logoCentral"></div>
+                    {% endblock %}
                 </nav>
                 <section id="bureau">
                     <!-- bloc pour la section -->
@@ -53,7 +55,7 @@
                         <!-- Section Gestion des Utilisateurs -->
                         <div id="ixinaGestionUser">
                             <div class="ixinaUserMenu">
-                                <a href="{{ path('yb_ixina_newUser') }}">
+                                <a href="{{ path('fos_user_registration_register') }}">
                                     <div id="iconeAjouter"></div>
                                 </a>
                                 <div class="intitule">
@@ -61,7 +63,9 @@
                                 </div>
                             </div>
                             <div class="ixinaUserMenu">
-                                <div id="iconeModifier"></div>
+                                <a href="{{ path('yb_user_modifHome')}}">
+                                    <div id="iconeModifier"></div>
+                                </a>
                                 <div class="intitule">
                                     Modifier
                                 </div>

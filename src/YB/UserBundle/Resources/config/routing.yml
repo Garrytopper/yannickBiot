@@ -1,0 +1,16 @@
+yb_user_modifHome:
+    path: /modifHome 
+    defaults:
+        _controller: 'YBUserBundle:User:modifHome'
+
+yb_user_modifUser:
+    path: /modifUser/{id}
+    defaults:
+        _controller: 'YBUserBundle:User:modifUser'
+
+yb_user_modifRole:
+    path: /modifRole/{id}/{role}/{action}
+    defaults:
+        _controller: 'YBUserBundle:User:modifRole'
+    requirements:
+        

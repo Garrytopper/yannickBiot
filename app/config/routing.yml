@@ -1,3 +1,7 @@
+yb_user:
+    resource: "@YBUserBundle/Resources/config/routing.yml"
+    prefix:   /admin/user
+
 yb_ixina:
     resource: "@YBIxinaBundle/Resources/config/routing.yml"
     prefix:   /ixina

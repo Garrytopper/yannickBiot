@@ -1,0 +1,45 @@
+{% extends "YBDashBundle::DashLayout.html.twig" %}
+
+{% block css %}
+  {{ parent() }}
+  <link rel="stylesheet" type="text/css" href="{{ asset("bundles/ybuser/css/modif.css") }}">
+{% endblock %}
+
+{% block section %}
+  <div id="blocMenu">
+  	<p>{{ user.username }}</p>
+    <p>{{ user.email }}</p>
+    <p>dernière connexion : {{ user.lastLogin|date('d/m/y') }}</p>
+    <div>
+        {% if user.roles is null %}
+          Aucun rôle n'est attribué 
+        {% else %}
+           <ul>
+          {% for role in user.roles%} 
+            <li>{{ role }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+    </div>
+    <div class="tampon"></div>
+    <div class="bouton"><span>Modifier profil</span></div>
+    <div class="bouton btnRole"><span>Modifier le rôle</span></div>
+    <div class="tampon"></div>
+    <table>
+      <tr>
+        <td>Administrateur</td>
+        <td class="td2" align="center">
+          <a href="{{ path('yb_user_modifRole', {'id': user.id, 'role': 'admin', 'action': 'add'}) }}">+</a>
+        </td>
+        <td class="td2" align="center">
+          <a href="{{ path('yb_user_modifRole', {'id': user.id, 'role': 'admin', 'action': 'supp'}) }}">-</a>
+        </td>
+      </tr>
+    </table>
+
+{% endblock %}
+
+{% block javaScript %}
+        {{ parent() }}
+        <script src="{{ asset('bundles/ybuser/js/modif.js') }}" type="text/javascript" charset="utf-8" async defer></script>
+{% endblock %}
