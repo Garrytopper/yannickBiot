@@ -14,4 +14,74 @@ body
     background-size: 1124px 744px;
     border-left: 7px solid black;
     border-right: 7px solid black;
+    display: flex;
+    flex-direction: column;
+   
 }
+
+#blocNote
+{
+    height: 650px;
+    width: 478px;
+    background-image: url('../images/blocNote.png');
+    background-size: 478px 650px;
+    position: fixed;
+    right: -478px;
+    top: 8%;
+}
+
+#blocDossier
+{
+    width: 50px;
+    height: 669px;
+    margin: auto;
+    background-image: url('../images/blocDossier.png');
+    background-position: center;
+    background-size: 1101px 669px;
+}
+
+#barreIcone
+{
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#iconeClientAjouter
+{
+    height: 50px;
+    width: 50px;
+    background-image: url('../images/iconeClientAjouter.png');
+    background-size: 50px 50px;
+    margin-right: 10px;
+}
+
+#iconeClientFermer
+{
+    height: 50px;
+    width: 50px;
+    background-image: url('../images/iconeClientFermer.png');
+    background-size: 50px 50px;
+    margin-right: 10px;
+}
+
+#iconeTacheAjouter
+{
+    height: 50px;
+    width: 50px;
+    background-image: url('../images/iconeTacheAjouter.png');
+    background-size: 50px 50px;
+    margin-right: 10px;
+}
+
+#iconeTacheFermer
+{
+    height: 50px;
+    width: 50px;
+    background-image: url('../images/iconeTacheFermer.png');
+    background-size: 50px 50px;
+    margin-right: 10px;
+}
+
