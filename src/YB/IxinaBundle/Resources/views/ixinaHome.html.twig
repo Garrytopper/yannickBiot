@@ -25,7 +25,149 @@
             <div id="iconeTacheFermer"></div>
         </div>
         <div id="blocNote"></div>
-        <div id="blocDossier"></div>
+        <div id="blocDossier">
+            <div id="pageGauche">
+                <div id="blocPageGauche">
+                    {{ form_start(form) }}
+                    {{ form_row(form.etatDossier) }}
+                    {{ form_row(form.dateCreation) }}
+                    {{ form_widget(form.Enregister) }}     
+                </div>
+            </div>
+            <div id="pageDroite">
+                <div id="pageOnglet1">
+                    <div class="tamponHaut"></div>
+                    <div class="formErrors">
+                        {{ form_errors(form) }}
+                    </div>
+                    <div class="formContenu">
+                            <div id="coordonneSup">
+                                <div id="labelCoordonneSup" style="font-weight: bold">
+                                    <p>{{ form_label(form.nom, "Nom") }}</p>
+                                    <p>{{ form_label(form.prenom, "Prenom") }}</p>
+                                    <p>{{ form_label(form.numTel, "Numéro de Téléphone") }}</p>
+                                    <p>{{ form_label(form.email, "Email") }}</p>
+                                </div>
+                                <div id="champCoordonneSup">
+                                    <p>{{ form_widget(form.nom) }}</br>{{ form_errors(form.nom) }}</p>
+                                    <p>{{ form_widget(form.prenom) }}</br>{{ form_errors(form.prenom) }}</p>
+                                    <p>{{ form_widget(form.numTel) }}</br>{{ form_errors(form.numTel) }}</p>
+                                    <p>{{ form_widget(form.email) }}</br>{{ form_errors(form.email) }}</p>
+                                </div>
+                            </div>
+                            <div id="coordonneBas">
+                                <fieldset id="coordonneGauche" style="color: grey">
+                                <legend>Adresse Postale</legend>
+                                    <div id="labelCoordonneBasGauche" style="color: black">
+                                        <p>{{ form_label(form.postalAd1, "Adresse") }}</p>
+                                        <p>{{ form_label(form.postalAd2, "Cmplt") }}</p>
+                                        <p>{{ form_label(form.postalCp, "CP") }}</p>
+                                        <p>{{ form_label(form.postalVille, "Ville") }}</p>
+                                    </div>
+                                    <div id="champCoordonneBasGauche">
+                                        <p>{{ form_widget(form.postalAd1) }}</br>{{ form_errors(form.postalAd1) }}</p>
+                                        <p>{{ form_widget(form.postalAd2) }}</br>{{ form_errors(form.postalAd2) }}</p>
+                                        <p>{{ form_widget(form.postalCp) }}</br>{{ form_errors(form.postalCp) }}</p>
+                                        <p>{{ form_widget(form.postalVille) }}</br>{{ form_errors(form.postalVille) }}</p>
+                                    </div>
+                                </fieldset>
+                                <fieldset id="coordonneDroit" style="color: grey">
+                                <legend>Adresse de Livraison</legend>
+                                    <div id="labelCoordonneBasDroit" style="color: black">
+                                        <p>{{ form_label(form.livAd1, "Adresse") }}</p>
+                                        <p>{{ form_label(form.livAd2, "Cmplt") }}</p>
+                                        <p>{{ form_label(form.livCp, "CP") }}</p>
+                                        <p>{{ form_label(form.livVille, "Ville") }}</p>
+                                    </div>
+                                    <div id="champCoordonneBasDroit">
+                                        <p>{{ form_widget(form.livAd1) }}</br>{{ form_errors(form.livAd1) }}</p>
+                                        <p>{{ form_widget(form.livAd2) }}</br>{{ form_errors(form.livAd2) }}</p>
+                                        <p>{{ form_widget(form.livCp) }}</br>{{ form_errors(form.livCp) }}</p>
+                                        <p>{{ form_widget(form.livVille) }}</br>{{ form_errors(form.livVille) }}</p>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div id="pageOnglet2">
+                        <div class="tamponHaut"></div>
+                        <div class="formErrors">{{ form_errors(form) }}</div>
+                        <div id="onglet2Renovation">
+                            {{ form_row(form.renovation) }}
+                            {{ form_row(form.planClient) }}
+                        </div>
+                        <div id="onglet2Plan" style="background-color: red"></div>
+                        <div id="onglet2Critere">
+                            {{ form_row(form.dateLivSouhaite) }}
+                            {{ form_row(form.budgetClient) }}
+                        </div>
+                        <div id="onglet2Composition">
+                            {{ form_row(form.meuble) }}
+                            {{ form_row(form.electro) }}
+                            {{ form_row(form.liv) }}
+                            {{ form_row(form.pose) }}
+                            {{ form_row(form.autre) }}
+                        </div>
+                        
+                        
+                        <div style="display: none">{{ form_rest(form) }}</div>
+                        {{ form_end(form) }}
+                    </div>
+                    <div id="pageOnglet3">onglet3</div>
+                    <div id="pageOnglet4">onglet4</div>
+                    <div id="pageOnglet5">onglet5</div>
+                    <div id="pageOnglet6">onglet6</div>    
+            </div>
+            <div id="navigationDossier">
+                <div class="ongletNavigationDossier ongletActif" id="onglet1">
+                    <div>C</div>
+                    <div>O</div>
+                    <div>O</div>
+                    <div>R</div>
+                    <div>D</div>
+                    <div>.</div>
+                </div>
+                <div class="ongletNavigationDossier" id="onglet2">
+                    <div>P</div>
+                    <div>R</div>
+                    <div>O</div>
+                    <div>J</div>
+                    <div>E</div>
+                    <div>T</div>
+                </div>
+                <div class="ongletNavigationDossier" id="onglet3">
+                    <div>P</div>
+                    <div>R</div>
+                    <div>E</div>
+                    <div>P</div>
+                    <div>A</div>
+                    <div>.</div>
+                </div>
+                <div class="ongletNavigationDossier" id="onglet4">
+                    <div>S</div>
+                    <div>T</div>
+                    <div>R</div>
+                    <div>A</div>
+                    <div>T</div>
+                    <div>.</div>
+                </div>
+                <div class="ongletNavigationDossier" id="onglet5">
+                    <div>S</div>
+                    <div>U</div>
+                    <div>I</div>
+                    <div>V</div>
+                    <div>I</div>
+                </div>
+                <div class="ongletNavigationDossier" id="onglet6">
+                    <div>A</div>
+                    <div>U</div>
+                    <div>T</div>
+                    <div>R</div>
+                    <div>E</div>
+                </div>
+            </div>
+        </div>
 	</div>
 {% endblock %}
 
