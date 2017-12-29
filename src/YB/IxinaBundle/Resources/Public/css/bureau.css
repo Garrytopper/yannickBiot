@@ -171,7 +171,22 @@ p
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: space-between 
+    justify-content: space-between ;
+}
+
+/* onglet 5 */
+
+#onglet5Action
+{
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#onglet5Remarque
+{
+    height: 420px;
 }
 
 /* partie navigation des onglets du dossier client */

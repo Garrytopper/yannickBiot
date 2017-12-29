@@ -95,7 +95,7 @@
                         <div class="formErrors">{{ form_errors(form) }}</div>
                         <div id="onglet2Renovation">
                             {{ form_row(form.renovation) }}
-                            {{ form_row(form.planClient) }}
+                            {{ form_row(form.Plan) }}
                         </div>
                         <div id="onglet2Plan" style="background-color: red"></div>
                         <div id="onglet2Critere">
@@ -109,14 +109,23 @@
                             {{ form_row(form.pose) }}
                             {{ form_row(form.autre) }}
                         </div>
-                        
-                        
-                        <div style="display: none">{{ form_rest(form) }}</div>
-                        {{ form_end(form) }}
                     </div>
                     <div id="pageOnglet3">onglet3</div>
                     <div id="pageOnglet4">onglet4</div>
-                    <div id="pageOnglet5">onglet5</div>
+                    <div id="pageOnglet5">
+                        <div class="tamponHaut"></div>
+                        <div id="onglet5Action">
+                            {{ form_row(form.dateProchaineAction) }}
+                            {{ form_row(form.action) }}
+                        </div>
+                        <div id="onglet5Remarque">
+                            <p>{{ form_label(form.actionRemarque, "Remarques:") }}</p>
+                            {{ form_widget(form.actionRemarque) }}
+                            {{ form_errors(form.actionRemarque) }}
+                            <div style="display: none">{{ form_rest(form) }}</div>
+                        {{ form_end(form) }}
+                        </div>
+                    </div>
                     <div id="pageOnglet6">onglet6</div>    
             </div>
             <div id="navigationDossier">
