@@ -31,6 +31,8 @@ class CustomerType extends AbstractType
                         'Vendu' => 'Vendu',
                         'Perdu' => 'Perdu',
                         'Inactif' => 'Inactif'
+                        ), 'attr' => array(
+                        'style' => 'font-size: 5em'
                         ),
                     ))
                 ->add('dateCreation', DateType::class)
@@ -65,17 +67,27 @@ class CustomerType extends AbstractType
                         'Pose' => 'Pose'
                         )))
                 ->add('actionRemarque', TextareaType::class, array('required' => false, 'attr' => array('rows' => '30', 'cols' =>'80')))
-                -<add('decBestNeed', TextareaType::class, array('required' => false))
-                ->add('decToday', TextareaType::class, array('required' => false))
-                ->add('decTodayLike', TextareaType::class, array('required' => false))
-                ->add('decTodayNoLike', TextareaType::class, array('required' => false))
-                ->add('decReasons', TextareaType::class, array('required' => false))
+                ->add('decBestNeed', TextareaType::class, array('required' => false, 'attr' => array('rows' => '20', 'cols' => '35')))
+                ->add('decToday', TextareaType::class, array('required' => false, 'attr' => array('rows' => '20', 'cols' => '35')))
+                ->add('decTodayLike', TextareaType::class, array('required' => false, 'attr' => array('rows' => '20', 'cols' => '15')))
+                ->add('decTodayNoLike', TextareaType::class, array('required' => false, 'attr' => array('rows' => '20', 'cols' => '15')))
+                ->add('decReasons', TextareaType::class, array('required' => false, 'attr' => array('rows' => '20', 'cols' => '35')))
                 ->add('profSecurite', CheckboxType::class, array('required' => false))
                 ->add('profOrgueil', CheckboxType::class, array('required' => false))
                 ->add('profNouveau', CheckboxType::class, array('required' => false))
                 ->add('profConfort', CheckboxType::class, array('required' => false))
                 ->add('profArgent', CheckboxType::class, array('required' => false))
                 ->add('profSympa', CheckboxType::class, array('required' => false))
+                ->add('cabMeuble', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '2', 'cols' => '50')))
+                ->add('cabElectro', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '2', 'cols' => '35')))
+                ->add('cabSanitaire', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '2', 'cols' => '35')))
+                ->add('cabService', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '2', 'cols' => '35')))
+                ->add('cabVendeur', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '2', 'cols' => '35')))
+                ->add('budgetAnnonce', MoneyType::class, array('required' => false))
+                ->add('beneficeIxina', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '2', 'cols' => '35')))
+                ->add('dramaDate', TextareaType::class, array('required' => false, 'attr' => array('rows' => '2', 'cols' => '35')))
+                ->add('conclusion', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '2', 'cols' => '35')))
+                ->add('objections', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '2', 'cols' => '35')))
                 ->add('Enregister', SubmitType::class)
                 ;
     }/**

@@ -30,6 +30,15 @@ body
     top: 8%;
 }
 
+#blocTableau
+{
+    height: 669px;
+    width: 960px;
+    background-image: url('../images/blocTableau.png');
+    background-size: 960px 669px;
+    margin: auto;
+}
+
 #blocDossier
 {
     width: 50px;
@@ -49,11 +58,29 @@ body
     height: 660px;
     width: 480px;
     display: flex;
+    flex-direction: column;
 }
-    
+    #pageGaucheTop
+    {
+        display: flex;
+        justify-content: space-around ;
+    }
+
+        #pageGaucheTopDate
+        {
+            display: flex;
+        }
+
     #blocPageGauche
     {
-        margin: auto;
+        height: 500px;
+    }
+
+    #pageGaucheBottom
+    {
+        display: flex;
+        justify-content: center;
+        
     }
 /* partie page Droite */
 
@@ -174,6 +201,133 @@ p
     justify-content: space-between ;
 }
 
+/* onglet 3 */
+
+#onglet3niv1
+{
+    height: 250px;
+    display: flex;
+
+}
+
+    #onglet3niv1G
+    {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    #onglet3niv1D
+    {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+#onglet3niv2
+{
+    height: 250px;
+    display: flex;
+}
+        
+    #onglet3niv2G
+    {
+        flex: 1;
+        display: flex;
+    }
+
+        #onglet3niv2GG
+        {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        #onglet3niv2GD
+        {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+    #onglet3niv2D
+    {
+        flex:1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+#onglet3niv3
+{
+    height: 90px;
+    display: flex;
+    justify-content: space-around ;
+    align-items: center;
+}
+
+/* onglet 4 */
+
+#onglet4Cab
+{
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+#onglet4AnnoncePrix fieldset
+{
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    #onglet4CompositionPrix
+    {
+        height: 50px;
+    }
+
+    #onglet4PrixAnnonce
+    {
+        height: 50px;
+    }
+
+    #onglet4Benefice
+    {
+        height: 50px;
+    }
+
+#onglet4DramaDate
+{
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+#onglet4Conclusion
+{
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+#onglet4Objection
+{
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
 /* onglet 5 */
 
 #onglet5Action
@@ -259,6 +413,24 @@ p
     align-items: center;
 }
 
+#iconeTableauConsulter
+{
+    height: 50px;
+    width: 50px;
+    background-image: url('../images/iconeTableauConsulter.png');
+    background-size: 50px 50px;
+    margin-right: 10px;
+}
+
+#iconeTableauFermer
+{
+    height: 50px;
+    width: 50px;
+    background-image: url('../images/iconeTableauFermer.png');
+    background-size: 50px 50px;
+    margin-right: 10px;
+}
+
 #iconeClientAjouter
 {
     height: 50px;
@@ -295,3 +467,8 @@ p
     margin-right: 10px;
 }
 
+button
+{
+    width: 150px;
+    font-size: 1.2em;
+}

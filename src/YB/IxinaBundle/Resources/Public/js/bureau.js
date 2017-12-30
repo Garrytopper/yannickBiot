@@ -5,7 +5,9 @@ $('body').css('background-size', largeurFenetre/2 );
 $('#bureau').hide();
 $('#blocNote').hide();
 $('#blocDossier').hide();
+$('#blocTableau').hide();
 $('#iconeClientFermer').hide();
+$('#iconeTableauFermer').hide();
 $('#iconeTacheFermer').hide();
 $('#navigationDossier').hide();
 $('#pageGauche').hide();
@@ -17,6 +19,7 @@ $('#pageOnglet5').hide();
 $('#pageOnglet6').hide();
 
 
+
 /* chargement de la page effectué */
 $(function(){
 	
@@ -25,7 +28,7 @@ $(function(){
         $('#blocNote').fadeIn(200);
     });
     $('#iconeClientAjouter').click(function(){
-        $('#blocDossier').fadeIn(200).animate({'width': '1001px'}, 1000, function(){
+        $('#blocDossier').fadeIn(200).animate({'width': '1001px'}, 500, function(){
             $('#iconeClientAjouter').fadeOut(150, function(){
                 $('#navigationDossier').fadeIn(150);
                 $('#pageGauche').fadeIn(150);
@@ -38,7 +41,7 @@ $(function(){
         $('#navigationDossier').fadeOut(150);
         $('#pageGauche').fadeOut(150);
         $('#pageDroite').fadeOut(150);
-        $('#blocDossier').fadeIn(200).animate({'width': '50px'}, 1000, function(){
+        $('#blocDossier').fadeIn(200).animate({'width': '50px'}, 500, function(){
             $('#iconeClientFermer').fadeOut(150, function(){
                 $('#blocDossier').fadeOut(200);
                 $('#iconeClientAjouter').fadeIn(150);
@@ -46,16 +49,31 @@ $(function(){
         });
     });
     $('#iconeTacheAjouter').click(function(){
-        $('#blocNote').animate({'right': '8%'}, 1000, function(){
+        $('#blocNote').animate({'right': '8%'}, 500, function(){
             $('#iconeTacheAjouter').fadeOut(150, function(){
                 $('#iconeTacheFermer').fadeIn(150);
             });
         });
     });
     $('#iconeTacheFermer').click(function(){
-        $('#blocNote').animate({'right': '-478'}, 1000, function(){
+        $('#blocNote').animate({'right': '-478'}, 500, function(){
             $('#iconeTacheFermer').fadeOut(150, function(){
                 $('#iconeTacheAjouter').fadeIn(150);
+            });
+        });
+    });
+    $('#iconeTableauConsulter').click(function(){
+        $('#blocDossier').hide();
+        $('#blocTableau').fadeIn(200, function(){
+            $('#iconeTableauConsulter').fadeOut(150, function(){
+                $('#iconeTableauFermer').fadeIn(150);
+            });
+        });
+    });
+    $('#iconeTableauFermer').click(function(){
+        $('#blocTableau').fadeOut(200, function(){
+            $('#iconeTableauFermer').fadeOut(150, function(){
+                $('#iconeTableauConsulter').fadeIn(150);
             });
         });
     });

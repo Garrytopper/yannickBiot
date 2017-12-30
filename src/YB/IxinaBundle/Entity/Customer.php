@@ -274,14 +274,49 @@ class Customer
     /**
      * @var string
      *
+     * @ORM\Column(name="cabMeuble", type="string", length=255, nullable=true)
+     */
+    private $cabMeuble;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cabElectro", type="string", length=255, nullable=true)
+     */
+    private $cabElectro;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cabSanitaire", type="string", length=255, nullable=true)
+     */
+    private $cabSanitaire;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cabService", type="string", length=255, nullable=true)
+     */
+    private $cabService;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cabVendeur", type="string", length=255, nullable=true)
+     */
+    private $cabVendeur;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="beneficeIxina", type="string", length=255, nullable=true)
      */
     private $beneficeIxina;
 
     /**
-     * @var \DateTime
+     * @var \string
      *
-     * @ORM\Column(name="dramaDate", type="datetime", nullable=true)
+     * @ORM\Column(name="dramaDate", type="string", length=255, nullable=true)
      */
     private $dramaDate;
 
@@ -1391,5 +1426,149 @@ class Customer
     public function getProfSympa()
     {
         return $this->profSympa;
+    }
+
+    /**
+     * Set cab
+     *
+     * @param string $cab
+     *
+     * @return Customer
+     */
+    public function setCab($cab)
+    {
+        $this->cab = $cab;
+
+        return $this;
+    }
+
+    /**
+     * Get cab
+     *
+     * @return string
+     */
+    public function getCab()
+    {
+        return $this->cab;
+    }
+
+    /**
+     * Set cabMeuble
+     *
+     * @param string $cabMeuble
+     *
+     * @return Customer
+     */
+    public function setCabMeuble($cabMeuble)
+    {
+        $this->cabMeuble = $cabMeuble;
+
+        return $this;
+    }
+
+    /**
+     * Get cabMeuble
+     *
+     * @return string
+     */
+    public function getCabMeuble()
+    {
+        return $this->cabMeuble;
+    }
+
+    /**
+     * Set cabElectro
+     *
+     * @param string $cabElectro
+     *
+     * @return Customer
+     */
+    public function setCabElectro($cabElectro)
+    {
+        $this->cabElectro = $cabElectro;
+
+        return $this;
+    }
+
+    /**
+     * Get cabElectro
+     *
+     * @return string
+     */
+    public function getCabElectro()
+    {
+        return $this->cabElectro;
+    }
+
+    /**
+     * Set cabSanitaire
+     *
+     * @param string $cabSanitaire
+     *
+     * @return Customer
+     */
+    public function setCabSanitaire($cabSanitaire)
+    {
+        $this->cabSanitaire = $cabSanitaire;
+
+        return $this;
+    }
+
+    /**
+     * Get cabSanitaire
+     *
+     * @return string
+     */
+    public function getCabSanitaire()
+    {
+        return $this->cabSanitaire;
+    }
+
+    /**
+     * Set cabService
+     *
+     * @param string $cabService
+     *
+     * @return Customer
+     */
+    public function setCabService($cabService)
+    {
+        $this->cabService = $cabService;
+
+        return $this;
+    }
+
+    /**
+     * Get cabService
+     *
+     * @return string
+     */
+    public function getCabService()
+    {
+        return $this->cabService;
+    }
+
+    /**
+     * Set cabVendeur
+     *
+     * @param string $cabVendeur
+     *
+     * @return Customer
+     */
+    public function setCabVendeur($cabVendeur)
+    {
+        $this->cabVendeur = $cabVendeur;
+
+        return $this;
+    }
+
+    /**
+     * Get cabVendeur
+     *
+     * @return string
+     */
+    public function getCabVendeur()
+    {
+        return $this->cabVendeur;
     }
 }
