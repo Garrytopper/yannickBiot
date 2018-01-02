@@ -1,0 +1,17 @@
+#blocTableau
+{
+    height: 669px;
+    width: 960px;
+    background-image: url('../images/blocTableau.png');
+    background-size: 960px 669px;
+    margin: auto;
+}
+
+#listeClient
+{
+    width: 50%;
+    height: 88%;
+    position: relative;
+    top: 6%;
+    left: 3%;
+}

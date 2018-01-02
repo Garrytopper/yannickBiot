@@ -153,6 +153,13 @@ class Customer
     private $budgetClient;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="descriptionFinition", type="string", length=255, nullable=true)
+     */
+    private $descriptionFinition;
+
+    /**
      * @var bool
      *
      * @ORM\Column(name="meuble", type="boolean", nullable=true)
@@ -314,9 +321,9 @@ class Customer
     private $beneficeIxina;
 
     /**
-     * @var \DateTime
+     * @var \string
      *
-     * @ORM\Column(name="dramaDate", type="datetime", nullable=true)
+     * @ORM\Column(name="dramaDate", type="string", length=255, nullable=true)
      */
     private $dramaDate;
 
@@ -1450,5 +1457,125 @@ class Customer
     public function getCab()
     {
         return $this->cab;
+    }
+
+    /**
+     * Set cabMeuble
+     *
+     * @param string $cabMeuble
+     *
+     * @return Customer
+     */
+    public function setCabMeuble($cabMeuble)
+    {
+        $this->cabMeuble = $cabMeuble;
+
+        return $this;
+    }
+
+    /**
+     * Get cabMeuble
+     *
+     * @return string
+     */
+    public function getCabMeuble()
+    {
+        return $this->cabMeuble;
+    }
+
+    /**
+     * Set cabElectro
+     *
+     * @param string $cabElectro
+     *
+     * @return Customer
+     */
+    public function setCabElectro($cabElectro)
+    {
+        $this->cabElectro = $cabElectro;
+
+        return $this;
+    }
+
+    /**
+     * Get cabElectro
+     *
+     * @return string
+     */
+    public function getCabElectro()
+    {
+        return $this->cabElectro;
+    }
+
+    /**
+     * Set cabSanitaire
+     *
+     * @param string $cabSanitaire
+     *
+     * @return Customer
+     */
+    public function setCabSanitaire($cabSanitaire)
+    {
+        $this->cabSanitaire = $cabSanitaire;
+
+        return $this;
+    }
+
+    /**
+     * Get cabSanitaire
+     *
+     * @return string
+     */
+    public function getCabSanitaire()
+    {
+        return $this->cabSanitaire;
+    }
+
+    /**
+     * Set cabService
+     *
+     * @param string $cabService
+     *
+     * @return Customer
+     */
+    public function setCabService($cabService)
+    {
+        $this->cabService = $cabService;
+
+        return $this;
+    }
+
+    /**
+     * Get cabService
+     *
+     * @return string
+     */
+    public function getCabService()
+    {
+        return $this->cabService;
+    }
+
+    /**
+     * Set cabVendeur
+     *
+     * @param string $cabVendeur
+     *
+     * @return Customer
+     */
+    public function setCabVendeur($cabVendeur)
+    {
+        $this->cabVendeur = $cabVendeur;
+
+        return $this;
+    }
+
+    /**
+     * Get cabVendeur
+     *
+     * @return string
+     */
+    public function getCabVendeur()
+    {
+        return $this->cabVendeur;
     }
 }

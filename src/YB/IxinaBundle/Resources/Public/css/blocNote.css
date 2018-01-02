@@ -1,0 +1,10 @@
+#blocNote
+{
+    height: 650px;
+    width: 478px;
+    background-image: url('../images/blocNote.png');
+    background-size: 478px 650px;
+    position: fixed;
+    right: -478px;
+    top: 8%;
+}

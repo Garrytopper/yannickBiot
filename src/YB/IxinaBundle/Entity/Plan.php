@@ -126,7 +126,7 @@ class Plan
     */
     public function preRemoveUpload()
     {
-        $this->tempFilename = $this->getUploadRootDir().'/'.$this->id.'.'.$this->url;
+        $this->tempFilename = $this->getUploadRootDir().'/'.$this->id.'.'.$this->extension;
     }
 
     /**
@@ -147,6 +147,11 @@ class Plan
     public function getUploadRootDir()
     {
         return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    public function getWebPath()
+    {
+        return $this->getUploadDir().'/'.$this->getId().'.'.$this->getExtension();
     }
 
     

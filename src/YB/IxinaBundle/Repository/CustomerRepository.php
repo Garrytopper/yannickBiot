@@ -10,4 +10,13 @@ namespace YB\IxinaBundle\Repository;
  */
 class CustomerRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function ClientsToday()
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb->Where('c.dateProchaineAction = :today')
+            ->setParameter('today', new \DateTime(date('Y-m-d')))
+            ;
+        return $qb->getQuery()->getResult();
+    }
+
 }

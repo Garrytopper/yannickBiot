@@ -5,6 +5,12 @@ body
     margin-top: -10px;
 }
 
+a
+{
+    text-decoration: none;
+    color: grey;
+}
+
 #bureau
 {
 	height: 744px;
@@ -16,393 +22,9 @@ body
     border-right: 7px solid black;
     display: flex;
     flex-direction: column;
-   
-}
-
-#blocNote
-{
-    height: 650px;
-    width: 478px;
-    background-image: url('../images/blocNote.png');
-    background-size: 478px 650px;
-    position: fixed;
-    right: -478px;
-    top: 8%;
-}
-
-#blocTableau
-{
-    height: 669px;
-    width: 960px;
-    background-image: url('../images/blocTableau.png');
-    background-size: 960px 669px;
     margin: auto;
 }
 
-#blocDossier
-{
-    width: 50px;
-    height: 669px;
-    margin: auto;
-    background-image: url('../images/blocDossier.png');
-    background-position: center;
-    background-size: 1101px 669px;
-    display: flex;
-    z-index: 10;
-}
-
-/* partie page Gauche */
-
-#pageGauche
-{
-    height: 660px;
-    width: 480px;
-    display: flex;
-    flex-direction: column;
-}
-    #pageGaucheTop
-    {
-        display: flex;
-        justify-content: space-around ;
-    }
-
-        #pageGaucheTopDate
-        {
-            display: flex;
-        }
-
-    #blocPageGauche
-    {
-        height: 500px;
-    }
-
-    #pageGaucheBottom
-    {
-        display: flex;
-        justify-content: center;
-        
-    }
-/* partie page Droite */
-
-#pageDroite
-{
-    height: 660px;
-    width: 500px;
-}
-
-p 
-{
-    height: 25px;
-}
-
-.tamponHaut
-{
-   height: 25px;
-}
-
-.formErrors
-{
-    height: 25px;
-}
-
-/* Onglet1 */
-
-    #coordonneSup
-    {
-        height: 295px;
-        display: flex;
-    }
-
-         #labelCoordonneSup
-        {
-            display: flex;
-            flex-direction: column ;
-            flex:1;
-            padding-left: 20px;
-        }
-
-        #champCoordonneSup
-        {
-            display: flex;
-            flex-direction: column ;
-            flex:1;
-        }
-
-    #coordonneBas
-    {
-        height: 250px;
-        display: flex;
-    }
-
-        #coordonneGauche
-        {
-            height: 100%;
-            flex:1;
-            display: flex;
-            padding: 4px;
-        }
-
-            #labelCoordonneBasGauche
-            {
-                flex: 1;
-            }
-
-            #champCoordonneBasGauche
-            {
-                flex: 1;
-            }
-
-        #coordonneDroit
-        {
-            height: 100%;
-            flex:1;
-            display: flex;
-            padding: 4px;
-        }
-
-            #labelCoordonneBasDroit
-            {
-                flex: 1;
-            }
-
-            #champCoordonneBasDroit
-            {
-                flex: 1;
-            }
-/* onglet2 */
-
-#onglet2Renovation
-{
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#onglet2Plan
-{
-    height: 370px;
-    border: 1px double black;
-}
-
-#onglet2Critere
-{
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#onglet2Composition
-{
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between ;
-}
-
-/* onglet 3 */
-
-#onglet3niv1
-{
-    height: 250px;
-    display: flex;
-
-}
-
-    #onglet3niv1G
-    {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-    }
-
-    #onglet3niv1D
-    {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-#onglet3niv2
-{
-    height: 250px;
-    display: flex;
-}
-        
-    #onglet3niv2G
-    {
-        flex: 1;
-        display: flex;
-    }
-
-        #onglet3niv2GG
-        {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-        }
-
-        #onglet3niv2GD
-        {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-    #onglet3niv2D
-    {
-        flex:1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-#onglet3niv3
-{
-    height: 90px;
-    display: flex;
-    justify-content: space-around ;
-    align-items: center;
-}
-
-/* onglet 4 */
-
-#onglet4Cab
-{
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-}
-
-#onglet4AnnoncePrix fieldset
-{
-    height: 170px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-    #onglet4CompositionPrix
-    {
-        height: 50px;
-    }
-
-    #onglet4PrixAnnonce
-    {
-        height: 50px;
-    }
-
-    #onglet4Benefice
-    {
-        height: 50px;
-    }
-
-#onglet4DramaDate
-{
-    height: 50px;
-    display: flex;
-    flex-direction: column;
-}
-
-#onglet4Conclusion
-{
-    height: 50px;
-    display: flex;
-    flex-direction: column;
-}
-
-#onglet4Objection
-{
-    height: 50px;
-    display: flex;
-    flex-direction: column;
-}
-
-/* onglet 5 */
-
-#onglet5Action
-{
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#onglet5Remarque
-{
-    height: 420px;
-}
-
-/* partie navigation des onglets du dossier client */
-
-#navigationDossier
-{
-    height: 600px;
-    width: 50px;
-    position: absolute ;
-    right: 90px;
-    top: 80px;
-    z-index: 0;
-}
-
-.ongletNavigationDossier
-{
-    width: 40px;
-    height: 100px;
-    border-radius: 0px 15px 15px 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center ;
-    font-size: 0.7em;
-    font-weight: bold;
-    justify-content: center;
-    box-shadow: 5px 5px 5px grey;
-}
-    #onglet1
-    {
-        background-color: rgb(212, 223, 229);
-    }
-
-    #onglet2
-    {
-        background-color: rgb(225, 243, 216);
-    }
-
-    #onglet3
-    {
-        background-color: rgb(254, 207, 215);
-    }
-
-    #onglet4
-    {
-        background-color: rgb(255, 247, 173);
-    }
-
-    #onglet5
-    {
-        background-color: rgb(254, 220, 183);
-    }
-
-    #onglet6
-    {
-        background-color: rgb(227, 226, 225);
-    }
-
-    .ongletActif
-    {
-        color: white;
-        box-shadow: 5px 5px 5px white;
-    }
 
 #barreIcone
 {
@@ -412,6 +34,61 @@ p
     justify-content: flex-end;
     align-items: center;
 }
+
+#blocQuotidien
+{
+    height: 250px;
+    width: 160px;
+    position: absolute; ;
+    top: 48%;
+    left: 28%;
+}
+
+.blocInfo
+{
+    height: 620px;
+    width: 495px;
+    position: relative;
+    left: 55%;
+    font-weight: bold;
+    color: white;
+}
+
+    #clientTel
+    {
+        height: 20px;
+    }
+
+    #clientPlan
+    {
+        height: 300px;
+        overflow: auto;
+    }
+
+    #clientContenu
+    {
+        height: 50px;
+    }
+
+    #clientBudget
+    {
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #clientDelais
+    {
+        height: 50px;
+    }
+
+    #clientAction
+    {
+        height: 135px;
+    }
+
+/* icones */
 
 #iconeTableauConsulter
 {
@@ -467,8 +144,3 @@ p
     margin-right: 10px;
 }
 
-button
-{
-    width: 150px;
-    font-size: 1.2em;
-}

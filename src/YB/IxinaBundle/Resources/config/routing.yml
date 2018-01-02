@@ -3,7 +3,27 @@ yb_ixina_homepage:
     defaults: 
         _controller: YBIxinaBundle:Ixina:home 
 
-yb_ixina_newUser:
-    path:    /newUser 
+yb_ixina_newCustomer:
+    path:    /customer/new/{origine}
     defaults:
-        _controller: YBIxinaBundle:Ixina:newUser
+        _controller: YBIxinaBundle:Customer:new
+
+yb_ixina_modifCustomer:
+    path:    /customer/modif/{id}/{origine}
+    defaults:
+        _controller: YBIxinaBundle:Customer:modif
+
+yb_ixina_deleteCustomer:
+    path:    /customer/supp/{id}
+    defaults:
+        _controller: YBIxinaBundle:Customer:supp
+
+yb_ixina_tableau:
+    path:    /tableau/home
+    defaults:
+        _controller: YBIxinaBundle:Tableau:home
+
+yb_ixina_newNote:
+    path:    /note/home
+    defaults:
+        _controller: YBIxinaBundle:Note:home 

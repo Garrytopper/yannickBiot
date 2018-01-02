@@ -20,229 +20,61 @@
 
 	<div id="bureau">
         <div id="barreIcone">
-            <div id="iconeTableauFermer"></div>
-            <div id="iconeTableauConsulter"></div>
-            <div id="iconeClientAjouter"></div>
-            <div id="iconeClientFermer"></div>
-            <div id="iconeTacheAjouter"></div>
-            <div id="iconeTacheFermer"></div>
+            {% block barreIcone %}
+            <a id="iconeClientAjouter" href="{{ path('yb_ixina_newCustomer', {origine: 'new'}) }}"></a>
+            <a id="iconeTacheAjouter" href="{{ path('yb_ixina_newNote') }}"></a>
+            <a id="iconeTableauConsulter" href="{{ path('yb_ixina_tableau') }}"></a>
+            <!--
+            <a id="iconeTableauFermer"></a>
+            <a id="iconeClientFermer"></a>
+            <a id="iconeTacheFermer"></a>
+            -->
+            {% endblock %}
         </div>
-        <div id="blocNote"></div>
-        <div id="blocTableau">
-
-        </div>
-        <div id="blocDossier">
-            <div id="pageGauche">
-                <div class="tamponHaut"></div>
-                {{ form_start(form) }}
-                <div id="pageGaucheTop">
-                    {{ form_widget(form.etatDossier) }}
-                    <div id="pageGaucheTopDate">
-                        {{ form_label(form.dateCreation, "Créé le :") }}{{ form_widget(form.dateCreation) }}
+        {% block bloc %}
+            {% for client in clientsToday %}
+                <div id="{{ client.id }}" class="blocInfo">
+                    <div id="clientTel">
+                        Tèl : 0{{ client.numTel }}
+                    </div>
+                    <div id="clientPlan">
+                        <img style="height: 100%" src="{{ asset(client.plan.getWebPath) }}">
+                    </div>
+                    <div id="clientContenu">
+                        {% if client.renovation == true %}Rénovation : TVA 10% {% endif %}    
+                    </br>
+                        Meuble
+                        {% if client.electro == true %}/Electro {% endif %}
+                        {% if client.pose == true %}/Pose {% endif %}
+                        {% if client.liv == true %}/Livraison {% endif %}
+                        {% if client.autre == true %}/Autre {% endif %}
+                    </div>
+                    <div id="clientBudget">
+                        <div id="clientBudgetSouhaite">Budget Client : {{ client.budgetClient }}€</div>
+                        <div id="clientBudgetReel">Coût projet : {{ client.budgetAnnonce }}€</div>
+                    </div>
+                    <div id="clientDelais">
+                        Livraison : {{ client.dateLivSouhaite|date('M/Y')}} </br>
+                        {{ client.dramaDate }}
+                    </div>
+                    <div id="clientAction">
+                        {{ client.action }}</br>
+                        {{ client.actionRemarque }}
                     </div>
                 </div>
-                <div id="blocPageGauche">         
-                </div>
-                <div id="pageGaucheBottom">
-                    {{ form_widget(form.Enregister) }}
-                </div>
+            {% endfor %}
+            <div id="blocQuotidien">
+                <ul>
+                    {% for client in clientsToday %}
+                        <li>
+                            <a class="{{ client.id }}" href="{{ path('yb_ixina_modifCustomer', {id: client.id, origine: 'quotidien'}) }}">
+                            {{ client.nom }} 
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
-            <div id="pageDroite">
-                <div id="pageOnglet1">
-                    <div class="tamponHaut"></div>
-                    <div class="formErrors">
-                        {{ form_errors(form) }}
-                    </div>
-                    <div class="formContenu">
-                            <div id="coordonneSup">
-                                <div id="labelCoordonneSup" style="font-weight: bold">
-                                    <p>{{ form_label(form.nom, "Nom") }}</p>
-                                    <p>{{ form_label(form.prenom, "Prenom") }}</p>
-                                    <p>{{ form_label(form.numTel, "Numéro de Téléphone") }}</p>
-                                    <p>{{ form_label(form.email, "Email") }}</p>
-                                </div>
-                                <div id="champCoordonneSup">
-                                    <p>{{ form_widget(form.nom) }}</br>{{ form_errors(form.nom) }}</p>
-                                    <p>{{ form_widget(form.prenom) }}</br>{{ form_errors(form.prenom) }}</p>
-                                    <p>{{ form_widget(form.numTel) }}</br>{{ form_errors(form.numTel) }}</p>
-                                    <p>{{ form_widget(form.email) }}</br>{{ form_errors(form.email) }}</p>
-                                </div>
-                            </div>
-                            <div id="coordonneBas">
-                                <fieldset id="coordonneGauche" style="color: grey">
-                                <legend>Adresse Postale</legend>
-                                    <div id="labelCoordonneBasGauche" style="color: black">
-                                        <p>{{ form_label(form.postalAd1, "Adresse") }}</p>
-                                        <p>{{ form_label(form.postalAd2, "Cmplt") }}</p>
-                                        <p>{{ form_label(form.postalCp, "CP") }}</p>
-                                        <p>{{ form_label(form.postalVille, "Ville") }}</p>
-                                    </div>
-                                    <div id="champCoordonneBasGauche">
-                                        <p>{{ form_widget(form.postalAd1) }}</br>{{ form_errors(form.postalAd1) }}</p>
-                                        <p>{{ form_widget(form.postalAd2) }}</br>{{ form_errors(form.postalAd2) }}</p>
-                                        <p>{{ form_widget(form.postalCp) }}</br>{{ form_errors(form.postalCp) }}</p>
-                                        <p>{{ form_widget(form.postalVille) }}</br>{{ form_errors(form.postalVille) }}</p>
-                                    </div>
-                                </fieldset>
-                                <fieldset id="coordonneDroit" style="color: grey">
-                                <legend>Adresse de Livraison</legend>
-                                    <div id="labelCoordonneBasDroit" style="color: black">
-                                        <p>{{ form_label(form.livAd1, "Adresse") }}</p>
-                                        <p>{{ form_label(form.livAd2, "Cmplt") }}</p>
-                                        <p>{{ form_label(form.livCp, "CP") }}</p>
-                                        <p>{{ form_label(form.livVille, "Ville") }}</p>
-                                    </div>
-                                    <div id="champCoordonneBasDroit">
-                                        <p>{{ form_widget(form.livAd1) }}</br>{{ form_errors(form.livAd1) }}</p>
-                                        <p>{{ form_widget(form.livAd2) }}</br>{{ form_errors(form.livAd2) }}</p>
-                                        <p>{{ form_widget(form.livCp) }}</br>{{ form_errors(form.livCp) }}</p>
-                                        <p>{{ form_widget(form.livVille) }}</br>{{ form_errors(form.livVille) }}</p>
-                                    </div>
-                                </fieldset>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div id="pageOnglet2">
-                        <div class="tamponHaut"></div>
-                        <div class="formErrors">{{ form_errors(form) }}</div>
-                        <div id="onglet2Renovation">
-                            {{ form_row(form.renovation) }}
-                            {{ form_row(form.Plan) }}
-                        </div>
-                        <div id="onglet2Plan" style="background-color: red"></div>
-                        <div id="onglet2Critere">
-                            {{ form_row(form.dateLivSouhaite) }}
-                            {{ form_row(form.budgetClient) }}
-                        </div>
-                        <div id="onglet2Composition">
-                            {{ form_row(form.meuble) }}
-                            {{ form_row(form.electro) }}
-                            {{ form_row(form.liv) }}
-                            {{ form_row(form.pose) }}
-                            {{ form_row(form.autre) }}
-                        </div>
-                    </div>
-                    <div id="pageOnglet3">
-                        <div class="tamponHaut"></div>
-                        <div id="onglet3niv1">
-                            <div id="onglet3niv1G">{{ form_label(form.decToday, "Qu'ont-ils aujourd'hui ?") }} {{ form_widget(form.decToday) }}</div>
-                            <div id="onglet3niv1D">{{ form_label(form.decBestNeed, "Besoins les plus exprimés") }} {{ form_widget(form.decBestNeed) }}</div>
-                        </div>
-                        <div id="onglet3niv2">
-                            <div id="onglet3niv2G">
-                                <div id="onglet3niv2GG">{{ form_label(form.decTodayLike, "Like") }} {{ form_widget(form.decTodayLike) }}</div>
-                                <div id="onglet3niv2GD">{{ form_label(form.decTodayNoLike, "No Like") }} {{ form_widget(form.decTodayNoLike) }}</div>
-                            </div>
-                            <div id="onglet3niv2D">{{ form_label(form.decReasons, "Besoins les plus exprimés") }} {{ form_widget(form.decReasons) }}</div>
-                        </div>
-                        <div id="onglet3niv3">
-                            <div id"onglet3niv3G">
-                                <div>{{ form_label(form.profSecurite, "Securité") }}{{ form_widget(form.profSecurite) }}</div>
-                                <div>{{ form_label(form.profConfort, "Confort") }}{{ form_widget(form.profConfort) }}</div>
-                            </div>
-                            <div id"onglet3niv3C">
-                                <div>{{ form_label(form.profOrgueil, "Orgueil") }}{{ form_widget(form.profOrgueil) }}</div>
-                                <div>{{ form_label(form.profArgent, "Argent") }}{{ form_widget(form.profArgent) }}</div>
-                            </div>
-                            <div id"onglet3niv3D">
-                                <div>{{ form_label(form.profNouveau, "Nouveau") }}{{ form_widget(form.profNouveau) }}</div>
-                                 <div>{{ form_label(form.profSympa, "Sympathie") }}{{ form_widget(form.profSympa) }}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="pageOnglet4">
-                        <div class="tamponHaut"></div>
-                            <div id="onglet4Cab">
-                                {{ form_label(form.cabMeuble, "Meuble") }} {{ form_widget(form.cabMeuble) }}
-                                {{ form_label(form.cabElectro, "Electro") }} {{ form_widget(form.cabElectro) }}
-                                {{ form_label(form.cabSanitaire, "Sanitaire") }} {{ form_widget(form.cabSanitaire) }}
-                                {{ form_label(form.cabService, "Service") }} {{ form_widget(form.cabService) }}
-                                {{ form_label(form.cabVendeur, "Vendeur") }} {{ form_widget(form.cabVendeur) }}
-                            </div>
-                        <div id="onglet4AnnoncePrix">
-                            <fieldset>
-                                <legend>Annonce du Prix SANDWICH</legend>
-                                <div id="onglet4CompositionPrix">Composition du prix</div>
-                                <div id="onglet4PrixAnnonce">{{ form_widget(form.budgetAnnonce) }}</div>
-                                <div id="onglet4Benefice">{{ form_widget(form.beneficeIxina) }}</div>
-                            </fieldset>
-                        </div>
-                        <div id="onglet4DramaDate">
-                            {{ form_label(form.dramaDate, "Dramatisation de la date butoire") }} {{ form_widget(form.dramaDate) }}
-                        </div>
-                        <div id="onglet4Conclusion">
-                            {{ form_label(form.conclusion, "Conclure") }} {{ form_widget(form.conclusion) }}
-                        </div>
-                        <div id="onglet4Objection">
-                            {{ form_label(form.objections, "Traiter les objections") }} {{ form_widget(form.objections) }}
-                        </div>
-                    </div>
-                    <div id="pageOnglet5">
-                        <div class="tamponHaut"></div>
-                        <div id="onglet5Action">
-                            {{ form_row(form.dateProchaineAction) }}
-                            {{ form_row(form.action) }}
-                        </div>
-                        <div id="onglet5Remarque">
-                            <p>{{ form_label(form.actionRemarque, "Remarques:") }}</p>
-                            {{ form_widget(form.actionRemarque) }}
-                            {{ form_errors(form.actionRemarque) }}
-                            <div style="display: none">{{ form_rest(form) }}</div>
-                        {{ form_end(form) }}
-                        </div>
-                    </div>
-                    <div id="pageOnglet6"></div>    
-            </div>
-            <div id="navigationDossier">
-                <div class="ongletNavigationDossier ongletActif" id="onglet1">
-                    <div>C</div>
-                    <div>O</div>
-                    <div>O</div>
-                    <div>R</div>
-                    <div>D</div>
-                    <div>.</div>
-                </div>
-                <div class="ongletNavigationDossier" id="onglet2">
-                    <div>P</div>
-                    <div>R</div>
-                    <div>O</div>
-                    <div>J</div>
-                    <div>E</div>
-                    <div>T</div>
-                </div>
-                <div class="ongletNavigationDossier" id="onglet3">
-                    <div>P</div>
-                    <div>R</div>
-                    <div>E</div>
-                    <div>P</div>
-                    <div>A</div>
-                    <div>.</div>
-                </div>
-                <div class="ongletNavigationDossier" id="onglet4">
-                    <div>S</div>
-                    <div>T</div>
-                    <div>R</div>
-                    <div>A</div>
-                    <div>T</div>
-                    <div>.</div>
-                </div>
-                <div class="ongletNavigationDossier" id="onglet5">
-                    <div>S</div>
-                    <div>U</div>
-                    <div>I</div>
-                    <div>V</div>
-                    <div>I</div>
-                </div>
-                <div class="ongletNavigationDossier" id="onglet6">
-                    <div>A</div>
-                    <div>U</div>
-                    <div>T</div>
-                    <div>R</div>
-                    <div>E</div>
-                </div>
-            </div>
-        </div>
+        {% endblock %}
 	</div>
 {% endblock %}
 

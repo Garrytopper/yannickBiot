@@ -1,0 +1,29 @@
+{% extends "YBIxinaBundle::ixinaHome.html.twig" %}
+
+{% block css %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/blocTableau.css') }}">
+{% endblock %}
+
+{% block barreIcone %}
+    <a id="iconeClientAjouter" href="{{ path('yb_ixina_newCustomer', {origine: 'tableau'}) }}"></a>
+    <a id="iconeTacheAjouter" href="{{ path('yb_ixina_newNote') }}"></a>
+    <a id="iconeTableauFermer" href="{{ path('yb_ixina_homepage') }}"></a>
+{% endblock %}
+
+{% block bloc %}
+    <div id="blocTableau">
+        <div id="listeClient">
+            <ul>
+                {% for client in clients %}
+                    <li>{{ client.etatDossier }} / <a href="{{ path('yb_ixina_modifCustomer', {id: client.id, origine: 'tableau'}) }}">{{ client.nom }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javaScript %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('bundles/ybixina/js/blocTableau.js') }}"></script>
+{% endblock %}

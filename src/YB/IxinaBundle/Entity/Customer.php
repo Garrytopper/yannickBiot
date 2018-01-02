@@ -153,11 +153,11 @@ class Customer
     private $budgetClient;
 
     /**
-     * @var bool
+     * @var string
      *
-     * @ORM\Column(name="meuble", type="boolean", nullable=true)
+     * @ORM\Column(name="descriptionFinition", type="string", length=255, nullable=true)
      */
-    private $meuble;
+    private $descriptionFinition;
 
     /**
      * @var bool
@@ -828,29 +828,6 @@ class Customer
         return $this->budgetClient;
     }
 
-    /**
-     * Set meuble
-     *
-     * @param boolean $meuble
-     *
-     * @return Customer
-     */
-    public function setMeuble($meuble)
-    {
-        $this->meuble = $meuble;
-
-        return $this;
-    }
-
-    /**
-     * Get meuble
-     *
-     * @return bool
-     */
-    public function getMeuble()
-    {
-        return $this->meuble;
-    }
 
     /**
      * Set electro
@@ -1570,5 +1547,29 @@ class Customer
     public function getCabVendeur()
     {
         return $this->cabVendeur;
+    }
+
+    /**
+     * Set descriptionFinition
+     *
+     * @param string $descriptionFinition
+     *
+     * @return Customer
+     */
+    public function setDescriptionFinition($descriptionFinition)
+    {
+        $this->descriptionFinition = $descriptionFinition;
+
+        return $this;
+    }
+
+    /**
+     * Get descriptionFinition
+     *
+     * @return string
+     */
+    public function getDescriptionFinition()
+    {
+        return $this->descriptionFinition;
     }
 }
