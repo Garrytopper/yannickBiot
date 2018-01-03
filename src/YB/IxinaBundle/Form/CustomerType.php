@@ -52,7 +52,7 @@ class CustomerType extends AbstractType
                 ->add('Plan', PlanType::class)
                 ->add('dateLivSouhaite', DateType::class, array('required' => false))
                 ->add('budgetClient', MoneyType::class, array('required' => false))
-                ->add('descriptionFinition', TextareaType::class, array('required' => false, 'attr' => array('rows' => '5', 'cols' => '20')))
+                ->add('descriptionFinition', TextareaType::class, array('required' => false, 'attr' => array('rows' => '7', 'cols' => '20')))
                 ->add('four', CheckboxType::class, array('required' => false))
                 ->add('microOnde', CheckboxType::class, array('required' => false))
                 ->add('plaqueCuisson', CheckboxType::class, array('required' => false))
@@ -64,6 +64,7 @@ class CustomerType extends AbstractType
                 ->add('liv', CheckboxType::class, array('required' => false))
                 ->add('pose', CheckboxType::class, array('required' => false))
                 ->add('autre', CheckboxType::class, array('required' => false))
+                ->add('granite', CheckboxType::class, array('required' => false))
                 ->add('dateProchaineAction', DateType::class)
                 ->add('action', ChoiceType::class, array(
                     'choices' => array(

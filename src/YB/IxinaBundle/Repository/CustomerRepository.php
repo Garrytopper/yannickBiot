@@ -19,4 +19,11 @@ class CustomerRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function ClientsByDateAction()
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb->orderBy('c.dateProchaineAction', 'ASC');
+        return $qb->getQuery()->getResult();
+    }
+
 }

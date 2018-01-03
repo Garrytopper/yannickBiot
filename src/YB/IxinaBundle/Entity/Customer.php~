@@ -237,6 +237,13 @@ class Customer
     private $autre;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(name="granite", type="boolean", nullable=true)
+     */
+    private $granite;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="decBestNeed", type="string", length=255, nullable=true)

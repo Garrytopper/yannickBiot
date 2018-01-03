@@ -101,15 +101,29 @@
                         </div>
                         <div id="onglet2Composition">
                             <div id="onglet2CompositionFinition">
-                                {{ form_label(form.descriptionFinition, 'Finition') }}
-                                {{ form_widget(form.descriptionFinition) }}
+                                {{ form_label(form.descriptionFinition, 'Finition') }}{{ form_widget(form.descriptionFinition) }}
                             </div>
-                            <div id="onglet2CompositionComposition">
-                                {{ form_row(form.electro) }}
-                                {{ form_row(form.liv) }}
-                                {{ form_row(form.pose) }}
-                                {{ form_row(form.autre) }}
+                            <div id="onglet2CompositionPrest">
+                                <div>{{ form_label(form.liv, 'Liv') }}{{ form_widget(form.liv) }}</div>
+                                <div>{{ form_label(form.pose, 'Pose') }}{{ form_widget(form.pose) }}</div>
+                                <div>{{ form_label(form.granite) }}{{ form_widget(form.granite) }}</div>
+                                <div>{{ form_label(form.autre, 'Autre') }}{{ form_widget(form.autre) }}</div>
                             </div>
+                            <fieldset id="onglet2CompositionElectro">
+                                <legend>Electroménager</legend>
+                                <div id="onglet2CompositionElectroG">
+                                <div>{{ form_label(form.four, 'Four') }}{{ form_widget(form.four) }}</div>
+                                <div>{{ form_label(form.microOnde, 'MO') }}{{ form_widget(form.microOnde) }}</div>
+                                <div>{{ form_label(form.plaqueCuisson, 'Plaque') }}{{ form_widget(form.plaqueCuisson) }}</div>
+                                <div>{{ form_label(form.hotte, 'Hotte') }}{{ form_widget(form.hotte) }}</div>
+                            </div>
+                            <div id="onglet2CompositionElectroD">
+                                <div>{{ form_label(form.frigo, 'Frigo') }}{{ form_widget(form.frigo) }}</div>
+                                <div>{{ form_label(form.laveVaisselle, 'LV') }}{{ form_widget(form.laveVaisselle) }}</div>
+                                <div>{{ form_label(form.laveLinge, 'LL') }}{{ form_widget(form.laveLinge) }}</div>
+                                <div>{{ form_label(form.caveVin, 'C.Vin') }}{{ form_widget(form.caveVin) }}</div>
+                            </div>    
+                            </fieldset>
                         </div>
                     </div>
                     <div id="pageOnglet3">

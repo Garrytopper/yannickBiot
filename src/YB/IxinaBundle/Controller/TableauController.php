@@ -14,7 +14,8 @@ class TableauController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $RepositoryClient = $em->getRepository('YBIxinaBundle:Customer');
-        $clients = $RepositoryClient->findAll();
-        return $this->render('YBIxinaBundle:Tableau:tableau.html.twig', array('clients' => $clients));
+        $clients = $RepositoryClient->ClientsByDateAction();
+        $today = new \dateTime('now');
+        return $this->render('YBIxinaBundle:Tableau:tableau.html.twig', array('clients' => $clients, 'today' => $today));
     }
 }

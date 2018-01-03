@@ -44,8 +44,9 @@
                         {% if client.renovation == true %}Rénovation : TVA 10% {% endif %}    
                     </br>
                         Meuble
-                        {% if client.electro == true %}/Electro {% endif %}
+                        {% if client.four == true or client.microOnde == true or client.plaqueCuisson == true or client.hotte == true or client.frigo == true or client.laveVaisselle == true or client.laveLinge or client.caveVin == true == true %}/Electro {% endif %}
                         {% if client.pose == true %}/Pose {% endif %}
+                        {% if client.granite == true %}/Granite {% endif %}
                         {% if client.liv == true %}/Livraison {% endif %}
                         {% if client.autre == true %}/Autre {% endif %}
                     </div>

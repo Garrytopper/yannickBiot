@@ -146,7 +146,7 @@ p
 
 #onglet2Plan
 {
-    height: 370px;
+    height: 350px;
     border: 1px double black;
     overflow: auto;
 }
@@ -155,7 +155,8 @@ p
 {
     height: 75px;
     display: flex;
-    align-items: center;
+    align-items: start;
+    margin-top: 10px;
     justify-content: space-between;
 }
 
@@ -164,18 +165,65 @@ p
     display: flex;
     align-items: center;
     justify-content: space-between ;
+    height: 95px;
 }
 
     #onglet2CompositionFinition
     {
         display: flex;
         flex-direction: column;
+        justify-content: space-between ;
+        align-items: center;
+        flex:1;
     }
 
-    #onglet2CompositionComposition
+    #onglet2CompositionPrest
     {
-        isplay: flex;
+        display: flex;
+        flex-direction: column;
         align-items: center;
+        justify-content: space-between ;
+        height: 100%;
+        flex:1;
+    }
+
+    #onglet2Composition fieldset
+    {
+        display: flex;
+        flex:2;
+        justify-content: space-around;
+    }
+
+    #onglet2CompositionElectroG
+    {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between ;
+    }
+
+    #onglet2CompositionElectroD
+    {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between ;
+    }
+    }
+
+    #onglet2CompositionElectroG
+    {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between ;
+    }
+
+    #onglet2CompositionElectroD
+    {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
         justify-content: space-between ;
     }
 

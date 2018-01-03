@@ -7,11 +7,26 @@
     margin: auto;
 }
 
-#listeClient
-{
-    width: 50%;
-    height: 88%;
-    position: relative;
-    top: 6%;
-    left: 3%;
-}
+    #navBlocTableau
+    {
+        height: 50px;
+        display: flex;
+    }
+
+    #tableauBlocTableau
+    {
+        display: flex;
+        height: 90%;
+    }
+
+        #listeClient
+        {
+            width: 50%;
+            height: 95%;
+            position: relative;
+        }
+
+            #listeClient li 
+            {
+                display: flex;
+            }
