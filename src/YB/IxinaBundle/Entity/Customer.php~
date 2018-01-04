@@ -239,6 +239,20 @@ class Customer
     /**
      * @var bool
      *
+     * @ORM\Column(name="dessin", type="boolean", nullable=true)
+     */
+    private $dessin;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="preparation", type="boolean", nullable=true)
+     */
+    private $preparation;
+
+    /**
+     * @var bool
+     *
      * @ORM\Column(name="granite", type="boolean", nullable=true)
      */
     private $granite;
@@ -1794,5 +1808,29 @@ class Customer
     public function getCaveVin()
     {
         return $this->caveVin;
+    }
+
+    /**
+     * Set granite
+     *
+     * @param boolean $granite
+     *
+     * @return Customer
+     */
+    public function setGranite($granite)
+    {
+        $this->granite = $granite;
+
+        return $this;
+    }
+
+    /**
+     * Get granite
+     *
+     * @return boolean
+     */
+    public function getGranite()
+    {
+        return $this->granite;
     }
 }

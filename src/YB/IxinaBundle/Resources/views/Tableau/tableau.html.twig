@@ -21,6 +21,10 @@
                 <ul>
                     {% for client in clients %}
                         <li>
+                            <div id="origine" class="{% if today|date('m/y') != client.dateCreation|date('m/y') %}iconePortefeuille{% endif %}"></div>
+                            {% if today|date('m/y') != client.dateCreation|date('m/y') %}
+                                <div id="iconePortefeuille"></div>
+                            {% endif %}
                             <div style="width: 200px">
                                 {{ client.etatDossier }} / 
                                 <a href="{{ path('yb_ixina_modifCustomer', {id: client.id, origine: 'tableau'}) }}">{{ client.nom }}</a>
@@ -31,11 +35,17 @@
                             <div style="width: 75px">
                                 {{ client.dateProchaineAction|date('d/m')}}
                             </div>
-                            <div style="color: red">
+                            <div style="color: red; width: 75px;">
                                 {% if client.action == 'Retour'%}
                                     {{ client.budgetClient }} €
                                 {% endif %}
                             </div>
+                            {% if client.dessin == false %}
+                                <div id="iconeDessiner"></div>
+                            {% endif %}
+                            {% if client.preparation == false %}
+                                <div id="iconePreparer"></div>
+                            {% endif %}
                             
                         </li>
                     {% endfor %}

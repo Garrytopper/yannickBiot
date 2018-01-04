@@ -22,7 +22,9 @@
                         {{ form_label(form.dateCreation, "Créé le :") }}{{ form_widget(form.dateCreation) }}
                     </div>
                 </div>
-                <div id="blocPageGauche">         
+                <div id="blocPageGauche"> 
+                    <div>{{ form_row(form.dessin) }}</div>  
+                    <div> {{ form_row(form.preparation )}}</div>      
                 </div>
                 <div id="pageGaucheBottom">
                     {{ form_widget(form.Enregister) }}

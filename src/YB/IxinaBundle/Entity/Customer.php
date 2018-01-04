@@ -239,6 +239,20 @@ class Customer
     /**
      * @var bool
      *
+     * @ORM\Column(name="dessin", type="boolean", nullable=true)
+     */
+    private $dessin;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="preparation", type="boolean", nullable=true)
+     */
+    private $preparation;
+
+    /**
+     * @var bool
+     *
      * @ORM\Column(name="granite", type="boolean", nullable=true)
      */
     private $granite;
@@ -418,6 +432,8 @@ class Customer
         $this->dateLivSouhaite = new \DateTime('now + 2 month');
         $this->dateProchaineAction = new \DateTime('now');
         $this->action = 'Decouverte';
+        $this->dessin = false;
+        $this->preparation = false;
     }
 
     /**
@@ -1818,5 +1834,53 @@ class Customer
     public function getGranite()
     {
         return $this->granite;
+    }
+
+    /**
+     * Set dessin
+     *
+     * @param boolean $dessin
+     *
+     * @return Customer
+     */
+    public function setDessin($dessin)
+    {
+        $this->dessin = $dessin;
+
+        return $this;
+    }
+
+    /**
+     * Get dessin
+     *
+     * @return boolean
+     */
+    public function getDessin()
+    {
+        return $this->dessin;
+    }
+
+    /**
+     * Set preparation
+     *
+     * @param boolean $preparation
+     *
+     * @return Customer
+     */
+    public function setPreparation($preparation)
+    {
+        $this->preparation = $preparation;
+
+        return $this;
+    }
+
+    /**
+     * Get preparation
+     *
+     * @return boolean
+     */
+    public function getPreparation()
+    {
+        return $this->preparation;
     }
 }

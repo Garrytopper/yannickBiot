@@ -36,6 +36,8 @@ class CustomerType extends AbstractType
                         ),
                     ))
                 ->add('dateCreation', DateType::class)
+                ->add('dessin', CheckboxType::class, array('required' => false))
+                ->add('preparation', CheckboxType::class, array('required' => false))
                 ->add('nom', TextType::class)
                 ->add('prenom', TextType::class, array('required' => false))
                 ->add('numTel', NumberType::class, array('required' => false))

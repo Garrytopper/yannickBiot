@@ -74,6 +74,10 @@
                         </li>
                     {% endfor %}
                 </ul>
+                <div id="blocQuotidienAlerte">
+                    <div style="{% if alerteDessin == 'Orange' %}color: orange;{% elseif alerteDessin == 'Rouge'%}color: red;{% endif %}" >À dessiner : {{ nbrClientDessin }}</div>
+                    <div style="{% if alertePreparation == 'Orange' %}color: orange;{% elseif alertePreparation == 'Rouge'%}color: red;{% endif %}">À préparer : {{ nbrClientsPreparer }}</div>
+                </div>
             </div>
         {% endblock %}
 	</div>

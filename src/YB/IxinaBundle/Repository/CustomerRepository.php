@@ -26,4 +26,39 @@ class CustomerRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function ClientsDessin()
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb->Where('c.dessin = :dessin')
+            ->setParameter('dessin', false)
+            ->orderBy('c.dateProchaineAction', 'ASC');
+        return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsPreparer()
+    {
+        $qb = $this->createQueryBuilder('c')
+        ->Where('c.preparation = :preparation')
+        ->setParameter('preparation', false)
+        ->orderBy('c.dateProchaineAction', 'ASC');
+        return $qb->getQuery()->getResult();
+    }
+
+    public function firstDessin()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->Where('c.dessin = :dessin')
+            ->setParameter('dessin', false)
+            ->orderBy('c.dateProchaineAction', 'ASC');
+            return $qb->getQuery()->getResult();
+    }
+
+    public function firstPreparation()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->Where('c.preparation = :preparation')
+            ->setParameter('preparation', false)
+            ->orderBy('c.dateProchaineAction', 'ASC');
+            return $qb->getQuery()->getResult();
+    }
 }
