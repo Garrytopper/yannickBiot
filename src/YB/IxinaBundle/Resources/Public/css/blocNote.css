@@ -7,4 +7,37 @@
     position: fixed;
     right: -478px;
     top: 8%;
+    display: flex;
 }
+
+    .blocNoteLigneMenu
+    {
+        display: flex;
+        margin: auto;
+        align-items: center;
+        justify-content: space-between ;
+    }
+
+        #iconeRelChequeAjouter
+        {
+            height: 50px;
+            width: 50px;
+            background-image: url('../images/iconeRelChequeAjouter.png');
+            background-size: 50px 50px;
+            margin-right: 10px;
+        }
+
+        #ligneMenuIntitule
+        {
+            width: 250px;
+            text-align: center;
+        }
+
+        #iconeRelCheqConsulter
+        {
+            height: 50px;
+            width: 50px;
+            background-image: url('../images/iconeRelCheqConsulter.png');
+            background-size: 50px 50px;
+            margin-left: 10px;
+        }

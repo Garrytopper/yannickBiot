@@ -95,6 +95,26 @@ a
         height: 135px;
     }
 
+#blocTachesQuotidienne
+{
+    height: 200px;
+    width: 200px;
+    position: relative ;
+    top: 460px;
+    display: flex;
+    flex-direction: column;
+}
+
+#blocTachesQuotidienne ul 
+{
+    margin: auto;
+}
+
+#blocTachesQuotidienne ul a
+{
+    color: green;
+}
+
 /* icones */
 
 #iconeTableauConsulter

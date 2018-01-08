@@ -1,0 +1,27 @@
+{% extends "YBIxinaBundle::ixinaHome.html.twig" %}
+
+{% block css %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/blocNote.css') }}">
+{% endblock %}
+
+{% block barreIcone %}
+    <a id="iconeClientAjouter" href="{{ path('yb_ixina_newCustomer', {origine: 'new' }) }}"></a>
+    <a id="iconeTacheFermer" href="{{ path('yb_ixina_homepage') }}"></a>
+    <a id="iconeTableauConsulter" href="{{ path('yb_ixina_tableau') }}"></a>
+{% endblock %}
+
+{% block bloc %}
+    <div id="blocNote">
+        <div class="blocNoteLigneMenu">
+            <a href="{{ path('yb_ixina_newRelCheq') }}"><div id="iconeRelChequeAjouter"></div></a>
+            <div id="ligneMenuIntitule">Relance de chèque</div>
+            <a href="{{ path('yb_ixina_consultRelCheq')}}"><div id="iconeRelCheqConsulter"></div></a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javaScript %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('bundles/ybixina/js/blocNote.js') }}"></script>
+{% endblock %}

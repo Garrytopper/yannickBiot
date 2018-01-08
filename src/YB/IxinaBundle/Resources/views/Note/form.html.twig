@@ -1,0 +1,54 @@
+{% extends "YBIxinaBundle::ixinaHome.html.twig" %}
+
+{% block css %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/newRelCheque.css') }}">
+{% endblock %}
+
+{% block barreIcone %}
+    <a id="iconeClientAjouter" href="{{ path('yb_ixina_newCustomer', {origine: 'new' }) }}"></a>
+    <a id="iconeTacheFermer" href="{{ path('yb_ixina_homepage') }}"></a>
+    <a id="iconeTableauConsulter" href="{{ path('yb_ixina_tableau') }}"></a>
+{% endblock %}
+
+{% block bloc %}
+    {{ form_start(form) }}
+    <div id="blocNote">
+        <div id="coordClient">
+            <div id="coordClientG">
+                <div class="row">
+                    <div class="col">{{ form_label(form.nom, 'Client') }}</div>
+                    <div class="col">{{ form_widget(form.nom) }}</div>
+                </div>
+                <div class="row">
+                    <div class="col"> {{ form_label(form.tel, 'Tel') }}</div>
+                    <div class="col">{{ form_widget(form.tel) }}</div>
+                </div>
+                <div class="row">
+                    <div class="col">{{ form_label(form.email, 'Email') }}</div>
+                    <div class="col">{{ form_widget(form.email) }}</div>
+                </div>
+            </div>
+            <div id="coordClientD">
+                {{ form_widget(form.origine) }}
+            </div>
+        </div>
+        <div id="cheque">
+            <div id="nomCheque">{{ form_widget(form.nomCheque) }}</div>
+            <div id="montant">{{ form_widget(form.montant) }}</div>
+            <div id="dateRelance">{{ form_widget(form.dateRelance) }}</div>
+        </div>
+        <div id="validation">
+            <div id="btnValidation">{{ form_widget(form.Enregister) }}</div>
+        </div>
+        {% if id is defined %}
+            <a href="{{ path('yb_ixina_relsupp', {'id': id}) }}">!! Supprimer !!</a>
+        {% endif %}
+        <div style="display: none">{{ form_rest(form) }}</div>          
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block javaScript %}
+{{ parent() }}
+{% endblock %}

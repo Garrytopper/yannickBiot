@@ -1,0 +1,38 @@
+{% extends "YBIxinaBundle::ixinaHome.html.twig" %}
+
+{% block css %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/consultrelcheq.css') }}">
+{% endblock %}
+
+{% block barreIcone %}
+    <a id="iconeClientAjouter" href="{{ path('yb_ixina_newCustomer', {origine: 'new' }) }}"></a>
+    <a id="iconeTacheFermer" href="{{ path('yb_ixina_homepage') }}"></a>
+    <a id="iconeTableauConsulter" href="{{ path('yb_ixina_tableau') }}"></a>
+{% endblock %}
+
+{% block bloc %}
+    <div id="blocNote">
+        <div id="contenant">
+            {% if relances != null %}
+                    {% for relance in relances %}
+                        <div class="row">
+                            <a href="{{ path('yb_ixina_modifRelCheq', {'id': relance.id}) }}" class="col1">{{ relance.nom }}</a>
+                            <div class="col2">{{ relance.dateRelance|date('m/y')}}</div>
+                            <div class="col3">{{ relance.montant }}€</div>
+                            
+                            <div class="col4 {% if relance.dateRelance <= today %}appel{% endif %}" ></div>
+                            
+                        </div>
+                        
+                    {% endfor %}
+            {% else %}
+                <p>Pas de relance de chèque</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javaScript %}
+{{ parent() }}
+{% endblock %}

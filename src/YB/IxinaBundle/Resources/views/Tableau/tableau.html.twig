@@ -13,46 +13,83 @@
 
 {% block bloc %}
     <div id="blocTableau">
-        <div id="navBlocTableau">
+        <div id="enteteBlocTableau">
             <div style="margin: auto">Today : {{ today|date('d/m') }}</div>
         </div>
-        <div id="tableauBlocTableau">
-            <div id="listeClient">
+        <div id="navBlocTableau">
+
+        </div>
+        <div id="sectionBlocTableau">
+            <div id="sectionG">
+                <div id="listeClient">
                 <ul>
-                    {% for client in clients %}
+                    {% for prospect in prospects %}
                         <li>
-                            <div id="origine" class="{% if today|date('m/y') != client.dateCreation|date('m/y') %}iconePortefeuille{% endif %}"></div>
-                            {% if today|date('m/y') != client.dateCreation|date('m/y') %}
-                                <div id="iconePortefeuille"></div>
-                            {% endif %}
-                            <div style="width: 200px">
-                                {{ client.etatDossier }} / 
-                                <a href="{{ path('yb_ixina_modifCustomer', {id: client.id, origine: 'tableau'}) }}">{{ client.nom }}</a>
+                            <div id="origine" class="{% if today|date('m/y') != prospect.dateCreation|date('m/y') %}iconePortefeuille{% endif %}"></div>
+                            <div id="LCNom">
+                                <a href="{{ path('yb_ixina_modifCustomer', {id: prospect.id, origine: 'tableau'}) }}">{{ prospect.nom }}</a>
                             </div>
-                            <div style="width: 100px; {% if client.action == 'Retour' %} color: red; {% elseif client.action == "Relance" %} color: green; {% endif %} ">
-                                {{ client.action }}
+                            <div id="LCAction" style="{% if prospect.action == 'Retour' %} color: red; {% elseif prospect.action == "Relance" %} color: green; {% endif %} ">
+                                {{ prospect.action }}
                             </div>
-                            <div style="width: 75px">
-                                {{ client.dateProchaineAction|date('d/m')}}
+                            <div id="LCDateAction">
+                                {{ prospect.dateProchaineAction|date('d/m')}}
                             </div>
-                            <div style="color: red; width: 75px;">
-                                {% if client.action == 'Retour'%}
-                                    {{ client.budgetClient }} €
+                            <div id="LCBudget">
+                                {% if prospect.action == 'Retour'%}
+                                    {{ prospect.budgetClient }} €
                                 {% endif %}
                             </div>
-                            {% if client.dessin == false %}
+                            {% if prospect.dessin == false %}
                                 <div id="iconeDessiner"></div>
                             {% endif %}
-                            {% if client.preparation == false %}
+                            {% if prospect.preparation == false %}
                                 <div id="iconePreparer"></div>
                             {% endif %}
-                            
                         </li>
                     {% endfor %}
                 </ul>
             </div>
+            </div>
+            <div id="sectionD">
+                <div id="sectionD1">
+                    <div id="sectionD1G">
+                        <div class="sectionDTitre">Vendu</div>
+                        <div>
+                            <ul>
+                            {% for client in ClientsVenduMois %}
+                                <li><a href="#"> {{ client.nom }} </a></li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="sectionD1D">
+                        <div class="sectionDTitre">Perdu</div>
+                        <ul>
+                            {% for client in ClientsPerdusDuMois %}
+                                <li><a href="#"> {{ client.nom }} </a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div id="sectionD2">
+                    <div id="txConcret">Concrétisation : <strong>{{ TxConcret }} %</strong></div>
+                </div>
+            </div>
         </div>
-        
+        <div id="footBlocTableau">
+            <div id="foot1">
+                <div id="nbrProspect">New Prospects : <strong>{{ nbrNewProspect }}</strong></div>
+                <div id="portefeuille">Portefeulle : <strong>{{ portefeuille }} €</strong></div>
+            </div>
+            <div id="caPotentiel">
+                CA prévisionnel : <strong>{{ CAPotentiel }} €</strong></br>
+                (txConcret : 50 %, TVA : 20%)
+            </div>
+        </div>
+            <!--
+            
+            --> 
     </div>
 {% endblock %}
 

@@ -1,0 +1,58 @@
+#blocNote
+{
+    height: 650px;
+    width: 478px;
+    background-image: url('../images/blocNote.png');
+    background-size: 478px 650px;
+    position: fixed;
+    right: 10%;
+    top: 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    #contenant
+    {
+        width: 80%;
+    }
+
+        .row
+        {
+            display: flex;
+            height: 25px;
+        }
+
+            .col1
+            {
+                flex: 3;
+            }
+
+            .col2
+            {
+                flex: 1;
+            }
+
+            .col3
+            {
+                flex: 1;
+            }
+
+            .col4
+            {
+                flex:1 ;
+            }
+                .appel
+                {
+                    height: 20px;
+                    width: 20px;
+                    background-image: url('../images/iconeTelephone.png');
+                    background-size: 20px 20px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+a
+{
+    color: green;
+}

@@ -26,6 +26,15 @@ class CustomerRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function ProspectByDateAction()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->Where('c.etatDossier = :etat')
+            ->setParameter('etat', 'Prospect')
+            ->orderBy('c.dateProchaineAction', 'ASC');
+        return $qb->getQuery()->getResult();
+    }
+
     public function ClientsDessin()
     {
         $qb = $this->createQueryBuilder('c');
@@ -60,5 +69,43 @@ class CustomerRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('preparation', false)
             ->orderBy('c.dateProchaineAction', 'ASC');
             return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsPerduMoisEnCours()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->Where('c.etatDossier = :etat')
+            ->setParameter('etat', 'Perdu')
+            ->orderBy('c.dateProchaineAction', 'ASC');
+        return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsVenduMoisEnCours()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->Where('c.etatDossier = :etat')
+            ->setParameter('etat', 'Vendu')
+            ->orderBy('c.dateProchaineAction', 'ASC');
+        return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsProspectMoisEnCours()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->Where('c.etatDossier = :etat')
+            ->setParameter('etat', 'Prospect')
+            ->orderBy('c.dateProchaineAction', 'ASC');
+        return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsRetourDuMois()
+    {
+         $qb = $this->createQueryBuilder('c')
+            ->Where('c.etatDossier = :etat')
+            ->setParameter('etat', 'Prospect')
+            ->andWhere('c.action = :action')
+            ->setParameter('action', 'Retour')
+            ->orderBy('c.dateProchaineAction', 'ASC');
+        return $qb->getQuery()->getResult();
     }
 }

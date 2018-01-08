@@ -14,8 +14,35 @@ class TableauController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $RepositoryClient = $em->getRepository('YBIxinaBundle:Customer');
-        $clients = $RepositoryClient->ClientsByDateAction();
+        
+        $prospects = $RepositoryClient->ProspectByDateAction();
+        $clientsPerduDuMois = $RepositoryClient->ClientsPerduMoisEnCours();
+        $clientsVenduDuMois = $RepositoryClient->ClientsVenduMoisEnCours();
+        $clientsProspectDuMois = $RepositoryClient->ClientsProspectMoisEnCours();
+        $clientsRetourDuMois = $RepositoryClient->ClientsRetourDuMois();
         $today = new \dateTime('now');
-        return $this->render('YBIxinaBundle:Tableau:tableau.html.twig', array('clients' => $clients, 'today' => $today));
+        $nbrVendu = count($clientsVenduDuMois);
+        $nbrNewProspect = count($clientsProspectDuMois);
+        $nbrePerdu = count($clientsPerduDuMois);
+        $totalDossier = $nbrVendu + $nbrNewProspect + $nbrePerdu ;
+        $TxConcret = $nbrVendu * 100 / $totalDossier ;
+        $portefeuille = 0;
+        foreach ($clientsRetourDuMois as $client) {
+            $montant = $client->getBudgetClient();
+            $portefeuille = $portefeuille + $montant;
+        }
+        $CAPotentiel = $portefeuille / 2 / 1.2 ;
+
+        $CAPotentiel = round($CAPotentiel);
+        $TxConcret = round($TxConcret);
+
+        return $this->render('YBIxinaBundle:Tableau:tableau.html.twig', array('ClientsVenduMois' => $clientsVenduDuMois, 
+                                                                            'ClientsPerdusDuMois' => $clientsPerduDuMois,
+                                                                            'prospects' => $prospects, 'today' => $today,
+                                                                            'TxConcret' => $TxConcret,
+                                                                            'nbrNewProspect' => $nbrNewProspect,
+                                                                            'portefeuille' => $portefeuille,
+                                                                            'CAPotentiel' => $CAPotentiel
+                                                                            ));
     }
 }

@@ -79,6 +79,13 @@
                     <div style="{% if alertePreparation == 'Orange' %}color: orange;{% elseif alertePreparation == 'Rouge'%}color: red;{% endif %}">À préparer : {{ nbrClientsPreparer }}</div>
                 </div>
             </div>
+            <div id="blocTachesQuotidienne">
+                <ul>
+                    {% if relancesCheque is defined %}
+                        <li><a href="{{ path('yb_ixina_consultRelCheq') }}">Rel. Chèque : {{ nbrRelanceCheque }}</a></li>
+                    {% endif %}
+                </ul>
+            </div>
         {% endblock %}
 	</div>
 {% endblock %}

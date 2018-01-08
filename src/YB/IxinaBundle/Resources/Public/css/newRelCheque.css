@@ -1,0 +1,93 @@
+#blocNote
+{
+    height: 650px;
+    width: 478px;
+    background-image: url('../images/blocNote.png');
+    background-size: 478px 650px;
+    position: fixed;
+    right: 10%;
+    top: 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    #coordClient
+    {
+        height: 150px;
+        width: 85%;
+        display: flex;
+    }
+
+        #coordClientG
+        {
+            height: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .row
+            {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .col
+            {
+
+            }
+
+        #coordClientD
+        {
+            height: 100%;
+            flex: 1;
+        }
+
+    #cheque
+    {
+        height: 193px;
+        width: 400px;
+        background-image: url('../images/cheque.jpg');
+        background-size: 400px 193px;
+
+    }
+
+        #nomCheque
+        {
+            position: relative;
+            top: 32px;
+            left: 50px;
+        }
+
+        #montant
+        {
+            position: relative ;
+            top: 45px;
+            left: 296px;
+        }
+
+        #dateRelance
+        {
+            position: relative;
+            top: 75px;
+            left: 220px;
+        }
+
+    #validation
+    {
+        height: 150px;
+        width: 85%;
+        display: flex;
+    }
+
+    #btnValidation
+    {
+        margin: auto;
+    }
+
+a 
+{
+    color: red;
+}

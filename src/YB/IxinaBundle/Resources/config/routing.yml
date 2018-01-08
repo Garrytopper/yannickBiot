@@ -27,3 +27,23 @@ yb_ixina_newNote:
     path:    /note/home
     defaults:
         _controller: YBIxinaBundle:Note:home 
+
+yb_ixina_newRelCheq:
+    path:    /note/RelanceCheque
+    defaults:
+        _controller: YBIxinaBundle:Note:newrelcheque
+
+yb_ixina_consultRelCheq:
+    path:    /note/ConsultRelancesCheques
+    defaults:
+        _controller: YBIxinaBundle:Note:consultrelcheq
+
+yb_ixina_modifRelCheq:
+    path:    /note/ModifRelanceCheque/{id}
+    defaults: 
+        _controller: YBIxinaBundle:Note:modifrelcheq
+
+yb_ixina_relsupp:
+    path:    /note/SupprimeRelance/{id}
+    defaults:
+        _controller: YBIxinaBundle:Note:supprelcheq
