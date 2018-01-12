@@ -13,17 +13,22 @@
 
 {% block bloc %}
     <div id="blocTableau">
+        <!-- entete pour date du jour -->
         <div id="enteteBlocTableau">
-            <div style="margin: auto">Today : {{ today|date('d/m') }}</div>
+            <div style="margin: auto"><strong>Today : {{ today|date('d/m') }}</strong></div>
         </div>
+        <!-- partie navigateur du tableau -->
         <div id="navBlocTableau">
-
+            <div id="dashboardMois" class="iconeActif"></div>
+            <div id="listeCompleteClient"></div>
         </div>
-        <div id="sectionBlocTableau">
+<!-- partie section anime en jquery en fonction du navBlocTableau -->
+        <!-- section qui s'occupe de synthétiser les infos importante du mois en cours -->
+        <div id="sectionDashboard">
             <div id="sectionG">
                 <div id="listeClient">
                 <ul>
-                    {% for prospect in prospects %}
+                    {% for prospect in ClientsProspectsDuMois %}
                         <li>
                             <div id="origine" class="{% if today|date('m/y') != prospect.dateCreation|date('m/y') %}iconePortefeuille{% endif %}"></div>
                             <div id="LCNom">
@@ -58,7 +63,7 @@
                         <div>
                             <ul>
                             {% for client in ClientsVenduMois %}
-                                <li><a href="#"> {{ client.nom }} </a></li>
+                                <li><a href="{{ path('yb_ixina_modifCustomer', {id: client.id, origine: 'tableau'}) }}"> {{ client.nom }} </a></li>
                             {% endfor %}
                             </ul>
                         </div>
@@ -67,7 +72,7 @@
                         <div class="sectionDTitre">Perdu</div>
                         <ul>
                             {% for client in ClientsPerdusDuMois %}
-                                <li><a href="#"> {{ client.nom }} </a></li>
+                                <li><a href="{{ path('yb_ixina_modifCustomer', {id: client.id, origine: 'tableau'}) }}"> {{ client.nom }} </a></li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -76,10 +81,28 @@
                     <div id="txConcret">Concrétisation : <strong>{{ TxConcret }} %</strong></div>
                 </div>
             </div>
+        </div> 
+        <!-- section liste complète -->
+        <div id="sectionListeComplet">
+            <div id="sectionListeCompletContenant">
+                <div id="intituleListeComplet">Liste de tous les clients / date de creation</div>
+                <div id="listeComplet">
+                    {% for client in clients %}
+                        <div id="rowListeComplet">
+                            <div style="width: 115px"><a href="{{ path('yb_ixina_modifCustomer', {'id': client.id, 'origine': 'tableau'}) }}">{{client.nom}}</a></div>
+                            <div style="width: 100px">{{ client.dateCreation|date('d-m-y') }}</div>
+                            <div style="width: 100px">{{ client.etatDossier }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
+
+<!-- pied du tableau --> 
+
         <div id="footBlocTableau">
             <div id="foot1">
-                <div id="nbrProspect">New Prospects : <strong>{{ nbrNewProspect }}</strong></div>
+                <div id="nbrProspect">New Prospects : <strong>{{ nbrNewProspectDuMois }}</strong></div>
                 <div id="portefeuille">Portefeulle : <strong>{{ portefeuille }} €</strong></div>
             </div>
             <div id="caPotentiel">

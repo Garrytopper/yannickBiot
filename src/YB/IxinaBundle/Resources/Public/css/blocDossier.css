@@ -21,38 +21,78 @@
 }
     #pageGaucheTop
     {
-        display: flex;
-        justify-content: space-around ;
+        height: 50px;
     }
 
-        #pageGaucheTopDate
+    #pageGaucheTop
+    {
+        height: 50px;
+        display: flex;
+    }
+
+        #pageGaucheTopG
         {
-            display: flex;
+            flex: 1;
         }
 
-    #blocPageGauche
+        #pageGaucheTopD
+        {
+            flex:1 ;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 10px;
+        }
+
+    #pageGaucheTampon
     {
-        height: 500px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
+        height: 75px;
     }
 
+    #pageGaucheAction
+    {
+        height: 50px;
+        display: flex;
+    }
 
+    #pageGaucheRemarqueAction
+    {
+        height: 200px;
+    }
+
+    #pageGaucheAvancement
+    {
+        height: 100px;
+        display: flex;
+    }
+
+        #pageGaucheAvancementG
+        {
+            flex: 1;
+        }
+
+        #pageGaucheAvancementD
+        {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around ;
+        }
 
     #pageGaucheBottom
     {
+        height: 100px;
         display: flex;
         justify-content: center;
-        
+        align-items: flex-end ;
     }
 
-    button
-    {
-        width: 150px;
-        font-size: 1.2em;
-    }
+        button
+        {
+            height: 35px;
+            width: 150px;
+            font-size: 1.2em;
+        }
 /* partie page Droite */
 
 #pageDroite

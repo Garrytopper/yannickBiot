@@ -8,14 +8,16 @@
     right: -478px;
     top: 8%;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
     .blocNoteLigneMenu
     {
         display: flex;
-        margin: auto;
         align-items: center;
-        justify-content: space-between ;
+        justify-content: center;
+        height: 75px;
     }
 
         #iconeRelChequeAjouter

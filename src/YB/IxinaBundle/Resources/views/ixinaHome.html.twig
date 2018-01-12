@@ -6,6 +6,7 @@
 
 {% block css %}
 	<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/bureau.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybdash/css/AppStyle.css') }}">
 {% endblock %}
 
 {# title #}
@@ -81,8 +82,11 @@
             </div>
             <div id="blocTachesQuotidienne">
                 <ul>
-                    {% if relancesCheque is defined %}
-                        <li><a href="{{ path('yb_ixina_consultRelCheq') }}">Rel. Chèque : {{ nbrRelanceCheque }}</a></li>
+                    {% if nbrRelanceCheque > 0 %}
+                        <li><a style="color: green;" href="{{ path('yb_ixina_consultRelCheq') }}">Rel. Chèque : {{ nbrRelanceCheque }}</a></li>
+                    {% endif %}
+                    {% if nbrPlans > 0 %}
+                        <li><a style="color: purple;" href="{{ path('yb_ixina_consultPlanTech') }}">Plans à faire : {{ nbrPlans }}</a></li>
                     {% endif %}
                 </ul>
             </div>

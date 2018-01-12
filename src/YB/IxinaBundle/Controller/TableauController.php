@@ -14,35 +14,57 @@ class TableauController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $RepositoryClient = $em->getRepository('YBIxinaBundle:Customer');
-        
-        $prospects = $RepositoryClient->ProspectByDateAction();
-        $clientsPerduDuMois = $RepositoryClient->ClientsPerduMoisEnCours();
-        $clientsVenduDuMois = $RepositoryClient->ClientsVenduMoisEnCours();
-        $clientsProspectDuMois = $RepositoryClient->ClientsProspectMoisEnCours();
-        $clientsRetourDuMois = $RepositoryClient->ClientsRetourDuMois();
         $today = new \dateTime('now');
-        $nbrVendu = count($clientsVenduDuMois);
-        $nbrNewProspect = count($clientsProspectDuMois);
-        $nbrePerdu = count($clientsPerduDuMois);
-        $totalDossier = $nbrVendu + $nbrNewProspect + $nbrePerdu ;
-        $TxConcret = $nbrVendu * 100 / $totalDossier ;
+
+ /* Partie utilisé pour le dashboard du mois */
+
+        $clientsPerduDuMois = $RepositoryClient->ClientsPerduMoisEnCours();
+        $nbrePerduDuMois = count($clientsPerduDuMois);
+
+        $clientsVenduDuMois = $RepositoryClient->ClientsVenduMoisEnCours();
+        $nbrVenduDuMois = count($clientsVenduDuMois);
+
+        $clientsProspectDuMois = $RepositoryClient->ClientsProspectMoisEnCours();
+        $nbrProspectDuMois = count($clientsProspectDuMois);
+
+        $newProspectDuMois = $RepositoryClient->NewProspectDuMois();
+        $nbrNewProspectDuMois = count($newProspectDuMois);
+
+        $clientsRetourDuMois = $RepositoryClient->ClientsRetourDuMois();
+        $nbrRetourDuMois = count($clientsRetourDuMois);
+       
+        /* calcul du taux de concrétisation */
+       
+        $totalDossier = $nbrVenduDuMois + $nbrNewProspectDuMois + $nbrePerduDuMois ;
+        $TxConcret = $nbrVenduDuMois * 100 / $totalDossier ;
+        $TxConcret = round($TxConcret);
+        
+        /* calcul du portefeuille du mois */
+
         $portefeuille = 0;
         foreach ($clientsRetourDuMois as $client) {
             $montant = $client->getBudgetClient();
             $portefeuille = $portefeuille + $montant;
         }
-        $CAPotentiel = $portefeuille / 2 / 1.2 ;
 
+        /* calcul du chiffre d'affaire potentiel à faire avant la fin du mois */
+
+        $CAPotentiel = $portefeuille / 2 / 1.2 ;
         $CAPotentiel = round($CAPotentiel);
-        $TxConcret = round($TxConcret);
+        
+/* partie utilisé pour la liste complète des clients par date de création */
+        
+        $clients = $RepositoryClient->ClientsByDateCreation();
 
         return $this->render('YBIxinaBundle:Tableau:tableau.html.twig', array('ClientsVenduMois' => $clientsVenduDuMois, 
                                                                             'ClientsPerdusDuMois' => $clientsPerduDuMois,
-                                                                            'prospects' => $prospects, 'today' => $today,
+                                                                            'ClientsProspectsDuMois' => $clientsProspectDuMois,
+                                                                            'nbrNewProspectDuMois' => $nbrNewProspectDuMois, 
+                                                                            'today' => $today,
                                                                             'TxConcret' => $TxConcret,
-                                                                            'nbrNewProspect' => $nbrNewProspect,
                                                                             'portefeuille' => $portefeuille,
-                                                                            'CAPotentiel' => $CAPotentiel
+                                                                            'CAPotentiel' => $CAPotentiel,
+                                                                            'clients' => $clients
                                                                             ));
     }
 }

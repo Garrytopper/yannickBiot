@@ -26,6 +26,13 @@ class CustomerRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function ClientsByDateCreation()
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb->orderBy('c.dateCreation', 'DESC');
+        return $qb->getQuery()->getResult();
+    }
+
     public function ProspectByDateAction()
     {
         $qb = $this->createQueryBuilder('c')
@@ -41,15 +48,17 @@ class CustomerRepository extends \Doctrine\ORM\EntityRepository
         $qb->Where('c.dessin = :dessin')
             ->setParameter('dessin', false)
             ->orderBy('c.dateProchaineAction', 'ASC');
+        $this->MoisEnCours($qb);
         return $qb->getQuery()->getResult();
     }
 
     public function ClientsPreparer()
     {
         $qb = $this->createQueryBuilder('c')
-        ->Where('c.preparation = :preparation')
-        ->setParameter('preparation', false)
-        ->orderBy('c.dateProchaineAction', 'ASC');
+            ->Where('c.preparation = :preparation')
+            ->setParameter('preparation', false)
+            ->orderBy('c.dateProchaineAction', 'ASC');
+        $this->MoisEnCours($qb);
         return $qb->getQuery()->getResult();
     }
 
@@ -59,6 +68,7 @@ class CustomerRepository extends \Doctrine\ORM\EntityRepository
             ->Where('c.dessin = :dessin')
             ->setParameter('dessin', false)
             ->orderBy('c.dateProchaineAction', 'ASC');
+            $this->MoisEnCours($qb);
             return $qb->getQuery()->getResult();
     }
 
@@ -68,8 +78,11 @@ class CustomerRepository extends \Doctrine\ORM\EntityRepository
             ->Where('c.preparation = :preparation')
             ->setParameter('preparation', false)
             ->orderBy('c.dateProchaineAction', 'ASC');
+            $this->MoisEnCours($qb);
             return $qb->getQuery()->getResult();
     }
+
+/* Récupération lié au mois en cours */
 
     public function ClientsPerduMoisEnCours()
     {
@@ -77,6 +90,7 @@ class CustomerRepository extends \Doctrine\ORM\EntityRepository
             ->Where('c.etatDossier = :etat')
             ->setParameter('etat', 'Perdu')
             ->orderBy('c.dateProchaineAction', 'ASC');
+            $this->MoisEnCours($qb);
         return $qb->getQuery()->getResult();
     }
 
@@ -86,6 +100,7 @@ class CustomerRepository extends \Doctrine\ORM\EntityRepository
             ->Where('c.etatDossier = :etat')
             ->setParameter('etat', 'Vendu')
             ->orderBy('c.dateProchaineAction', 'ASC');
+            $this->MoisEnCours($qb);
         return $qb->getQuery()->getResult();
     }
 
@@ -95,6 +110,17 @@ class CustomerRepository extends \Doctrine\ORM\EntityRepository
             ->Where('c.etatDossier = :etat')
             ->setParameter('etat', 'Prospect')
             ->orderBy('c.dateProchaineAction', 'ASC');
+        $this->MoisEnCours($qb);
+        return $qb->getQuery()->getResult();
+    }
+
+    public function NewProspectDuMois()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->Where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date('Y-M').'-01'))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00').'+1 month'))
+            ;
         return $qb->getQuery()->getResult();
     }
 
@@ -106,6 +132,47 @@ class CustomerRepository extends \Doctrine\ORM\EntityRepository
             ->andWhere('c.action = :action')
             ->setParameter('action', 'Retour')
             ->orderBy('c.dateProchaineAction', 'ASC');
+            $this->MoisEnCours($qb);
         return $qb->getQuery()->getResult();
     }
+
+    public function MoisEnCours($qb)
+    {
+    
+        $qb->andWhere('c.dateProchaineAction BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01')))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00').'+1 month'))
+            ;
+    }
+
+/* récupération des données avant ou après le mois en cours */
+
+    public function avantMoisEnCours($qb)
+    {
+        $qb->andWhere('c.dateProchaineAction < :date')
+            ->setParameter('date', new \dateTime(date('Y-m').'-01'))
+            ;
+    }
+
+    public function apresMoisEnCours($qb)
+    {
+        $qb->andWhere('c.dateProchaineAction > :date')
+            ->setParameter('date', new \dateTime(date('Y-m').'-00 +1 month'))
+            ;
+    }
+
+    public function clientsAvantMoisEnCours()
+    {
+        $qb = $this->createQueryBuilder('c');
+        $this->avantMoisEnCours($qb);
+        return $qb->getQuery()->getResult();
+    }
+
+    public function clientsApresMoisEnCours()
+    {
+        $qb = $this->createQueryBuilder('c');
+        $this->apresMoisEnCours($qb);
+        return $qb->getQuery()->getResult();
+    }
+
 }

@@ -9,6 +9,8 @@ use YB\IxinaBundle\Entity\Customer;
 use YB\IxinaBundle\Entity\Plan;
 use YB\IxinaBundle\Form\RelChequeType;
 use YB\IxinaBundle\Entity\RelCheque;
+use YB\IxinaBundle\Entity\Plantech;
+use YB\IxinaBundle\Form\PlantechType;
 
 class NoteController extends Controller
 {
@@ -64,5 +66,39 @@ class NoteController extends Controller
         $em->remove($relance);
         $em->flush();
         return $this->redirectToRoute('yb_ixina_consultRelCheq');
+   }
+
+   public function newplantechAction(Request $request)
+   {
+      $em = $this->getDoctrine()->getManager();
+      $planTech = new Plantech();
+      $form = $this->get('form.factory')->create(PlantechType::class, $planTech);
+      if ($request->isMethod('POST')) {
+          $form->handleRequest($request);
+          if ($form->isValid()) {
+            $em->persist($planTech);
+            $em->flush();
+            return $this->redirectToRoute('yb_ixina_newNote');
+          }
+      }
+      return $this->render('YBIxinaBundle:Note:formplantech.html.twig', array('form' => $form->createView()));
+   }
+
+   public function consultplantechAction()
+   {
+      $em = $this->getDoctrine()->getManager();
+      $Plans = $em->getRepository('YBIxinaBundle:Plantech')->findAll();
+      return $this->render('YBIxinaBundle:Note:consultplantech.html.twig', array('plans' => $Plans));
+   }
+
+   public function suppplantechAction($id)
+   {
+      $em = $this->getDoctrine()->getManager();
+      $Plan = $em->getRepository('YBIxinaBundle:Plantech')->find($id);
+      $em->remove($Plan);
+      $em->flush();
+      $Plans = $em->getRepository('YBIxinaBundle:Plantech')->findAll();
+
+      return $this->render('YBIxinaBundle:Note:consultplantech.html.twig', array('plans' => $Plans));
    }
 }

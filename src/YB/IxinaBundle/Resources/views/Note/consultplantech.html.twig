@@ -1,0 +1,33 @@
+{% extends "YBIxinaBundle::ixinaHome.html.twig" %}
+
+{% block css %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/consultplantech.css') }}">
+{% endblock %}
+
+{% block barreIcone %}
+    <a id="iconeClientAjouter" href="{{ path('yb_ixina_newCustomer', {origine: 'new' }) }}"></a>
+    <a id="iconeTacheFermer" href="{{ path('yb_ixina_homepage') }}"></a>
+    <a id="iconeTableauConsulter" href="{{ path('yb_ixina_tableau') }}"></a>
+{% endblock %}
+
+{% block bloc %}
+    <div id="blocNote">
+        {% if plans is not null %} 
+            <ul>
+                {% for plan in plans %}
+                    <li>
+                        <div id="client">{{ plan.client }}</div>
+                        <a id="iconeSupprimer" href="{{ path('yb_ixina_plansupp', {'id': plan.id}) }}"></a>
+                    </li>
+                {% endfor %}
+            </ul>    
+        {% else %}
+            Pas de plans techniques.
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block javaScript %}
+{{ parent() }}
+{% endblock %}

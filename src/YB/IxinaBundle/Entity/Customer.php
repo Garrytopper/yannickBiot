@@ -48,6 +48,13 @@ class Customer
     private $dateCreation;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateDecision", type="datetime", nullable = true)
+     */
+    private $dateDecision;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=20)
@@ -1882,5 +1889,29 @@ class Customer
     public function getPreparation()
     {
         return $this->preparation;
+    }
+
+    /**
+     * Set dateDecision
+     *
+     * @param \DateTime $dateDecision
+     *
+     * @return Customer
+     */
+    public function setDateDecision($dateDecision)
+    {
+        $this->dateDecision = $dateDecision;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDecision
+     *
+     * @return \DateTime
+     */
+    public function getDateDecision()
+    {
+        return $this->dateDecision;
     }
 }

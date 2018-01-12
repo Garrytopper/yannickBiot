@@ -21,9 +21,38 @@
     {
         display: flex;
         height: 75px;
+        justify-content:center;
     }
 
-    #sectionBlocTableau
+        #listeCompleteClient
+        {
+            width: 50px;
+            height: 65px;
+            background-image: url('../images/iconeListeComplete.png');
+            background-size: 50px 50px;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-left: 25px;
+        }
+
+        #dashboardMois
+        {
+            width: 50px;
+            height: 65px;
+            background-image: url('../images/iconeListeMois.png');
+            background-size: 50px 50px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .iconeActif
+        {
+            border-bottom: 4px solid black;
+        }
+
+/* section Dashboard */ 
+
+    #sectionDashboard
     {
         display: flex;
         height: 375px;
@@ -120,6 +149,46 @@
             {
                 margin: auto;
             }
+
+    /* secion liste Complete */
+
+    #sectionListeComplet
+    {
+        display: flex;
+        height: 375px;
+        justify-content: center;
+        align-items: flex-start ;
+    }
+
+        #sectionListeCompletContenant
+        {
+            width: 50%;
+            height: 95%;
+            display: flex;
+            flex-direction: column;
+        }
+
+            #intituleListeComplet
+            {
+                height: 75px;
+                line-height: 75px;
+                font-family: 'messagesregular', arial, impact ;
+                text-align: center;
+                font-size: 1.5em;
+            }
+
+            #listeComplet
+            {
+                overflow: auto;
+            }
+
+                #rowListeComplet
+                {
+                    display: flex;
+                    justify-content: center;
+                    height: 30px;
+                }
+
 
     #footBlocTableau
     {   

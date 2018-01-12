@@ -12,24 +12,33 @@
 {% endblock %}
 
 {% block bloc %}
+{{ form_start(form) }}
 <div id="blocDossier">
+            <!-- page de gauche -->
             <div id="pageGauche">
                 <div class="tamponHaut"></div>
-                {{ form_start(form) }}
                 <div id="pageGaucheTop">
-                    {{ form_widget(form.etatDossier) }}
-                    <div id="pageGaucheTopDate">
-                        {{ form_label(form.dateCreation, "Créé le :") }}{{ form_widget(form.dateCreation) }}
-                    </div>
+                    <div id="pageGaucheTopG"> {{ form_row(form.dateCreation) }}</div>
+                    <div id="pageGaucheTopD"> {{ form_widget(form.etatDossier) }} </div>
                 </div>
-                <div id="blocPageGauche"> 
-                    <div>{{ form_row(form.dessin) }}</div>  
-                    <div> {{ form_row(form.preparation )}}</div>      
+                <div id="pageGaucheTampon"></div>
+                <div id="pageGaucheAction">
+                    {{ form_widget(form.action) }} le {{ form_widget(form.dateProchaineAction) }}
+                </div>
+                <div id="pageGaucheRemarqueAction"> {{ form_widget(form.actionRemarque) }} </div>
+                <div id="pageGaucheAvancement">
+                    <div id="pageGaucheAvancementG">
+                    </div>
+                    <div id="pageGaucheAvancementD">
+                        {{ form_row(form.dessin) }}
+                        {{ form_row(form.preparation) }}
+                    </div>
                 </div>
                 <div id="pageGaucheBottom">
                     {{ form_widget(form.Enregister) }}
                 </div>
             </div>
+            <!-- page de droite -->
             <div id="pageDroite">
                 <div id="pageOnglet1">
                     <div class="tamponHaut"></div>

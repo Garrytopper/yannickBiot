@@ -36,6 +36,7 @@ class CustomerType extends AbstractType
                         ),
                     ))
                 ->add('dateCreation', DateType::class)
+                ->add('dateDecision', DateType::class, array('required' => false))
                 ->add('dessin', CheckboxType::class, array('required' => false))
                 ->add('preparation', CheckboxType::class, array('required' => false))
                 ->add('nom', TextType::class)
@@ -76,7 +77,7 @@ class CustomerType extends AbstractType
                         'Metre' => 'Metre',
                         'Pose' => 'Pose'
                         )))
-                ->add('actionRemarque', TextareaType::class, array('required' => false, 'attr' => array('rows' => '30', 'cols' =>'80')))
+                ->add('actionRemarque', TextareaType::class, array('required' => false, 'attr' => array('rows' => '16', 'cols' =>'74')))
                 ->add('decBestNeed', TextareaType::class, array('required' => false, 'attr' => array('rows' => '20', 'cols' => '35')))
                 ->add('decToday', TextareaType::class, array('required' => false, 'attr' => array('rows' => '20', 'cols' => '35')))
                 ->add('decTodayLike', TextareaType::class, array('required' => false, 'attr' => array('rows' => '20', 'cols' => '15')))

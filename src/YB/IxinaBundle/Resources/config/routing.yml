@@ -47,3 +47,18 @@ yb_ixina_relsupp:
     path:    /note/SupprimeRelance/{id}
     defaults:
         _controller: YBIxinaBundle:Note:supprelcheq
+
+yb_ixina_newPlanTech:
+    path:    /note/PlanTechnique
+    defaults:
+        _controller: YBIxinaBundle:Note:newplantech
+
+yb_ixina_consultPlanTech:
+    path:    /note/ConsultPlanTech 
+    defaults:
+        _controller: YBIxinaBundle:Note:consultplantech
+
+yb_ixina_plansupp:
+    path:    /note/SuppPlanTech/{id}
+    defaults:
+        _controller: YBIxinaBundle:Note:suppplantech
