@@ -86,7 +86,10 @@
                         <li><a style="color: green;" href="{{ path('yb_ixina_consultRelCheq') }}">Rel. Chèque : {{ nbrRelanceCheque }}</a></li>
                     {% endif %}
                     {% if nbrPlans > 0 %}
-                        <li><a style="color: purple;" href="{{ path('yb_ixina_consultPlanTech') }}">Plans à faire : {{ nbrPlans }}</a></li>
+                        <li><a style="color: orange;" href="{{ path('yb_ixina_consultPlanTech') }}">Plans à faire : {{ nbrPlans }}</a></li>
+                    {% endif %}
+                    {% if nbrFactures > 0 %}
+                        <li><a style="color: blue;" href="{{ path('yb_ixina_consultFacturation') }}">Factures à faire : {{ nbrFactures }}</a></li>
                     {% endif %}
                 </ul>
             </div>

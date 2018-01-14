@@ -62,3 +62,18 @@ yb_ixina_plansupp:
     path:    /note/SuppPlanTech/{id}
     defaults:
         _controller: YBIxinaBundle:Note:suppplantech
+
+yb_ixina_newFacturation:
+    path:    /note/Facturation 
+    defaults: 
+        _controller: YBIxinaBundle:Note:newfacture
+
+yb_ixina_consultFacturation:
+    path:    /note/ConsultFacturation
+    defaults:
+        _controller: YBIxinaBundle:Note:consultfacture
+
+yb_ixina_suppfacture:
+    path:    /note/SuppFacture/{id}
+    defaults:
+        _controller: YBIxinaBundle:Note:suppfacture

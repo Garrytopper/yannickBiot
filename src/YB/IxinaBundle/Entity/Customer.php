@@ -432,6 +432,21 @@ class Customer
      */
     private $actionRemarque;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="montantVenteHt", type="integer", nullable=true)
+     */
+    private $montantVenteHt;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="montantAcompte", type="integer", nullable=true)
+     */
+    private $montantAcompte;
+
+
     public function __construct()
     {
         $this->etatDossier = 'Prospect';
@@ -1913,5 +1928,53 @@ class Customer
     public function getDateDecision()
     {
         return $this->dateDecision;
+    }
+
+    /**
+     * Set montantVenteHt
+     *
+     * @param integer $montantVenteHt
+     *
+     * @return Customer
+     */
+    public function setMontantVenteHt($montantVenteHt)
+    {
+        $this->montantVenteHt = $montantVenteHt;
+
+        return $this;
+    }
+
+    /**
+     * Get montantVenteHt
+     *
+     * @return integer
+     */
+    public function getMontantVenteHt()
+    {
+        return $this->montantVenteHt;
+    }
+
+    /**
+     * Set montantAcompte
+     *
+     * @param integer $montantAcompte
+     *
+     * @return Customer
+     */
+    public function setMontantAcompte($montantAcompte)
+    {
+        $this->montantAcompte = $montantAcompte;
+
+        return $this;
+    }
+
+    /**
+     * Get montantAcompte
+     *
+     * @return integer
+     */
+    public function getMontantAcompte()
+    {
+        return $this->montantAcompte;
     }
 }

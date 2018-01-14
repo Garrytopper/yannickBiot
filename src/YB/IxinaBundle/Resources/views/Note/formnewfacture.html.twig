@@ -1,0 +1,33 @@
+{% extends "YBIxinaBundle::ixinaHome.html.twig" %}
+
+{% block css %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/newFacturation.css') }}">
+{% endblock %}
+
+{% block barreIcone %}
+    <a id="iconeClientAjouter" href="{{ path('yb_ixina_newCustomer', {origine: 'new' }) }}"></a>
+    <a id="iconeTacheFermer" href="{{ path('yb_ixina_homepage') }}"></a>
+    <a id="iconeTableauConsulter" href="{{ path('yb_ixina_tableau') }}"></a>
+{% endblock %}
+
+{% block bloc %}
+    {{ form_start(form) }}
+    <div id="blocNote">
+        <div id="nomClient">
+            <div>{{ form_row(form.nom) }} {{ form_widget(form.typeFacture) }}</div>
+        </div>
+        <div>
+            {{ form_widget(form.Enregistrer) }}
+        </div>
+        {% if id is defined %}
+            <a href="{{ path('yb_ixina_relsupp', {'id': id}) }}">!! Supprimer !!</a>
+        {% endif %}
+        <div style="display: none">{{ form_rest(form) }}</div>          
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block javaScript %}
+{{ parent() }}
+{% endblock %}

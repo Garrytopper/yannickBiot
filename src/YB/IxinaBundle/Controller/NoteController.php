@@ -11,6 +11,8 @@ use YB\IxinaBundle\Form\RelChequeType;
 use YB\IxinaBundle\Entity\RelCheque;
 use YB\IxinaBundle\Entity\Plantech;
 use YB\IxinaBundle\Form\PlantechType;
+use YB\IxinaBundle\Entity\Facturation;
+use YB\IxinaBundle\Form\FacturationType;
 
 class NoteController extends Controller
 {
@@ -100,5 +102,39 @@ class NoteController extends Controller
       $Plans = $em->getRepository('YBIxinaBundle:Plantech')->findAll();
 
       return $this->render('YBIxinaBundle:Note:consultplantech.html.twig', array('plans' => $Plans));
+   }
+
+   public function newfactureAction(Request $request)
+   {
+      $em = $this->getDoctrine()->getManager();
+      $facture = new Facturation();
+      $form = $this->get('form.factory')->create(FacturationType::class, $facture);
+      if ($request->isMethod('POST')) {
+          $form->handleRequest($request);
+          if ($form->isValid()) {
+            $em->persist($facture);
+            $em->flush();
+            return $this->redirectToRoute('yb_ixina_newNote');
+          }
+      }
+      return $this->render('YBIxinaBundle:Note:newfacture.html.twig', array('form' => $form->createView()));
+   }
+
+   public function consultfactureAction()
+   {
+      $em = $this->getDoctrine()->getManager();
+      $factures = $em->getRepository('YBIxinaBundle:Facturation')->findAll();
+      return $this->render('YBIxinaBundle:Note:consultfacture.html.twig', array('factures' => $factures));
+   }
+
+   public function suppfactureAction($id)
+   {
+      $em = $this->getDoctrine()->getManager();
+      $Facture = $em->getRepository('YBIxinaBundle:Facturation')->find($id);
+      $em->remove($Facture);
+      $em->flush();
+      $factures = $em->getRepository('YBIxinaBundle:Facturation')->findAll();
+
+      return $this->render('YBIxinaBundle:Note:consultfacture.html.twig', array('factures' => $factures));
    }
 }

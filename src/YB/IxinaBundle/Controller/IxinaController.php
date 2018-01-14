@@ -17,6 +17,7 @@ class IxinaController extends Controller
         $customerRepository = $em->getRepository('YBIxinaBundle:Customer');
         $relChequeRepository = $em->getRepository('YBIxinaBundle:RelCheque');
         $plansRepository = $em->getRepository('YBIxinaBundle:Plantech');
+        $facturesRepository = $em->getRepository('YBIxinaBundle:Facturation');
         
         $today = new \dateTime('now');
         $today = $today->format('y-m-d');
@@ -70,6 +71,10 @@ class IxinaController extends Controller
         $plans = $plansRepository->findAll();
         $nbrPlans = count($plans);
 
+        /* récupération des factures à faire */
+        $factures = $facturesRepository->findAll();
+        $nbrFactures = count($factures);
+
         return $this->render('YBIxinaBundle::ixinaHome.html.twig', array('clientsToday' => $clientsToday, 
                                                                         'nbrClientDessin' => $nbrClientDessin, 
                                                                         'nbrClientsPreparer' => $nbrClientPreparer,
@@ -80,8 +85,7 @@ class IxinaController extends Controller
                                                                         'datePreparTSP' => $datePreparationTstp,
                                                                         'today' => $todayTstp,
                                                                         'diff' => $diffDatePreparation,
-                                                                        'depann' => $datePreparation,
-                                                                        'depann2' => $datePreparationTstp
+                                                                        'nbrFactures' => $nbrFactures
                                                                         ));
     }
 }

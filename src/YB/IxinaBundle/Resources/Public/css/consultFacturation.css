@@ -1,0 +1,50 @@
+#blocNote
+{
+    height: 650px;
+    width: 478px;
+    background-image: url('../images/blocNote.png');
+    background-size: 478px 650px;
+    position: fixed;
+    right: 10%;
+    top: 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contenant
+{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.row
+{
+    display: flex;
+    justify-content: space-between ;
+    height: 30px;
+    line-height: 30px;
+    
+}
+    
+    .nom
+    {
+        flex: 2;
+    }
+
+    .type
+    {
+        flex: 2;
+    }
+
+#iconeSupprimer
+{
+    width: 25px;
+    height: 25px;
+    background-image: url('../images/iconeSupprimer.png');
+    background-size: 25px 25px;
+}
