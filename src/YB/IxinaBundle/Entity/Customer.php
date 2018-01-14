@@ -446,6 +446,26 @@ class Customer
      */
     private $montantAcompte;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="fairePlanTech", type="boolean", nullable=true)
+     */
+    private $fairePlanTech;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="faireFactureAcompte", type="boolean", nullable=true)
+     */
+    private $faireFactureAcompte;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="faireRelanceCheque", type="boolean", nullable=true)
+     */
+    private $faireRelanceCheque;
 
     public function __construct()
     {
@@ -1976,5 +1996,77 @@ class Customer
     public function getMontantAcompte()
     {
         return $this->montantAcompte;
+    }
+
+    /**
+     * Set fairePlanTech
+     *
+     * @param boolean $fairePlanTech
+     *
+     * @return Customer
+     */
+    public function setFairePlanTech($fairePlanTech)
+    {
+        $this->fairePlanTech = $fairePlanTech;
+
+        return $this;
+    }
+
+    /**
+     * Get fairePlanTech
+     *
+     * @return boolean
+     */
+    public function getFairePlanTech()
+    {
+        return $this->fairePlanTech;
+    }
+
+    /**
+     * Set faireFactureAcompte
+     *
+     * @param boolean $faireFactureAcompte
+     *
+     * @return Customer
+     */
+    public function setFaireFactureAcompte($faireFactureAcompte)
+    {
+        $this->faireFactureAcompte = $faireFactureAcompte;
+
+        return $this;
+    }
+
+    /**
+     * Get faireFactureAcompte
+     *
+     * @return boolean
+     */
+    public function getFaireFactureAcompte()
+    {
+        return $this->faireFactureAcompte;
+    }
+
+    /**
+     * Set faireRelanceCheque
+     *
+     * @param boolean $faireRelanceCheque
+     *
+     * @return Customer
+     */
+    public function setFaireRelanceCheque($faireRelanceCheque)
+    {
+        $this->faireRelanceCheque = $faireRelanceCheque;
+
+        return $this;
+    }
+
+    /**
+     * Get faireRelanceCheque
+     *
+     * @return boolean
+     */
+    public function getFaireRelanceCheque()
+    {
+        return $this->faireRelanceCheque;
     }
 }
