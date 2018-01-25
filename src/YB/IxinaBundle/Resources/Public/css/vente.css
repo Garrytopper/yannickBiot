@@ -1,0 +1,169 @@
+#contenant
+{
+    height: 700px;
+    display: flex;
+}
+    #formVente
+    {
+        width: 300px;
+        height: 330px;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+        #formVenteNavSuivant
+        {
+            width : 50px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: white;
+            background-image: url('../images/navDroite.png');
+            background-size: 50px 50px;
+            background-position: center;
+            position: absolute ;
+            left: 63%;
+            top: 47%;
+        }
+
+
+
+    #formVerif
+    {
+        width: 300px;
+        height: 330px;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin: auto;
+    }
+
+        .Gauche
+        {
+            flex: 1;
+            display: flex;
+        }
+
+            .Gauche div
+            {
+                flex: 1;
+            }
+
+        .Droite
+        {
+            flex: 1;
+            display: flex;
+        }
+
+            .Droite div
+            {
+                flex: 1;
+            }
+
+         #formVerifNavSuivant
+        {
+            width : 50px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: white;
+            background-image: url('../images/navDroite.png');
+            background-size: 50px 50px;
+            background-position: center;
+            position: absolute ;
+            left: 63%;
+            top: 47%;
+            
+        }
+
+        #formVerifNavRetour
+        {
+            width : 50px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: white;
+            background-image: url('../images/navGauche.png');
+            background-size: 50px 50px;
+            background-position: center;
+            position: absolute ;
+            top:47%;
+            left: 34%;
+        }
+
+    #formSuivi
+    {
+        width: 300px;
+        height: 330px;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin: auto;
+    }
+
+        .formSuiviG
+        {
+            flex: 3;
+        }
+
+        .formSuiviD
+        {
+            flex: 1;
+        }
+
+        #formSuiviNavRetour
+        {
+            width : 50px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: white;
+            background-image: url('../images/navGauche.png');
+            background-size: 50px 50px;
+            background-position: center;
+            position: absolute ;
+            top:47%;
+            left: 34%;
+        }
+
+        #champRelCheque
+        {
+            border: 2px solid grey;
+            height: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around ;
+            padding-left: 5px;
+        }
+
+        #champRelCheque div
+        {
+            display: flex ;
+        }
+            #champRelCheque div div
+            {
+                flex: 1;
+            }
+
+
+.row
+{
+    height: 25px;
+    line-height: 25px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+fieldset
+{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}

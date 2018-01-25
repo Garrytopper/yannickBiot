@@ -1,0 +1,137 @@
+{% extends "YBIxinaBundle::ixinaHome.html.twig" %}
+
+{% block css %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/vente.css') }}">
+{% endblock %}
+
+{% block barreIcone %}
+
+{% endblock %}
+
+{% block bloc %}
+{{ form_start(form) }}
+    <div id="contenant">
+        <div id="formVente">
+            <div class="row">
+                <div class="Gauche">{{ form_label(form.montantVenteTTC, 'Total TTC') }}</div>
+                <div class="Droite">{{ form_widget(form.montantVenteTTC) }}</div>
+            </div>
+            <div class="row">
+                <div class="Gauche">{{ form_label(form.montantAcompte, 'Acompte') }}</div>
+                <div class="Droite">{{ form_widget(form.montantAcompte) }}</div>
+            </div>
+            <div class="row"></div>
+            <div class="row"></div>
+            <div class="row" style="text-align: center;">
+                {{ form_label(form.dateLivSouhaite, 'Date de livraison') }}
+            </div>
+            <div class="row" style="text-align: center;">
+                {{ form_widget(form.dateLivSouhaite) }}
+            </div>
+        </div>
+        <div id="formVenteNavSuivant"></div>
+        <div id="formVerifNavRetour"></div>
+        <div id="formVerif">
+            <fieldset>
+                <legend>Adresse livraison</legend>
+                    <div class="row">{{ form_widget(form.livAd1) }}</div>
+                    <div class="row">{{ form_widget(form.livAd2) }}</div>
+                <div class="row">
+                    {{ form_widget(form.livCp) }}
+                    {{ form_widget(form.livVille) }}
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Contact</legend>
+                <div class="row">
+                    <div class="Gauche">{{ form_label(form.numTel, 'Tel') }}</div>
+                    <div class="Droite">{{ form_widget(form.numTel) }}</div>
+                </div>
+                <div class="row">
+                    <div class="Gauche">{{ form_label(form.email, 'Email') }}</div>
+                    <div class="Droite">{{ form_widget(form.email) }}</div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Prestation</legend>
+                <div class="row">
+                    <div class="Gauche">
+                        <div>{{ form_label(form.renovation, 'Réno.') }}</div>
+                        <div>{{ form_widget(form.renovation) }}</div>
+                    </div>
+                    <div class="Droite">
+                       
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="Gauche">
+                        <div>{{ form_label(form.liv, 'Liv.') }}</div>
+                        <div>{{ form_widget(form.liv) }}</div>
+                    </div>
+                    <div class="Droite">
+                        {{ form_widget(form.pose) }}
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div id="formVerifNavSuivant"></div>
+        <div id="formSuiviNavRetour"></div>
+        <div id="formSuivi">
+            <div class="row">
+                <div class="formSuiviG">
+                    {{ form_label(form.fairePlanTech, 'Plan technique') }}
+                </div>
+                <div class="formSuiviD">
+                    {{ form_widget(form.fairePlanTech) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="formSuiviG">
+                    {{ form_label(form.faireFactureAcompte, 'Facture Acompte') }}
+                </div>
+                <div class="formSuiviD">
+                    {{ form_widget(form.faireFactureAcompte) }}
+                </div>
+            </div>
+            <div class="row" id="relCheque">
+                <div class="formSuiviG">
+                    {{ form_label(form.faireRelanceCheque, 'Relance chèque') }}
+                </div>
+                <div class="formSuiviD">
+                    {{ form_widget(form.faireRelanceCheque) }}
+                </div>
+            </div>
+            <div id="champRelCheque">
+                <div>
+                    <div>{{ form_label(form2.montant, 'Montant') }}</div>
+                    <div>{{ form_widget(form2.montant) }}</div>
+                </div>
+                <div>
+                    <div>{{ form_label(form2.nomCheque, 'Nom') }}</div>
+                    <div>{{ form_widget(form2.nomCheque) }}</div>
+                </div>
+                <div>{{ form_row(form2.dateRelance) }}</div>
+                
+            </div>
+            <div class="row">
+                <div class="formSuiviG">
+                    {{ form_label(form.granite, 'Plan W granite') }}
+                </div>
+                <div class="formSuiviD">
+                    {{ form_widget(form.granite) }}
+                </div>
+            </div>
+            <div class="row">
+                 {{ form_widget(form.Enregistrer) }}
+            </div>
+            {{ form_rest(form) }}
+        </div>
+    </div>
+{{ form_end(form) }}
+{% endblock %}
+
+{% block javaScript %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('bundles/ybixina/js/vente.js') }}"></script>
+{% endblock %}

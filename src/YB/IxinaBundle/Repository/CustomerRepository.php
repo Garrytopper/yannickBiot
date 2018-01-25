@@ -15,6 +15,8 @@ class CustomerRepository extends \Doctrine\ORM\EntityRepository
         $qb = $this->createQueryBuilder('c');
         $qb->Where('c.dateProchaineAction = :today')
             ->setParameter('today', new \DateTime(date('Y-m-d')))
+            ->andWhere('c.etatDossier = :etat')
+            ->setParameter('etat', 'Prospect')
             ;
         return $qb->getQuery()->getResult();
     }

@@ -1,0 +1,3 @@
+yb_popup_homepage:
+    path:     /
+    defaults: { _controller: YBPopupBundle:Default:index }

@@ -18,6 +18,11 @@ yb_ixina_deleteCustomer:
     defaults:
         _controller: YBIxinaBundle:Customer:supp
 
+yb_ixina_vente:
+    path:    /customer/vente/{id}
+    defaults:
+        _controller: YBIxinaBundle:Customer:vente
+
 yb_ixina_tableau:
     path:    /tableau/home
     defaults:

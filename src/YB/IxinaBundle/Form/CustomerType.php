@@ -65,7 +65,10 @@ class CustomerType extends AbstractType
                 ->add('laveLinge', CheckboxType::class, array('required' => false))
                 ->add('caveVin', CheckboxType::class, array('required' => false))
                 ->add('liv', CheckboxType::class, array('required' => false))
-                ->add('pose', CheckboxType::class, array('required' => false))
+                ->add('pose', ChoiceType::class, array('choices' => array(
+                        'Hors pose' => 'Hors pose',
+                        'Aide pose' => 'Aide pose',
+                        'Pose' => 'Pose')))
                 ->add('autre', CheckboxType::class, array('required' => false))
                 ->add('granite', CheckboxType::class, array('required' => false))
                 ->add('dateProchaineAction', DateType::class)

@@ -31,7 +31,7 @@ class RelCheque
     /**
      * @var string
      *
-     * @ORM\Column(name="tel", type="string", length=10)
+     * @ORM\Column(name="tel", type="string", length=10, nullable=true)
      */
     private $tel;
 

@@ -10,6 +10,7 @@ use YB\UserBundle\Entity\User;
  *
  * @ORM\Table(name="customer")
  * @ORM\Entity(repositoryClass="YB\IxinaBundle\Repository\CustomerRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Customer
 {
@@ -230,9 +231,9 @@ class Customer
     private $liv;
 
     /**
-     * @var bool
+     * @var string
      *
-     * @ORM\Column(name="pose", type="boolean", nullable=true)
+     * @ORM\Column(name="pose", type="string", length=12, nullable=true)
      */
     private $pose;
 
@@ -428,16 +429,16 @@ class Customer
     /**
      * @var string
      *
-     * @ORM\Column(name="actionRemarque", type="string", length=255, nullable=true)
+     * @ORM\Column(name="actionRemarque", type="string", length=1000, nullable=true)
      */
     private $actionRemarque;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="montantVenteHt", type="integer", nullable=true)
+     * @ORM\Column(name="montantVenteTTC", type="integer", nullable=true)
      */
-    private $montantVenteHt;
+    private $montantVenteTTC;
 
     /**
      * @var integer
@@ -1951,27 +1952,27 @@ class Customer
     }
 
     /**
-     * Set montantVenteHt
+     * Set montantVenteTTC
      *
-     * @param integer $montantVenteHt
+     * @param integer $montantVenteTTC
      *
      * @return Customer
      */
-    public function setMontantVenteHt($montantVenteHt)
+    public function setMontantVenteTTC($montantVenteTTC)
     {
-        $this->montantVenteHt = $montantVenteHt;
+        $this->montantVenteTTC = $montantVenteTTC;
 
         return $this;
     }
 
     /**
-     * Get montantVenteHt
+     * Get montantVenteTTC
      *
      * @return integer
      */
-    public function getMontantVenteHt()
+    public function getMontantVenteTTC()
     {
-        return $this->montantVenteHt;
+        return $this->montantVenteTTC;
     }
 
     /**

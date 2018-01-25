@@ -64,9 +64,9 @@ class Facturation
     private $montantVente;
 
     /**
-     * @var int
+     * @var decimal
      *
-     * @ORM\Column(name="tva", type="integer", nullable=true)
+     * @ORM\Column(name="tva", type="decimal", precision=2, scale=1, nullable=true)
      */
     private $tva;
 

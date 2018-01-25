@@ -1,0 +1,7 @@
+services:
+    yb_popup.test:
+        class: YB\PopupBundle\Popup 
+        
+#    yb_popup.example:
+#        class: YB\PopupBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

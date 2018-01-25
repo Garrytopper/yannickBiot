@@ -1,4 +1,7 @@
 services:
-#    yb_ixina.example:
-#        class: YB\IxinaBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    yb_ixina.doctrineListener:
+        class: YB\IxinaBundle\DoctrineListener
+        arguments:
+            - "@yb_popup.test"
+        tags:
+            - { name: doctrine.event_listener, event: postPersist }

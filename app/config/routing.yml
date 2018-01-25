@@ -1,3 +1,7 @@
+yb_popup:
+    resource: "@YBPopupBundle/Resources/config/routing.yml"
+    prefix:   /
+
 yb_user:
     resource: "@YBUserBundle/Resources/config/routing.yml"
     prefix:   /admin/user
