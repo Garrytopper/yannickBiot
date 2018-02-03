@@ -82,3 +82,23 @@ yb_ixina_suppfacture:
     path:    /note/SuppFacture/{id}
     defaults:
         _controller: YBIxinaBundle:Note:suppfacture
+
+yb_ixina_newPrestation:
+    path:    /note/Prestation 
+    defaults:
+        _controller: YBIxinaBundle:Note:newprestation
+
+yb_ixina_listePrestation:
+    path:    /note/ListePrestation 
+    defaults:
+        _controller: YBIxinaBundle:Note:listeprestation
+
+yb_ixina_modifPrestation:
+    path:    /note/modifPrestation/{id}
+    defaults: 
+        _controller: YBIxinaBundle:Note:modifprestation
+
+yb_ixina_prestationsupprimer:
+    path:    /note/suppPrestation/{id}
+    defaults:
+        _controller: YBIxinaBundle:Note:suppprestatation

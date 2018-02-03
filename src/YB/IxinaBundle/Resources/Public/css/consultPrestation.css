@@ -1,0 +1,135 @@
+#blocNote
+{
+    height: 650px;
+    width: 478px;
+    background-image: url('../images/blocNote.png');
+    background-size: 478px 650px;
+    position: fixed;
+    right: 10%;
+    top: 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.row
+{
+    height: 25px;
+    line-height: 25px;
+    display: flex;
+    justify-content: space-between ;
+}
+
+    .nom
+    {
+        width: 90px;
+    }
+
+    .validation
+    {
+        width: 25px;
+    }
+
+        .iconeValide
+        {
+            background-image: url('../images/iconePasValide.png');
+            background-size: 25px 25px;
+        }
+
+        .iconeValideValide
+        {
+            background-image: url('../images/iconeValide.png');
+            background-size: 25px 25px;
+        }
+
+    .rappel
+    {
+        width: 25px;
+    }
+
+        .iconeRappel
+        {
+            background-image: url('../images/iconeRappel.png');
+            background-size: 25px 25px;
+        }
+
+        .iconeRappelValide
+        {
+            background-image: url('../images/iconeRappelValide.png');
+            background-size: 25px 25px;
+        }
+
+    .planification
+    {
+        width: 25px;
+    }
+
+        .iconePlanification
+        {
+            background-image: url('../images/iconeRdv.png');
+            background-size: 25px 25px;
+        }
+
+        .iconePlanificationValide
+        {
+            background-image: url('../images/iconeRdvValide.png');
+            background-size: 25px 25px;
+        }
+
+    .date
+    {
+        width: 100px;
+        text-align: center;
+    }
+
+    .fournisseur
+    {
+        width: 90px;
+    }
+
+#hautpage
+{
+    margin-top: 15%;
+    height: 100px;
+    width: 100px;
+    background-image: url('../images/GrdIconePrestation.png');
+    background-size: 100px 100px;
+}
+
+#baspage
+{
+    height: 10%;
+    border-top: double;
+    width: 86%;
+    margin-bottom: 10%;
+    display: flex;
+}
+
+    #texte
+    {
+        font-size: 2em;
+        font-family: 'messagesregular';
+        line-height: 65px;
+        flex: 3;
+        text-align: center;
+    }
+
+    #iconeNavigation
+    {
+        flex: 1;
+        background-image: url('../images/iconePrestationAjouter.png');
+        background-size: 50px 50px;
+        background-position: center;
+        background-repeat: no-repeat ;
+    }
+
+#contenant
+{
+
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    height: 45%;
+    overflow: auto;
+}

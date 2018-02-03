@@ -13,6 +13,7 @@
 
 {% block bloc %}
     <div id="blocNote">
+        <div id="hautpage"></div>
         <div id="contenant">
             {% for facture in factures %}
                 <div class="row">
@@ -21,8 +22,11 @@
                     <a href="{{ path('yb_ixina_suppfacture', {'id': facture.id}) }}"><div id="iconeSupprimer"></div></a>
                 </div>
             {% endfor %}   
+        </div>    
+        <div id="baspage">
+            <div id="texte">Liste Factures</div>
+            <a id="iconeNavigation" href="{{ path('yb_ixina_newRelCheq') }}"></a>
         </div>
-            
     </div>
 {% endblock %}
 

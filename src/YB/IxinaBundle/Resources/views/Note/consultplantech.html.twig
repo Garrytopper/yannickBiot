@@ -13,18 +13,25 @@
 
 {% block bloc %}
     <div id="blocNote">
-        {% if plans is not null %} 
-            <ul>
-                {% for plan in plans %}
-                    <li>
-                        <div id="client">{{ plan.client }}</div>
-                        <a id="iconeSupprimer" href="{{ path('yb_ixina_plansupp', {'id': plan.id}) }}"></a>
-                    </li>
-                {% endfor %}
-            </ul>    
-        {% else %}
-            Pas de plans techniques.
-        {% endif %}
+        <div id="hautpage"></div>
+        <div id="contenant">
+            {% if plans is not null %} 
+                <ul>
+                    {% for plan in plans %}
+                        <li>
+                            <div id="client">{{ plan.client }}</div>
+                            <a id="iconeSupprimer" href="{{ path('yb_ixina_plansupp', {'id': plan.id}) }}"></a>
+                        </li>
+                    {% endfor %}
+                </ul>    
+            {% else %}
+                Pas de plans techniques.
+            {% endif %}
+        </div>
+        <div id="baspage">
+            <div id="texte">New Plan Technique</div>
+            <a id="iconeNavigation" href="{{ path('yb_ixina_newPlanTech') }}"></a>
+        </div>  
     </div>
 {% endblock %}
 

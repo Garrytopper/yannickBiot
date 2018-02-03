@@ -1,0 +1,98 @@
+<?php
+
+namespace YB\IxinaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
+/**
+ * PlanPrestation
+ *
+ * @ORM\Table(name="plan_prestation")
+ * @ORM\Entity(repositoryClass="YB\IxinaBundle\Repository\PlanPrestationRepository")
+ * @ORM\HasLifecycleCallbacks()
+ */
+class PlanPrestation
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255)
+     */
+    private $extension;
+
+    private $tempFile;
+
+    private $file;
+
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    public function setFile(UploadedFile $file = null)
+    {
+        $this->file = $file;
+
+        if (null !== $this->extension) {
+            $this->tempFile = $this->extension;
+            $this->extension = null;
+        }
+    }
+
+    /**
+    * @ORM\PreUpdate()
+    * @ORM\PrePersist()
+    */
+    public function preUpload()
+    {
+        if (null === $this->file) {
+            return;
+        }
+        $this->extension = $this->file->gessExtension();
+    }
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return PlanPrestation
+     */
+    public function setExtension($extension)
+    {
+        $this->extension = $extension;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getExtension()
+    {
+        return $this->extension;
+    }
+}

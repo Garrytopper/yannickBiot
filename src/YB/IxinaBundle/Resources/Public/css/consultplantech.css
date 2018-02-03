@@ -31,3 +31,50 @@ li
     display: flex;
     height: 35px;
 }
+
+#hautpage
+{
+    margin-top: 15%;
+    height: 100px;
+    width: 100px;
+    background-image: url('../images/GrdIconePlanTechnique.png');
+    background-size: 100px 100px;
+}
+
+#contenant
+{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    height: 45%;
+    overflow: auto;
+    align-items: center;
+}
+
+#baspage
+{
+    height: 10%;
+    border-top: double;
+    width: 86%;
+    margin-bottom: 10%;
+    display: flex;
+}
+
+    #texte
+    {
+        font-size: 2em;
+        font-family: 'messagesregular';
+        line-height: 65px;
+        flex: 3;
+        text-align: center;
+    }
+
+    #iconeNavigation
+    {
+        flex: 1;
+        background-image: url('../images/iconeNewPlanTech.png');
+        background-size: 50px 50px;
+        background-position: center;
+        background-repeat: no-repeat ;
+    }

@@ -6,6 +6,7 @@ $('#formSuivi').hide(function(){
     $('#formSuiviNavRetour').hide();
 });
 $('#champRelCheque').hide();
+$('#champPrestation').hide();
 
 $(function(){
     $('#formVenteNavSuivant').click(function(){
@@ -53,6 +54,22 @@ $(function(){
             $('#champRelCheque').addClass('actif');
             });
         }
-        
+    });
+    $('#prestation').click(function(){
+        if($('#champPrestation').hasClass('actif'))
+        {
+            $('#champPrestation').animate({'height': '10px'}, 500, function(){
+                $('#champPrestation').removeClass('actif');
+                $('#champPrestation').hide();
+            });
+
+        }
+        else
+        {
+            $('#champPrestation').show(function(){
+            $('#champPrestation').animate({'height': '105px'}, 500);
+            $('#champPrestation').addClass('actif');
+            });
+        }
     });
 });

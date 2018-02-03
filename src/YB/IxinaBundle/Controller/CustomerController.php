@@ -8,6 +8,7 @@ use YB\IxinaBundle\Form\CustomerType;
 use YB\IxinaBundle\Entity\Customer;
 use YB\IxinaBundle\Entity\Plan;
 use YB\IxinaBundle\Entity\Plantech;
+use YB\IxinaBundle\Entity\Prestation;
 use YB\IxinaBundle\Form\VenteType;
 use YB\IxinaBundle\Entity\Facturation;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
@@ -15,6 +16,8 @@ use YB\IxinaBundle\Entity\RelCheque;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class CustomerController extends Controller
 {
@@ -61,6 +64,9 @@ class CustomerController extends Controller
                 if ($etat == 'Vendu' AND $montantVenteTTC == null) {
                    return $this->redirectToRoute('yb_ixina_vente', array('id' => $id));
                 }
+                if ($origine == 'prestation') {
+                    return $this->redirectToRoute('yb_ixina_listePrestation');
+                }
                 return $this->redirectToRoute('yb_ixina_tableau');
             }
         }
@@ -78,19 +84,31 @@ class CustomerController extends Controller
 
     public function venteAction(Request $request, $id)
     {
+        $test = $this->get('yb_popup.test');
         $em = $this->getDoctrine()->getManager();
         $client = $em->getRepository('YBIxinaBundle:Customer')->find($id);
         $form = $this->get('form.factory')->create(VenteType::class, $client);
         $relance = new RelCheque();
         $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $relance);
-        $formBuilder->add('montant', MoneyType::class, array('attr' => array('style' => 'width: 50px')))
-                    ->add('nomCheque', TextType::class)
-                    ->add('dateRelance', DateType::class);
+        $formBuilder->add('montant', MoneyType::class, array( 'required' => false, 'attr' => array('style' => 'width: 50px')))
+                    ->add('nomCheque', TextType::class, array('required' => false))
+                    ->add('dateRelance', DateType::class, array('required' => false));
         $form2 = $formBuilder->getForm();
+        $prestation = new Prestation();
+        $formBuilder2 = $this->get('form.factory')->createBuilder(FormType::class, $prestation);
+        $formBuilder2->add('finitions', TextareaType::class, array('attr' => array('cols' => 18, 'rows' => 8)))
+                    ->add('produit', TextType::class, array('attr' => array('style' => 'height: 45px;')))
+                    ->add('fournisseur', ChoiceType::class, array('choices' => array(
+                        'Aztiria' => 'Aztiria',
+                        'Lechner' => 'Lechner',
+                        'MiraLuver' => 'MiraLuver')
+                    ));
+        $form3 = $formBuilder2->getForm();
 
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
             $form2->handleRequest($request);
+            $form3->handleRequest($request);
             if ($form->isValid()) {
                 $fairePlanTech = $client->getfairePlanTech();
                 if ($fairePlanTech == true) {
@@ -126,21 +144,30 @@ class CustomerController extends Controller
                     $facture->setTypeFacture('Acompte');
                     $em->persist($facture);
                 }
-                $faireRelanceCheque = $client->getFaireRelanceCheque();
-                if ($faireRelanceCheque == true) {
-                    $nom = $client->getNom();
-                        $relance->setNom($nom);
-                    $tel = $client->getNumTel();
-                        $relance->setTel($tel);
-                    $email = $client->getEmail();
-                        $relance->setEmail($email);
-                        $relance->setOrigine('Acompte');
-                    $em->persist($relance);
+                if($form2->isValid()) {
+                    $faireRelanceCheque = $client->getFaireRelanceCheque();
+                    if ($faireRelanceCheque == true) {
+                        $nom = $client->getNom();
+                            $relance->setNom($nom);
+                        $tel = $client->getNumTel();
+                            $relance->setTel($tel);
+                        $email = $client->getEmail();
+                            $relance->setEmail($email);
+                            $relance->setOrigine('Acompte');
+                        $em->persist($relance);
+                    }
                 }
+                $fairePrestation = $client->getPrestation();
+                if($fairePrestation == true) {
+                    $prestation->setClient($client);
+                    $em->persist($prestation);
+                }                
                 $em->flush();
                 return $this->redirectToRoute('yb_ixina_tableau');
             }
         }
-        return $this->render('YBIxinaBundle:Customer:vente.html.twig', array('form' => $form->createView(), 'form2' => $form2->createView()));
+        return $this->render('YBIxinaBundle:Customer:vente.html.twig', array('form' => $form->createView(),
+                                                                             'form2' => $form2->createView(),
+                                                                             'form3' => $form3->createView()));
     }
 }

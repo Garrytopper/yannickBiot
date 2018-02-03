@@ -37,19 +37,67 @@ a
 
 #blocQuotidien
 {
-    height: 250px;
-    width: 160px;
+    height: 370px;
+    width: 300px;
     position: absolute; ;
     top: 48%;
-    left: 28%;
+    left: 22%;
     display: flex;
     flex-direction: column;
+   
 }
 
-    #blocQuotidienAlerte
+    #blocRendezVousToday
     {
-        margin: auto;
+        height: 270px;
+        display: flex;
     }
+    
+        #today
+        {
+            border-right: double grey;
+            flex: 1;
+            
+            display: flex;
+            flex-direction: column;
+            padding-top: 20%;
+        }
+
+            #texte
+            {
+                text-align: center;
+                font-family: 'messagesregular';
+                font-size: 2em;
+            }
+
+            #blocQuotidienAlerte
+            {
+                display: flex;
+                justify-content: space-around ;
+                padding-top: 15%;
+            }
+
+        #liste
+        {
+            flex: 2;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+            #liste1 
+            {
+                flex: 1;
+                color: red;
+            }
+
+            #liste2 
+            {
+                border-top: dashed grey;
+                flex: 1;
+                padding-top: 15px;
+                color: green;
+            }
 
 .blocInfo
 {
@@ -103,14 +151,90 @@ a
     top: 460px;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    padding-left: 15px;
 }
 
-#blocTachesQuotidienne ul 
-{
-    margin: auto;
-}
+    #ligneTachesQuotidienne1
+    {
+        display: flex;
+        width: 75%;
+        justify-content: space-between ;
+        
+    }
+
+    #ligneTachesQuotidienne2
+    {
+        display: flex;
+        justify-content: space-between ;
+        width: 75%;
+    }
 
 /* icones */
+
+#iconePlanif
+{
+    height: 35px;
+    width: 35px;
+    background-image: url('../images/iconeRdv.png');
+    background-size: 35px 35px;
+}
+
+#iconeRappel
+{
+    height: 35px;
+    width: 35px;
+    background-image: url('../images/iconeRappel.png');
+    background-size: 35px 35px;
+}
+
+#iconeValidation
+{
+    height: 35px;
+    width: 35px;
+    background-image: url('../images/iconePasValide.png');
+    background-size: 35px 35px;
+}
+
+#iconeDessiner
+{
+    height: 20px;
+    width: 20px;
+    background-image: url('../images/iconeDessiner.png');
+    background-size: 20px 20px;
+}
+
+#iconePreparer
+{
+    height: 20px;
+    width: 20px;
+    background-image: url('../images/iconePreparer.png');
+    background-size: 20px 20px;
+}
+
+#iconeRelanceCheque
+{
+    height: 35px;
+    width: 35px;
+    background-image: url('../images/iconeTelephone.png');
+    background-size: 35px 35px;
+}
+
+#iconePlanTechnique
+{
+    height: 35px;
+    width: 35px;
+    background-image: url('../images/iconePlanTechnique.png');
+    background-size: 35px 35px;
+}
+
+#iconeFacture
+{
+    height: 35px;
+    width: 35px;
+    background-image: url('../images/iconeFacture.png');
+    background-size: 35px 35px;
+}
 
 #iconeTableauConsulter
 {
@@ -165,4 +289,5 @@ a
     background-size: 50px 50px;
     margin-right: 10px;
 }
+
 

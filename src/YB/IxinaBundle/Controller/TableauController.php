@@ -36,8 +36,15 @@ class TableauController extends Controller
         /* calcul du taux de concrétisation */
        
         $totalDossier = $nbrVenduDuMois + $nbrNewProspectDuMois + $nbrePerduDuMois ;
-        $TxConcret = $nbrVenduDuMois * 100 / $totalDossier ;
-        $TxConcret = round($TxConcret);
+        if ($nbrVenduDuMois == 0 or $totalDossier == 0) {
+            $TxConcret = 0;
+        }
+        else
+        {
+            $TxConcret = $nbrVenduDuMois * 100 / $totalDossier ;
+            $TxConcret = round($TxConcret);
+        }
+       
         
         /* calcul du portefeuille du mois */
 

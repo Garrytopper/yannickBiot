@@ -151,6 +151,39 @@
                 flex: 1;
             }
 
+        #champPrestation
+        {
+            border: 2px solid grey;
+            height: 10px;
+            width: 90%;
+            display: flex;
+            justify-content: space-between ;
+           
+        }
+
+            #identifiant
+            {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+
+                #fournisseur
+                {
+                    flex: 1;
+                }
+
+                #produit
+                {
+                    flex:1;
+                }
+
+            #finitions
+            {
+                flex: 1;
+            }
+
+
 
 .row
 {

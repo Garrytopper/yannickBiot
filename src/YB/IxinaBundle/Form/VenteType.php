@@ -41,7 +41,7 @@ class VenteType extends AbstractType
                         'Aide pose' => 'Aide pose',
                         'Pose' => 'Pose')))
                 ->add('liv', CheckboxType::class, array('required' => false))
-                ->add('granite', CheckboxType::class, array('required' => false))
+                ->add('prestation', CheckboxType::class, array('required' => false))
                 ->add('fairePlanTech', CheckboxType::class, array('required' => false))
                 ->add('faireFactureAcompte', CheckboxType::class, array('required' => false))
                 ->add('faireRelanceCheque', CheckboxType::class, array('required' => false))

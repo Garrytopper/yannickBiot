@@ -47,7 +47,7 @@
                         Meuble
                         {% if client.four == true or client.microOnde == true or client.plaqueCuisson == true or client.hotte == true or client.frigo == true or client.laveVaisselle == true or client.laveLinge or client.caveVin == true == true %}/Electro {% endif %}
                         {% if client.pose == true %}/Pose {% endif %}
-                        {% if client.granite == true %}/Granite {% endif %}
+                        {% if client.prestation == true %}/Prestation {% endif %}
                         {% if client.liv == true %}/Livraison {% endif %}
                         {% if client.autre == true %}/Autre {% endif %}
                     </div>
@@ -66,32 +66,95 @@
                 </div>
             {% endfor %}
             <div id="blocQuotidien">
-                <ul>
-                    {% for client in clientsToday %}
-                        <li>
-                            <a class="{{ client.id }}" href="{{ path('yb_ixina_modifCustomer', {id: client.id, origine: 'quotidien'}) }}">
-                            {{ client.nom }} 
+                <div id="blocRendezVousToday">
+                    <div id="today">
+                        <div id="texte">today</div>
+                         <div id="blocQuotidienAlerte">
+                            <a href="{{ path('yb_ixina_tableau') }}" title="test">
+                                {% if nbrClientDessin  != null %}
+                                <div id="iconeDessiner"></div>
+                                <div style="{% if alerteDessin == 'Orange' %}color: orange;{% elseif alerteDessin == 'Rouge'%}color: red;{% endif %}" >
+                                    {{ nbrClientDessin }}
+                                </div>
+                                {% endif %}
                             </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-                <div id="blocQuotidienAlerte">
-                    <div style="{% if alerteDessin == 'Orange' %}color: orange;{% elseif alerteDessin == 'Rouge'%}color: red;{% endif %}" >À dessiner : {{ nbrClientDessin }}</div>
-                    <div style="{% if alertePreparation == 'Orange' %}color: orange;{% elseif alertePreparation == 'Rouge'%}color: red;{% endif %}">À préparer : {{ nbrClientsPreparer }}</div>
+                            <a href="{{ path('yb_ixina_tableau') }}">
+                                {% if nbrClientsPreparer  != null %}
+                                <div id="iconePreparer"></div>
+                                <div style="{% if alertePreparation == 'Orange' %}color: orange;{% elseif alertePreparation == 'Rouge'%}color: red;{% endif %}">
+                                    {{ nbrClientsPreparer }}
+                                </div>
+                                {% endif %}
+                            </a>
+                        </div>
+                    </div>
+                    <div id="liste">
+                        <ul id="liste1">
+                            {% for client in clientsToday %}
+                                {% if client.action != 'Relance' %}
+                                    <li>
+                                        <a class="{{ client.id }}" href="{{ path('yb_ixina_modifCustomer', {id: client.id, origine: 'quotidien'}) }}">
+                                        {{ client.nom }} 
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                        <ul id="liste2">
+                            {% for client in clientsToday %}
+                                {% if client.action == 'Relance' %}
+                                    <li>
+                                        <a class="{{ client.id }}" href="{{ path('yb_ixina_modifCustomer', {id: client.id, origine: 'quotidien'}) }}">
+                                        {{ client.nom }}
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div id="blocTachesQuotidienne">
-                <ul>
+                <div id="ligneTachesQuotidienne1">
                     {% if nbrRelanceCheque > 0 %}
-                        <li><a style="color: green;" href="{{ path('yb_ixina_consultRelCheq') }}">Rel. Chèque : {{ nbrRelanceCheque }}</a></li>
+                        <a  href="{{ path('yb_ixina_consultRelCheq') }}">
+                            <div id="iconeRelanceCheque"></div>
+                            <div> x {{ nbrRelanceCheque }}</div>
+                        </a>
                     {% endif %}
                     {% if nbrPlans > 0 %}
-                        <li><a style="color: orange;" href="{{ path('yb_ixina_consultPlanTech') }}">Plans à faire : {{ nbrPlans }}</a></li>
+                        <a  href="{{ path('yb_ixina_consultPlanTech') }}">
+                            <div id="iconePlanTechnique"></div>
+                            <div> x {{ nbrPlans }}</div>
+                        </a>
                     {% endif %}
                     {% if nbrFactures > 0 %}
-                        <li><a style="color: blue;" href="{{ path('yb_ixina_consultFacturation') }}">Factures à faire : {{ nbrFactures }}</a></li>
+                        <a href="{{ path('yb_ixina_consultFacturation') }}">
+                            <div id="iconeFacture"></div>
+                            <div> x {{ nbrFactures }}</div>
+                        </a>
                     {% endif %}
-                </ul>
+                </div>
+                <div id="ligneTachesQuotidienne2">
+                     {% if nbrValidation > 0 %}
+                        <a href="{{ path('yb_ixina_listePrestation') }}">
+                            <div id="iconeValidation"></div>
+                            <div> x {{ nbrValidation }}</div>
+                        </a>
+                    {% endif %}
+                    {% if nbrRappel > 0 %}
+                        <a href="{{ path('yb_ixina_listePrestation') }}">
+                            <div id="iconeRappel"></div>
+                            <div> x {{ nbrRappel }}</div>
+                        </a>
+                    {% endif %}
+                    {% if nbrPlanif > 0 %}
+                        <a href="{{ path('yb_ixina_listePrestation') }}">
+                            <div id="iconePlanif"></div>
+                            <div> x {{ nbrPlanif }}</div>
+                        </a>
+                    {% endif %}
+                </div>
             </div>
         {% endblock %}
 	</div>

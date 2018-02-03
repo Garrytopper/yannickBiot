@@ -13,6 +13,8 @@ use YB\IxinaBundle\Entity\Plantech;
 use YB\IxinaBundle\Form\PlantechType;
 use YB\IxinaBundle\Entity\Facturation;
 use YB\IxinaBundle\Form\FacturationType;
+use YB\IxinaBundle\Entity\Prestation;
+use YB\IxinaBundle\Form\PrestationType;
 
 class NoteController extends Controller
 {
@@ -137,4 +139,67 @@ class NoteController extends Controller
 
       return $this->render('YBIxinaBundle:Note:consultfacture.html.twig', array('factures' => $factures));
    }
+
+   public function newprestationAction(Request $request)
+   {
+      $em = $this->getDoctrine()->getManager();
+      $prestation = new Prestation();
+      $form = $this->get('form.factory')->create(PrestationType::class, $prestation);
+      if ($request->isMethod('POST')) {
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+          $em->persist($prestation);
+          $em->flush();
+          return $this->redirectToRoute('yb_ixina_newNote');
+        }
+      }
+      return $this->render('YBIxinaBundle:Note:formprestation.html.twig', array('form' => $form->createView()));
+   }
+
+   public function listeprestationAction()
+   {
+    $em = $this->getDoctrine()->getManager();
+    $prestations = $em->getRepository('YBIxinaBundle:Prestation')->findAllByDate();
+    // définition de la limite alertes 
+    $dateToday = new \dateTime('now');
+    $dateTodayFormat = $dateToday->format('y-m-d');
+    $todayTstp = strtotime($dateTodayFormat);
+    $oneDayTstp = 86400;
+    $twoMonth = $oneDayTstp * 60;
+    $twoWeek = $oneDayTstp * 15;
+
+
+    return $this->render('YBIxinaBundle:Note:consultprestation.html.twig', array('prestations' => $prestations, 
+                                                                                'today' => $todayTstp,
+                                                                                'deuxMois' => $twoMonth,
+                                                                                'deuxSemaine' => $twoWeek ));
+   }
+
+   public function modifprestationAction(Request $request, $id)
+   {
+      $em = $this->getDoctrine()->getManager();
+      $prestation = $em->getRepository('YBIxinaBundle:Prestation')->find($id);
+      $form = $this->get('form.factory')->create(PrestationType::class, $prestation);
+      if ($request->isMethod('POST')) {
+          $form->handleRequest($request);
+          if ($form->isValid()) {
+              $em->persist($prestation);
+              $em->flush();
+              return $this->redirectToRoute('yb_ixina_listePrestation');
+          }
+      }
+      return $this->render('YBIxinaBundle:Note:formprestation.html.twig', array('form' => $form->createView(),
+                                                                                'prestation' => $prestation));
+
+   }
+
+   public function suppprestatationAction($id)
+   {
+      $em = $this->getDoctrine()->getManager();
+      $prestation = $em->getRepository('YBIxinaBundle:Prestation')->find($id);
+      $em->remove($prestation);
+      $em->flush();
+      return $this->redirectToRoute('yb_ixina_listePrestation');
+   }
+
 }

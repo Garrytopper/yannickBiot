@@ -261,9 +261,9 @@ class Customer
     /**
      * @var bool
      *
-     * @ORM\Column(name="granite", type="boolean", nullable=true)
+     * @ORM\Column(name="prestation", type="boolean", nullable=true)
      */
-    private $granite;
+    private $prestation;
 
     /**
      * @var string
@@ -1856,27 +1856,27 @@ class Customer
     }
 
     /**
-     * Set granite
+     * Set prestation
      *
-     * @param boolean $granite
+     * @param boolean $prestation
      *
      * @return Customer
      */
-    public function setGranite($granite)
+    public function setPrestation($prestation)
     {
-        $this->granite = $granite;
+        $this->prestation = $prestation;
 
         return $this;
     }
 
     /**
-     * Get granite
+     * Get prestation
      *
      * @return boolean
      */
-    public function getGranite()
+    public function getPrestation()
     {
-        return $this->granite;
+        return $this->prestation;
     }
 
     /**

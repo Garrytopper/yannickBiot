@@ -70,7 +70,7 @@ class CustomerType extends AbstractType
                         'Aide pose' => 'Aide pose',
                         'Pose' => 'Pose')))
                 ->add('autre', CheckboxType::class, array('required' => false))
-                ->add('granite', CheckboxType::class, array('required' => false))
+                ->add('prestation', CheckboxType::class, array('required' => false))
                 ->add('dateProchaineAction', DateType::class)
                 ->add('action', ChoiceType::class, array(
                     'choices' => array(

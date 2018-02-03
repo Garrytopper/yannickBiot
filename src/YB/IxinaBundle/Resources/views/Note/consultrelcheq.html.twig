@@ -13,6 +13,7 @@
 
 {% block bloc %}
     <div id="blocNote">
+        <div id="hautpage"></div>
         <div id="contenant">
             {% if relances != null %}
                     {% for relance in relances %}
@@ -29,6 +30,10 @@
             {% else %}
                 <p>Pas de relance de chèque</p>
             {% endif %}
+        </div>
+        <div id="baspage">
+            <div id="texte">Liste Relances Cheques</div>
+            <a id="iconeNavigation" href="{{ path('yb_ixina_newRelCheq') }}"></a>
         </div>
     </div>
 {% endblock %}

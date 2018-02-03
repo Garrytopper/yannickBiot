@@ -14,16 +14,23 @@
 {% block bloc %}
     {{ form_start(form) }}
     <div id="blocNote">
-        <div id="nomClient">
-            <div>{{ form_row(form.nom) }} {{ form_widget(form.typeFacture) }}</div>
+        <div id="hautpage"></div>
+        <div id="contenant">
+            <div id="nomClient">
+                <div>{{ form_row(form.nom) }} {{ form_widget(form.typeFacture) }}</div>
+            </div>
+            <div>
+                {{ form_widget(form.Enregistrer) }}
+            </div>
+            {% if id is defined %}
+                <a href="{{ path('yb_ixina_relsupp', {'id': id}) }}">!! Supprimer !!</a>
+            {% endif %}
+            <div style="display: none">{{ form_rest(form) }}</div>  
         </div>
-        <div>
-            {{ form_widget(form.Enregistrer) }}
+        <div id="baspage">
+            <div id="texte"></div>
+            <div id="iconeNavigation"></div>
         </div>
-        {% if id is defined %}
-            <a href="{{ path('yb_ixina_relsupp', {'id': id}) }}">!! Supprimer !!</a>
-        {% endif %}
-        <div style="display: none">{{ form_rest(form) }}</div>          
     </div>
     {{ form_end(form) }}
 {% endblock %}

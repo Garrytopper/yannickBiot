@@ -11,6 +11,8 @@
 
 {% block bloc %}
 {{ form_start(form) }}
+<div style="color: red;">{{ form_errors(form) }}</div>
+<div style="color: red;">{{ form_errors(form2) }}</div>
     <div id="contenant">
         <div id="formVente">
             <div class="row">
@@ -114,13 +116,20 @@
                 <div>{{ form_row(form2.dateRelance) }}</div>
                 
             </div>
-            <div class="row">
+            <div class="row" id="prestation">
                 <div class="formSuiviG">
-                    {{ form_label(form.granite, 'Plan W granite') }}
+                    {{ form_label(form.prestation, 'Prestation') }}
                 </div>
                 <div class="formSuiviD">
-                    {{ form_widget(form.granite) }}
+                    {{ form_widget(form.prestation) }}
                 </div>
+            </div>
+            <div id="champPrestation">
+                <div id="identifiant">
+                    <div id="fournisseur">{{ form_widget(form3.fournisseur) }}</div>
+                    <div id="produit">{{ form_widget(form3.produit) }}</div>
+                </div>
+                <div id="finitions">{{ form_widget(form3.finitions) }}</div>
             </div>
             <div class="row">
                  {{ form_widget(form.Enregistrer) }}

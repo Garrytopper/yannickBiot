@@ -18,6 +18,7 @@ class IxinaController extends Controller
         $relChequeRepository = $em->getRepository('YBIxinaBundle:RelCheque');
         $plansRepository = $em->getRepository('YBIxinaBundle:Plantech');
         $facturesRepository = $em->getRepository('YBIxinaBundle:Facturation');
+        $prestationRepository = $em->getRepository('YBIxinaBundle:Prestation');
         
         $today = new \dateTime('now');
         $today = $today->format('y-m-d');
@@ -63,6 +64,10 @@ class IxinaController extends Controller
                 $alertePreparation = 'Rouge';
             }
         }
+        else{
+            $datePreparationTstp = null;
+            $diffDatePreparation = null;
+        }
         /* récupération des relances de chèque à faire à partir d'aujourd'hui */
         $relancesCheque = $relChequeRepository->relanceToday();
         $nbrRelanceCheque = count($relancesCheque);
@@ -75,6 +80,30 @@ class IxinaController extends Controller
         $factures = $facturesRepository->findAll();
         $nbrFactures = count($factures);
 
+        /* récupération des prestations de service et tri en fonction de l'action */
+        $twoMonth = $oneDayTstp * 60;
+        $twoWeek = $oneDayTstp * 15;
+        $nbrValidation = 0;
+        $nbrRappel = 0;
+        $nbrPlanif = 0;
+        $prestations = $prestationRepository->findAllByDate();
+        foreach ($prestations as $prestation) {
+            $datelivTstp = $prestation->getTimeDateLiv();
+            $rappel = $prestation->getRappel();
+            $valide = $prestation->getValidation();
+            $planif = $prestation->getPlanif();
+            if ($valide == false) {
+                $nbrValidation ++;
+            }
+            if (($datelivTstp - $todayTstp < $twoMonth) and $rappel == false ) {
+                $nbrRappel ++;
+            }
+            if (($datelivTstp - $todayTstp < $twoWeek) and $planif == false){
+                $nbrPlanif ++;
+            }
+
+        }
+
         return $this->render('YBIxinaBundle::ixinaHome.html.twig', array('clientsToday' => $clientsToday, 
                                                                         'nbrClientDessin' => $nbrClientDessin, 
                                                                         'nbrClientsPreparer' => $nbrClientPreparer,
@@ -85,7 +114,10 @@ class IxinaController extends Controller
                                                                         'datePreparTSP' => $datePreparationTstp,
                                                                         'today' => $todayTstp,
                                                                         'diff' => $diffDatePreparation,
-                                                                        'nbrFactures' => $nbrFactures
+                                                                        'nbrFactures' => $nbrFactures,
+                                                                        'nbrValidation' => $nbrValidation,
+                                                                        'nbrRappel' => $nbrRappel,
+                                                                        'nbrPlanif' => $nbrPlanif
                                                                         ));
     }
 }

@@ -24,7 +24,7 @@ class RelChequeType extends AbstractType
                 ->add('email', TextType::class, array('required' => false))
                 ->add('montant', MoneyType::class, array('attr' => array('style' => 'width: 80px')))
                 ->add('nomCheque', TextType::class, array('required' => false))
-                ->add('origine', TextareaType::class, array('attr' => array('rows' => '10', 'cols' => '30')))
+                ->add('origine', TextareaType::class, array('attr' => array('rows' => '5', 'cols' => '30')))
                 ->add('dateRelance', DateType::class)
                 ->add('Enregister', SubmitType::class, array('attr' => array('style' => 'width: 120px; height: 30px; font-size: 1.2em;')));
     }/**

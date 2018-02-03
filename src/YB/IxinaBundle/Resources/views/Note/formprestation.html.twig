@@ -1,0 +1,76 @@
+{% extends "YBIxinaBundle::ixinaHome.html.twig" %}
+
+{% block css %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/formprestation.css') }}">
+{% endblock %}
+
+{% block barreIcone %}
+    <a id="iconeClientAjouter" href="{{ path('yb_ixina_newCustomer', {origine: 'new' }) }}"></a>
+    <a id="iconeTacheFermer" href="{{ path('yb_ixina_homepage') }}"></a>
+    <a id="iconeTableauConsulter" href="{{ path('yb_ixina_tableau') }}"></a>
+{% endblock %}
+
+{% block bloc %}
+    {{ form_start(form) }}
+    <div id="blocNote">
+        <div id="hautpage"></div>
+        <div id="contenant">
+            <div id="row1">
+                <div id="produit">
+                    <div>{{ form_widget(form.fournisseur) }}</div>
+                    <div>{{ form_widget(form.produit) }}</div>
+                </div>
+                <div class="tampon"></div>
+                <div id="client">
+                    {{ form_widget(form.client) }}
+                </div>
+            </div>
+            <div id="row2">
+                <div id="finition">
+                    {{ form_widget(form.finitions) }}
+                </div>
+                <div id="plan">
+                    {{ form_widget(form.plan) }}
+                </div>
+            </div>
+            <div id="row3">
+                <div id="validation">
+                    <div class="miniRow">
+                        <div class="gauche">{{ form_label(form.devisSigne, 'Devis signé') }}</div>
+                        <div class="droite">{{ form_widget(form.devisSigne) }}</div>
+                    </div>
+                    <div class="miniRow">
+                        <div class="gauche">{{ form_label(form.validation, 'Devis validé') }}</div>
+                        <div class="droite">{{ form_widget(form.validation) }}</div>
+                    </div>
+                </div>
+                <div id="planification">
+                    <div class="miniRow">
+                        <div class="gauche">{{ form_label(form.rappel, 'Rappel fait') }}</div>
+                        <div class="droite">{{ form_widget(form.rappel) }}</div>
+                    </div>
+                    <div class="miniRow">
+                        <div class="gauche">{{ form_label(form.planif, 'Date planifié') }}</div>
+                        <div class="droite">{{ form_widget(form.planif) }}</div>
+                    </div>
+                </div>
+            </div>
+            <div id="enregistrer">{{ form_widget(form.enregistrer) }} </div>
+            <div>
+                {% if prestation is defined %}
+                    <a href="{{ path('yb_ixina_prestationsupprimer', {id: prestation.id}) }}"><div style="color: red;">!! Supprimer !!</div></a>
+                {% endif %}
+                <div style="display: none;">{{ form_rest(form) }}</div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+        <div id="baspage">
+            <div id="texte">Nouvelle Prestation</div>
+            <a id="iconeNavigation" href="{{ path('yb_ixina_listePrestation') }}"></a>
+        </div>
+{% endblock %}
+
+{% block javaScript %}
+{{ parent() }}
+{% endblock %}

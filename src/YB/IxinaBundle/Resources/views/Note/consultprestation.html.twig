@@ -1,0 +1,46 @@
+{% extends "YBIxinaBundle::ixinaHome.html.twig" %}
+
+{% block css %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/consultPrestation.css') }}">
+{% endblock %}
+
+{% block barreIcone %}
+    <a id="iconeClientAjouter" href="{{ path('yb_ixina_newCustomer', {origine: 'new' }) }}"></a>
+    <a id="iconeTacheFermer" href="{{ path('yb_ixina_homepage') }}"></a>
+    <a id="iconeTableauConsulter" href="{{ path('yb_ixina_tableau') }}"></a>
+{% endblock %}
+
+{% block bloc %}
+    <div id="blocNote">
+        <div id="hautpage"></div>
+        <div id="contenant">
+            {% for prestation in prestations %}
+                <div class="row">
+                    <a href="{{ path('yb_ixina_modifPrestation', {id: prestation.id}) }}"><div class="fournisseur">{{ prestation.fournisseur }}</div></a>
+                    <div class="validation  {% if prestation.validation == false %}iconeValide{% endif %}
+                                            {% if prestation.validation == true %}iconeValideValide{% endif %}
+                                            
+                                            
+                    "></div>
+                    <div class="rappel  {% if (prestation.timeDateLiv - today) < deuxMois and prestation.rappel == false %}iconeRappel{% endif %}
+                                        {% if (prestation.timeDateLiv - today) < deuxMois and prestation.rappel == true %}iconeRappelValide{% endif %}
+                    "></div>
+                    <div class="planification   {% if  (prestation.timeDateLiv - today) < deuxSemaine and prestation.planif == false %}iconePlanification{% endif %}
+                                                {% if  (prestation.timeDateLiv - today) < deuxSemaine and prestation.planif == true %}iconePlanificationValide{% endif %}
+                    "></div>
+                    <div class="date">{{ prestation.client.dateLivSouhaite|date('m/y') }}</div>
+                    <a href="{{ path('yb_ixina_modifCustomer', {id: prestation.client.id, origine: 'prestation'}) }}"><div class="nom">{{ prestation.client.nom }}</div></a>
+                </div>
+            {% endfor %}
+        </div>
+        <div id="baspage">
+            <div id="texte">Liste Prestations</div>
+            <a id="iconeNavigation" href="{{ path('yb_ixina_newPrestation') }}"></a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javaScript %}
+{{ parent() }}
+{% endblock %}

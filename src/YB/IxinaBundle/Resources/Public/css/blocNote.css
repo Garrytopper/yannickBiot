@@ -20,11 +20,38 @@
         height: 75px;
     }
 
-        #iconeRelChequeAjouter
+        #iconeRelChequeConsulter
         {
             height: 50px;
             width: 50px;
-            background-image: url('../images/iconeRelChequeAjouter.png');
+            background-image: url('../images/GrdIconeRelanceCheque.png');
+            background-size: 50px 50px;
+            margin-right: 10px;
+        }
+
+        #iconePlanConsulter
+        {
+            height: 50px;
+            width: 50px;
+            background-image: url('../images/GrdIconePlanTechnique.png');
+            background-size: 50px 50px;
+            margin-right: 10px;
+        }
+
+        #iconeFactureConsulter
+        {
+            height: 50px;
+            width: 50px;
+            background-image: url('../images/GrdIconeFacture.png');
+            background-size: 50px 50px;
+            margin-right: 10px;
+        }
+
+        #iconePrestationConsulter
+        {
+            height: 50px;
+            width: 50px;
+            background-image: url('../images/GrdIconePrestation.png');
             background-size: 50px 50px;
             margin-right: 10px;
         }
