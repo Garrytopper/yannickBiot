@@ -96,9 +96,9 @@ class CustomerController extends Controller
         $form2 = $formBuilder->getForm();
         $prestation = new Prestation();
         $formBuilder2 = $this->get('form.factory')->createBuilder(FormType::class, $prestation);
-        $formBuilder2->add('finitions', TextareaType::class, array('attr' => array('cols' => 18, 'rows' => 8)))
-                    ->add('produit', TextType::class, array('attr' => array('style' => 'height: 45px;')))
-                    ->add('fournisseur', ChoiceType::class, array('choices' => array(
+        $formBuilder2->add('finitions', TextareaType::class, array('required' => false, 'attr' => array('cols' => 18, 'rows' => 8)))
+                    ->add('produit', TextType::class, array('required' => false, 'attr' => array('style' => 'height: 45px;')))
+                    ->add('fournisseur', ChoiceType::class, array('required' => false, 'choices' => array(
                         'Aztiria' => 'Aztiria',
                         'Lechner' => 'Lechner',
                         'MiraLuver' => 'MiraLuver')

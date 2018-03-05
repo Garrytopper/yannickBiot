@@ -13,20 +13,21 @@
 {{ form_start(form) }}
 <div style="color: red;">{{ form_errors(form) }}</div>
 <div style="color: red;">{{ form_errors(form2) }}</div>
+<div style="color: red;">{{ form_errors(form3) }}</div>
     <div id="contenant">
         <div id="formVente">
             <div class="row">
-                <div class="Gauche">{{ form_label(form.montantVenteTTC, 'Total TTC') }}</div>
+                <div class="Gauche">{{ form_label(form.montantVenteTTC, 'Total TTC') }}{{ form_errors(form.montantVenteTTC) }}</div>
                 <div class="Droite">{{ form_widget(form.montantVenteTTC) }}</div>
             </div>
             <div class="row">
-                <div class="Gauche">{{ form_label(form.montantAcompte, 'Acompte') }}</div>
+                <div class="Gauche">{{ form_label(form.montantAcompte, 'Acompte') }}{{ form_errors(form.montantAcompte) }}</div>
                 <div class="Droite">{{ form_widget(form.montantAcompte) }}</div>
             </div>
             <div class="row"></div>
             <div class="row"></div>
             <div class="row" style="text-align: center;">
-                {{ form_label(form.dateLivSouhaite, 'Date de livraison') }}
+                {{ form_label(form.dateLivSouhaite, 'Date de livraison') }}{{ form_errors(form.dateLivSouhaite) }}
             </div>
             <div class="row" style="text-align: center;">
                 {{ form_widget(form.dateLivSouhaite) }}
@@ -37,21 +38,21 @@
         <div id="formVerif">
             <fieldset>
                 <legend>Adresse livraison</legend>
-                    <div class="row">{{ form_widget(form.livAd1) }}</div>
-                    <div class="row">{{ form_widget(form.livAd2) }}</div>
+                    <div class="row">{{ form_widget(form.livAd1) }}{{ form_errors(form.livAd1) }}</div>
+                    <div class="row">{{ form_widget(form.livAd2) }}{{ form_errors(form.livAd2) }}</div>
                 <div class="row">
-                    {{ form_widget(form.livCp) }}
-                    {{ form_widget(form.livVille) }}
+                    {{ form_widget(form.livCp) }}{{ form_errors(form.livCp) }}
+                    {{ form_widget(form.livVille) }}{{ form_errors(form.livVille) }}
                 </div>
             </fieldset>
             <fieldset>
                 <legend>Contact</legend>
                 <div class="row">
-                    <div class="Gauche">{{ form_label(form.numTel, 'Tel') }}</div>
+                    <div class="Gauche">{{ form_label(form.numTel, 'Tel') }}{{ form_errors(form.numTel) }}</div>
                     <div class="Droite">{{ form_widget(form.numTel) }}</div>
                 </div>
                 <div class="row">
-                    <div class="Gauche">{{ form_label(form.email, 'Email') }}</div>
+                    <div class="Gauche">{{ form_label(form.email, 'Email') }}{{ form_errors(form.email) }}</div>
                     <div class="Droite">{{ form_widget(form.email) }}</div>
                 </div>
             </fieldset>
@@ -59,7 +60,7 @@
                 <legend>Prestation</legend>
                 <div class="row">
                     <div class="Gauche">
-                        <div>{{ form_label(form.renovation, 'Réno.') }}</div>
+                        <div>{{ form_label(form.renovation, 'Réno.') }}{{ form_errors(form.renovation) }}</div>
                         <div>{{ form_widget(form.renovation) }}</div>
                     </div>
                     <div class="Droite">
@@ -68,11 +69,11 @@
                 </div>
                 <div class="row">
                     <div class="Gauche">
-                        <div>{{ form_label(form.liv, 'Liv.') }}</div>
+                        <div>{{ form_label(form.liv, 'Liv.') }}{{ form_errors(form.liv) }}</div>
                         <div>{{ form_widget(form.liv) }}</div>
                     </div>
                     <div class="Droite">
-                        {{ form_widget(form.pose) }}
+                        {{ form_widget(form.pose) }}{{ form_errors(form.pose) }}
                     </div>
                 </div>
             </fieldset>
@@ -82,7 +83,7 @@
         <div id="formSuivi">
             <div class="row">
                 <div class="formSuiviG">
-                    {{ form_label(form.fairePlanTech, 'Plan technique') }}
+                    {{ form_label(form.fairePlanTech, 'Plan technique') }}{{ form_errors(form.fairePlanTech) }}
                 </div>
                 <div class="formSuiviD">
                     {{ form_widget(form.fairePlanTech) }}
@@ -90,7 +91,7 @@
             </div>
             <div class="row">
                 <div class="formSuiviG">
-                    {{ form_label(form.faireFactureAcompte, 'Facture Acompte') }}
+                    {{ form_label(form.faireFactureAcompte, 'Facture Acompte') }}{{ form_errors(form.faireFactureAcompte) }}
                 </div>
                 <div class="formSuiviD">
                     {{ form_widget(form.faireFactureAcompte) }}
@@ -98,7 +99,7 @@
             </div>
             <div class="row" id="relCheque">
                 <div class="formSuiviG">
-                    {{ form_label(form.faireRelanceCheque, 'Relance chèque') }}
+                    {{ form_label(form.faireRelanceCheque, 'Relance chèque') }}{{ form_errors(form.faireRelanceCheque) }}
                 </div>
                 <div class="formSuiviD">
                     {{ form_widget(form.faireRelanceCheque) }}
@@ -106,11 +107,11 @@
             </div>
             <div id="champRelCheque">
                 <div>
-                    <div>{{ form_label(form2.montant, 'Montant') }}</div>
+                    <div>{{ form_label(form2.montant, 'Montant') }}{{ form_errors(form2.montant) }}</div>
                     <div>{{ form_widget(form2.montant) }}</div>
                 </div>
                 <div>
-                    <div>{{ form_label(form2.nomCheque, 'Nom') }}</div>
+                    <div>{{ form_label(form2.nomCheque, 'Nom') }}{{ form_errors(form2.nomCheque) }}</div>
                     <div>{{ form_widget(form2.nomCheque) }}</div>
                 </div>
                 <div>{{ form_row(form2.dateRelance) }}</div>
@@ -118,7 +119,7 @@
             </div>
             <div class="row" id="prestation">
                 <div class="formSuiviG">
-                    {{ form_label(form.prestation, 'Prestation') }}
+                    {{ form_label(form.prestation, 'Prestation') }}{{ form_errors(form.prestation) }}
                 </div>
                 <div class="formSuiviD">
                     {{ form_widget(form.prestation) }}
@@ -126,10 +127,10 @@
             </div>
             <div id="champPrestation">
                 <div id="identifiant">
-                    <div id="fournisseur">{{ form_widget(form3.fournisseur) }}</div>
-                    <div id="produit">{{ form_widget(form3.produit) }}</div>
+                    <div id="fournisseur">{{ form_widget(form3.fournisseur) }}{{ form_errors(form3.fournisseur) }}</div>
+                    <div id="produit">{{ form_widget(form3.produit) }}{{ form_errors(form3.produit) }}</div>
                 </div>
-                <div id="finitions">{{ form_widget(form3.finitions) }}</div>
+                <div id="finitions">{{ form_widget(form3.finitions) }}{{ form_errors(form3.finitions) }}</div>
             </div>
             <div class="row">
                  {{ form_widget(form.Enregistrer) }}
