@@ -8,24 +8,284 @@
     background-size: 1101px 669px;
     display: flex;
     z-index: 10;
+    border: solid red;
+    justify-content: center;
+    align-items: center;
 }
 
 /* partie page Gauche */
 
 #pageGauche
 {
-    height: 660px;
-    width: 480px;
+    
+    height: 600px;
+    width: 450px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    border: solid black;
+    margin-right: 15px;
 }
+
+     #bloc1G
+    {
+        border: solid white;
+        height: 25px;
+        display: flex;
+        justify-content: space-between;
+    }
+       
+    #bloc2G
+    {
+        border: solid white;
+        height: 150px;
+        display: flex;
+        justify-content: space-between ;
+        
+        
+    }
+
+        #plan
+        {
+            border: solid black;
+            border-radius: 10px;
+            width: 48%;
+            height: 96%;
+        }
+
+        #perspective
+        {
+            border: solid black;
+            border-radius: 10px;
+            width: 48%;
+            height: 96%;
+        }
+
+    #bloc3G
+    {
+        border: solid white;
+        height: 125px;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .rowBloc3
+        {
+            width: 100%;
+            height: 50%;
+            border: solid black;
+            display: flex;
+        }
+            .colBloc3
+            {
+                flex: 1;
+                height: 98%;
+                border: solid black;
+                display: flex;
+            }
+                .iconeBloc3
+                {
+                    height: 90%;
+                    width: 50px;
+                    border: solid green;
+                }
+
+                .texteBloc3
+                {
+                    height: 90%;
+                    flex: 1;
+                    border: solid yellow ;
+                }
+
+    #bloc4G
+    {
+        border: solid white;
+        height: 260px;
+        width: 100%;
+       
+        border-radius: 30px;
+        background-color: white;
+        display: flex;
+    }
+
+        #soncas
+        {
+            height: 96%;
+            width: 33%;
+            border: solid black;
+        }
+
+        #cab
+        {
+            height: 96%;
+            flex: 1;
+            border: solid black;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .rowBloc4
+            {
+                height: 18%;
+                width: 98%;
+                border: solid red;
+                display: flex;
+            }
+
+                .iconeBloc4
+                {
+                    height: 96%;
+                    width: 50px;
+                    border: solid yellow ;
+                }
+
+                .texteBloc4
+                {
+                    height: 96%%;
+                    flex: 1;
+                    border: solid green;
+                }
 
 /* partie page Droite */
 
 #pageDroite
 {
-    height: 660px;
+    height: 600px;
     width: 500px;
+    border: solid green;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
 }
+
+    #bloc1D
+    {
+        border: solid black;
+        height: 70px;
+        display: flex;
+    }
+
+        #logoClient
+        {
+            height: 96%;
+            width: 75px;
+            border: solid black;
+        }
+
+        #blocTexteBloc1D
+        {
+            height: 96%;
+            flex: 1;
+            border: solid black;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .rowBloc1D
+            {
+                height: 96%;
+                height: 49%;
+                border: solid yellow;
+            }
+
+    #bloc2D
+    {
+        border: solid black;
+        height: 105px;
+        display: flex;
+    }
+
+    .rowBloc2D
+    {
+        height: 32%;
+        width: 100%;
+        display: flex;
+        border: solid maroon;
+    }
+
+        #coordClient
+        {
+            width: 60%;
+            height: 96%;
+            border: solid black;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        #adressClient
+        {
+            flex: 1;
+            height: 96%;
+            border: solid black;
+            display: flex;
+            flex-direction: column;
+        }
+
+    #bloc3D
+    {
+        border: solid black;
+        height: 180px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .section3D
+        {
+            width: 30%;
+            height: 98%;
+            border: solid black;
+            border-radius: 30px;
+        }
+
+    #bloc4D
+    {
+        border: solid black;
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .section4D
+        {
+            width: 30%;
+            height: 96%;
+            border: solid black;
+            display: flex;
+        }
+
+            .iconeBloc4D
+            {
+                width: 50px;
+                height: 96%;
+                border: solid red;
+            }
+
+            .textBloc4D
+            {
+                flex: 1;
+                height: 96%;
+                border: solid green;
+            }
+
+    #bloc5D
+    {
+        border: solid black;
+        height: 140px;
+        margin-bottom: 15px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
