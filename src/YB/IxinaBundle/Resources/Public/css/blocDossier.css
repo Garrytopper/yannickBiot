@@ -51,6 +51,9 @@
             border-radius: 10px;
             width: 48%;
             height: 96%;
+            background-image: url("../images/planVide.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
         }
 
         #perspective
@@ -59,6 +62,9 @@
             border-radius: 10px;
             width: 48%;
             height: 96%;
+            background-image: url("../images/perspectiveVide.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
         }
 
     #bloc3G
@@ -139,6 +145,46 @@
                     border: solid yellow ;
                 }
 
+                     #iconeMeuble
+                     {
+                        background-image: url("../images/meubleLogo.png");
+                        background-size: 80%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                     }
+
+                     #iconeElectro
+                     {
+                        background-image: url("../images/electroLogo.png");
+                        background-size: 80%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                     }
+
+                     #iconePrestation
+                     {
+                        background-image: url("../images/prestationLogo.png");
+                        background-size: 80%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                     }
+
+                     #iconeMoi
+                     {
+                        background-image: url("../images/moiLogo.png");
+                        background-size: 80%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                     }
+
+                     #iconeStyle
+                     {
+                        background-image: url("../images/styleLogo.png");
+                        background-size: 80%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                     }
+
                 .texteBloc4
                 {
                     height: 96%%;
@@ -171,6 +217,8 @@
             height: 96%;
             width: 75px;
             border: solid black;
+            background-image: url("../images/clientLogo.png");
+            background-size: 100% 100%;
         }
 
         #blocTexteBloc1D
@@ -258,14 +306,38 @@
             .iconeBloc4D
             {
                 width: 50px;
-                height: 96%;
+                height: 94%;
                 border: solid red;
             }
+
+                #iconeLivraison
+                {
+                    background-image: url("../images/livraisonLogo.png");
+                    background-size: 80% 80%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+                #iconeBudget
+                {
+                    background-image: url("../images/budgetLogo.png");
+                    background-size: 80% 80%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+                #iconeNext
+                {
+                    background-image: url("../images/nextLogo.png");
+                    background-size: 80% 80%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
 
             .textBloc4D
             {
                 flex: 1;
-                height: 96%;
+                height: 94%;
                 border: solid green;
             }
 
