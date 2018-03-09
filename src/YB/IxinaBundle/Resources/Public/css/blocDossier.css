@@ -8,7 +8,6 @@
     background-size: 1101px 669px;
     display: flex;
     z-index: 10;
-    border: solid red;
     justify-content: center;
     align-items: center;
 }
@@ -23,21 +22,20 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: solid black;
     margin-right: 15px;
 }
 
      #bloc1G
     {
-        border: solid white;
         height: 25px;
+        font-size: 1.5em;
+        font-weight: bold;
         display: flex;
         justify-content: space-between;
     }
        
     #bloc2G
     {
-        border: solid white;
         height: 150px;
         display: flex;
         justify-content: space-between ;
@@ -47,7 +45,6 @@
 
         #plan
         {
-            border: solid black;
             border-radius: 10px;
             width: 48%;
             height: 96%;
@@ -58,7 +55,6 @@
 
         #perspective
         {
-            border: solid black;
             border-radius: 10px;
             width: 48%;
             height: 96%;
@@ -69,7 +65,6 @@
 
     #bloc3G
     {
-        border: solid white;
         height: 125px;
         display: flex;
         flex-direction: column;
@@ -79,36 +74,71 @@
         {
             width: 100%;
             height: 50%;
-            border: solid black;
             display: flex;
         }
             .colBloc3
             {
                 flex: 1;
                 height: 98%;
-                border: solid black;
                 display: flex;
             }
                 .iconeBloc3
                 {
                     height: 90%;
                     width: 50px;
-                    border: solid green;
                 }
+
+                    #iconeConcurrence
+                    {
+                        background-image: url("../images/concurrenceLogo.png");
+                        background-size: 80%;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+
+                    #iconeDifference
+                    {
+                        background-image: url("../images/differenceLogo.png");
+                        background-size: 80%;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+
+                    #iconeMotivation
+                    {
+                        background-image: url("../images/motivationLogo.png");
+                        background-size: 80%;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+
+                    #iconeDateDecision
+                    {
+                        background-image: url("../images/dateDecisionLogo.png");
+                        background-size: 80%;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
 
                 .texteBloc3
                 {
                     height: 90%;
                     flex: 1;
-                    border: solid yellow ;
+                    text-align: center;
+                    overflow: scroll;
+                    display: flex;
+                }
+
+                .texteBloc3 div
+                {
+                    margin: auto;
+                    font-size: 0.8em;
                 }
 
     #bloc4G
     {
-        border: solid white;
         height: 260px;
         width: 100%;
-       
         border-radius: 30px;
         background-color: white;
         display: flex;
@@ -118,23 +148,32 @@
         {
             height: 96%;
             width: 33%;
-            border: solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 1.3em;
+            font-weight: bold;
         }
+
+            #soncas div
+            {
+                padding-left: 15%;
+                margin-top: 10%;
+            }
 
         #cab
         {
             height: 96%;
             flex: 1;
-            border: solid black;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
         }
 
             .rowBloc4
             {
                 height: 18%;
                 width: 98%;
-                border: solid red;
                 display: flex;
             }
 
@@ -142,7 +181,6 @@
                 {
                     height: 96%;
                     width: 50px;
-                    border: solid yellow ;
                 }
 
                      #iconeMeuble
@@ -189,8 +227,16 @@
                 {
                     height: 96%%;
                     flex: 1;
-                    border: solid green;
+                    overflow: scroll;
+                    display: flex;
+                    padding-left: 15px;
                 }
+                    
+                    .texteBloc4 div
+                    {
+                        margin: auto;
+                        font-size: 0.8em;
+                    }
 
 /* partie page Droite */
 
@@ -198,7 +244,6 @@
 {
     height: 600px;
     width: 500px;
-    border: solid green;
     margin-right: 10px;
     display: flex;
     flex-direction: column;
@@ -207,16 +252,32 @@
 
     #bloc1D
     {
-        border: solid black;
         height: 70px;
         display: flex;
     }
+        #etatClient
+        {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: rgb(1, 73, 147); 
+        }
+
+        #identiteClient
+        {
+            font-size: 1.4em;
+            color: orange;
+            font-weight: bold;
+        }
+
+        #dateCreation
+        {
+            font-weight: bold;
+        }
 
         #logoClient
         {
             height: 96%;
             width: 75px;
-            border: solid black;
             background-image: url("../images/clientLogo.png");
             background-size: 100% 100%;
         }
@@ -225,7 +286,6 @@
         {
             height: 96%;
             flex: 1;
-            border: solid black;
             display: flex;
             flex-direction: column;
         }
@@ -234,14 +294,14 @@
             {
                 height: 96%;
                 height: 49%;
-                border: solid yellow;
+                padding-left: 15px;
             }
 
     #bloc2D
     {
-        border: solid black;
         height: 105px;
         display: flex;
+        line-height: 30px;
     }
 
     .rowBloc2D
@@ -249,31 +309,82 @@
         height: 32%;
         width: 100%;
         display: flex;
-        border: solid maroon;
+         overflow: scroll;
     }
+
+        .iconeBloc2D
+        {
+            width: 30px;
+            
+        }
+
+            #iconeTelephone
+            {
+                background-image: url("../images/telephoneLogo.png");
+                background-size: 70% 70%;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            #iconeEmail
+            {
+                background-image: url("../images/emailLogo.png");
+                background-size: 70% 70%;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            #iconeAutre
+            {
+                background-image: url("../images/autreLogo.png");
+                background-size: 70% 70%;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+        .texteBloc2D
+        {
+            padding-left: 10px;
+            overflow: scroll;
+        }
 
         #coordClient
         {
             width: 60%;
             height: 96%;
-            border: solid black;
             display: flex;
             flex-direction: column;
         }
 
+        #iconeLocalisation
+        {
+            background-image: url("../images/localisationLogo.png");
+            background-size: 20px 20px;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 20px;
+            height: 20px;
+            position: relative ;
+            top: 70px;
+            right: 5px;
+        }
 
         #adressClient
         {
             flex: 1;
             height: 96%;
-            border: solid black;
             display: flex;
             flex-direction: column;
+            color: rgb(1, 73, 147); 
+            border-left: solid;
+            padding-left: 15px;
+            font-weight: bold;
+            font-size: 0.9em;
+           
         }
 
     #bloc3D
     {
-        border: solid black;
         height: 180px;
         display: flex;
         justify-content: space-between;
@@ -283,13 +394,21 @@
         {
             width: 30%;
             height: 98%;
-            border: solid black;
             border-radius: 30px;
+            border: solid black;
+            display: flex;
+            font-size: 0.8em;
         }
+
+            .section3D div
+            {
+                margin: auto;
+                width: 75%;
+                overflow: scroll;
+            }
 
     #bloc4D
     {
-        border: solid black;
         height: 50px;
         display: flex;
         justify-content: space-between;
@@ -299,7 +418,6 @@
         {
             width: 30%;
             height: 96%;
-            border: solid black;
             display: flex;
         }
 
@@ -307,7 +425,6 @@
             {
                 width: 50px;
                 height: 94%;
-                border: solid red;
             }
 
                 #iconeLivraison
@@ -334,30 +451,39 @@
                     background-position: center;
                 }
 
-            .textBloc4D
+            .texteBloc4D
             {
                 flex: 1;
                 height: 94%;
-                border: solid green;
+                display: flex;
             }
+
+                .texteBloc4D div
+                {
+                    margin: auto;
+                }
+
+                    #nextRDV
+                    {
+                        background-color: white;
+                    }
 
     #bloc5D
     {
         border: solid black;
         height: 140px;
         margin-bottom: 15px;
+        font-size: 0.8em;
+        display: flex;
+        background-color: white;
     }
 
-
-
-
-
-
-
-
-
-
-
+        #bloc5D div
+        {
+            width: 90%;
+            height: 90%;
+            margin: auto;
+        }
 
 
 
