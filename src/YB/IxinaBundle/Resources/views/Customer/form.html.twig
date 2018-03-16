@@ -13,7 +13,9 @@
 
 {% block bloc %}
 {{ form_start(form) }}
+
 <div id="blocDossier">
+        <!-- Dossier visible -->
             <!-- page de gauche -->
             <div id="pageGauche">
                 <div id="bloc1G">Rénovation</div>
@@ -104,15 +106,15 @@
                 <div id="bloc2D">
                     <div id="coordClient">
                         <div class="rowBloc2D">
-                            <div id="iconeTelephone" class="iconeBloc2D"></div>
+                            <div class="iconeBloc2D iconeTelephone"></div>
                             <div class="texteBloc2D">06.10.32.77.02</div>
                         </div>
                         <div class="rowBloc2D">
-                            <div id="iconeEmail" class="iconeBloc2D"></div>
+                            <div class="iconeBloc2D iconeEmail"></div>
                             <div class="texteBloc2D">yannick.b64@hotmail.fr</div>
                         </div>
                         <div class="rowBloc2D">
-                            <div id="iconeAutre" class="iconeBloc2D"></div>
+                            <div class="iconeBloc2D iconeAutre"></div>
                             <div class="texteBloc2D">architecte : 0559102158</div>
                         </div>
                     </div>
@@ -180,6 +182,57 @@
                     </div>
                 </div>
             </div>
+        <!-- Partie saisie Coordonnées -->
+            <!-- page de gauche -->
+            <div id="pageGaucheCoordonnees">
+                <div id="bloc1GC">
+                    <div id="iconeAnnuler"></div>
+                </div>
+
+            </div>
+            <!-- page de droite -->
+            <div id="pageDroiteCoordonnees">
+                <div id="bloc1DC">
+                    <div id="logoBloc1DC"></div>
+                    <div id="intituleBloc1DC">
+                        Coordonnées
+                    </div>
+                    <div id="iconeSauvegarder"></div>
+                </div>
+                <div class="blocDC" id="bloc2DC">
+                    <div class="col1BlocDC"></div>
+                    <div class="col2BlocDC"></div>
+                </div>
+                <div class="blocDC" id="bloc3DC">
+                    <div class="rowBlocDC">
+                        <div class="col1BlocDC iconeTelephone"></div>
+                        <div class="col2BlocDC"></div>
+                    </div>
+                    <div class="rowBlocDC">
+                        <div class="col1BlocDC iconeEmail"></div>
+                        <div class="col2BlocDC"></div>
+                    </div>
+                    <div class="rowBlocDC">
+                        <div class="col1BlocDC iconeAutre"></div>
+                        <div class="col2BlocDC"></div>
+                    </div>
+                </div>
+                <div class="blocDC" id="bloc4DC">
+                    <div class="rowBlocDC">
+                        <div class="col1BlocDC"></div>
+                        <div class="col2BlocDC"></div>
+                    </div>
+                    <div class="rowBlocDC">
+                        <div class="col1BlocDC"></div>
+                        <div class="col2BlocDC"></div>
+                    </div>
+                    <div class="rowBlocDC">
+                        <div class="col1BlocDC"></div>
+                        <div class="col2BlocDC"></div>
+                    </div>
+                </div>
+            </div>
+</div>
 {% endblock %}
 
 {% block javaScript %}
