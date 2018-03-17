@@ -20,4 +20,12 @@ $(function(){
             $('#pageDroite').fadeIn(1000);
         }); 
     });
+    $('#navigationDroiteLogo').click(function(){
+        $('#pageGaucheCoordonnees').hide(function(){
+            $('#pageGaucheProjet').fadeIn(1000);
+        });
+        $('#pageDroiteCoordonnees').hide(function(){
+            $('#pageDroiteProjet').fadeIn(1000);
+        });
+    });
 });

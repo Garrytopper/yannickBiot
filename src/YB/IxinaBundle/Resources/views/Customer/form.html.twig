@@ -40,13 +40,13 @@
                     </div>
                     <div class="rowBloc3">
                         <div class="colBloc3">
-                            <div id="iconeDateDecision" class="iconeBloc3"></div>
+                            <div class="iconeDateDecision iconeBloc3"></div>
                             <div class="texteBloc3">
                                 <div>Rapidement</div>
                             </div>
                         </div>
                         <div class="colBloc3">
-                            <div id="iconeMotivation" class="iconeBloc3"></div>
+                            <div class="iconeMotivation iconeBloc3"></div>
                             <div class="texteBloc3">
                                 <div>Plan techniques avant fin avril</div>
                             </div>
@@ -162,13 +162,13 @@
                         </div>
                     </div>
                     <div class="section4D">
-                        <div id="iconeLivraison" class="iconeBloc4D"></div>
+                        <div class="iconeBloc4D iconeLivraison"></div>
                         <div class="texteBloc4D">
                             <div>06/2018</div>
                         </div>
                     </div>
                     <div class="section4D">
-                        <div id="iconeBudget" class="iconeBloc4D"></div>
+                        <div class="iconeBudget iconeBloc4D"></div>
                         <div class="texteBloc4D">
                             <div>7000€</div>
                         </div>
@@ -188,7 +188,6 @@
                 <div id="bloc1GC">
                     <div id="iconeAnnuler"></div>
                 </div>
-
             </div>
             <!-- page de droite -->
             <div id="pageDroiteCoordonnees">
@@ -199,9 +198,11 @@
                     </div>
                     <div id="iconeSauvegarder"></div>
                 </div>
-                <div class="blocDC" id="bloc2DC">
-                    <div class="col1BlocDC"></div>
-                    <div class="col2BlocDC"></div>
+                <div class="blocDC" >
+                    <div id="bloc2DC">
+                        <div class="col1BlocDC">Nom :</div>
+                        <div class="col2BlocDC"></div>
+                    </div>
                 </div>
                 <div class="blocDC" id="bloc3DC">
                     <div class="rowBlocDC">
@@ -219,7 +220,7 @@
                 </div>
                 <div class="blocDC" id="bloc4DC">
                     <div class="rowBlocDC">
-                        <div class="col1BlocDC"></div>
+                        <div class="col1BlocDC" id="localisationIcone"></div>
                         <div class="col2BlocDC"></div>
                     </div>
                     <div class="rowBlocDC">
@@ -231,7 +232,47 @@
                         <div class="col2BlocDC"></div>
                     </div>
                 </div>
+                <div id="navigationDroiteLogo"></div>
             </div>
+        <!-- Partie saisie Projet -->
+        <div id="pageGaucheProjet">
+            <div id="bloc1GP">
+                <div id="iconeAnnuler"></div>
+            </div>
+            <div id="bloc2GP"></div>
+            <div id="bloc3GP">
+                <div id="modeleBloc3GP"></div>
+                <div id="planBloc3GP"></div>
+            </div>
+            <div id="bloc4GP"></div>
+            <div id="bloc5GP">
+                <div id="row1Bloc5GP">
+                    <div class="formBloc5GP">
+                        <div class="iconeLivraison iconeBloc5GP"></div>
+                        <div class="champBloc5GP"></div>
+                    </div>
+                    <div class="formBloc5GP">
+                        <div class="iconeBudget iconeBloc5GP"></div>
+                        <div class="champBloc5GP"></div>
+                    </div>
+                </div>
+                <div id="row2Bloc5GP">
+                    <div class="formBloc5GP">
+                        <div class="iconeDateDecision iconeBloc5GP"></div>
+                        <div class="champBloc5GP"></div>
+                    </div>
+                </div>
+                <div id="row3Bloc5GP">
+                    <div class="formBloc5GP">
+                        <div class="iconeMotivation iconeBloc5GP"></div>
+                        <div class="champBloc5GP"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="pageDroiteProjet">
+        
+        </div>
 </div>
 {% endblock %}
 
