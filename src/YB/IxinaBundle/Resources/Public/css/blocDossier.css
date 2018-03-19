@@ -627,6 +627,7 @@
     left: 90%;
 }
 
+
 /* partie Projet */
     /* partie page gauche */
 #pageGaucheProjet
@@ -644,19 +645,16 @@
     {
         height: 50px;
         display: flex;
-        border: solid;
     }
 
     #bloc2GP
     {
         height: 75px;
-        border: solid;
     }
 
     #bloc3GP
     {
         height: 150px;
-        border: solid;
         display: flex;
         justify-content: space-between ;
         
@@ -666,8 +664,8 @@
         {
             height: 150px;
             width: 200px;
-            border: solid red;
             border-radius: 20px;
+            border: solid;
             background-image: url("../images/planLogo.png");
             background-size: 100%;
             background-position: center;
@@ -677,46 +675,40 @@
         {
             height: 150px;
             width: 200px;
-            border: solid red;
             border-radius: 20px;
+            border: solid;
         }
 
     #bloc4GP
     {
         height: 75px;
-        border: solid;
     }
 
     #bloc5GP
     {
         height: 165px;
-        border: solid;
     }
 
         #row1Bloc5GP
         {
             height: 50px;
-            border: solid green;
             display: flex;
         }
 
         #row2Bloc5GP
         {
             height: 50px;
-            border: solid green;
         }
 
         #row3Bloc5GP
         {
             height: 50px;
-            border: solid green;
         }
 
             .formBloc5GP
             {
                 width: 50%;
                 height: 45px;
-                border: solid orange;
                 display: flex;
 
             }
@@ -724,14 +716,24 @@
                 .iconeBloc5GP
                 {
                     width: 45px;
-                    border: solid yellow;
                 }
 
                 .champBloc5GP
                 {
                     flex: 1;
-                    border: solid green;
                 }
+
+    #navigationGaucheProjetLogo
+    {
+        background-image: url("../images/navigationGaucheLogo.png");
+        background-size: 50px;
+        width: 50px;
+        height: 50px;
+        position: absolute ;
+        bottom: 50%;
+        left: 8%;
+    }
+
 
     /* partie page droite */
 #pageDroiteProjet
@@ -745,3 +747,119 @@
     display: none;
     align-items: center;
 }
+
+    #bloc1DP
+    {
+        height: 50px;
+        display: flex;
+    }
+
+        #logoBloc1DP
+        {
+            width: 50px;
+            background-image: url("../images/clientLogo.png");
+            background-size: 100% 100%;
+        }
+
+        #intituleBloc1DP
+        {
+            flex: 1;
+            line-height: 50px;
+            font-size: 2em;
+            color: rgb(1, 73, 147);
+            font-weight: bold;
+            padding-left: 50px;
+        }
+
+    #bloc2DP
+    {
+        height: 50px;
+        display: flex;
+        align-items: flex-end ;
+        color: rgb(1, 73, 147);
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+
+    #bloc3DP
+    {
+        height: 100px;
+        border: solid;
+        border-radius: 20px;
+        display: flex;
+    }
+
+        #col1Bloc3DP
+        {
+            width: 50%;
+            height: 100%;
+            border: solid yellow;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around ;
+        }
+
+            .rowBloc3DP
+            {
+                width: 90%;
+                height: 25%;
+                border: solid red;
+                display: flex;
+            }
+
+                .intituleBloc3DP
+                {
+                    width: 40%;
+                    height: 100%;
+                    border: solid;
+                }
+
+                .champBloc3DP
+                {
+                    flex: 1;
+                    height: 100%;
+                    border: solid;
+                }
+
+        #col2Bloc3DP
+        {
+            flex: 1;
+            height: 100%;
+            border: solid yellow;
+        }
+
+
+    #bloc4DP
+    {
+        height: 50px;
+        display: flex;
+        align-items: flex-end ;
+        color: rgb(1, 73, 147);
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+
+    #bloc5DP
+    {
+        height: 100px;
+        border: solid;
+        border-radius: 20px;
+    }
+
+    #bloc6DP
+    {
+        height: 50px;
+        display: flex;
+        align-items: flex-end ;
+        color: rgb(1, 73, 147);
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+
+    #bloc7DP
+    {
+        height: 100px;
+        border: solid;
+        border-radius: 20px;
+    }

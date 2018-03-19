@@ -28,4 +28,12 @@ $(function(){
             $('#pageDroiteProjet').fadeIn(1000);
         });
     });
+    $('#navigationGaucheProjetLogo').click(function(){
+        $('#pageGaucheProjet').hide(function(){
+            $('#pageGaucheCoordonnees').fadeIn(1000);
+        });
+        $('#pageDroiteProjet').hide(function(){
+            $('#pageDroiteCoordonnees').fadeIn(1000);
+        });
+    })
 });
