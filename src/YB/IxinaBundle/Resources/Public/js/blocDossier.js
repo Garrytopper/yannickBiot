@@ -12,7 +12,11 @@ $(function(){
             $('#pageDroiteCoordonnees').fadeIn(1000);
         });
     });
-    $('#iconeAnnuler').click(function(){
+    $('.iconeAnnuler').click(function(){
+        $('#pageGaucheProjet').hide();
+        $('#pageDroiteProjet').hide();
+        $('#pageGaucheStrategie').hide();
+        $('#pageDroiteStrategie').hide();
         $('#pageGaucheCoordonnees').hide(function(){
             $('#pageGauche').fadeIn(1000);
         });  
@@ -35,5 +39,21 @@ $(function(){
         $('#pageDroiteProjet').hide(function(){
             $('#pageDroiteCoordonnees').fadeIn(1000);
         });
-    })
+    });
+    $('#navigationDroiteLogo2').click(function(){
+        $('#pageGaucheProjet').hide(function(){
+            $('#pageGaucheStrategie').fadeIn(1000);
+        });
+        $('#pageDroiteProjet').hide(function(){
+            $('#pageDroiteStrategie').fadeIn(1000);
+        });
+    });
+    $('#navigationGaucheStrategieLogo').click(function(){
+        $('#pageGaucheStrategie').hide(function(){
+            $('#pageGaucheProjet').fadeIn(1000);
+        })
+        $('#pageDroiteStrategie').hide(function(){
+            $('#pageDroiteProjet').fadeIn(1000);
+        });
+    });
 });
