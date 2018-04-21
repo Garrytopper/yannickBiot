@@ -89,7 +89,7 @@
                     width: 50px;
                 }
 
-                    #iconeConcurrence
+                    .iconeConcurrence
                     {
                         background-image: url("../images/concurrenceLogo.png");
                         background-size: 60%;
@@ -97,7 +97,7 @@
                         background-repeat: no-repeat;
                     }
 
-                    #iconeDifference
+                    .iconeDifference
                     {
                         background-image: url("../images/differenceLogo.png");
                         background-size: 60%;
@@ -184,7 +184,7 @@
                     width: 50px;
                 }
 
-                     #iconeMeuble
+                     .iconeMeuble
                      {
                         background-image: url("../images/meubleLogo.png");
                         background-size: 80%;
@@ -192,7 +192,7 @@
                         background-position: center;
                      }
 
-                     #iconeElectro
+                     .iconeElectro
                      {
                         background-image: url("../images/electroLogo.png");
                         background-size: 80%;
@@ -200,7 +200,7 @@
                         background-position: center;
                      }
 
-                     #iconePrestation
+                     .iconePrestation
                      {
                         background-image: url("../images/prestationLogo.png");
                         background-size: 80%;
@@ -208,7 +208,7 @@
                         background-position: center;
                      }
 
-                     #iconeMoi
+                     .iconeMoi
                      {
                         background-image: url("../images/moiLogo.png");
                         background-size: 80%;
@@ -216,7 +216,7 @@
                         background-position: center;
                      }
 
-                     #iconeStyle
+                     .iconeStyle
                      {
                         background-image: url("../images/styleLogo.png");
                         background-size: 80%;
@@ -975,6 +975,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin-right: 15px;
+    display: flex;
     display: none;
 }
 
@@ -993,19 +994,61 @@
 {
     height: 50px;
     border: 1px red solid;
+    line-height: 50px;
 }
 
 #bloc2GS
 {
-    height: 50px;
+    height: 150px;
     border: 1px green solid;
+    display: flex;
+    justify-content: space-between;
 }
+
+    #planP
+    {
+        height: 150px;
+        width: 200px;
+        border: solid yellow;
+    }
+
+    #planD 
+    {
+        height: 150px;
+        width: 200px;
+        border: solid yellow;
+    }
 
 #bloc3GS
 {
-    height: 50px;
+    height: 325px;
     border: 1px yellow solid;
+    display: flex;
 }
+
+    #soncasStrategie
+    {
+        flex: 1;
+        border: solid;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+        .profil
+        {
+            height: 50px;
+            flex: 1;
+            border: solid red;
+        }
+
+    #remarqueStrategie
+    {
+        flex: 1;
+        border: solid;
+        height: 100%;
+    }
      /* partie page droite */
 
 #pageDroiteStrategie
@@ -1042,3 +1085,72 @@
             font-weight: bold;
             padding-left: 50px;
         }
+
+#bloc2DS
+{
+    height: 50px;
+}
+
+#bloc3DS
+{
+    height: 50px;
+    border: solid;
+}
+
+#bloc4DS
+{
+    height: 50px;
+    border: solid;
+}
+
+#bloc5DS
+{
+    height: 50px;
+    border: solid;
+}
+
+#bloc6DS
+{
+    height: 50px;
+    border: solid;
+}
+
+#bloc7DS
+{
+    height: 50px;
+    border: solid;
+}
+
+#bloc8DS
+{
+    height: 50px;
+    
+}
+
+#bloc9DS
+{
+    height: 150px;
+    border: solid;
+    display: flex;
+}
+
+    .tampon
+    {
+        width: 50px;
+    }
+
+    #differenceRemarque
+    {
+        width: 150px;
+        border: solid;
+        border-radius: 20px;
+    }
+
+    #concurrenceRemarque
+    {   
+        width: 150px;
+        border: solid;
+        border-radius: 20px;
+    }
+
+
