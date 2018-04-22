@@ -201,7 +201,7 @@
                 <div class="blocDC" >
                     <div id="bloc2DC">
                         <div class="col1BlocDC">Nom :</div>
-                        <div class="col2BlocDC"></div>
+                        <div class="col2BlocDC">{{ form_widget(form.nom) }}</div>
                     </div>
                 </div>
                 <div class="blocDC" id="bloc3DC">
@@ -391,6 +391,9 @@
             </div>
         </div>
 </div>
+<div style:"border: solid;">{{ form_rest(form) }}</div>
+
+{{ form_end(form) }}
 {% endblock %}
 
 {% block javaScript %}
