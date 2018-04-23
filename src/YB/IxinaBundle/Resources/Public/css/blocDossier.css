@@ -588,6 +588,7 @@
 .col2BlocDC
 {
     flex: 1;
+    margin: auto;
 }
 
 #bloc2DC
@@ -721,6 +722,7 @@
                 .champBloc5GP
                 {
                     flex: 1;
+                    display: flex;
                 }
 
     #navigationGaucheProjetLogo

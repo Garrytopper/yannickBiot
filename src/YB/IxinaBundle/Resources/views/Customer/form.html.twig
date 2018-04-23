@@ -13,7 +13,6 @@
 
 {% block bloc %}
 {{ form_start(form) }}
-
 <div id="blocDossier">
         <!-- Dossier visible -->
             <!-- page de gauche -->
@@ -200,36 +199,39 @@
                 </div>
                 <div class="blocDC" >
                     <div id="bloc2DC">
-                        <div class="col1BlocDC">Nom :</div>
+                        <div class="col1BlocDC">Nom</div>
                         <div class="col2BlocDC">{{ form_widget(form.nom) }}</div>
                     </div>
                 </div>
                 <div class="blocDC" id="bloc3DC">
                     <div class="rowBlocDC">
                         <div class="col1BlocDC iconeTelephone"></div>
-                        <div class="col2BlocDC"></div>
+                        <div class="col2BlocDC" >{{ form_widget(form.numTel) }}</div>
                     </div>
                     <div class="rowBlocDC">
                         <div class="col1BlocDC iconeEmail"></div>
-                        <div class="col2BlocDC"></div>
+                        <div class="col2BlocDC" >{{ form_widget(form.email) }}</div>
                     </div>
                     <div class="rowBlocDC">
                         <div class="col1BlocDC iconeAutre"></div>
-                        <div class="col2BlocDC"></div>
+                        <div class="col2BlocDC" >{{ form_widget(form.autreNum) }}</div>
                     </div>
                 </div>
                 <div class="blocDC" id="bloc4DC">
                     <div class="rowBlocDC">
                         <div class="col1BlocDC" id="localisationIcone"></div>
-                        <div class="col2BlocDC"></div>
+                        <div class="col2BlocDC">{{ form_widget(form.livAd1) }}</div>
                     </div>
                     <div class="rowBlocDC">
                         <div class="col1BlocDC"></div>
-                        <div class="col2BlocDC"></div>
+                        <div class="col2BlocDC">{{ form_widget(form.livAd2) }}</div>
                     </div>
                     <div class="rowBlocDC">
                         <div class="col1BlocDC"></div>
-                        <div class="col2BlocDC"></div>
+                        <div class="col2BlocDC" style="display: flex;">
+                            <div id="cp">{{ form_widget(form.livCp) }}</div>
+                            <div id="ville">{{ form_widget(form.livVille) }}</div>
+                        </div>
                     </div>
                 </div>
                 <div id="navigationDroiteLogo"></div>
@@ -250,23 +252,23 @@
                 <div id="row1Bloc5GP">
                     <div class="formBloc5GP">
                         <div class="iconeLivraison iconeBloc5GP"></div>
-                        <div class="champBloc5GP"></div>
+                        <div class="champBloc5GP">{{ form_widget(form.dateLivSouhaite)}}</div>
                     </div>
                     <div class="formBloc5GP">
                         <div class="iconeBudget iconeBloc5GP"></div>
-                        <div class="champBloc5GP"></div>
+                        <div class="champBloc5GP">{{ form_widget(form.budgetClient) }}</div>
                     </div>
                 </div>
                 <div id="row2Bloc5GP">
                     <div class="formBloc5GP">
                         <div class="iconeDateDecision iconeBloc5GP"></div>
-                        <div class="champBloc5GP"></div>
+                        <div class="champBloc5GP">{{ form_widget(form.dateDecision)}}</div>
                     </div>
                 </div>
                 <div id="row3Bloc5GP">
                     <div class="formBloc5GP">
                         <div class="iconeMotivation iconeBloc5GP"></div>
-                        <div class="champBloc5GP"></div>
+                        <div class="champBloc5GP">{{ form_widget(form.motifDecision) }}</div>
                     </div>
                 </div>
             </div>
@@ -391,8 +393,7 @@
             </div>
         </div>
 </div>
-<div style:"border: solid;">{{ form_rest(form) }}</div>
-
+<div style="display: none">{{ form_rest(form) }}</div>
 {{ form_end(form) }}
 {% endblock %}
 
