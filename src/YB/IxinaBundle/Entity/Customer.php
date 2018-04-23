@@ -62,12 +62,7 @@ class Customer
      */
     private $nom;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prenom", type="string", length=20, nullable=true)
-     */
-    private $prenom;
+   
 
     /**
      * @var string
@@ -82,34 +77,6 @@ class Customer
      * @ORM\Column(name="email", type="string", length=255, nullable=true, unique=true)
      */
     private $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="postalAd1", type="string", length=255, nullable=true)
-     */
-    private $postalAd1;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="postalAd2", type="string", length=255, nullable=true)
-     */
-    private $postalAd2;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="postalVille", type="string", length=20, nullable=true)
-     */
-    private $postalVille;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="postalCp", type="string", length=5, nullable=true)
-     */
-    private $postalCp;
 
     /**
      * @var string
@@ -585,29 +552,7 @@ class Customer
         return $this->nom;
     }
 
-    /**
-     * Set prenom
-     *
-     * @param string $prenom
-     *
-     * @return Customer
-     */
-    public function setPrenom($prenom)
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    /**
-     * Get prenom
-     *
-     * @return string
-     */
-    public function getPrenom()
-    {
-        return $this->prenom;
-    }
+    
 
     /**
      * Set numTel
@@ -657,101 +602,6 @@ class Customer
         return $this->email;
     }
 
-    /**
-     * Set postalAd1
-     *
-     * @param string $postalAd1
-     *
-     * @return Customer
-     */
-    public function setPostalAd1($postalAd1)
-    {
-        $this->postalAd1 = $postalAd1;
-
-        return $this;
-    }
-
-    /**
-     * Get postalAd1
-     *
-     * @return string
-     */
-    public function getPostalAd1()
-    {
-        return $this->postalAd1;
-    }
-
-    /**
-     * Set postalAd2
-     *
-     * @param string $postalAd2
-     *
-     * @return Customer
-     */
-    public function setPostalAd2($postalAd2)
-    {
-        $this->postalAd2 = $postalAd2;
-
-        return $this;
-    }
-
-    /**
-     * Get postalAd2
-     *
-     * @return string
-     */
-    public function getPostalAd2()
-    {
-        return $this->postalAd2;
-    }
-
-    /**
-     * Set postalVille
-     *
-     * @param string $postalVille
-     *
-     * @return Customer
-     */
-    public function setPostalVille($postalVille)
-    {
-        $this->postalVille = $postalVille;
-
-        return $this;
-    }
-
-    /**
-     * Get postalVille
-     *
-     * @return string
-     */
-    public function getPostalVille()
-    {
-        return $this->postalVille;
-    }
-
-    /**
-     * Set postalCp
-     *
-     * @param string $postalCp
-     *
-     * @return Customer
-     */
-    public function setPostalCp($postalCp)
-    {
-        $this->postalCp = $postalCp;
-
-        return $this;
-    }
-
-    /**
-     * Get postalCp
-     *
-     * @return string
-     */
-    public function getPostalCp()
-    {
-        return $this->postalCp;
-    }
 
     /**
      * Set livAd1

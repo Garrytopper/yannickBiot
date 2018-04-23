@@ -49,13 +49,13 @@
                             <div id="coordonneSup">
                                 <div id="labelCoordonneSup" style="font-weight: bold">
                                     <p>{{ form_label(form.nom, "Nom") }}</p>
-                                    <p>{{ form_label(form.prenom, "Prenom") }}</p>
+                                   
                                     <p>{{ form_label(form.numTel, "Numéro de Téléphone") }}</p>
                                     <p>{{ form_label(form.email, "Email") }}</p>
                                 </div>
                                 <div id="champCoordonneSup">
                                     <p>{{ form_widget(form.nom) }}</br>{{ form_errors(form.nom) }}</p>
-                                    <p>{{ form_widget(form.prenom) }}</br>{{ form_errors(form.prenom) }}</p>
+                                   
                                     <p>{{ form_widget(form.numTel) }}</br>{{ form_errors(form.numTel) }}</p>
                                     <p>{{ form_widget(form.email) }}</br>{{ form_errors(form.email) }}</p>
                                 </div>
@@ -64,16 +64,10 @@
                                 <fieldset id="coordonneGauche" style="color: grey">
                                 <legend>Adresse Postale</legend>
                                     <div id="labelCoordonneBasGauche" style="color: black">
-                                        <p>{{ form_label(form.postalAd1, "Adresse") }}</p>
-                                        <p>{{ form_label(form.postalAd2, "Cmplt") }}</p>
-                                        <p>{{ form_label(form.postalCp, "CP") }}</p>
-                                        <p>{{ form_label(form.postalVille, "Ville") }}</p>
+                                        
                                     </div>
                                     <div id="champCoordonneBasGauche">
-                                        <p>{{ form_widget(form.postalAd1) }}</br>{{ form_errors(form.postalAd1) }}</p>
-                                        <p>{{ form_widget(form.postalAd2) }}</br>{{ form_errors(form.postalAd2) }}</p>
-                                        <p>{{ form_widget(form.postalCp) }}</br>{{ form_errors(form.postalCp) }}</p>
-                                        <p>{{ form_widget(form.postalVille) }}</br>{{ form_errors(form.postalVille) }}</p>
+                                        
                                     </div>
                                 </fieldset>
                                 <fieldset id="coordonneDroit" style="color: grey">

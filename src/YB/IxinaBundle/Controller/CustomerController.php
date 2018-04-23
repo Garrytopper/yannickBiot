@@ -122,13 +122,13 @@ class CustomerController extends Controller
                     $facture = new Facturation();
                         $nom = $client->getNom();
                     $facture->setNom($nom);
-                        $ad1 = $client->getPostalAd1();
+                        $ad1 = $client->getLivAd1();
                     $facture->setAd1($ad1);
-                        $ad2 = $client->getPostalAd2();
+                        $ad2 = $client->getLivAd2();
                     $facture->setAd2($ad2);
-                        $cp = $client->getPostalCp();
+                        $cp = $client->getLivCp();
                     $facture->setCp($cp);
-                        $ville = $client->getPostalVille();
+                        $ville = $client->getLivVille();
                     $facture->setVille($ville);
                         $montantVente = $client->getMontantVenteTTC();
                     $facture->setMontantVente($montantVente);
