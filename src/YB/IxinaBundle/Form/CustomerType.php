@@ -52,7 +52,12 @@ class CustomerType extends AbstractType
                 ->add('dateLivSouhaite', DateType::class, array('required' => false, 'attr' => array('style' => 'margin: auto;')))
                 ->add('budgetClient', MoneyType::class, array('required' => false, 'attr' => array('style' => 'height: 25px; width: 80%; font-size: 1.2em; margin: auto;')))
                 ->add('motifDecision', TextType::class, array('required' => false, 'attr' => array('style' => 'font-size: 1.2em; margin: auto; height: 25px; width: 99%;')))
-                ->add('descriptionFinition', TextareaType::class, array('required' => false, 'attr' => array('rows' => '7', 'cols' => '20')))
+                ->add('modele', TextType::class, array('required' => false, 'attr' => array('style' => 'height: 18px;')))
+                ->add('planW', TextType::class, array('required' => false, 'attr' => array('style' => 'height: 18px;')))
+                ->add('poignee', TextType::class, array('required' => false, 'attr' => array('style' => 'height: 18px;')))
+                ->add('descriptionFinition', TextareaType::class, array('required' => false, 'attr' => array('rows' => '7', 'cols' => '35', 'style' => 'margin-top: 5px;')))
+                ->add('evier', CheckboxType::class, array('required' => false))
+                ->add('mitigeur', CheckboxType::class, array('required' => false))
                 ->add('four', CheckboxType::class, array('required' => false))
                 ->add('microOnde', CheckboxType::class, array('required' => false))
                 ->add('plaqueCuisson', CheckboxType::class, array('required' => false))
@@ -61,11 +66,13 @@ class CustomerType extends AbstractType
                 ->add('laveVaisselle', CheckboxType::class, array('required' => false))
                 ->add('laveLinge', CheckboxType::class, array('required' => false))
                 ->add('caveVin', CheckboxType::class, array('required' => false))
+                ->add('descriptionElectro', TextareaType::class, array('required' => false, 'attr' => array('cols' => '22', 'rows' => '6')))
                 ->add('liv', CheckboxType::class, array('required' => false))
                 ->add('pose', ChoiceType::class, array('choices' => array(
                         'Hors pose' => 'Hors pose',
                         'Aide pose' => 'Aide pose',
                         'Pose' => 'Pose')))
+                ->add('descriptionTravaux', TextareaType::class, array('required' => false, 'attr' => array('cols' => '43', 'rows' => '7')))
                 ->add('autre', CheckboxType::class, array('required' => false))
                 ->add('prestation', CheckboxType::class, array('required' => false))
                 ->add('dateProchaineAction', DateType::class)

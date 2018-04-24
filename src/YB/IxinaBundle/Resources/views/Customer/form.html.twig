@@ -289,39 +289,58 @@
             <div id="bloc3DP">
                 <div id="col1Bloc3DP">
                     <div class="rowBloc3DP">
-                        <div class="intituleBloc3DP"></div>
-                        <div class="champBloc3DP"></div>
+                        <div class="intituleBloc3DP">Modèle :</div>
+                        <div class="champBloc3DP">{{ form_widget(form.modele) }}</div>
                     </div>
                     <div class="rowBloc3DP">
-                        <div class="intituleBloc3DP"></div>
-                        <div class="champBloc3DP"></div>
+                        <div class="intituleBloc3DP">Plan W :</div>
+                        <div class="champBloc3DP">{{ form_widget(form.planW) }}</div>
                     </div>
                     <div class="rowBloc3DP">
-                        <div class="intituleBloc3DP"></div>
-                        <div class="champBloc3DP"></div>
+                        <div class="intituleBloc3DP">Poignée :</div>
+                        <div class="champBloc3DP">{{ form_widget(form.poignee) }}</div>
                     </div>
                 </div>
-                <div id="col2Bloc3DP"></div>
+                <div id="col2Bloc3DP">{{ form_widget(form.descriptionFinition) }}</div>
             </div>
             <div id="bloc4DP">
                 <div>Electroménager</div>
             </div>
             <div id="bloc5DP">
                 <div id="row1Bloc5DP">
-                    <div class="choixBloc5DP"></div>
-                    <div class="champBloc5DP"></div>
-                    <div class="choixBloc5DP"></div>
-                    <div class="champBloc5DP"></div>
-                    <div class="choixBloc5DP"></div>
-                    <div class="champBloc5DP"></div>
+                    <div class="choixBloc5DP">{{ form_widget(form.four) }}</div>
+                    <div class="champBloc5DP">{{ form_label(form.four) }}</div>
+                    <div class="choixBloc5DP">{{ form_widget(form.microOnde) }}</div>
+                    <div class="champBloc5DP">{{ form_label(form.microOnde) }}</div>
+                    <div class="choixBloc5DP">{{ form_widget(form.evier) }}</div>
+                    <div class="champBloc5DP">{{ form_label(form.evier) }}</div>
                 </div>
-                <div id="row2Bloc5DP"></div>
+                <div id="row2Bloc5DP">
+                    <div class="choixBloc5DP">{{ form_widget(form.plaqueCuisson) }}</div>
+                    <div class="champBloc5DP">{{ form_label(form.plaqueCuisson) }}</div>
+                    <div class="choixBloc5DP">{{ form_widget(form.frigo) }}</div>
+                    <div class="champBloc5DP">{{ form_label(form.frigo) }}</div>
+                    <div class="choixBloc5DP">{{ form_widget(form.mitigeur) }}</div>
+                    <div class="champBloc5DP">{{ form_label(form.mitigeur) }}</div>
+                </div>
                 <div id="row3Bloc5DP">
-                    <div class="colBloc5DP">
-                        <div id="row4Bloc5DP"></div>
-                        <div id="row5Bloc5DP"></div>
+                    <div class="colBloc5DP" style="width: 67%;">
+                        <div id="row4Bloc5DP">
+                            <div class="choixBloc5R4DP">{{ form_widget(form.laveVaisselle) }}</div>
+                            <div class="champBloc5R4DP">{{ form_label(form.laveVaisselle, 'L.V') }}</div>
+                            <div class="choixBloc5R4DP">{{ form_widget(form.laveLinge) }}</div>
+                            <div class="champBloc5R4DP">{{ form_label(form.laveLinge, 'L.L') }}</div>
+                        </div>
+                        <div id="row5Bloc5DP">
+                            <div class="choixBloc5R4DP">{{ form_widget(form.hotte) }}</div>
+                            <div class="champBloc5R4DP">{{ form_label(form.hotte) }}</div>
+                            <div class="choixBloc5R4DP">{{ form_widget(form.caveVin) }}</div>
+                            <div class="champBloc5R4DP">{{ form_label(form.caveVin, 'Cave') }}</div>
+                        </div>
                     </div>
-                    <div class="colBloc5DP"></div>
+                    <div class="colBloc5DP" style="width: 33%;">
+                        {{ form_widget(form.descriptionElectro) }}
+                    </div>
                 </div>
             </div>
             <div id="bloc6DP">
@@ -329,10 +348,11 @@
             </div>
             <div id="bloc7DP">
                 <div id="col1Bloc7DP">
-                    <div id="row1Col1Bloc7DP"></div>
-                    <div id="row2Col1Bloc7DP"></div>
+                    <div id="row0Col1Bloc7DP">{{ form_row(form.renovation) }}</div>
+                    <div id="row1Col1Bloc7DP">{{ form_row(form.pose) }}</div>
+                    <div id="row2Col1Bloc7DP">{{ form_label(form.liv, 'Livraison')}}{{ form_widget(form.liv) }}</div>
                 </div>
-                <div id="col2Bloc7DP"></div>
+                <div id="col2Bloc7DP">{{ form_widget(form.descriptionTravaux) }}</div>
             </div>
             <div id="navigationDroiteLogo2"></div>
         </div>

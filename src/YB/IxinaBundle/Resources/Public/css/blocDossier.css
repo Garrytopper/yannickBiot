@@ -775,7 +775,7 @@
 
     #bloc2DP
     {
-        height: 50px;
+        height: 60px;
         display: flex;
         align-items: flex-end ;
         color: rgb(1, 73, 147);
@@ -786,7 +786,6 @@
     #bloc3DP
     {
         height: 100px;
-        border: solid;
         border-radius: 20px;
         display: flex;
     }
@@ -812,14 +811,14 @@
                 {
                     width: 40%;
                     height: 100%;
-                    border: solid green;
+                    line-height: 25px;
+                    display: flex;
                 }
 
                 .champBloc3DP
                 {
                     flex: 1;
                     height: 100%;
-                    border: solid;
                 }
 
         #col2Bloc3DP
@@ -831,7 +830,7 @@
 
     #bloc4DP
     {
-        height: 50px;
+        height: 70px;
         display: flex;
         align-items: flex-end ;
         color: rgb(1, 73, 147);
@@ -842,7 +841,7 @@
     #bloc5DP
     {
         height: 150px;
-        border: solid red;
+       
         border-radius: 20px;
         display: flex;
         flex-direction: column;
@@ -854,55 +853,52 @@
         {
             height: 25px;
             width: 95%;
-            border: solid;
+            display: flex;
         }
 
         #row2Bloc5DP
         {
             height: 25px;
             width: 95%;
-            border: solid;
+            display: flex;
         }
 
         #row3Bloc5DP
         {
             width: 95%;
-            border: solid;
             display: flex;
         }
 
             .colBloc5DP
             {
                 height: 100%;
-                width: 50%
             }
 
                 #row4Bloc5DP
                 {
                     height: 25px;
                     width: 100%;
-                    border: solid yellow;
+                    display: flex;
+                    
                 }
 
                 #row5Bloc5DP
                 {
                     height: 25px;
                     width: 100%;
-                    border: solid yellow;
+                   display: flex;
                 }
-        
-        .choixBloc5DP
-        {
-            border: yellow;
-            height: 100%;
-            width: 20%;
-        }
 
         .champBloc5DP
         {
-            border: red;
             height: 100%;
-            width: 20%;
+            width: 30%;
+        }
+
+        .champBloc5R4DP
+        {
+            height: 100%;
+            width: 45%;
         }
 
     #bloc6DP
@@ -918,15 +914,14 @@
     #bloc7DP
     {
         height: 100px;
-        border: solid;
+     
         border-radius: 20px;
         display: flex;
     }
 
         #col1Bloc7DP
         {
-            border: solid;
-            width: 50%;
+            width: 40%;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -934,25 +929,31 @@
             align-items: center;
         }
 
+            #row0Col1Bloc7DP
+            {
+                height: 20px;
+                width: 90%;
+            }
+
             #row1Col1Bloc7DP
             {
-                height: 25px;
+                height: 20px;
                 width: 90%;
-                border: solid red;
+              
             }
 
             #row2Col1Bloc7DP
             {
-                height: 25px;
+                height: 20px;
                 width: 90%;
-                border: solid red;
+                display: flex;
             }
 
         #col2Bloc7DP
         {   
-            border: solid green;
-            width: 50%;
+            width: 60%;
             height: 100%;
+            margin-top: 3px;
         }
 
     #navigationDroiteLogo2
@@ -1154,5 +1155,6 @@
         border: solid;
         border-radius: 20px;
     }
+
 
 

@@ -147,6 +147,27 @@ class Customer
     private $descriptionFinition;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="descriptionElectro", type="string", length=255, nullable=true)
+     */
+    private $descriptionElectro;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="evier", type="boolean", nullable=true)
+     */
+    private $evier;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="mitigeur", type="boolean", nullable=true)
+     */
+    private $mitigeur;
+
+    /**
      * @var bool
      *
      * @ORM\Column(name="four", type="boolean", nullable=true)
@@ -243,6 +264,34 @@ class Customer
      * @ORM\Column(name="prestation", type="boolean", nullable=true)
      */
     private $prestation;
+
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="descriptionTravaux", type="string", length=255, nullable=true)
+     */
+    private $descriptionTravaux;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="modele", type="string", length=255, nullable=true)
+     */
+    private $modele;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="planW", type="string", length=255, nullable=true)
+     */
+    private $planW;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="poignee", type="string", length=255, nullable=true)
+     */
+    private $poignee;
 
     /**
      * @var string
@@ -1977,5 +2026,173 @@ class Customer
     public function getMotifDecision()
     {
         return $this->motifDecision;
+    }
+
+    /**
+     * Set modele
+     *
+     * @param string $modele
+     *
+     * @return Customer
+     */
+    public function setModele($modele)
+    {
+        $this->modele = $modele;
+
+        return $this;
+    }
+
+    /**
+     * Get modele
+     *
+     * @return string
+     */
+    public function getModele()
+    {
+        return $this->modele;
+    }
+
+    /**
+     * Set planW
+     *
+     * @param string $planW
+     *
+     * @return Customer
+     */
+    public function setPlanW($planW)
+    {
+        $this->planW = $planW;
+
+        return $this;
+    }
+
+    /**
+     * Get planW
+     *
+     * @return string
+     */
+    public function getPlanW()
+    {
+        return $this->planW;
+    }
+
+    /**
+     * Set poignee
+     *
+     * @param string $poignee
+     *
+     * @return Customer
+     */
+    public function setPoignee($poignee)
+    {
+        $this->poignee = $poignee;
+
+        return $this;
+    }
+
+    /**
+     * Get poignee
+     *
+     * @return string
+     */
+    public function getPoignee()
+    {
+        return $this->poignee;
+    }
+
+    /**
+     * Set evier
+     *
+     * @param boolean $evier
+     *
+     * @return Customer
+     */
+    public function setEvier($evier)
+    {
+        $this->evier = $evier;
+
+        return $this;
+    }
+
+    /**
+     * Get evier
+     *
+     * @return boolean
+     */
+    public function getEvier()
+    {
+        return $this->evier;
+    }
+
+    /**
+     * Set mitigeur
+     *
+     * @param boolean $mitigeur
+     *
+     * @return Customer
+     */
+    public function setMitigeur($mitigeur)
+    {
+        $this->mitigeur = $mitigeur;
+
+        return $this;
+    }
+
+    /**
+     * Get mitigeur
+     *
+     * @return boolean
+     */
+    public function getMitigeur()
+    {
+        return $this->mitigeur;
+    }
+
+    /**
+     * Set descriptionElectro
+     *
+     * @param string $descriptionElectro
+     *
+     * @return Customer
+     */
+    public function setDescriptionElectro($descriptionElectro)
+    {
+        $this->descriptionElectro = $descriptionElectro;
+
+        return $this;
+    }
+
+    /**
+     * Get descriptionElectro
+     *
+     * @return string
+     */
+    public function getDescriptionElectro()
+    {
+        return $this->descriptionElectro;
+    }
+
+    /**
+     * Set descriptionTravaux
+     *
+     * @param string $descriptionTravaux
+     *
+     * @return Customer
+     */
+    public function setDescriptionTravaux($descriptionTravaux)
+    {
+        $this->descriptionTravaux = $descriptionTravaux;
+
+        return $this;
+    }
+
+    /**
+     * Get descriptionTravaux
+     *
+     * @return string
+     */
+    public function getDescriptionTravaux()
+    {
+        return $this->descriptionTravaux;
     }
 }
