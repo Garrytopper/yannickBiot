@@ -16,7 +16,7 @@
 
 #pageGauche
 {
-    
+    color: rgb();
     height: 600px;
     width: 450px;
     display: flex;
@@ -417,10 +417,11 @@
 
         .section4D
         {
-            width: 30%;
+            width: 33%;
             height: 96%;
             display: flex;
             align-items: flex-end;
+           
         }
 
             .iconeBloc4D
@@ -467,17 +468,14 @@
 
                     #nextRDV
                     {
-                        background-color: white;
+                        width: 120px
                     }
 
     #bloc5D
     {
-        border: solid black;
         height: 140px;
         margin-bottom: 15px;
-        font-size: 0.8em;
         display: flex;
-        background-color: white;
     }
 
         #bloc5D div
@@ -974,11 +972,7 @@
 {
     height: 600px;
     width: 450px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     margin-right: 15px;
-    display: flex;
     display: none;
 }
 
@@ -996,14 +990,12 @@
 #bloc1GS
 {
     height: 50px;
-    border: 1px red solid;
     line-height: 50px;
 }
 
 #bloc2GS
 {
     height: 150px;
-    border: 1px green solid;
     display: flex;
     justify-content: space-between;
 }
@@ -1012,27 +1004,31 @@
     {
         height: 150px;
         width: 200px;
-        border: solid yellow;
+        border: solid ;
+        border-radius: 20px;
+        background-image: url("../images/perspectiveLogo.png");
+        background-size: 100%;
+        background-position: center;
     }
 
     #planD 
     {
         height: 150px;
         width: 200px;
-        border: solid yellow;
+        border: solid ;
+        border-radius: 20px;
     }
 
 #bloc3GS
 {
-    height: 325px;
-    border: 1px yellow solid;
+    height: 300px;
     display: flex;
+    padding-top: 30px;
 }
 
     #soncasStrategie
     {
         flex: 1;
-        border: solid;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -1043,13 +1039,12 @@
         {
             height: 50px;
             flex: 1;
-            border: solid red;
+            line-height: 40px;
         }
 
     #remarqueStrategie
     {
         flex: 1;
-        border: solid;
         height: 100%;
     }
      /* partie page droite */
@@ -1097,31 +1092,31 @@
 #bloc3DS
 {
     height: 50px;
-    border: solid;
+    display: flex;
 }
 
 #bloc4DS
 {
     height: 50px;
-    border: solid;
+    display: flex;
 }
 
 #bloc5DS
 {
     height: 50px;
-    border: solid;
+    display: flex;
 }
 
 #bloc6DS
 {
     height: 50px;
-    border: solid;
+    display: flex;
 }
 
 #bloc7DS
 {
     height: 50px;
-    border: solid;
+    display: flex;
 }
 
 #bloc8DS
@@ -1133,7 +1128,6 @@
 #bloc9DS
 {
     height: 150px;
-    border: solid;
     display: flex;
 }
 
@@ -1145,16 +1139,14 @@
     #differenceRemarque
     {
         width: 150px;
-        border: solid;
-        border-radius: 20px;
     }
 
     #concurrenceRemarque
     {   
         width: 150px;
-        border: solid;
-        border-radius: 20px;
     }
+
+
 
 
 

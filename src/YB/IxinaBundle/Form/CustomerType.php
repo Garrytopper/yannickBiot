@@ -72,7 +72,7 @@ class CustomerType extends AbstractType
                         'Hors pose' => 'Hors pose',
                         'Aide pose' => 'Aide pose',
                         'Pose' => 'Pose')))
-                ->add('descriptionTravaux', TextareaType::class, array('required' => false, 'attr' => array('cols' => '43', 'rows' => '7')))
+                ->add('descriptionTravaux', TextareaType::class, array('required' => false, 'attr' => array('cols' => '44', 'rows' => '7')))
                 ->add('autre', CheckboxType::class, array('required' => false))
                 ->add('prestation', CheckboxType::class, array('required' => false))
                 ->add('dateProchaineAction', DateType::class)
@@ -84,7 +84,7 @@ class CustomerType extends AbstractType
                         'Metre' => 'Metre',
                         'Pose' => 'Pose'
                         )))
-                ->add('actionRemarque', TextareaType::class, array('required' => false, 'attr' => array('rows' => '16', 'cols' =>'74')))
+                ->add('actionRemarque', TextareaType::class, array('required' => false, 'attr' => array('rows' => '12', 'cols' =>'80', 'style' => 'border: solid; margin-left: -27px; margin-top: -10px;')))
                 ->add('decBestNeed', TextareaType::class, array('required' => false, 'attr' => array('rows' => '20', 'cols' => '35')))
                 ->add('decToday', TextareaType::class, array('required' => false, 'attr' => array('rows' => '20', 'cols' => '35')))
                 ->add('decTodayLike', TextareaType::class, array('required' => false, 'attr' => array('rows' => '20', 'cols' => '15')))
@@ -96,11 +96,15 @@ class CustomerType extends AbstractType
                 ->add('profConfort', CheckboxType::class, array('required' => false))
                 ->add('profArgent', CheckboxType::class, array('required' => false))
                 ->add('profSympa', CheckboxType::class, array('required' => false))
-                ->add('cabMeuble', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '2', 'cols' => '50')))
-                ->add('cabElectro', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '2', 'cols' => '35')))
-                ->add('cabSanitaire', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '2', 'cols' => '35')))
-                ->add('cabService', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '2', 'cols' => '35')))
-                ->add('cabVendeur', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '2', 'cols' => '35')))
+                ->add('descriptionProfil', TextareaType::class, array('required' => false, 'attr' => array('rows' => '24', 'cols' => '40')))
+                ->add('cabStyle', TextareaType::class, array('required' => false, 'attr' => array('rows' => '3', 'cols' => '70')))
+                ->add('cabMeuble', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '3', 'cols' => '70')))
+                ->add('cabElectro', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '3', 'cols' => '70')))
+                ->add('cabSanitaire', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '3', 'cols' => '70')))
+                ->add('cabService', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '3', 'cols' => '70')))
+                ->add('cabVendeur', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '3', 'cols' => '70')))
+                ->add('diffConcurrence', TextareaType::class, array('required' => false, 'attr' => array('rows' => '11', 'cols' => '20', 'style' => 'border: solid; border-radius: 10px;')))
+                ->add('concurrence', TextareaType::class, array('required' => false, 'attr' => array('rows' => '11', 'cols' => '20', 'style' => 'border: solid; border-radius: 10px;')))
                 ->add('budgetAnnonce', MoneyType::class, array('required' => false, 'attr' => array('rows' => '4', 'cols' => '50')))
                 ->add('beneficeIxina', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '2', 'cols' => '35')))
                 ->add('dramaDate', TextareaType::class, array('required' => false, 'attr' => array('rows' => '2', 'cols' => '35')))

@@ -275,6 +275,13 @@ class Customer
     /**
      * @var string
      *
+     * @ORM\Column(name="descriptionProfil", type="string", length=255, nullable=true)
+     */
+    private $descriptionProfil;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="modele", type="string", length=255, nullable=true)
      */
     private $modele;
@@ -380,9 +387,30 @@ class Customer
     /**
      * @var string
      *
+     * @ORM\Column(name="concurrence", type="string", length=255, nullable=true)
+     */
+    private $concurrence;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="diffConcurrence", type="string", length=255, nullable=true)
+     */
+    private $diffConcurrence;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="cabMeuble", type="string", length=255, nullable=true)
      */
     private $cabMeuble;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cabStyle", type="string", length=255, nullable=true)
+     */
+    private $cabStyle;
 
     /**
      * @var string
@@ -2194,5 +2222,101 @@ class Customer
     public function getDescriptionTravaux()
     {
         return $this->descriptionTravaux;
+    }
+
+    /**
+     * Set descriptionProfil
+     *
+     * @param string $descriptionProfil
+     *
+     * @return Customer
+     */
+    public function setDescriptionProfil($descriptionProfil)
+    {
+        $this->descriptionProfil = $descriptionProfil;
+
+        return $this;
+    }
+
+    /**
+     * Get descriptionProfil
+     *
+     * @return string
+     */
+    public function getDescriptionProfil()
+    {
+        return $this->descriptionProfil;
+    }
+
+    /**
+     * Set cabStyle
+     *
+     * @param string $cabStyle
+     *
+     * @return Customer
+     */
+    public function setCabStyle($cabStyle)
+    {
+        $this->cabStyle = $cabStyle;
+
+        return $this;
+    }
+
+    /**
+     * Get cabStyle
+     *
+     * @return string
+     */
+    public function getCabStyle()
+    {
+        return $this->cabStyle;
+    }
+
+    /**
+     * Set concurrence
+     *
+     * @param string $concurrence
+     *
+     * @return Customer
+     */
+    public function setConcurrence($concurrence)
+    {
+        $this->concurrence = $concurrence;
+
+        return $this;
+    }
+
+    /**
+     * Get concurrence
+     *
+     * @return string
+     */
+    public function getConcurrence()
+    {
+        return $this->concurrence;
+    }
+
+    /**
+     * Set diffConcurrence
+     *
+     * @param string $diffConcurrence
+     *
+     * @return Customer
+     */
+    public function setDiffConcurrence($diffConcurrence)
+    {
+        $this->diffConcurrence = $diffConcurrence;
+
+        return $this;
+    }
+
+    /**
+     * Get diffConcurrence
+     *
+     * @return string
+     */
+    public function getDiffConcurrence()
+    {
+        return $this->diffConcurrence;
     }
 }
