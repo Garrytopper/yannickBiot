@@ -49,9 +49,9 @@ class Customer
     private $dateCreation;
 
     /**
-     * @var \DateTime
+     * @var \string
      *
-     * @ORM\Column(name="dateDecision", type="datetime", nullable = true)
+     * @ORM\Column(name="dateDecision", type="string", length=255, nullable = true)
      */
     private $dateDecision;
 
@@ -61,8 +61,6 @@ class Customer
      * @ORM\Column(name="nom", type="string", length=20)
      */
     private $nom;
-
-   
 
     /**
      * @var string
@@ -77,6 +75,13 @@ class Customer
      * @ORM\Column(name="email", type="string", length=255, nullable=true, unique=true)
      */
     private $email;
+
+    /**
+    * @var string
+    * 
+    * @ORM\Column(name="autreNum", type="string", length=10, nullable=true)
+    */
+    private $autreNum;
 
     /**
      * @var string
@@ -130,9 +135,37 @@ class Customer
     /**
      * @var string
      *
+     * @ORM\Column(name="motifDecision", type="string", length=255, nullable=true)
+     */
+    private $motifDecision;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="descriptionFinition", type="string", length=255, nullable=true)
      */
     private $descriptionFinition;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descriptionElectro", type="string", length=255, nullable=true)
+     */
+    private $descriptionElectro;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="evier", type="boolean", nullable=true)
+     */
+    private $evier;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="mitigeur", type="boolean", nullable=true)
+     */
+    private $mitigeur;
 
     /**
      * @var bool
@@ -232,6 +265,41 @@ class Customer
      */
     private $prestation;
 
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="descriptionTravaux", type="string", length=255, nullable=true)
+     */
+    private $descriptionTravaux;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descriptionProfil", type="string", length=255, nullable=true)
+     */
+    private $descriptionProfil;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="modele", type="string", length=255, nullable=true)
+     */
+    private $modele;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="planW", type="string", length=255, nullable=true)
+     */
+    private $planW;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="poignee", type="string", length=255, nullable=true)
+     */
+    private $poignee;
+
     /**
      * @var string
      *
@@ -319,9 +387,30 @@ class Customer
     /**
      * @var string
      *
+     * @ORM\Column(name="concurrence", type="string", length=255, nullable=true)
+     */
+    private $concurrence;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="diffConcurrence", type="string", length=255, nullable=true)
+     */
+    private $diffConcurrence;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="cabMeuble", type="string", length=255, nullable=true)
      */
     private $cabMeuble;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cabStyle", type="string", length=255, nullable=true)
+     */
+    private $cabStyle;
 
     /**
      * @var string
@@ -551,8 +640,6 @@ class Customer
     {
         return $this->nom;
     }
-
-    
 
     /**
      * Set numTel
@@ -1919,5 +2006,317 @@ class Customer
     public function getFaireRelanceCheque()
     {
         return $this->faireRelanceCheque;
+    }
+
+    /**
+     * Set autreNum
+     *
+     * @param string $autreNum
+     *
+     * @return Customer
+     */
+    public function setAutreNum($autreNum)
+    {
+        $this->autreNum = $autreNum;
+
+        return $this;
+    }
+
+    /**
+     * Get autreNum
+     *
+     * @return string
+     */
+    public function getAutreNum()
+    {
+        return $this->autreNum;
+    }
+
+    /**
+     * Set motifDecision
+     *
+     * @param string $motifDecision
+     *
+     * @return Customer
+     */
+    public function setMotifDecision($motifDecision)
+    {
+        $this->motifDecision = $motifDecision;
+
+        return $this;
+    }
+
+    /**
+     * Get motifDecision
+     *
+     * @return string
+     */
+    public function getMotifDecision()
+    {
+        return $this->motifDecision;
+    }
+
+    /**
+     * Set modele
+     *
+     * @param string $modele
+     *
+     * @return Customer
+     */
+    public function setModele($modele)
+    {
+        $this->modele = $modele;
+
+        return $this;
+    }
+
+    /**
+     * Get modele
+     *
+     * @return string
+     */
+    public function getModele()
+    {
+        return $this->modele;
+    }
+
+    /**
+     * Set planW
+     *
+     * @param string $planW
+     *
+     * @return Customer
+     */
+    public function setPlanW($planW)
+    {
+        $this->planW = $planW;
+
+        return $this;
+    }
+
+    /**
+     * Get planW
+     *
+     * @return string
+     */
+    public function getPlanW()
+    {
+        return $this->planW;
+    }
+
+    /**
+     * Set poignee
+     *
+     * @param string $poignee
+     *
+     * @return Customer
+     */
+    public function setPoignee($poignee)
+    {
+        $this->poignee = $poignee;
+
+        return $this;
+    }
+
+    /**
+     * Get poignee
+     *
+     * @return string
+     */
+    public function getPoignee()
+    {
+        return $this->poignee;
+    }
+
+    /**
+     * Set evier
+     *
+     * @param boolean $evier
+     *
+     * @return Customer
+     */
+    public function setEvier($evier)
+    {
+        $this->evier = $evier;
+
+        return $this;
+    }
+
+    /**
+     * Get evier
+     *
+     * @return boolean
+     */
+    public function getEvier()
+    {
+        return $this->evier;
+    }
+
+    /**
+     * Set mitigeur
+     *
+     * @param boolean $mitigeur
+     *
+     * @return Customer
+     */
+    public function setMitigeur($mitigeur)
+    {
+        $this->mitigeur = $mitigeur;
+
+        return $this;
+    }
+
+    /**
+     * Get mitigeur
+     *
+     * @return boolean
+     */
+    public function getMitigeur()
+    {
+        return $this->mitigeur;
+    }
+
+    /**
+     * Set descriptionElectro
+     *
+     * @param string $descriptionElectro
+     *
+     * @return Customer
+     */
+    public function setDescriptionElectro($descriptionElectro)
+    {
+        $this->descriptionElectro = $descriptionElectro;
+
+        return $this;
+    }
+
+    /**
+     * Get descriptionElectro
+     *
+     * @return string
+     */
+    public function getDescriptionElectro()
+    {
+        return $this->descriptionElectro;
+    }
+
+    /**
+     * Set descriptionTravaux
+     *
+     * @param string $descriptionTravaux
+     *
+     * @return Customer
+     */
+    public function setDescriptionTravaux($descriptionTravaux)
+    {
+        $this->descriptionTravaux = $descriptionTravaux;
+
+        return $this;
+    }
+
+    /**
+     * Get descriptionTravaux
+     *
+     * @return string
+     */
+    public function getDescriptionTravaux()
+    {
+        return $this->descriptionTravaux;
+    }
+
+    /**
+     * Set descriptionProfil
+     *
+     * @param string $descriptionProfil
+     *
+     * @return Customer
+     */
+    public function setDescriptionProfil($descriptionProfil)
+    {
+        $this->descriptionProfil = $descriptionProfil;
+
+        return $this;
+    }
+
+    /**
+     * Get descriptionProfil
+     *
+     * @return string
+     */
+    public function getDescriptionProfil()
+    {
+        return $this->descriptionProfil;
+    }
+
+    /**
+     * Set cabStyle
+     *
+     * @param string $cabStyle
+     *
+     * @return Customer
+     */
+    public function setCabStyle($cabStyle)
+    {
+        $this->cabStyle = $cabStyle;
+
+        return $this;
+    }
+
+    /**
+     * Get cabStyle
+     *
+     * @return string
+     */
+    public function getCabStyle()
+    {
+        return $this->cabStyle;
+    }
+
+    /**
+     * Set concurrence
+     *
+     * @param string $concurrence
+     *
+     * @return Customer
+     */
+    public function setConcurrence($concurrence)
+    {
+        $this->concurrence = $concurrence;
+
+        return $this;
+    }
+
+    /**
+     * Get concurrence
+     *
+     * @return string
+     */
+    public function getConcurrence()
+    {
+        return $this->concurrence;
+    }
+
+    /**
+     * Set diffConcurrence
+     *
+     * @param string $diffConcurrence
+     *
+     * @return Customer
+     */
+    public function setDiffConcurrence($diffConcurrence)
+    {
+        $this->diffConcurrence = $diffConcurrence;
+
+        return $this;
+    }
+
+    /**
+     * Get diffConcurrence
+     *
+     * @return string
+     */
+    public function getDiffConcurrence()
+    {
+        return $this->diffConcurrence;
     }
 }

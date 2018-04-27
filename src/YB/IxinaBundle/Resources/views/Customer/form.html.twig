@@ -14,37 +14,92 @@
 {% block bloc %}
 {{ form_start(form) }}
 <div id="blocDossier">
+        <!-- Dossier visible -->
             <!-- page de gauche -->
             <div id="pageGauche">
-                <div class="tamponHaut"></div>
-                <div id="pageGaucheTop">
-                    <div id="pageGaucheTopG"> {{ form_row(form.dateCreation) }}</div>
-                    <div id="pageGaucheTopD"> {{ form_widget(form.etatDossier) }} </div>
+                <div id="bloc1G">
+                    {% if client is defined and client.renovation == true %}
+                        <span style="color: rgb(162, 66, 27)">Rénovation</span>
+                    {% else %}
+                        <span style="color: rgb(1, 73, 147)">Construction</span>
+                    {% endif %}
                 </div>
-                <div id="pageGaucheTampon"></div>
-                <div id="pageGaucheAction">
-                    {{ form_widget(form.action) }} le {{ form_widget(form.dateProchaineAction) }}
+                <div id="bloc2G">
+                        <div id="plan">
+                            {% if client is defined %}
+                                <img style="width: 100%; height: 100%; border-radius: 20px;"src="{{ asset(client.plan.getWebPath) }}">
+                            {% endif %} 
+                        </div> 
+                    <div id="perspective"></div>
                 </div>
-                <div id="pageGaucheRemarqueAction"> {{ form_widget(form.actionRemarque) }} </div>
-                <div id="pageGaucheAvancement">
-                    <div id="pageGaucheAvancementG">
+                <div id="bloc3G">
+                    <div class="rowBloc3">
+                        <div class="colBloc3">
+                            <div class="iconeBloc3 iconeConcurrence"></div>
+                            <div class="texteBloc3">
+                                <div>
+                                    {% if client is defined %}
+                                        {{ client.concurrence }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="colBloc3">
+                            <div class="iconeBloc3 iconeDifference"></div>
+                            <div class="texteBloc3">
+                                <div>
+                                    {% if client is defined %}
+                                        {{ client.diffConcurrence }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div id="pageGaucheAvancementD">
-                        {{ form_row(form.dessin) }}
-                        {{ form_row(form.preparation) }}
+                    <div class="rowBloc3">
+                        <div class="colBloc3">
+                            <div class="iconeDateDecision iconeBloc3"></div>
+                            <div class="texteBloc3">
+                                <div>
+                                    {% if client is defined %}
+                                        {{ client.dateDecision }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="colBloc3">
+                            <div class="iconeMotivation iconeBloc3"></div>
+                            <div class="texteBloc3">
+                                <div>
+                                    {% if client is defined %}
+                                        {{ client.motifDecision }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div id="pageGaucheBottom">
-                    {{ form_widget(form.Enregister) }}
-                </div>
-            </div>
-            <!-- page de droite -->
-            <div id="pageDroite">
-                <div id="pageOnglet1">
-                    <div class="tamponHaut"></div>
-                    <div class="formErrors">
-                        {{ form_errors(form) }}
+                <div id="bloc4G">
+                    <div id="soncas">
+                        {% if client is defined and client.profSecurite == true %}
+                            <div>Sécurité </div>
+                        {% endif %}
+                        {% if client is defined and client.profOrgueil == true %}
+                            <div>Orgueil</div>
+                        {% endif %}
+                        {% if client is defined and client.profNouveau == true %}
+                            <div>Nouveauté</div>
+                        {% endif %}
+                        {% if client is defined and client.profConfort == true %}
+                            <div>Confort</div>
+                        {% endif %}
+                        {% if client is defined and client.profArgent == true %}
+                            <div>Argent</div>
+                        {% endif %}
+                        {% if client is defined and client.profSympa == true %}
+                            <div>Sympathie</div>
+                        {% endif %}
                     </div>
+<<<<<<< HEAD
                     <div class="formContenu">
                             <div id="coordonneSup">
                                 <div id="labelCoordonneSup" style="font-weight: bold">
@@ -85,176 +140,476 @@
                                         <p>{{ form_widget(form.livVille) }}</br>{{ form_errors(form.livVille) }}</p>
                                     </div>
                                 </fieldset>
+=======
+                    <div id="cab">
+                        <div class="rowBloc4">
+                            <div class="iconeBloc4 iconeStyle"></div>
+                            <div class="texteBloc4">
+                                <div>
+                                    {% if client is defined %}
+                                        {{ client.cabStyle }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rowBloc4">
+                            <div class="iconeBloc4 iconeMeuble"></div>
+                            <div class="texteBloc4">
+                                <div>
+                                    {% if client is defined %}
+                                        {{ client.cabMeuble }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rowBloc4">
+                            <div class="iconeBloc4 iconeElectro"></div>
+                            <div class="texteBloc4">
+                                <div>
+                                    {% if client is defined %}
+                                        {{ client.cabElectro }}
+                                    {% endif %}
+                                </div>
+>>>>>>> testVersion
+                            </div>
+                        </div>
+                        <div class="rowBloc4">
+                            <div class="iconeBloc4 iconePrestation"></div>
+                            <div class="texteBloc4">
+                                <div>   
+                                    {% if client is defined %}
+                                        {{ client.cabService }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rowBloc4">
+                            <div class="iconeBloc4 iconeMoi"></div>
+                            <div class="texteBloc4">
+                                <div>
+                                    {% if client is defined %}
+                                        {{ client.cabVendeur }}
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                     </div>
-                
-                    <div id="pageOnglet2">
-                        <div class="tamponHaut"></div>
-                        <div id="onglet2Renovation">
-                            {{ form_row(form.renovation) }}
-                            {{ form_row(form.Plan) }}
-                        </div>
-                        <div id="onglet2Plan">
+                </div>
+            </div>
+            <!-- page de droite -->
+            <div id="pageDroite">
+                <div id="bloc1D">
+                    <div id="logoClient"></div>
+                    <div id="blocTexteBloc1D">
+                        <div id="etatClient" class="rowBloc1D">
                             {% if client is defined %}
-                                <img style="width: 100%" src="{{ asset(client.plan.getWebPath) }}">
+                                {{ client.etatDossier }}
                             {% endif %}
                         </div>
-                        <div id="onglet2Critere">
-                            {{ form_row(form.dateLivSouhaite) }}
-                            {{ form_row(form.budgetClient) }}
-                        </div>
-                        <div id="onglet2Composition">
-                            <div id="onglet2CompositionFinition">
-                                {{ form_label(form.descriptionFinition, 'Finition') }}{{ form_widget(form.descriptionFinition) }}
-                            </div>
-                            <div id="onglet2CompositionPrest">
-                                <div>{{ form_label(form.liv, 'Liv') }}{{ form_widget(form.liv) }}</div>
-                                <div>{{ form_label(form.pose, 'Pose') }}{{ form_widget(form.pose) }}</div>
-                                <div>{{ form_label(form.prestation) }}{{ form_widget(form.prestation) }}</div>
-                                <div>{{ form_label(form.autre, 'Autre') }}{{ form_widget(form.autre) }}</div>
-                            </div>
-                            <fieldset id="onglet2CompositionElectro">
-                                <legend>Electroménager</legend>
-                                <div id="onglet2CompositionElectroG">
-                                <div>{{ form_label(form.four, 'Four') }}{{ form_widget(form.four) }}</div>
-                                <div>{{ form_label(form.microOnde, 'MO') }}{{ form_widget(form.microOnde) }}</div>
-                                <div>{{ form_label(form.plaqueCuisson, 'Plaque') }}{{ form_widget(form.plaqueCuisson) }}</div>
-                                <div>{{ form_label(form.hotte, 'Hotte') }}{{ form_widget(form.hotte) }}</div>
-                            </div>
-                            <div id="onglet2CompositionElectroD">
-                                <div>{{ form_label(form.frigo, 'Frigo') }}{{ form_widget(form.frigo) }}</div>
-                                <div>{{ form_label(form.laveVaisselle, 'LV') }}{{ form_widget(form.laveVaisselle) }}</div>
-                                <div>{{ form_label(form.laveLinge, 'LL') }}{{ form_widget(form.laveLinge) }}</div>
-                                <div>{{ form_label(form.caveVin, 'C.Vin') }}{{ form_widget(form.caveVin) }}</div>
-                            </div>    
-                            </fieldset>
+                        <div class="rowBloc1D">
+                            {% if client is defined %}<span id="identiteClient">{{ client.nom }} </span> créé le <span id="dateCreation">{{ client.dateCreation|date('d/m/y') }}</span>{% endif %}
                         </div>
                     </div>
-                    <div id="pageOnglet3">
-                        <div class="tamponHaut"></div>
-                        <div id="onglet3niv1">
-                            <div id="onglet3niv1G">{{ form_label(form.decToday, "Qu'ont-ils aujourd'hui ?") }} {{ form_widget(form.decToday) }}</div>
-                            <div id="onglet3niv1D">{{ form_label(form.decBestNeed, "Besoins les plus exprimés") }} {{ form_widget(form.decBestNeed) }}</div>
+                    <!--<div class="iconeSauvegarder"></div>-->
+                    <div>{{ form_widget(form.Enregister) }}</div>
+                </div>
+                <div id="bloc2D">
+                    <div id="coordClient">
+                        <div class="rowBloc2D">
+                            <div class="iconeBloc2D iconeTelephone"></div>
+                            <div class="texteBloc2D">
+                                {% if client is defined %}
+                                    0{{ client.numTel }}
+                                {% endif %}
+                            </div>
                         </div>
-                        <div id="onglet3niv2">
-                            <div id="onglet3niv2G">
-                                <div id="onglet3niv2GG">{{ form_label(form.decTodayLike, "Like") }} {{ form_widget(form.decTodayLike) }}</div>
-                                <div id="onglet3niv2GD">{{ form_label(form.decTodayNoLike, "No Like") }} {{ form_widget(form.decTodayNoLike) }}</div>
+                        <div class="rowBloc2D">
+                            <div class="iconeBloc2D iconeEmail"></div>
+                            <div class="texteBloc2D">
+                                {% if client is defined %}
+                                    {{ client.email }}
+                                {% endif %}
                             </div>
-                            <div id="onglet3niv2D">{{ form_label(form.decReasons, "Raisons qui motivent l'achat") }} {{ form_widget(form.decReasons) }}</div>
                         </div>
-                        <div id="onglet3niv3">
-                            <div id"onglet3niv3G">
-                                <div>{{ form_label(form.profSecurite, "Securité") }}{{ form_widget(form.profSecurite) }}</div>
-                                <div>{{ form_label(form.profConfort, "Confort") }}{{ form_widget(form.profConfort) }}</div>
-                            </div>
-                            <div id"onglet3niv3C">
-                                <div>{{ form_label(form.profOrgueil, "Orgueil") }}{{ form_widget(form.profOrgueil) }}</div>
-                                <div>{{ form_label(form.profArgent, "Argent") }}{{ form_widget(form.profArgent) }}</div>
-                            </div>
-                            <div id"onglet3niv3D">
-                                <div>{{ form_label(form.profNouveau, "Nouveau") }}{{ form_widget(form.profNouveau) }}</div>
-                                 <div>{{ form_label(form.profSympa, "Sympathie") }}{{ form_widget(form.profSympa) }}</div>
+                        <div class="rowBloc2D">
+                            <div class="iconeBloc2D iconeAutre"></div>
+                            <div class="texteBloc2D">
+                                {% if client is defined %}
+                                    {{ client.autreNum }}
+                                {% endif %}
                             </div>
                         </div>
                     </div>
-                    <div id="pageOnglet4">
-                        <div class="tamponHaut"></div>
-                            <div id="onglet4Cab">
-                                {{ form_label(form.cabMeuble, "Meuble") }} {{ form_widget(form.cabMeuble) }}
-                                {{ form_label(form.cabElectro, "Electro") }} {{ form_widget(form.cabElectro) }}
-                                {{ form_label(form.cabSanitaire, "Sanitaire") }} {{ form_widget(form.cabSanitaire) }}
-                                {{ form_label(form.cabService, "Service") }} {{ form_widget(form.cabService) }}
-                                {{ form_label(form.cabVendeur, "Vendeur") }} {{ form_widget(form.cabVendeur) }}
+                    <div id="adressClient">
+                        <div class="rowBloc2D">
+                            {% if client is defined %}
+                                {{ client.livAd1}} 
+                            {% endif %}
+                        </div>
+                        <div class="rowBloc2D">
+                            {% if client is defined %}
+                                {{ client.livAd2}}
+                            {% endif %}
+                        </div>
+                        <div class="rowBloc2D">
+                            {% if client is defined %}
+                                {{ client.livCp }}  {{ client.livVille }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div id="iconeLocalisation"></div>
+                </div>
+                <div id="bloc3D">
+                    <div class="section3D">
+                        <div>
+                            {% if client is defined %}
+                                {{ client.descriptionFinition }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="section3D">
+                        <div>
+                            {% if client is defined and client.four == true %}
+                                Four </br>
+                            {% endif %}
+                            {% if client is defined and client.MicroOnde == true %}
+                                Micro onde </br>
+                            {% endif %}
+                            {% if client is defined and client.plaqueCuisson == true %}
+                                Plaque cuisson </br>
+                            {% endif %}
+                            {% if client is defined and client.hotte == true %}
+                                Hotte </br>
+                            {% endif %}
+                            {% if client is defined and client.frigo == true %}
+                                Frigo </br>
+                            {% endif %}
+                            {% if client is defined and client.laveVaisselle == true %}
+                                Lave Vaisselle </br>
+                            {% endif %}
+                            {% if client is defined and client.laveLinge == true %}
+                                Lave Linge </br>
+                            {% endif %}
+                            {% if client is defined and client.caveVin == true %}
+                                Cave à vin </br>
+                            {% endif %}
+                            {% if client is defined and (client.evier is not null or client.mitigeur is not null) %}
+                            </br> ------ </br>
+                            {% endif %}
+                            {% if client is defined and client.evier == true %}
+                                Evier </br>
+                            {% endif %}
+                            {% if client is defined and client.mitigeur == true %}
+                                Mitigeur </br>
+                            {% endif %}
+                            {% if client is defined and client.descriptionElectro is not null %}
+                            </br> ------ </br>
+                            {% endif %}
+                            {% if client is defined %}
+                                {{ client.descriptionElectro }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="section3D">
+                        <div>
+                            {% if client is defined %}
+                                {{ client.pose }} </br>
+                            {% endif %}
+                            {% if client is defined and client.liv == true %}
+                                livraison
+                            {% else %}
+                                Enlèvement
+                            {% endif %}
+                            {% if client is defined and client.descriptionTravaux is not null %}
+                            </br> ------ </br>
+                            {% endif %}
+                            {% if client is defined %}
+                                {{ client.descriptionTravaux }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div id="bloc4D">
+                    <div class="section4Dbis">
+                            <div id="nextRDV">
+                                {% if client is defined %}
+                                    {{ form_widget(form.action) }}
+                                    {{ form_widget(form.dateProchaineAction) }}
+                                {% endif %}
                             </div>
-                        <div id="onglet4AnnoncePrix">
-                            <fieldset>
-                                <legend>Annonce du Prix SANDWICH</legend>
-                                <div id="onglet4CompositionPrix">Composition du prix</div>
-                                <div id="onglet4PrixAnnonce">{{ form_widget(form.budgetAnnonce) }}</div>
-                                <div id="onglet4Benefice">{{ form_widget(form.beneficeIxina) }}</div>
-                            </fieldset>
-                        </div>
-                        <div id="onglet4DramaDate">
-                            {{ form_label(form.dramaDate, "Dramatisation de la date butoire") }} {{ form_widget(form.dramaDate) }}
-                        </div>
-                        <div id="onglet4Conclusion">
-                            {{ form_label(form.conclusion, "Conclure") }} {{ form_widget(form.conclusion) }}
-                        </div>
-                        <div id="onglet4Objection">
-                            {{ form_label(form.objections, "Traiter les objections") }} {{ form_widget(form.objections) }}
+                    </div>
+                    <div class="section4D">
+                        <div class="iconeBloc4D iconeLivraison"></div>
+                        <div class="texteBloc4D">
+                            <div>
+                                {% if client is defined %}
+                                    {{ client.dateLivSouhaite|date('M/Y')}}
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
-                    <div id="pageOnglet5">
-                        <div class="tamponHaut"></div>
-                        <div id="onglet5Action">
-                            {{ form_row(form.dateProchaineAction) }}
-                            {{ form_row(form.action) }}
-                        </div>
-                        <div id="onglet5Remarque">
-                            <p>{{ form_label(form.actionRemarque, "Remarques:") }}</p>
-                            {{ form_widget(form.actionRemarque) }}
-                            {{ form_errors(form.actionRemarque) }}
-                            <div style="display: none">{{ form_rest(form) }}</div>
-                        {{ form_end(form) }}
+                    <div class="section4D">
+                        <div class="iconeBudget iconeBloc4D"></div>
+                        <div class="texteBloc4D">
+                            <div>
+                                {% if client is defined %}
+                                    {{ client.budgetClient }}
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
-                    <div id="pageOnglet6">
-                        {% if client is defined %}
-                        <a id="btnSupprimer" href="{{ path('yb_ixina_deleteCustomer', {id: client.id}) }}">Supprimer</a>
-                        {% endif %} 
-                    </div>    
+                </div>
+                <div id="bloc5D">
+                    <div>
+                       {{ form_widget(form.actionRemarque)}}
+                    </div>
+                </div>
             </div>
-            <div id="navigationDossier">
-                <div class="ongletNavigationDossier ongletActif" id="onglet1">
-                    <div>C</div>
-                    <div>O</div>
-                    <div>O</div>
-                    <div>R</div>
-                    <div>D</div>
-                    <div>.</div>
+        <!-- Partie saisie Coordonnées -->
+            <!-- page de gauche -->
+            <div id="pageGaucheCoordonnees">
+                <div id="bloc1GC">
+                    <div class="iconeAnnuler"></div>
                 </div>
-                <div class="ongletNavigationDossier" id="onglet2">
-                    <div>P</div>
-                    <div>R</div>
-                    <div>O</div>
-                    <div>J</div>
-                    <div>E</div>
-                    <div>T</div>
+                <div id="bloc2GC">
+                    <div>{{ form_label(form.etatDossier, "Situation du dossier :") }}{{ form_widget(form.etatDossier) }}</div>
+                    <div>{{ form_label(form.dateCreation, "Date de Création :") }}{{ form_widget(form.dateCreation) }}</div>
                 </div>
-                <div class="ongletNavigationDossier" id="onglet3">
-                    <div>P</div>
-                    <div>R</div>
-                    <div>E</div>
-                    <div>P</div>
-                    <div>A</div>
-                    <div>.</div>
+            </div>
+            <!-- page de droite -->
+            <div id="pageDroiteCoordonnees">
+                <div id="bloc1DC">
+                    <div id="logoBloc1DC"></div>
+                    <div id="intituleBloc1DC">
+                        Coordonnées
+                    </div>
+                   <!--<div class="iconeSauvegarder"></div>-->
                 </div>
-                <div class="ongletNavigationDossier" id="onglet4">
-                    <div>S</div>
-                    <div>T</div>
-                    <div>R</div>
-                    <div>A</div>
-                    <div>T</div>
-                    <div>.</div>
+                <div class="blocDC" >
+                    <div id="bloc2DC">
+                        <div class="col1BlocDC">Nom</div>
+                        <div class="col2BlocDC">{{ form_widget(form.nom) }}</div>
+                    </div>
                 </div>
-                <div class="ongletNavigationDossier" id="onglet5">
-                    <div>S</div>
-                    <div>U</div>
-                    <div>I</div>
-                    <div>V</div>
-                    <div>I</div>
+                <div class="blocDC" id="bloc3DC">
+                    <div class="rowBlocDC">
+                        <div class="col1BlocDC iconeTelephone"></div>
+                        <div class="col2BlocDC" >{{ form_widget(form.numTel) }}</div>
+                    </div>
+                    <div class="rowBlocDC">
+                        <div class="col1BlocDC iconeEmail"></div>
+                        <div class="col2BlocDC" >{{ form_widget(form.email) }}</div>
+                    </div>
+                    <div class="rowBlocDC">
+                        <div class="col1BlocDC iconeAutre"></div>
+                        <div class="col2BlocDC" >{{ form_widget(form.autreNum) }}</div>
+                    </div>
                 </div>
-                <div class="ongletNavigationDossier" id="onglet6">
-                    <div>A</div>
-                    <div>U</div>
-                    <div>T</div>
-                    <div>R</div>
-                    <div>E</div>
+                <div class="blocDC" id="bloc4DC">
+                    <div class="rowBlocDC">
+                        <div class="col1BlocDC" id="localisationIcone"></div>
+                        <div class="col2BlocDC">{{ form_widget(form.livAd1) }}</div>
+                    </div>
+                    <div class="rowBlocDC">
+                        <div class="col1BlocDC"></div>
+                        <div class="col2BlocDC">{{ form_widget(form.livAd2) }}</div>
+                    </div>
+                    <div class="rowBlocDC">
+                        <div class="col1BlocDC"></div>
+                        <div class="col2BlocDC" style="display: flex;">
+                            <div id="cp">{{ form_widget(form.livCp) }}</div>
+                            <div id="ville">{{ form_widget(form.livVille) }}</div>
+                        </div>
+                    </div>
                 </div>
+                <div id="navigationDroiteLogo"></div>
+            </div>
+        <!-- Partie saisie Projet -->
+        <!-- page gauche -->
+        <div id="pageGaucheProjet">
+            <div id="bloc1GP">
+                <div class="iconeAnnuler"></div>
+            </div>
+            <div id="bloc2GP">
+                <div>{{ form_widget(form.Plan) }}</div>
+            </div>
+            <div id="bloc3GP">
+                <div id="modeleBloc3GP"></div>
+                <div id="planBloc3GP"></div>
+            </div>
+            <div id="bloc4GP"></div>
+            <div id="bloc5GP">
+                <div id="row1Bloc5GP">
+                    <div class="formBloc5GP">
+                        <div class="iconeLivraison iconeBloc5GP"></div>
+                        <div class="champBloc5GP">{{ form_widget(form.dateLivSouhaite)}}</div>
+                    </div>
+                    <div class="formBloc5GP">
+                        <div class="iconeBudget iconeBloc5GP"></div>
+                        <div class="champBloc5GP">{{ form_widget(form.budgetClient) }}</div>
+                    </div>
+                </div>
+                <div id="row2Bloc5GP">
+                    <div class="formBloc5GP">
+                        <div class="iconeDateDecision iconeBloc5GP"></div>
+                        <div class="champBloc5GP">{{ form_widget(form.dateDecision)}}</div>
+                    </div>
+                </div>
+                <div id="row3Bloc5GP">
+                    <div class="formBloc5GP">
+                        <div class="iconeMotivation iconeBloc5GP"></div>
+                        <div class="champBloc5GP">{{ form_widget(form.motifDecision) }}</div>
+                    </div>
+                </div>
+            </div>
+            <div id="navigationGaucheProjetLogo"></div>
+        </div>
+        <!-- page droite -->
+        <div id="pageDroiteProjet">
+            <div id="bloc1DP">
+                <div id="logoBloc1DC"></div>
+                <div id="intituleBloc1DP">
+                    Projet
+                </div>
+                <!--<div class="iconeSauvegarder"></div>-->
+            </div>
+            <div id="bloc2DP">
+                <div>Finitions</div>
+            </div>
+            <div id="bloc3DP">
+                <div id="col1Bloc3DP">
+                    <div class="rowBloc3DP">
+                        <div class="intituleBloc3DP">Modèle :</div>
+                        <div class="champBloc3DP">{{ form_widget(form.modele) }}</div>
+                    </div>
+                    <div class="rowBloc3DP">
+                        <div class="intituleBloc3DP">Plan W :</div>
+                        <div class="champBloc3DP">{{ form_widget(form.planW) }}</div>
+                    </div>
+                    <div class="rowBloc3DP">
+                        <div class="intituleBloc3DP">Poignée :</div>
+                        <div class="champBloc3DP">{{ form_widget(form.poignee) }}</div>
+                    </div>
+                </div>
+                <div id="col2Bloc3DP">{{ form_widget(form.descriptionFinition) }}</div>
+            </div>
+            <div id="bloc4DP">
+                <div>Electroménager</div>
+            </div>
+            <div id="bloc5DP">
+                <div id="row1Bloc5DP">
+                    <div class="choixBloc5DP">{{ form_widget(form.four) }}</div>
+                    <div class="champBloc5DP">{{ form_label(form.four) }}</div>
+                    <div class="choixBloc5DP">{{ form_widget(form.microOnde) }}</div>
+                    <div class="champBloc5DP">{{ form_label(form.microOnde) }}</div>
+                    <div class="choixBloc5DP">{{ form_widget(form.evier) }}</div>
+                    <div class="champBloc5DP">{{ form_label(form.evier) }}</div>
+                </div>
+                <div id="row2Bloc5DP">
+                    <div class="choixBloc5DP">{{ form_widget(form.plaqueCuisson) }}</div>
+                    <div class="champBloc5DP">{{ form_label(form.plaqueCuisson) }}</div>
+                    <div class="choixBloc5DP">{{ form_widget(form.frigo) }}</div>
+                    <div class="champBloc5DP">{{ form_label(form.frigo) }}</div>
+                    <div class="choixBloc5DP">{{ form_widget(form.mitigeur) }}</div>
+                    <div class="champBloc5DP">{{ form_label(form.mitigeur) }}</div>
+                </div>
+                <div id="row3Bloc5DP">
+                    <div class="colBloc5DP" style="width: 67%;">
+                        <div id="row4Bloc5DP">
+                            <div class="choixBloc5R4DP">{{ form_widget(form.laveVaisselle) }}</div>
+                            <div class="champBloc5R4DP">{{ form_label(form.laveVaisselle, 'L.V') }}</div>
+                            <div class="choixBloc5R4DP">{{ form_widget(form.laveLinge) }}</div>
+                            <div class="champBloc5R4DP">{{ form_label(form.laveLinge, 'L.L') }}</div>
+                        </div>
+                        <div id="row5Bloc5DP">
+                            <div class="choixBloc5R4DP">{{ form_widget(form.hotte) }}</div>
+                            <div class="champBloc5R4DP">{{ form_label(form.hotte) }}</div>
+                            <div class="choixBloc5R4DP">{{ form_widget(form.caveVin) }}</div>
+                            <div class="champBloc5R4DP">{{ form_label(form.caveVin, 'Cave') }}</div>
+                        </div>
+                    </div>
+                    <div class="colBloc5DP" style="width: 33%;">
+                        {{ form_widget(form.descriptionElectro) }}
+                    </div>
+                </div>
+            </div>
+            <div id="bloc6DP">
+                <div>Prestation</div>
+            </div>
+            <div id="bloc7DP">
+                <div id="col1Bloc7DP">
+                    <div id="row0Col1Bloc7DP">{{ form_row(form.renovation) }}</div>
+                    <div id="row1Col1Bloc7DP">{{ form_row(form.pose) }}</div>
+                    <div id="row2Col1Bloc7DP">{{ form_label(form.liv, 'Livraison')}}{{ form_widget(form.liv) }}</div>
+                </div>
+                <div id="col2Bloc7DP">{{ form_widget(form.descriptionTravaux) }}</div>
+            </div>
+            <div id="navigationDroiteLogo2"></div>
+        </div>
+        <!-- Partie saisie Stratégie -->
+        <!-- page gauche -->
+        <div id="pageGaucheStrategie">
+            <div class="iconeAnnuler"></div>
+            <div id="bloc1GS">Fichier perspective</div>
+            <div id="bloc2GS">
+                <div id="planP"></div>
+                <div id="planD"></div>
+            </div>
+            <div id="bloc3GS">
+                <div id="soncasStrategie">
+                    <div class="profil" id="securite">{{ form_widget(form.profSecurite) }} {{ form_label(form.profSecurite, "Sécurité")}} </div>
+                    <div class="profil" id="orgueil">{{ form_widget(form.profOrgueil) }} {{ form_label(form.profOrgueil, "Orgueil")}}</div>
+                    <div class="profil" id="nouveaute">{{ form_widget(form.profNouveau) }} {{form_label(form.profNouveau, "Nouveauté")}}</div>
+                    <div class="profil" id="confort">{{ form_widget(form.profConfort) }} {{ form_label(form.profConfort, "Confort")}}</div>
+                    <div class="profil" id="argent">{{ form_widget(form.profArgent) }} {{ form_label(form.profArgent, "Argent")}}</div>
+                    <div class="profil" id="sympathie">{{ form_widget(form.profSympa) }} {{ form_label(form.profSympa, "sympathie")}}</div>
+                </div>
+                <div id="remarqueStrategie">{{ form_widget(form.descriptionProfil) }}</div>
+            </div>
+            <div id="navigationGaucheStrategieLogo"></div>
+        </div>
+        <!-- page droite -->
+        <div id="pageDroiteStrategie">
+            <div id="bloc1DS">
+                <div id="logoBloc1DS"></div>
+                <div id="intituleBloc1DS">
+                    Stratégie
+                </div>
+                <!--<div class="iconeSauvegarder"></div>-->
+            </div>
+            <div id="bloc2DS"></div>
+            <div id="bloc3DS">
+                <div class="iconeStyle iconeBloc4"></div>
+                <div>{{ form_widget(form.cabStyle) }}</div>
+            </div>
+            <div id="bloc4DS">
+                <div class="iconeMeuble iconeBloc4"></div>
+                <div>{{ form_widget(form.cabMeuble) }}</div>
+            </div>
+            <div id="bloc5DS">
+                <div class="iconeElectro iconeBloc4"></div>
+                <div>{{ form_widget(form.cabElectro) }}</div>
+            </div>
+            <div id="bloc6DS">
+                <div class="iconePrestation iconeBloc4"></div>
+                <div>{{ form_widget(form.cabService) }}</div>
+            </div>
+            <div id="bloc7DS">
+                <div class="iconeMoi iconeBloc4"></div>
+                <div>{{ form_widget(form.cabVendeur) }}</div>
+            </div>
+            <div id="bloc8DS"></div>
+            <div id="bloc9DS">
+                <div class="iconeConcurrence iconeBloc4"></div>
+                <div id="concurrenceRemarque">{{ form_widget(form.concurrence)}}</div>
+                <div class="tampon"></div>
+                <div class="iconeDifference iconeBloc4"></div>
+                <div id="differenceRemarque">{{ form_widget(form.diffConcurrence) }}</div>
             </div>
         </div>
+</div>
+<div style="display: none">{{ form_rest(form) }}</div>
+{{ form_end(form) }}
 {% endblock %}
 
 {% block javaScript %}

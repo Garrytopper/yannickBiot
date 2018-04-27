@@ -8,470 +8,1174 @@
     background-size: 1101px 669px;
     display: flex;
     z-index: 10;
+    justify-content: center;
+    align-items: center;
 }
-
-/* partie page Gauche */
+/* partie visible */
+    /* partie page Gauche */
 
 #pageGauche
 {
-    height: 660px;
-    width: 480px;
+    
+    height: 600px;
+    width: 450px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    margin-right: 15px;
+    display: none;
 }
-    #pageGaucheTop
+
+     #bloc1G
+    {
+        height: 25px;
+        font-size: 1.5em;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom5px;
+    }
+       
+    #bloc2G
+    {
+        height: 150px;
+        display: flex;
+        justify-content: space-between ;
+        
+        
+    }
+
+        #plan
+        {
+            border-radius: 10px;
+            border: solid;
+            width: 48%;
+            height: 96%;
+            background-image: url("../images/planVide.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        #perspective
+        {
+            border-radius: 10px;
+            width: 48%;
+            height: 96%;
+            background-image: url("../images/perspectiveVide.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+    #bloc3G
+    {
+        height: 140px;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .rowBloc3
+        {
+            width: 100%;
+            height: 50%;
+            display: flex;
+        }
+            .colBloc3
+            {
+                flex: 1;
+                height: 98%;
+                display: flex;
+            }
+                .iconeBloc3
+                {
+                    height: 90%;
+                    width: 50px;
+                }
+
+                    .iconeConcurrence
+                    {
+                        background-image: url("../images/concurrenceLogo.png");
+                        background-size: 60%;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+
+                    .iconeDifference
+                    {
+                        background-image: url("../images/differenceLogo.png");
+                        background-size: 60%;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+
+                    .iconeMotivation
+                    {
+                        background-image: url("../images/motivationLogo.png");
+                        background-size: 60%;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+
+                    .iconeDateDecision
+                    {
+                        background-image: url("../images/dateDecisionLogo.png");
+                        background-size: 60%;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+
+                .texteBloc3
+                {
+                    height: 90%;
+                    flex: 1;
+                    text-align: center;
+                    overflow: scroll;
+                    display: flex;
+                }
+
+                .texteBloc3 div
+                {
+                    margin: auto;
+                    font-size: 0.8em;
+                }
+
+    #bloc4G
+    {
+        height: 260px;
+        width: 100%;
+        border-radius: 30px;
+        background-color: white;
+        display: flex;
+    }
+
+        #soncas
+        {
+            height: 96%;
+            width: 33%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+            #soncas div
+            {
+                padding-left: 15%;
+                margin-top: 10%;
+            }
+
+        #cab
+        {
+            height: 96%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+            .rowBloc4
+            {
+                height: 18%;
+                width: 98%;
+                display: flex;
+            }
+
+                .iconeBloc4
+                {
+                    height: 96%;
+                    width: 50px;
+                }
+
+                     .iconeMeuble
+                     {
+                        background-image: url("../images/meubleLogo.png");
+                        background-size: 80%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                     }
+
+                     .iconeElectro
+                     {
+                        background-image: url("../images/electroLogo.png");
+                        background-size: 80%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                     }
+
+                     .iconePrestation
+                     {
+                        background-image: url("../images/prestationLogo.png");
+                        background-size: 80%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                     }
+
+                     .iconeMoi
+                     {
+                        background-image: url("../images/moiLogo.png");
+                        background-size: 80%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                     }
+
+                     .iconeStyle
+                     {
+                        background-image: url("../images/styleLogo.png");
+                        background-size: 80%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                     }
+
+                .texteBloc4
+                {
+                    height: 96%%;
+                    flex: 1;
+                    overflow: scroll;
+                    display: flex;
+                    padding-left: 15px;
+                }
+                    
+                    .texteBloc4 div
+                    {
+                        margin: auto;
+                        font-size: 0.8em;
+                    }
+
+    /* partie page Droite */
+
+#pageDroite
+{
+    height: 600px;
+    width: 500px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+    display: none;
+}
+
+    #bloc1D
+    {
+        height: 70px;
+        display: flex;
+    }
+        #etatClient
+        {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: rgb(1, 73, 147); 
+        }
+
+        #identiteClient
+        {
+            font-size: 1.4em;
+            color: orange;
+            font-weight: bold;
+        }
+
+        #dateCreation
+        {
+            font-weight: bold;
+        }
+
+        #logoClient
+        {
+            height: 96%;
+            width: 75px;
+            background-image: url("../images/clientLogo.png");
+            background-size: 100% 100%;
+        }
+
+        #blocTexteBloc1D
+        {
+            height: 96%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .rowBloc1D
+            {
+                height: 96%;
+                height: 49%;
+                padding-left: 15px;
+            }
+
+    #bloc2D
+    {
+        height: 105px;
+        display: flex;
+        line-height: 30px;
+    }
+
+    .rowBloc2D
+    {
+        height: 32%;
+        width: 100%;
+        display: flex;
+         overflow: scroll;
+    }
+
+        .iconeBloc2D
+        {
+            width: 30px;   
+        }
+
+            .iconeTelephone
+            {
+                background-image: url("../images/telephoneLogo.png");
+                background-size: 25px;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            .iconeEmail
+            {
+                background-image: url("../images/emailLogo.png");
+                background-size: 25px;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            .iconeAutre
+            {
+                background-image: url("../images/autreLogo.png");
+                background-size: 25px;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+        .texteBloc2D
+        {
+            padding-left: 10px;
+            overflow: scroll;
+        }
+
+        #coordClient
+        {
+            width: 60%;
+            height: 96%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #iconeLocalisation
+        {
+            background-image: url("../images/localisationLogo.png");
+            background-size: 20px 20px;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 20px;
+            height: 20px;
+            position: relative ;
+            top: 70px;
+            right: 5px;
+        }
+
+        #adressClient
+        {
+            flex: 1;
+            height: 96%;
+            display: flex;
+            flex-direction: column;
+            color: rgb(1, 73, 147); 
+            border-left: solid;
+            padding-left: 15px;
+            font-weight: bold;
+            font-size: 0.9em;
+           
+        }
+
+    #bloc3D
+    {
+        height: 180px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .section3D
+        {
+            width: 30%;
+            height: 98%;
+            border-radius: 30px;
+            border: solid black;
+            display: flex;
+            font-size: 0.8em;
+        }
+
+            .section3D div
+            {
+                margin: auto;
+                width: 75%;
+                overflow: scroll;
+            }
+
+    #bloc4D
+    {
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .section4D
+        {
+            width: 30%;
+            height: 96%;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .section4Dbis
+        {
+            width: 40%;
+            height: 96%;
+            display: flex;
+            align-items: flex-end;
+        }
+
+            .iconeBloc4D
+            {
+                width: 50px;
+                height: 50px;
+            }
+
+                .iconeLivraison
+                {
+                    background-image: url("../images/livraisonLogo.png");
+                    background-size: 60% 60%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+                .iconeBudget
+                {
+                    background-image: url("../images/budgetLogo.png");
+                    background-size: 60% 60%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+                #iconeNext
+                {
+                    background-image: url("../images/nextLogo.png");
+                    background-size: 60% 60%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+            .texteBloc4D
+            {
+                flex: 1;
+                height: 50px;
+                display: flex;
+            }
+
+                .texteBloc4D div
+                {
+                    margin: auto;
+                }
+
+                    #nextRDV
+                    {
+                        width: 100%;
+                    }
+
+    #bloc5D
+    {
+        height: 140px;
+        margin-bottom: 15px;
+        display: flex;
+    }
+
+        #bloc5D div
+        {
+            width: 90%;
+            height: 90%;
+            margin: auto;
+        }
+
+/* partie coordonnees */
+    /* partie page gauche */
+
+#pageGaucheCoordonnees
+{
+    height: 600px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 15px;
+    display: none;
+}
+
+    #bloc1GC
     {
         height: 50px;
     }
 
-    #pageGaucheTop
+    #bloc2GC
+    {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+
+        #bloc2GC div
+        {
+            margin: auto;
+        }
+
+        .iconeAnnuler
+        {
+            background-image: url("../images/annulerLogo.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 50px;
+            height: 50px;
+        }
+
+    /* partie page droite */
+#pageDroiteCoordonnees
+{
+    height: 600px;
+    width: 500px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+    display: none;
+    align-items: center;
+}
+
+    #bloc1DC
     {
         height: 50px;
         display: flex;
     }
 
-        #pageGaucheTopG
+        #logoBloc1DC
+        {
+            width: 50px;
+            background-image: url("../images/clientLogo.png");
+            background-size: 100% 100%;
+            
+        }
+
+        #intituleBloc1DC
         {
             flex: 1;
+            line-height: 50px;
+            font-size: 2em;
+            color: rgb(1, 73, 147);
+            font-weight: bold;
+            padding-left: 50px;
         }
 
-        #pageGaucheTopD
+        .iconeSauvegarder
         {
-            flex:1 ;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding-right: 10px;
+            height: 100%;
+            width: 50px;
+            background-image: url("../images/sauvegarderLogo.png");
+            background-size: 80%;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
-    #pageGaucheTampon
+.blocDC
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rowBlocDC
+{
+    height: 33%;
+    width: 70%;
+    display: flex;
+}
+
+.col1BlocDC
+{
+    height: 100%;
+    width: 15%;
+    line-height: 100px; 
+    text-align: center;
+}
+
+.col2BlocDC
+{
+    flex: 1;
+    margin: auto;
+}
+
+#bloc2DC
+{
+    height: 100px;
+    width: 70%;
+    display: flex;
+}
+
+#bloc3DC
+{
+    height: 200px;
+}
+
+    #localisationIcone
+    {
+        background-image: url("../images/localisationLogo.png");
+        background-size: 25px;
+        background-repeat: no-repeat;
+        background-position: center;  
+    }
+
+#bloc4DC
+{
+    padding-top: 25px;
+    height: 200px;
+}
+
+#navigationDroiteLogo
+{
+    background-image: url("../images/navigationDroiteLogo.png");
+    background-size: 50px;
+    width: 50px;
+    height: 50px;
+    position: absolute ;
+    bottom: 50%;
+    left: 90%;
+}
+
+
+/* partie Projet */
+    /* partie page gauche */
+#pageGaucheProjet
+{
+    height: 600px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 15px;
+    display: none;
+}
+    
+    #bloc1GP
+    {
+        height: 50px;
+        display: flex;
+    }
+
+    #bloc2GP
+    {
+        height: 75px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+        #bloc2GP div
+        {
+
+        }
+
+    #bloc3GP
+    {
+        height: 150px;
+        display: flex;
+        justify-content: space-between ;
+        
+    }
+
+        #modeleBloc3GP
+        {
+            height: 150px;
+            width: 200px;
+            border-radius: 20px;
+            border: solid;
+            background-image: url("../images/planLogo.png");
+            background-size: 100%;
+            background-position: center;
+        }
+
+        #planBloc3GP
+        {
+            height: 150px;
+            width: 200px;
+            border-radius: 20px;
+            border: solid;
+        }
+
+    #bloc4GP
     {
         height: 75px;
     }
 
-    #pageGaucheAction
+    #bloc5GP
     {
-        height: 50px;
-        display: flex;
+        height: 165px;
     }
 
-    #pageGaucheRemarqueAction
-    {
-        height: 200px;
-    }
-
-    #pageGaucheAvancement
-    {
-        height: 100px;
-        display: flex;
-    }
-
-        #pageGaucheAvancementG
+        #row1Bloc5GP
         {
-            flex: 1;
-        }
-
-        #pageGaucheAvancementD
-        {
-            flex: 1;
+            height: 50px;
             display: flex;
-            flex-direction: column;
-            justify-content: space-around ;
         }
 
-    #pageGaucheBottom
+        #row2Bloc5GP
+        {
+            height: 50px;
+        }
+
+        #row3Bloc5GP
+        {
+            height: 50px;
+        }
+
+            .formBloc5GP
+            {
+                width: 50%;
+                height: 45px;
+                display: flex;
+
+            }
+
+                .iconeBloc5GP
+                {
+                    width: 45px;
+                }
+
+                .champBloc5GP
+                {
+                    flex: 1;
+                    display: flex;
+                }
+
+    #navigationGaucheProjetLogo
     {
-        height: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end ;
+        background-image: url("../images/navigationGaucheLogo.png");
+        background-size: 50px;
+        width: 50px;
+        height: 50px;
+        position: absolute ;
+        bottom: 50%;
+        left: 8%;
     }
 
-        button
-        {
-            height: 35px;
-            width: 150px;
-            font-size: 1.2em;
-        }
-/* partie page Droite */
 
-#pageDroite
+    /* partie page droite */
+#pageDroiteProjet
 {
-    height: 660px;
+    height: 600px;
     width: 500px;
-}
-
-p 
-{
-    height: 25px;
-}
-
-.tamponHaut
-{
-   height: 25px;
-}
-
-.formErrors
-{
-    height: 25px;
-}
-
-/* Onglet1 */
-
-    #coordonneSup
-    {
-        height: 295px;
-        display: flex;
-    }
-
-         #labelCoordonneSup
-        {
-            display: flex;
-            flex-direction: column ;
-            flex:1;
-            padding-left: 20px;
-        }
-
-        #champCoordonneSup
-        {
-            display: flex;
-            flex-direction: column ;
-            flex:1;
-        }
-
-    #coordonneBas
-    {
-        height: 250px;
-        display: flex;
-    }
-
-        #coordonneGauche
-        {
-            height: 100%;
-            flex:1;
-            display: flex;
-            padding: 4px;
-        }
-
-            #labelCoordonneBasGauche
-            {
-                flex: 1;
-            }
-
-            #champCoordonneBasGauche
-            {
-                flex: 1;
-            }
-
-        #coordonneDroit
-        {
-            height: 100%;
-            flex:1;
-            display: flex;
-            padding: 4px;
-        }
-
-            #labelCoordonneBasDroit
-            {
-                flex: 1;
-            }
-
-            #champCoordonneBasDroit
-            {
-                flex: 1;
-            }
-/* onglet2 */
-
-#onglet2Renovation
-{
-    height: 50px;
+    margin-right: 10px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#onglet2Plan
-{
-    height: 350px;
-    border: 1px double black;
-    overflow: auto;
-}
-
-#onglet2Critere
-{
-    height: 75px;
-    display: flex;
-    align-items: start;
-    margin-top: 10px;
-    justify-content: space-between;
-}
-
-#onglet2Composition
-{
-    display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-between ;
-    height: 95px;
-}
-
-    #onglet2CompositionFinition
-    {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between ;
-        align-items: center;
-        flex:1;
-    }
-
-    #onglet2CompositionPrest
-    {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between ;
-        height: 100%;
-        flex:1;
-    }
-
-    #onglet2Composition fieldset
-    {
-        display: flex;
-        flex:2;
-        justify-content: space-around;
-    }
-
-    #onglet2CompositionElectroG
-    {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        justify-content: space-between ;
-    }
-
-    #onglet2CompositionElectroD
-    {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        justify-content: space-between ;
-    }
-    }
-
-    #onglet2CompositionElectroG
-    {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        justify-content: space-between ;
-    }
-
-    #onglet2CompositionElectroD
-    {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        justify-content: space-between ;
-    }
-
-/* onglet 3 */
-
-#onglet3niv1
-{
-    height: 250px;
-    display: flex;
-
-}
-
-    #onglet3niv1G
-    {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-    }
-
-    #onglet3niv1D
-    {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-#onglet3niv2
-{
-    height: 250px;
-    display: flex;
-}
-        
-    #onglet3niv2G
-    {
-        flex: 1;
-        display: flex;
-    }
-
-        #onglet3niv2GG
-        {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-        }
-
-        #onglet3niv2GD
-        {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-    #onglet3niv2D
-    {
-        flex:1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-#onglet3niv3
-{
-    height: 90px;
-    display: flex;
-    justify-content: space-around ;
+    display: none;
     align-items: center;
 }
 
-/* onglet 4 */
-
-#onglet4Cab
-{
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-}
-
-#onglet4AnnoncePrix fieldset
-{
-    height: 170px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-    #onglet4CompositionPrix
+    #bloc1DP
     {
         height: 50px;
+        display: flex;
     }
 
-    #onglet4PrixAnnonce
+        #logoBloc1DP
+        {
+            width: 50px;
+            background-image: url("../images/clientLogo.png");
+            background-size: 100% 100%;
+        }
+
+        #intituleBloc1DP
+        {
+            flex: 1;
+            line-height: 50px;
+            font-size: 2em;
+            color: rgb(1, 73, 147);
+            font-weight: bold;
+            padding-left: 50px;
+        }
+
+    #bloc2DP
+    {
+        height: 60px;
+        display: flex;
+        align-items: flex-end ;
+        color: rgb(1, 73, 147);
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+
+    #bloc3DP
+    {
+        height: 100px;
+        border-radius: 20px;
+        display: flex;
+    }
+
+        #col1Bloc3DP
+        {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .rowBloc3DP
+            {
+                width: 90%;
+                height: 25px;
+                display: flex;
+            }
+
+                .intituleBloc3DP
+                {
+                    width: 40%;
+                    height: 100%;
+                    line-height: 25px;
+                    display: flex;
+                }
+
+                .champBloc3DP
+                {
+                    flex: 1;
+                    height: 100%;
+                }
+
+        #col2Bloc3DP
+        {
+            flex: 1;
+            height: 100%;
+        }
+
+
+    #bloc4DP
+    {
+        height: 70px;
+        display: flex;
+        align-items: flex-end ;
+        color: rgb(1, 73, 147);
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+
+    #bloc5DP
+    {
+        height: 150px;
+       
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+        #row1Bloc5DP
+        {
+            height: 25px;
+            width: 95%;
+            display: flex;
+        }
+
+        #row2Bloc5DP
+        {
+            height: 25px;
+            width: 95%;
+            display: flex;
+        }
+
+        #row3Bloc5DP
+        {
+            width: 95%;
+            display: flex;
+        }
+
+            .colBloc5DP
+            {
+                height: 100%;
+            }
+
+                #row4Bloc5DP
+                {
+                    height: 25px;
+                    width: 100%;
+                    display: flex;
+                    
+                }
+
+                #row5Bloc5DP
+                {
+                    height: 25px;
+                    width: 100%;
+                   display: flex;
+                }
+
+        .champBloc5DP
+        {
+            height: 100%;
+            width: 30%;
+        }
+
+        .champBloc5R4DP
+        {
+            height: 100%;
+            width: 45%;
+        }
+
+    #bloc6DP
     {
         height: 50px;
+        display: flex;
+        align-items: flex-end ;
+        color: rgb(1, 73, 147);
+        font-size: 1.3em;
+        font-weight: bold;
     }
 
-    #onglet4Benefice
+    #bloc7DP
     {
-        height: 50px;
+        height: 100px;
+     
+        border-radius: 20px;
+        display: flex;
     }
 
-#onglet4DramaDate
+        #col1Bloc7DP
+        {
+            width: 40%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+            #row0Col1Bloc7DP
+            {
+                height: 20px;
+                width: 90%;
+            }
+
+            #row1Col1Bloc7DP
+            {
+                height: 20px;
+                width: 90%;
+              
+            }
+
+            #row2Col1Bloc7DP
+            {
+                height: 20px;
+                width: 90%;
+                display: flex;
+            }
+
+        #col2Bloc7DP
+        {   
+            width: 60%;
+            height: 100%;
+            margin-top: 3px;
+        }
+
+    #navigationDroiteLogo2
+    {
+        background-image: url("../images/navigationDroiteLogo.png");
+        background-size: 50px;
+        width: 50px;
+        height: 50px;
+        position: absolute ;
+        bottom: 50%;
+        left: 90%;
+    }
+
+/* partie Strategie */
+    /* partie page gauche */
+
+#pageGaucheStrategie
 {
-    height: 50px;
-    display: flex;
-    flex-direction: column;
+    height: 600px;
+    width: 450px;
+    margin-right: 15px;
+    display: none;
 }
 
-#onglet4Conclusion
+#navigationGaucheStrategieLogo
 {
+    background-image: url("../images/navigationGaucheLogo.png");
+    background-size: 50px;
+    width: 50px;
     height: 50px;
-    display: flex;
-    flex-direction: column;
+    position: absolute ;
+    bottom: 50%;
+    left: 8%;
 }
 
-#onglet4Objection
+#bloc1GS
 {
     height: 50px;
-    display: flex;
-    flex-direction: column;
+    line-height: 50px;
 }
 
-/* onglet 5 */
-
-#onglet5Action
+#bloc2GS
 {
     height: 150px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
 }
 
-#onglet5Remarque
+    #planP
+    {
+        height: 150px;
+        width: 200px;
+        border: solid ;
+        border-radius: 20px;
+        background-image: url("../images/perspectiveLogo.png");
+        background-size: 100%;
+        background-position: center;
+    }
+
+    #planD 
+    {
+        height: 150px;
+        width: 200px;
+        border: solid ;
+        border-radius: 20px;
+    }
+
+#bloc3GS
 {
-    height: 420px;
+    height: 300px;
+    display: flex;
+    padding-top: 30px;
 }
 
-/* partie navigation des onglets du dossier client */
+    #soncasStrategie
+    {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
 
-#navigationDossier
+        .profil
+        {
+            height: 50px;
+            flex: 1;
+            line-height: 40px;
+        }
+
+    #remarqueStrategie
+    {
+        flex: 1;
+        height: 100%;
+    }
+     /* partie page droite */
+
+#pageDroiteStrategie
 {
     height: 600px;
-    width: 50px;
-    position: absolute ;
-    right: 90px;
-    top: 80px;
-    z-index: 0;
-}
-
-.ongletNavigationDossier
-{
-    width: 40px;
-    height: 100px;
-    border-radius: 0px 15px 15px 0px;
+    width: 500px;
+    margin-right: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center ;
-    font-size: 0.7em;
-    font-weight: bold;
-    justify-content: center;
-    box-shadow: 5px 5px 5px grey;
+    justify-content: space-between ;
+    display: none;
+    align-items: center;
 }
-    #onglet1
+
+#bloc1DS
+{
+    height: 50px;
+    display: flex;
+}
+
+        #logoBloc1DS
+        {
+            width: 50px;
+            background-image: url("../images/clientLogo.png");
+            background-size: 100% 100%;
+        }
+
+        #intituleBloc1DS
+        {
+            flex: 1;
+            line-height: 50px;
+            font-size: 2em;
+            color: rgb(1, 73, 147);
+            font-weight: bold;
+            padding-left: 50px;
+        }
+
+#bloc2DS
+{
+    height: 50px;
+}
+
+#bloc3DS
+{
+    height: 50px;
+    display: flex;
+}
+
+#bloc4DS
+{
+    height: 50px;
+    display: flex;
+}
+
+#bloc5DS
+{
+    height: 50px;
+    display: flex;
+}
+
+#bloc6DS
+{
+    height: 50px;
+    display: flex;
+}
+
+#bloc7DS
+{
+    height: 50px;
+    display: flex;
+}
+
+#bloc8DS
+{
+    height: 50px;
+    
+}
+
+#bloc9DS
+{
+    height: 150px;
+    display: flex;
+}
+
+    .tampon
     {
-        background-color: rgb(212, 223, 229);
+        width: 50px;
     }
 
-    #onglet2
+    #differenceRemarque
     {
-        background-color: rgb(225, 243, 216);
+        width: 150px;
     }
 
-    #onglet3
-    {
-        background-color: rgb(254, 207, 215);
+    #concurrenceRemarque
+    {   
+        width: 150px;
     }
 
-    #onglet4
-    {
-        background-color: rgb(255, 247, 173);
-    }
 
-    #onglet5
-    {
-        background-color: rgb(254, 220, 183);
-    }
 
-    #onglet6
-    {
-        background-color: rgb(227, 226, 225);
-    }
 
-    .ongletActif
-    {
-        color: white;
-        box-shadow: 5px 5px 5px white;
-    }
+
