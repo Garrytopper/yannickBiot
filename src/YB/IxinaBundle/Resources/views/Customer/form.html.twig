@@ -167,7 +167,8 @@
                             {% if client is defined %}<span id="identiteClient">{{ client.nom }} </span> créé le <span id="dateCreation">{{ client.dateCreation|date('d/m/y') }}</span>{% endif %}
                         </div>
                     </div>
-                    <div class="iconeSauvegarder"></div>
+                    <!--<div class="iconeSauvegarder"></div>-->
+                    <div>{{ form_widget(form.Enregister) }}</div>
                 </div>
                 <div id="bloc2D">
                     <div id="coordClient">
@@ -339,7 +340,7 @@
                     <div id="intituleBloc1DC">
                         Coordonnées
                     </div>
-                    <div class="iconeSauvegarder"></div>
+                   <!--<div class="iconeSauvegarder"></div>-->
                 </div>
                 <div class="blocDC" >
                     <div id="bloc2DC">
@@ -427,7 +428,7 @@
                 <div id="intituleBloc1DP">
                     Projet
                 </div>
-                <div class="iconeSauvegarder"></div>
+                <!--<div class="iconeSauvegarder"></div>-->
             </div>
             <div id="bloc2DP">
                 <div>Finitions</div>
@@ -531,7 +532,7 @@
                 <div id="intituleBloc1DS">
                     Stratégie
                 </div>
-                <div class="iconeSauvegarder"></div>
+                <!--<div class="iconeSauvegarder"></div>-->
             </div>
             <div id="bloc2DS"></div>
             <div id="bloc3DS">
