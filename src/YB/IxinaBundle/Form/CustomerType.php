@@ -32,7 +32,7 @@ class CustomerType extends AbstractType
                         'Perdu' => 'Perdu',
                         'Inactif' => 'Inactif'
                         ), 'attr' => array(
-                        'style' => 'font-size: 5em'
+                        'style' => 'font-size: 5em;'
                         ),
                     ))
                 ->add('dateCreation', DateType::class)

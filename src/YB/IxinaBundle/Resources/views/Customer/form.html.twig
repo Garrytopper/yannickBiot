@@ -163,8 +163,11 @@
                                 {{ client.etatDossier }}
                             {% endif %}
                         </div>
-                        <div class="rowBloc1D">{% if client is defined %}<span id="identiteClient">{{ client.nom }} </span> créé le <span id="dateCreation">{{ client.dateCreation|date('d/m/y') }}</span>{% endif %}</div>
+                        <div class="rowBloc1D">
+                            {% if client is defined %}<span id="identiteClient">{{ client.nom }} </span> créé le <span id="dateCreation">{{ client.dateCreation|date('d/m/y') }}</span>{% endif %}
+                        </div>
                     </div>
+                    <div class="iconeSauvegarder"></div>
                 </div>
                 <div id="bloc2D">
                     <div id="coordClient">
@@ -172,7 +175,7 @@
                             <div class="iconeBloc2D iconeTelephone"></div>
                             <div class="texteBloc2D">
                                 {% if client is defined %}
-                                    {{ client.numTel }}
+                                    0{{ client.numTel }}
                                 {% endif %}
                             </div>
                         </div>
@@ -283,15 +286,13 @@
                     </div>
                 </div>
                 <div id="bloc4D">
-                    <div class="section4D">
-                        <div id="iconeNext" class="iconeBloc4D"></div>
-                        <div class="texteBloc4D">
+                    <div class="section4Dbis">
                             <div id="nextRDV">
                                 {% if client is defined %}
+                                    {{ form_widget(form.action) }}
                                     {{ form_widget(form.dateProchaineAction) }}
                                 {% endif %}
                             </div>
-                        </div>
                     </div>
                     <div class="section4D">
                         <div class="iconeBloc4D iconeLivraison"></div>
@@ -325,6 +326,10 @@
             <div id="pageGaucheCoordonnees">
                 <div id="bloc1GC">
                     <div class="iconeAnnuler"></div>
+                </div>
+                <div id="bloc2GC">
+                    <div>{{ form_label(form.etatDossier, "Situation du dossier :") }}{{ form_widget(form.etatDossier) }}</div>
+                    <div>{{ form_label(form.dateCreation, "Date de Création :") }}{{ form_widget(form.dateCreation) }}</div>
                 </div>
             </div>
             <!-- page de droite -->
@@ -381,7 +386,9 @@
             <div id="bloc1GP">
                 <div class="iconeAnnuler"></div>
             </div>
-            <div id="bloc2GP"></div>
+            <div id="bloc2GP">
+                <div>{{ form_widget(form.Plan) }}</div>
+            </div>
             <div id="bloc3GP">
                 <div id="modeleBloc3GP"></div>
                 <div id="planBloc3GP"></div>

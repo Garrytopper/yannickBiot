@@ -33,7 +33,7 @@
         font-weight: bold;
         display: flex;
         justify-content: space-between;
-        margin-bottom: 5px;
+        margin-bottom5px;
     }
        
     #bloc2G
@@ -419,11 +419,18 @@
 
         .section4D
         {
-            width: 33%;
+            width: 30%;
             height: 96%;
             display: flex;
             align-items: flex-end;
-           
+        }
+
+        .section4Dbis
+        {
+            width: 40%;
+            height: 96%;
+            display: flex;
+            align-items: flex-end;
         }
 
             .iconeBloc4D
@@ -470,7 +477,7 @@
 
                     #nextRDV
                     {
-                        width: 120px
+                        width: 100%;
                     }
 
     #bloc5D
@@ -505,6 +512,18 @@
     {
         height: 50px;
     }
+
+    #bloc2GC
+    {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+
+        #bloc2GC div
+        {
+            margin: auto;
+        }
 
         .iconeAnnuler
         {
@@ -651,7 +670,15 @@
     #bloc2GP
     {
         height: 75px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
     }
+
+        #bloc2GP div
+        {
+
+        }
 
     #bloc3GP
     {
