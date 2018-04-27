@@ -49,9 +49,9 @@ class Customer
     private $dateCreation;
 
     /**
-     * @var \DateTime
+     * @var \string
      *
-     * @ORM\Column(name="dateDecision", type="datetime", nullable = true)
+     * @ORM\Column(name="dateDecision", type="string", length=255, nullable = true)
      */
     private $dateDecision;
 

@@ -18,14 +18,18 @@
             <!-- page de gauche -->
             <div id="pageGauche">
                 <div id="bloc1G">
-                    {% if client.renovation == true %}
+                    {% if client is defined and client.renovation == true %}
                         <span style="color: rgb(162, 66, 27)">Rénovation</span>
                     {% else %}
                         <span style="color: rgb(1, 73, 147)">Construction</span>
                     {% endif %}
                 </div>
                 <div id="bloc2G">
-                    <<img src="" alt="" id="plan"> ></div>
+                        <div id="plan">
+                            {% if client is defined %}
+                                <img style="width: 100%; height: 100%; border-radius: 20px;"src="{{ asset(client.plan.getWebPath) }}">
+                            {% endif %} 
+                        </div> 
                     <div id="perspective"></div>
                 </div>
                 <div id="bloc3G">
@@ -33,13 +37,21 @@
                         <div class="colBloc3">
                             <div class="iconeBloc3 iconeConcurrence"></div>
                             <div class="texteBloc3">
-                                <div>cuisinella / Mobalpa / Eco-cuisine</div>
+                                <div>
+                                    {% if client is defined %}
+                                        {{ client.concurrence }}
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                         <div class="colBloc3">
                             <div class="iconeBloc3 iconeDifference"></div>
                             <div class="texteBloc3">
-                                <div>La meilleure implantation</div>
+                                <div>
+                                    {% if client is defined %}
+                                        {{ client.diffConcurrence }}
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -47,53 +59,95 @@
                         <div class="colBloc3">
                             <div class="iconeDateDecision iconeBloc3"></div>
                             <div class="texteBloc3">
-                                <div>Rapidement</div>
+                                <div>
+                                    {% if client is defined %}
+                                        {{ client.dateDecision }}
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                         <div class="colBloc3">
                             <div class="iconeMotivation iconeBloc3"></div>
                             <div class="texteBloc3">
-                                <div>Plan techniques avant fin avril</div>
+                                <div>
+                                    {% if client is defined %}
+                                        {{ client.motifDecision }}
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div id="bloc4G">
                     <div id="soncas">
-                        <div>Sécurité </div>
-                        <div>Confort </div>
-                        <div>Orgeuil </div>
-                        <div>Nouveauté</div>
+                        {% if client is defined and client.profSecurite == true %}
+                            <div>Sécurité </div>
+                        {% endif %}
+                        {% if client is defined and client.profOrgueil == true %}
+                            <div>Orgueil</div>
+                        {% endif %}
+                        {% if client is defined and client.profNouveau == true %}
+                            <div>Nouveauté</div>
+                        {% endif %}
+                        {% if client is defined and client.profConfort == true %}
+                            <div>Confort</div>
+                        {% endif %}
+                        {% if client is defined and client.profArgent == true %}
+                            <div>Argent</div>
+                        {% endif %}
+                        {% if client is defined and client.profSympa == true %}
+                            <div>Sympathie</div>
+                        {% endif %}
                     </div>
                     <div id="cab">
                         <div class="rowBloc4">
                             <div class="iconeBloc4 iconeStyle"></div>
                             <div class="texteBloc4">
-                                <div>Ilot original/Manger à 4</div>
+                                <div>
+                                    {% if client is defined %}
+                                        {{ client.cabStyle }}
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                         <div class="rowBloc4">
                             <div class="iconeBloc4 iconeMeuble"></div>
                             <div class="texteBloc4">
-                                <div>Casserolier / range épice / armoire pharmacie</div>
+                                <div>
+                                    {% if client is defined %}
+                                        {{ client.cabMeuble }}
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                         <div class="rowBloc4">
                             <div class="iconeBloc4 iconeElectro"></div>
                             <div class="texteBloc4">
-                                <div>Bon moyen de gamme</div>
+                                <div>
+                                    {% if client is defined %}
+                                        {{ client.cabElectro }}
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                         <div class="rowBloc4">
                             <div class="iconeBloc4 iconePrestation"></div>
                             <div class="texteBloc4">
-                                <div>S'occuper de rien, bonne communication entres artisants</div>
+                                <div>   
+                                    {% if client is defined %}
+                                        {{ client.cabService }}
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                         <div class="rowBloc4">
                             <div class="iconeBloc4 iconeMoi"></div>
                             <div class="texteBloc4">
-                                <div>Seul interlocuteur</div>
+                                <div>
+                                    {% if client is defined %}
+                                        {{ client.cabVendeur }}
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -104,91 +158,127 @@
                 <div id="bloc1D">
                     <div id="logoClient"></div>
                     <div id="blocTexteBloc1D">
-                        <div id="etatClient" class="rowBloc1D">{{ client.etatDossier }}</div>
-                        <div class="rowBloc1D"><span id="identiteClient">{{ client.nom }}</span> créé le <span id="dateCreation">{{ client.dateCreation|date('d/m/y') }}</span></div>
+                        <div id="etatClient" class="rowBloc1D">
+                            {% if client is defined %}
+                                {{ client.etatDossier }}
+                            {% endif %}
+                        </div>
+                        <div class="rowBloc1D">{% if client is defined %}<span id="identiteClient">{{ client.nom }} </span> créé le <span id="dateCreation">{{ client.dateCreation|date('d/m/y') }}</span>{% endif %}</div>
                     </div>
                 </div>
                 <div id="bloc2D">
                     <div id="coordClient">
                         <div class="rowBloc2D">
                             <div class="iconeBloc2D iconeTelephone"></div>
-                            <div class="texteBloc2D">{{ client.numTel }}</div>
+                            <div class="texteBloc2D">
+                                {% if client is defined %}
+                                    {{ client.numTel }}
+                                {% endif %}
+                            </div>
                         </div>
                         <div class="rowBloc2D">
                             <div class="iconeBloc2D iconeEmail"></div>
-                            <div class="texteBloc2D">{{ client.email }}</div>
+                            <div class="texteBloc2D">
+                                {% if client is defined %}
+                                    {{ client.email }}
+                                {% endif %}
+                            </div>
                         </div>
                         <div class="rowBloc2D">
                             <div class="iconeBloc2D iconeAutre"></div>
-                            <div class="texteBloc2D">{{ client.autreNum }}</div>
+                            <div class="texteBloc2D">
+                                {% if client is defined %}
+                                    {{ client.autreNum }}
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                     <div id="adressClient">
-                        <div class="rowBloc2D">{{ client.livAd1}} </div>
-                        <div class="rowBloc2D">{{ client.livAd2}}</div>
-                        <div class="rowBloc2D">{{ client.livCp }}  {{ client.livVille }}</div>
+                        <div class="rowBloc2D">
+                            {% if client is defined %}
+                                {{ client.livAd1}} 
+                            {% endif %}
+                        </div>
+                        <div class="rowBloc2D">
+                            {% if client is defined %}
+                                {{ client.livAd2}}
+                            {% endif %}
+                        </div>
+                        <div class="rowBloc2D">
+                            {% if client is defined %}
+                                {{ client.livCp }}  {{ client.livVille }}
+                            {% endif %}
+                        </div>
                     </div>
                     <div id="iconeLocalisation"></div>
                 </div>
                 <div id="bloc3D">
                     <div class="section3D">
                         <div>
-                            {{ client.descriptionFinition }}
+                            {% if client is defined %}
+                                {{ client.descriptionFinition }}
+                            {% endif %}
                         </div>
                     </div>
                     <div class="section3D">
                         <div>
-                            {% if client.four == true %}
+                            {% if client is defined and client.four == true %}
                                 Four </br>
                             {% endif %}
-                            {% if client.MicroOnde == true %}
+                            {% if client is defined and client.MicroOnde == true %}
                                 Micro onde </br>
                             {% endif %}
-                            {% if client.plaqueCuisson == true %}
+                            {% if client is defined and client.plaqueCuisson == true %}
                                 Plaque cuisson </br>
                             {% endif %}
-                            {% if client.hotte == true %}
+                            {% if client is defined and client.hotte == true %}
                                 Hotte </br>
                             {% endif %}
-                            {% if client.frigo == true %}
+                            {% if client is defined and client.frigo == true %}
                                 Frigo </br>
                             {% endif %}
-                            {% if client.laveVaisselle == true %}
+                            {% if client is defined and client.laveVaisselle == true %}
                                 Lave Vaisselle </br>
                             {% endif %}
-                            {% if client.laveLinge == true %}
+                            {% if client is defined and client.laveLinge == true %}
                                 Lave Linge </br>
                             {% endif %}
-                            {% if client.caveVin == true %}
+                            {% if client is defined and client.caveVin == true %}
                                 Cave à vin </br>
                             {% endif %}
-                            {% if client.evier is not null or client.mitigeur is not null %}
+                            {% if client is defined and (client.evier is not null or client.mitigeur is not null) %}
                             </br> ------ </br>
                             {% endif %}
-                            {% if client.evier == true %}
+                            {% if client is defined and client.evier == true %}
                                 Evier </br>
                             {% endif %}
-                            {% if client.mitigeur == true %}
+                            {% if client is defined and client.mitigeur == true %}
                                 Mitigeur </br>
                             {% endif %}
-                            {% if client.descriptionElectro is not null %}
+                            {% if client is defined and client.descriptionElectro is not null %}
                             </br> ------ </br>
                             {% endif %}
-                            {{ client.descriptionElectro }}
+                            {% if client is defined %}
+                                {{ client.descriptionElectro }}
+                            {% endif %}
                         </div>
                     </div>
                     <div class="section3D">
                         <div>
-                           {{ client.pose }} </br>
-                            {% if client.liv == true %}
+                            {% if client is defined %}
+                                {{ client.pose }} </br>
+                            {% endif %}
+                            {% if client is defined and client.liv == true %}
                                 livraison
                             {% else %}
                                 Enlèvement
                             {% endif %}
-                            {% if client.descriptionTravaux is not null %}
+                            {% if client is defined and client.descriptionTravaux is not null %}
                             </br> ------ </br>
                             {% endif %}
-                            {{ client.descriptionTravaux }}
+                            {% if client is defined %}
+                                {{ client.descriptionTravaux }}
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -196,19 +286,31 @@
                     <div class="section4D">
                         <div id="iconeNext" class="iconeBloc4D"></div>
                         <div class="texteBloc4D">
-                            <div id="nextRDV">{{ form_widget(form.dateProchaineAction) }}</div>
+                            <div id="nextRDV">
+                                {% if client is defined %}
+                                    {{ form_widget(form.dateProchaineAction) }}
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                     <div class="section4D">
                         <div class="iconeBloc4D iconeLivraison"></div>
                         <div class="texteBloc4D">
-                            <div>{{ client.dateLivSouhaite|date('M/Y')}}</div>
+                            <div>
+                                {% if client is defined %}
+                                    {{ client.dateLivSouhaite|date('M/Y')}}
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                     <div class="section4D">
                         <div class="iconeBudget iconeBloc4D"></div>
                         <div class="texteBloc4D">
-                            <div>{{ client.budgetClient }}</div>
+                            <div>
+                                {% if client is defined %}
+                                    {{ client.budgetClient }}
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>

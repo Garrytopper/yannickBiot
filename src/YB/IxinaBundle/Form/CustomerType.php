@@ -36,7 +36,7 @@ class CustomerType extends AbstractType
                         ),
                     ))
                 ->add('dateCreation', DateType::class)
-                ->add('dateDecision', DateType::class, array('required' => false, 'attr' => array('style' => 'margin: auto;')))
+                ->add('dateDecision', TextType::class, array('required' => false, 'attr' => array('style' => 'font-size: 1.2em; margin: auto; height: 25px; width: 99%;')))
                 ->add('dessin', CheckboxType::class, array('required' => false))
                 ->add('preparation', CheckboxType::class, array('required' => false))
                 ->add('nom', TextType::class, array('attr' => array('style' => 'font-weight: bold; height: 30px; width: 98%; font-size: 1.2em; color: orange')))

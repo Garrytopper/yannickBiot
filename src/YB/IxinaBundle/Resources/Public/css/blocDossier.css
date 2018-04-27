@@ -16,7 +16,7 @@
 
 #pageGauche
 {
-    color: rgb();
+    
     height: 600px;
     width: 450px;
     display: flex;
@@ -33,6 +33,7 @@
         font-weight: bold;
         display: flex;
         justify-content: space-between;
+        margin-bottom: 5px;
     }
        
     #bloc2G
@@ -47,6 +48,7 @@
         #plan
         {
             border-radius: 10px;
+            border: solid;
             width: 48%;
             height: 96%;
             background-image: url("../images/planVide.png");
