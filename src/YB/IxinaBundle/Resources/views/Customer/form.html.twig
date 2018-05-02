@@ -334,7 +334,9 @@
                     <div>{{ form_label(form.etatDossier, "Situation du dossier :") }}{{ form_widget(form.etatDossier) }}</div>
                     <div>{{ form_label(form.dateCreation, "Date de Création :") }}{{ form_widget(form.dateCreation) }}</div>
                     <div>
+                        {% if client is defined %}
                           <a href="{{ path('yb_ixina_deleteCustomer', {'id': client.id }) }}" style="color: red;">!! Supprimer !!</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
