@@ -14,6 +14,8 @@
 {% block bloc %}
 {{ form_start(form) }}
 <div id="blocDossier">
+    <div id="sauvegarde">{{ form_widget(form.Enregister) }}</div> 
+    <div id="entree" class="{% if entree is defined and entree == "new"%}new{% endif %}"></div>
         <!-- Dossier visible -->
             <!-- page de gauche -->
             <div id="pageGauche">
@@ -169,8 +171,6 @@
                             {% if client is defined %}<span id="identiteClient">{{ client.nom }} </span> créé le <span id="dateCreation">{{ client.dateCreation|date('d/m/y') }}</span>{% endif %}
                         </div>
                     </div>
-                    <!--<div class="iconeSauvegarder"></div>-->
-                    <div>{{ form_widget(form.Enregister) }}</div>
                 </div>
                 <div id="bloc2D">
                     <div id="coordClient">
@@ -333,6 +333,9 @@
                 <div id="bloc2GC">
                     <div>{{ form_label(form.etatDossier, "Situation du dossier :") }}{{ form_widget(form.etatDossier) }}</div>
                     <div>{{ form_label(form.dateCreation, "Date de Création :") }}{{ form_widget(form.dateCreation) }}</div>
+                    <div>
+                          <a href="{{ path('yb_ixina_deleteCustomer', {'id': client.id }) }}" style="color: red;">!! Supprimer !!</a>
+                    </div>
                 </div>
             </div>
             <!-- page de droite -->

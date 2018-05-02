@@ -44,7 +44,7 @@ class CustomerController extends Controller
                 return $this->redirectToRoute('yb_ixina_homepage');
             }
         }
-        return $this->render('YBIxinaBundle:Customer:form.html.twig', array('form' => $form->createView(), 'origine' => $origine));
+        return $this->render('YBIxinaBundle:Customer:form.html.twig', array('form' => $form->createView(), 'origine' => $origine, 'entree' => 'new'));
     }
 
     public function modifAction(REQUEST $request, $id, $origine)
@@ -87,13 +87,16 @@ class CustomerController extends Controller
         $test = $this->get('yb_popup.test');
         $em = $this->getDoctrine()->getManager();
         $client = $em->getRepository('YBIxinaBundle:Customer')->find($id);
+        
         $form = $this->get('form.factory')->create(VenteType::class, $client);
+        
         $relance = new RelCheque();
         $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $relance);
         $formBuilder->add('montant', MoneyType::class, array( 'required' => false, 'attr' => array('style' => 'width: 50px')))
                     ->add('nomCheque', TextType::class, array('required' => false))
                     ->add('dateRelance', DateType::class, array('required' => false));
         $form2 = $formBuilder->getForm();
+        
         $prestation = new Prestation();
         $formBuilder2 = $this->get('form.factory')->createBuilder(FormType::class, $prestation);
         $formBuilder2->add('finitions', TextareaType::class, array('required' => false, 'attr' => array('cols' => 18, 'rows' => 8)))
@@ -144,19 +147,17 @@ class CustomerController extends Controller
                     $facture->setTypeFacture('Acompte');
                     $em->persist($facture);
                 }
-                if($form2->isValid()) {
-                    $faireRelanceCheque = $client->getFaireRelanceCheque();
-                    if ($faireRelanceCheque == true) {
-                        $nom = $client->getNom();
-                            $relance->setNom($nom);
-                        $tel = $client->getNumTel();
-                            $relance->setTel($tel);
-                        $email = $client->getEmail();
-                            $relance->setEmail($email);
-                            $relance->setOrigine('Acompte');
-                        $em->persist($relance);
+                 $faireRelanceCheque = $client->getFaireRelanceCheque();
+                if ($faireRelanceCheque == true) {
+                    $nom = $client->getNom();
+                        $relance->setNom($nom);
+                    $tel = $client->getNumTel();
+                        $relance->setTel($tel);
+                    $email = $client->getEmail();
+                        $relance->setEmail($email);
+                        $relance->setOrigine('Acompte');
+                    $em->persist($relance);
                     }
-                }
                 $fairePrestation = $client->getPrestation();
                 if($fairePrestation == true) {
                     $prestation->setClient($client);

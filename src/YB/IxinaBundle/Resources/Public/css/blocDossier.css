@@ -26,6 +26,18 @@
     display: none;
 }
 
+    #sauvegarde
+    {
+        position: absolute;
+        top: 15px;
+        display: none;
+    }
+
+    #entree
+    {
+        display: none;
+    }
+
      #bloc1G
     {
         height: 25px;
@@ -401,6 +413,7 @@
             border: solid black;
             display: flex;
             font-size: 0.8em;
+            overflow: scroll;
         }
 
             .section3D div
@@ -515,7 +528,7 @@
 
     #bloc2GC
     {
-        height: 100px;
+        height: 500px;
         display: flex;
         flex-direction: column;
     }

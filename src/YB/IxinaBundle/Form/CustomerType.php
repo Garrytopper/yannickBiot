@@ -110,7 +110,7 @@ class CustomerType extends AbstractType
                 ->add('dramaDate', TextareaType::class, array('required' => false, 'attr' => array('rows' => '2', 'cols' => '35')))
                 ->add('conclusion', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '2', 'cols' => '35')))
                 ->add('objections', TextareaType::class, array('required' =>false, 'attr' => array('rows' => '2', 'cols' => '35')))
-                ->add('Enregister', SubmitType::class, array('attr' => array('style' => 'border-radius: 10px; width: 100px; height: 25px')))
+                ->add('Enregister', SubmitType::class, array('attr' => array('style' => 'border-radius: 10px; width: 150px; height: 40px; font-size: 1.3em; color: orange; font-weight: bold;')))
                 ;
     }/**
      * {@inheritdoc}

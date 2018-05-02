@@ -1,7 +1,19 @@
-$('#blocDossier').animate({width: '95%'}, 1000, function(){
+if ($('#entree').hasClass('new')) {
+    $('#blocDossier').animate({width: '95%'}, 1000, function(){
+    $('#pageGaucheCoordonnees').fadeIn(1000);
+    $('#pageDroiteCoordonnees').fadeIn(1000);
+    $('#sauvegarde').fadeIn(1000);
+    });
+}
+else{
+    $('#blocDossier').animate({width: '95%'}, 1000, function(){
     $('#pageGauche').fadeIn(1000);
     $('#pageDroite').fadeIn(1000);
-});
+    $('#sauvegarde').fadeIn(1000);
+    });
+}
+
+
 
 $(function(){
     $('#bloc2D').dblclick(function(){
