@@ -25,6 +25,8 @@ $(function(){
         });
     });
     $('.iconeAnnuler').click(function(){
+        $('#pageGaucheAction').hide();
+        $('#pageDroiteAction').hide();
         $('#pageGaucheProjet').hide();
         $('#pageDroiteProjet').hide();
         $('#pageGaucheStrategie').hide();
@@ -66,6 +68,22 @@ $(function(){
         })
         $('#pageDroiteStrategie').hide(function(){
             $('#pageDroiteProjet').fadeIn(1000);
+        });
+    });
+    $('#navigationDroiteLogo3').click(function(){
+        $('#pageGaucheStrategie').hide(function(){
+            $('#pageGaucheActions').fadeIn(1000);
+        });
+        $('#pageDroiteStrategie').hide(function(){
+            $('#pageDroiteActions').fadeIn(1000);
+        });
+    });
+    $('#navigationGaucheActionLogo').click(function(){
+        $('#pageGaucheActions').hide(function(){
+            $('#pageGaucheStrategie').fadeIn(1000);
+        });
+        $('#pageDroiteActions').hide(function(){
+            $('#pageDroiteStrategie').fadeIn(1000);
         });
     });
 });

@@ -222,6 +222,10 @@
                     <div class="section3D">
                         <div>
                             {% if client is defined %}
+                                {{ client.modele }}
+                                {{ client.planW }}
+                                {{ client.poignee }}
+                                </br>-----</br>
                                 {{ client.descriptionFinition }}
                             {% endif %}
                         </div>
@@ -320,7 +324,9 @@
                 </div>
                 <div id="bloc5D">
                     <div>
-                       {{ form_widget(form.actionRemarque)}}
+                        {% if client is defined %}
+                            {{ form_widget(form.actionRemarque) }}
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -333,6 +339,8 @@
                 <div id="bloc2GC">
                     <div>{{ form_label(form.etatDossier, "Situation du dossier :") }}{{ form_widget(form.etatDossier) }}</div>
                     <div>{{ form_label(form.dateCreation, "Date de Création :") }}{{ form_widget(form.dateCreation) }}</div>
+                    <div>{{ form_label(form.preparation, 'Dossier préparé : ') }}{{ form_widget(form.preparation) }}</div>
+                    <div>{{ form_label(form.dessin, 'Dossier dessiné : ') }}{{ form_widget(form.dessin) }}</div>
                     <div>
                         {% if client is defined %}
                           <a href="{{ path('yb_ixina_deleteCustomer', {'id': client.id }) }}" style="color: red;">!! Supprimer !!</a>
@@ -570,7 +578,32 @@
                 <div class="iconeDifference iconeBloc4"></div>
                 <div id="differenceRemarque">{{ form_widget(form.diffConcurrence) }}</div>
             </div>
+            <div id="navigationDroiteLogo3"></div>
         </div>
+        <!-- Partie saisie des prochaines actions -->
+            <!-- page de gauche -->
+            <div id="pageGaucheActions">
+                <div class="iconeAnnuler"></div>
+                <div id="navigationGaucheActionLogo"></div>
+            </div>
+            <!-- page de droite -->
+            <div id="pageDroiteActions">
+                <div id="bloc1DA">
+                    <div id="logoBloc1DA"></div>
+                    <div id="intituleBloc1DA">
+                        Actions
+                    </div>
+                </div>
+                <div class="tampon1"></div>
+                <div id="bloc2DA">
+                    {{ form_label(form.dateProchaineAction, 'Date du prochain rendez-vous') }}{{ form_widget(form.dateProchaineAction) }}
+                </div>
+                <div class="tampon1"></div>
+                <div id="bloc3DA">
+                    {{ form_widget(form.actionRemarque) }}
+                </div>
+            </div>
+
 </div>
 <div style="display: none">{{ form_rest(form) }}</div>
 {{ form_end(form) }}
