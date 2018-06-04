@@ -102,3 +102,8 @@ yb_ixina_prestationsupprimer:
     path:    /note/suppPrestation/{id}
     defaults:
         _controller: YBIxinaBundle:Note:suppprestatation
+
+yb_ixina_com:
+    path:    /com 
+    defaults:
+        _controller: YBIxinaBundle:Ixina:com

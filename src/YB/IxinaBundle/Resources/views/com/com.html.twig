@@ -1,0 +1,66 @@
+{% extends 'YBIxinaBundle::ixinaHome.html.twig' %}
+
+{% block css %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/com.css')}}">
+{% endblock %}
+
+{% block body %}  
+    <div id="bureau">
+        <div id="blocPrincipal">
+            <div id="sectionMenu">
+                <div id="menuPreparation" class="men1 men2 ongletActif">Préparation</div>
+                <div id="menuAccueil" class="men1">1. Accueil</div>
+                <div id="menuDecouverte" class="men1">2. Découverte</div>
+                <div id="menuDessin" class="men1 men2">Dessin</div>
+                <div id="menuRecommander" class="men1">3. Recommander</div>
+                <div id="menuConclusion" class="men1">4. Conclusion</div>
+                <div id="menuObjections" class="men1 men2">Objections</div>
+            </div>
+            <div id="sectionContenu">
+                <div id="sectionBulle">
+                    <div id="liste">
+                        <div class="bulle bubulePreparation" id="bullePreparation"></div>
+                        <div class="bulle bubulePreparation" id="bullePreparationSimon"></div>
+                        <div class="bulle bubulePreparation" id="bullePreparationAguilar"></div>
+                        <div class="bulle bubulePreparation" id="bullePreparationCuddy"></div>
+                        <div class="bulle bubuleAccueil" id="bulleAccueil"></div>
+                        <div class="bulle bubuleAccueil" id="bulleAccueilOne"></div>
+                        <div class="bulle bubuleAccueil" id="bulleAccueilValeurs"></div>
+                        <div class="bulle bubuleAccueil" id="bulleAccueilEtat"></div>
+                        <div class="bulle bubuleAccueil" id="bulleAccueilCongruence"></div>
+                        <div class="bulle bubuleAccueil" id="bulleAccueilAttente"></div>
+                        <div class="bulle bubuleDecouverte" id="bulleDecouverte"></div>
+                        <div class="bulle bubuleDecouverte" id="bulleDecouverte1"></div>
+                        <div class="bulle bubuleDecouverte" id="bulleDecouverteSoncas"></div>
+                        <div class="bulle bubuleDessin" id="bulleDessin"></div>
+                        <div class="bulle bubuleReco" id="bulleReco"></div>
+                        <div class="bulle bubuleConclusion" id="bulleConclusion"></div>
+                    </div>
+                    <a href="{{ path('yb_ixina_homepage') }}" id="retour"></a>
+                </div>
+                <div id="imagePreparation" class="sectionPhoto"></div>
+                <a   id="imagePreparationSimon" class="sectionPhoto" href="https://www.ted.com/speakers/simon_sinek"></a>
+                <a   id="imagePreparationAguilar" class="sectionPhoto" href="https://www.youtube.com/watch?v=kXtt92bAJjk"></a>
+                <a   id="imagePreparationCuddy" class="sectionPhoto" href="https://www.ted.com/talks/amy_cuddy_your_body_language_shapes_who_you_are?language=fr"></a>
+                <div id="imageAccueil" class="sectionPhoto"></div>
+                <div id="imageAccueilOneMinute" class="sectionPhoto"></div>
+                <div id="imageAccueilValeurs" class="sectionPhoto"></div>
+                <div id="imageAccueilEtat" class="sectionPhoto"></div>
+                <div id="imageAccueilCongruence" class="sectionPhoto"></div>
+                <div id="imageAccueilAttente" class="sectionPhoto"></div>
+                <div id="imageDecouverte" class="sectionPhoto"></div>
+                <div id="imageDecouverte1" class="sectionPhoto"></div>
+                <div id="imageDecouverteSoncas" class="sectionPhoto"></div>
+                <div id="imageDessin" class="sectionPhoto"></div>
+                <div id="imageReco" class="sectionPhoto"></div>
+                <div id="imageConclusion" class="sectionPhoto"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javaScript %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('bundles/ybixina/js/com.js') }}"></script>
+{% endblock %}

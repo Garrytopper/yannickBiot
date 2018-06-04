@@ -596,7 +596,10 @@
                 </div>
                 <div class="tampon1"></div>
                 <div id="bloc2DA">
+                    {{ form_widget(form.action)}}
+                    <div class="tampon1"></div>
                     {{ form_label(form.dateProchaineAction, 'Date du prochain rendez-vous') }}{{ form_widget(form.dateProchaineAction) }}
+
                 </div>
                 <div class="tampon1"></div>
                 <div id="bloc3DA">

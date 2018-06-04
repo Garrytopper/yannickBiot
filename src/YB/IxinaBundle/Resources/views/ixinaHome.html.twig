@@ -35,6 +35,12 @@
             {% endblock %}
         </div>
         {% block bloc %}
+            <div id="bulleMenu">
+                <div class="iconeBulle"></div>
+                <a class="iconeBulle" id="bulleCom" href="{{ path('yb_ixina_com')}}"></a>
+                <div class="iconeBulle" id="bulleBloc"></div>
+            </div>
+            <div id="feuilleDeBloc"></div>
             {% for client in clientsToday %}
                 <div id="{{ client.id }}" class="blocInfo">
                     <div id="clientTel">

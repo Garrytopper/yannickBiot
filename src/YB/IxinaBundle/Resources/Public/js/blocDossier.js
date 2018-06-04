@@ -25,8 +25,8 @@ $(function(){
         });
     });
     $('.iconeAnnuler').click(function(){
-        $('#pageGaucheAction').hide();
-        $('#pageDroiteAction').hide();
+        $('#pageGaucheActions').hide();
+        $('#pageDroiteActions').hide();
         $('#pageGaucheProjet').hide();
         $('#pageDroiteProjet').hide();
         $('#pageGaucheStrategie').hide();

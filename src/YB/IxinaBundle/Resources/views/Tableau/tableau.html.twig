@@ -19,13 +19,19 @@
         </div>
         <!-- partie navigateur du tableau -->
         <div id="navBlocTableau">
-            <div id="dashboardMois" class="iconeActif"></div>
-            <div id="listeCompleteClient"></div>
+            <div id="dashboardMois" class="icone iconeActif"></div>
+            <div id="listeNouveauDossier" class="icone"></div>
+            <div id="listeCompleteClient" class="icone"></div>
+           
         </div>
 <!-- partie section anime en jquery en fonction du navBlocTableau -->
         <!-- section qui s'occupe de synthétiser les infos importante du mois en cours -->
-        <div id="sectionDashboard">
-            <div id="sectionG">
+        <div class="tableau" id="sectionDashboard">
+            <div id="titreSectionDashboard">
+                <div>Portefeuille du mois</div>
+            </div>
+            <div id="sectionPrincipal">
+                <div id="sectionG">
                 <div id="listeClient">
                 <ul>
                     {% for prospect in ClientsProspectsDuMois %}
@@ -78,41 +84,360 @@
                     </div>
                 </div>
                 <div id="sectionD2">
-                    <div id="txConcret">Concrétisation : <strong>{{ TxConcret }} %</strong></div>
+                    <div id="txConcret">
+                         Tx vente/ouverture: <strong>{{ TxConcret }} %</strong>
+                        <div> Tx Concrétisation : <strong>{{ txConcretMinMois }}-{{ txConcretMaxMois }} %</strong></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div> 
+        <!-- section du mois portefeuille pour le mois prochain -->
+        <div class="tableau" id="sectionDashboardD">
+            <div id="titreSectionDashboardD">
+                <div>Portefeuille du mois Prochain</div>
+            </div>
+            <div id="sectionPrincipalD">
+                <div id="sectionGD">
+                    <div id="listeClientD">
+                    <ul>
+                        {% for prospect in clientsProspectDuMoisProchain %}
+                            <li>
+                                <div id="origineD" class="{% if today|date('m/y') != prospect.dateCreation|date('m/y') %}iconePortefeuille{% endif %}"></div>
+                                <div id="LCNomD">
+                                    <a href="{{ path('yb_ixina_modifCustomer', {id: prospect.id, origine: 'tableau'}) }}">{{ prospect.nom }}</a>
+                                </div>
+                                <div id="LCActionD" style="{% if prospect.action == 'Retour' %} color: red; {% elseif prospect.action == "Relance" %} color: green; {% endif %} ">
+                                    {{ prospect.action }}
+                                </div>
+                                <div id="LCDateActionD">
+                                    {{ prospect.dateProchaineAction|date('d/m')}}
+                                </div>
+                                <div id="LCBudgetD">
+                                    {% if prospect.action == 'Retour'%}
+                                        {{ prospect.budgetClient }} €
+                                    {% endif %}
+                                </div>
+                                {% if prospect.dessin == false %}
+                                    <div id="iconeDessiner"></div>
+                                {% endif %}
+                                {% if prospect.preparation == false %}
+                                    <div id="iconePreparer"></div>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    </div>
                 </div>
             </div>
         </div> 
-        <!-- section liste complète -->
-        <div id="sectionListeComplet">
-            <div id="sectionListeCompletContenant">
-                <div id="intituleListeComplet">Liste de tous les clients / date de creation</div>
-                <div id="listeComplet">
-                    {% for client in clients %}
-                        <div id="rowListeComplet">
-                            <div style="width: 115px"><a href="{{ path('yb_ixina_modifCustomer', {'id': client.id, 'origine': 'tableau'}) }}">{{client.nom}}</a></div>
-                            <div style="width: 100px">{{ client.dateCreation|date('d-m-y') }}</div>
-                            <div style="width: 100px">{{ client.etatDossier }}</div>
+        <!-- portefeuille du mois précédent -->
+        <div id="portefeuilleMoisPrecedent" class="tableau">
+                <div id="titreMoisDernier">
+                    <div>Bilan du mois dernier</div>
+                </div>
+                <div id="section1MoisPrecedent">
+                    <div id="s1Logo"></div>
+                    <div id="s1Vente">
+                        <div class="stitre">
+                           <div><span style="color: red;">{{ nbrClientsCreeMoisDernierVenduFige }}</span> Vendu</div>
                         </div>
-                    {% endfor %}
+                        <div class="listeColonne">
+                            {% for client in clientsCreeMoisDernierVenduFige %}
+                                <div id="{{ client.id }}" class="marqueur">{{ client.nom }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div id="s1Perte">
+                        <div class="stitre">
+                           <div><span style="color: red;">{{ nbrClientsCreeMoisDernierPerdu }}</span> Perdu</div>
+                        </div>
+                        <div class="listeColonne">
+                            {% for client in clientsCreeMoisDernierPerdu %}
+                                <div id="{{ client.id }}" class="marqueur">{{ client.nom }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div id="s1Espace"></div>
+                    <div id="s1RdvPlanifier">
+                        <div class="stitre">
+                           <div><span style="color: red;">{{ nbrClientsCreeMoisDernierRdv }}</span> En cours</div>
+                        </div>
+                        <div class="listeColonne">
+                            {% for client in ClientsCreeMoisDernierRdv %}
+                                <div id="{{ client.id }}" class="marqueur">{{ client.nom }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div id="s1Relance">
+                        <div class="stitre">
+                           <div><span style="color: red;">{{ nbrClientsCreeMoisDernierArelancer }}</span> A relancer</div>
+                        </div>
+                        <div class="listeColonne">
+                            {% for client in clientsCreeMoisDernierArelancer %}
+                                <div id="{{ client.id }}" class="marqueur">{{ client.nom }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div id="section2MoisPrecedent">
+                    <div id="s2Logo"></div>
+                    <div id="s2Vente">
+                        <div class="stitre">
+                           <div><span style="color: red;">{{ nbrClientsPortefeuilleVenduMoisDernier }}</span> Vendu</div>
+                        </div>
+                        <div class="listeColonne">
+                            {% for client in ClientsPortefeuilleVenduMoisDernier %}
+                                <div id="{{ client.id }}" class="marqueur">{{ client.nom }} de {{ client.dateCreation|date('m/y') }} </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div id="s2Perte">
+                        <div class="stitre">
+                           <div><span style="color: red;">{{ nbrClientsPortefeuillePerduMoisDernier }}</span> Perdu</div>
+                        </div>
+                        <div class="listeColonne">
+                            {% for client in ClientsPortefeuillePerduMoisDernier %}
+                                <div id="{{ client.id }}" class="marqueur">{{ client.nom }} de {{ client.dateCreation|date('m/y') }} </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div id="s2Espace"></div>
+                    <div id="s2Bilan">
+                        <div>Dossiers ouverts : <span style="color: red;">{{ nbrClientsCreeMoisDernier }}</span></div>
+                        <div>Vente : <span style="color: red;">{{ totalVenteMoisDernier }}</span></div>
+                        <div>Tx Vente/Ouverture : <span style="color: red;">{{ txVenteOuverture }} %</span></div>
+                        <div>Tx Concrétisation : <span style="color: red;">{{ txConcretMinMoisDernier }}-{{ txConcretMaxMoisDernier }} %</span></div>
+                    </div>
+                </div>
+        </div>
+        <!-- section liste complète -->
+        <div class="tableau" id="sectionListeComplet">
+            <div id="titreSectionDashboardD">
+                <div>Portefeuille du mois Prochain</div>
+            </div>
+            <div id="SectionListe">
+                <div id="tableauDesVendu">
+                    <div class="tableauTitre"><div>Liste des clients Vendu</div></div>
+                    <div class="tableauListe">
+                        {% for client in clients %}
+                            {% if client.etatDossier == "Vendu" %}
+                                <div class="rowListeComplet">
+                                    <div style="width: 115px"><a href="{{ path('yb_ixina_modifCustomer', {'id': client.id, 'origine': 'tableau'}) }}">{{client.nom}}</a></div>
+                                    <div style="width: 100px">{{ client.dateProchaineAction|date('d-m-y') }}</div>
+                                    
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div id="tableauDesProspect">
+                    <div class="tableauTitre"><div>Liste des clients Prospect</div></div>
+                    <div class="tableauListe">
+                        {% for client in clients %}
+                            {% if client.etatDossier == "Prospect" %}
+                                <div class="rowListeComplet">
+                                    <div style="width: 115px"><a href="{{ path('yb_ixina_modifCustomer', {'id': client.id, 'origine': 'tableau'}) }}">{{client.nom}}</a></div>
+                                    <div style="width: 100px">{{ client.dateProchaineAction|date('d-m-y') }}</div>
+                                    <div style="width: 100px">{{ client.action }}</div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div id="tableauDesPerdu">
+                    <div class="tableauTitre"><div>Liste des clients Perdu</div></div>
+                    <div class="tableauListe">
+                        {% for client in clients %}
+                            {% if client.etatDossier == "Perdu" %}
+                                <div class="rowListeComplet">
+                                    <div style="width: 115px"><a href="{{ path('yb_ixina_modifCustomer', {'id': client.id, 'origine': 'tableau'}) }}">{{client.nom}}</a></div>
+                                    <div style="width: 100px">{{ client.dateProchaineAction|date('d-m-y') }}</div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!-- section Liste des nouveaux dossiers -->
+        <div class="tableau" id="sectionListeNouveauxDossier">
+            <div id="titreSectionDashboard">
+                <div>Détails des 4 derniers mois</div>
+            </div>
+            <div id="corp">
+               <!-- M-3 -->
+               <div class="listeMois vueS">
+                    <div class="titreMois">
+                        <div>Dossier Ouvert M-3</div>
+                    </div>
+                    <div class="contenuMois">
+                        {% for client in clientsCree3MoisDernier %}
+                            <div class="ligneTableau" style="color: {% if client.etatDossier == "Prospect" and client.action == "Retour" %} red; 
+                                                                    {% elseif client.etatDossier == "Prospect" and client.action == "Relance" %} green;
+                                                                    {% elseif client.etatDossier == "Vendu" %} black; font-weight: bold;
+                                                                    {% elseif client.etatDossier == "Perdu" %} grey; font-style: italic;   
+                                                                    {% endif %}" >
+                                <div>{{ client.dateCreation|date('d-m') }}</div>
+                                <div>{{ client.nom }}</div>
+                                {% if client.etatDossier == 'Perdu' or client.etatDossier == 'Vendu'%}
+                                    <div>{{ client.etatDossier }}</div>
+                                {% else %}
+                                    <div>{{ client.action }} {{ client.dateProchaineAction|date('d-m') }}</div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="bilanMois">
+                        <div class="bilanLigne1">
+                            <div style="color: maroon">{{ nbrClientsCree3MoisDernier }} dossiers</div>
+                            <div style="font-weight: bold;">{{ nbrClientsCree3MoisDernierVendu }} vendu</div>
+                            <div style="font-style: italic; color: grey;">{{ nbrClientsCree3MoisDernierPerdu }} perdu</div>
+                            <div style="color: orange;">{{ nbrClientsCree3MoisDernierProspect }} prospect</div>
+                        </div>
+                        <div class="bilanLigne2">
+                            <div style="font-weight: bold;">Concrétisation : {{ txConcretMin3MoisDernier }}-{{ txConcretMax3MoisDernier }} %</div>
+                        </div>
+                    </div>
+                </div>
+               <!-- M-2 -->
+               <div class="listeMois vueS">
+                    <div class="titreMois">
+                        <div>Dossier Ouvert M-2</div>
+                        <div class="lienMoisSuivant"></div>
+                    </div>
+                    <div class="contenuMois">
+                        {% for client in clientsCree2MoisDernier %}
+                            <div class="ligneTableau" style="color: {% if client.etatDossier == "Prospect" and client.action == "Retour" %} red; 
+                                                                    {% elseif client.etatDossier == "Prospect" and client.action == "Relance" %} green;
+                                                                    {% elseif client.etatDossier == "Vendu" %} black; font-weight: bold;
+                                                                    {% elseif client.etatDossier == "Perdu" %} grey; font-style: italic;   
+                                                                    {% endif %}" >
+                                <div>{{ client.dateCreation|date('d-m') }}</div>
+                                <div>{{ client.nom }}</div>
+                                {% if client.etatDossier == 'Perdu' or client.etatDossier == 'Vendu'%}
+                                    <div>{{ client.etatDossier }}</div>
+                                {% else %}
+                                    <div>{{ client.action }} {{ client.dateProchaineAction|date('d-m') }}</div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="bilanMois">
+                        <div class="bilanLigne1">
+                            <div style="color: maroon">{{ nbrClientsCree2MoisDernier }} dossiers</div>
+                            <div style="font-weight: bold;">{{ nbrClientsCree2MoisDernierVendu }} vendu</div>
+                            <div style="font-style: italic; color: grey;">{{ nbrClientsCree2MoisDernierPerdu }} perdu</div>
+                            <div style="color: orange;">{{ nbrClientsCree2MoisDernierProspect }} prospect</div>
+                        </div>
+                        <div class="bilanLigne2">
+                            <div style="font-weight: bold;">Concrétisation : {{ txConcretMin2MoisDernier }}-{{ txConcretMax2MoisDernier }} %</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- M-1 -->
+                <div class="listeMois vueP">
+                    <div class="titreMois">
+                        <div class="lienMoisPrecedent"></div>
+                        <div>Dossier Ouvert M-1</div>
+                    </div>
+                    <div class="contenuMois">
+                        {% for client in clientsCreeMoisDernier %}
+                            <div class="ligneTableau" style="color: {% if client.etatDossier == "Prospect" and client.action == "Retour" %} red; 
+                                                                    {% elseif client.etatDossier == "Prospect" and client.action == "Relance" %} green;
+                                                                    {% elseif client.etatDossier == "Vendu" %} black; font-weight: bold;
+                                                                    {% elseif client.etatDossier == "Perdu" %} grey; font-style: italic;   
+                                                                    {% endif %}" >
+                                <div>{{ client.dateCreation|date('d-m') }}</div>
+                                <div>{{ client.nom }}</div>
+                                {% if client.etatDossier == 'Perdu' or client.etatDossier == 'Vendu'%}
+                                    <div>{{ client.etatDossier }}</div>
+                                {% else %}
+                                    <div>{{ client.action }} {{ client.dateProchaineAction|date('d-m') }}</div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="bilanMois">
+                        <div class="bilanLigne1">
+                            <div style="color: maroon">{{ nbrClientsCreeMoisDernier }} dossiers</div>
+                            <div style="font-weight: bold;">{{ nbrClientsCreeMoisDernierVendu }} vendu</div>
+                            <div style="font-style: italic; color: grey;">{{ nbrClientsCreeMoisDernierPerdu }} perdu</div>
+                            <div style="color: orange;">{{ nbrClientsCreeMoisDernierProspect }} prospect</div>
+                        </div>
+                        <div class="bilanLigne2">
+                            <div style="font-weight: bold;">Concrétisation : {{ txConcretMinMoisDernier }}-{{ txConcretMaxMoisDernier }} %</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- mois en cours -->
+                <div class="listeMois vueP">
+                    <div class="titreMois">
+                        <div>Dossier Ouvert {{ today|date('M') }}</div>
+                    </div>
+                    <div class="contenuMois">
+                        {% for client in clientsCreeMois %}
+                           <div class="ligneTableau" style="color: {% if client.etatDossier == "Prospect" and client.action == "Retour" %} red; 
+                                                                    {% elseif client.etatDossier == "Prospect" and client.action == "Relance" %} green;
+                                                                    {% elseif client.etatDossier == "Vendu" %} black; font-weight: bold;
+                                                                    {% elseif client.etatDossier == "Perdu" %} grey; font-style: italic;   
+                                                                    {% endif %}" >
+                                <div>{{ client.dateCreation|date('d-m') }}</div>
+                                <div >{{ client.nom }}</div>
+                                {% if client.etatDossier == 'Perdu' or client.etatDossier == 'Vendu'%}
+                                    <div>{{ client.etatDossier }}</div>
+                                {% else %}
+                                    <div>{{ client.action }} {{ client.dateProchaineAction|date('d-m') }}</div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                      <div class="bilanMois">
+                        <div class="bilanLigne1">
+                            <div style="color: maroon">{{ nbrClientsCreeMois }} dossiers</div>
+                            <div style="font-weight: bold;">{{ nbrClientsCreeMoisVendu }} vendu</div>
+                            <div style="font-style: italic; color: grey;">{{ nbrClientsCreeMoisPerdu }} perdu</div>
+                            <div style="color: orange;">{{ nbrClientsCreeMoisProspect }} prospect</div>
+                        </div>
+                        <div class="bilanLigne2">
+                            <div style="font-weight: bold;">Concrétisation : {{ txConcretMinMois }}-{{ txConcretMaxMois }} %</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
 <!-- pied du tableau --> 
 
         <div id="footBlocTableau">
             <div id="foot1">
                 <div id="nbrProspect">New Prospects : <strong>{{ nbrNewProspectDuMois }}</strong></div>
-                <div id="portefeuille">Portefeulle : <strong>{{ portefeuille }} €</strong></div>
+                <div id="portefeuille">Portefeuille : <strong>{{ portefeuille }} €</strong></div>
+                <div id="caPotentiel">
+                    CA prévisionnel : <strong>{{ CAPotentiel }} €</strong></br>
+                    (txConcret : 50 %, TVA : 20%)
+                </div>
             </div>
-            <div id="caPotentiel">
-                CA prévisionnel : <strong>{{ CAPotentiel }} €</strong></br>
-                (txConcret : 50 %, TVA : 20%)
+            <!-- Bilan du mois dernier --> 
+            <div id="bilanMoisDernierFoot">
+                {% for client in clients %}
+                    <div id="remarque{{ client.id }}" class="moisDernierFoot">
+                        <div class="imageFootMoisDernier">
+                            <!--<img style="height: 120px" src="{{ asset(client.plan.getWebPath) }}">-->
+                        </div>
+                        <div class="texteFootMoisDernier">{{ client.actionRemarque }}</div>
+                    </div> 
+                {% endfor %}
+            </div>
+            <!-- Bilan du mois Prochain --> 
+            <div id="bilanMoisProchainFoot"></div>
+            <div id="sousMenuPortefeuille">
+                <div id="lienPortefeuilleMoisPrecedent"></div>
+                <div id="lienPortefeuilleMoisActuel"></div>
+                <div id="lienPortefeuilleMoisProchain"></div>
             </div>
         </div>
-            <!--
-            
-            --> 
+        
     </div>
 {% endblock %}
 

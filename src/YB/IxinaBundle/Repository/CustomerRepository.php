@@ -25,13 +25,16 @@ class CustomerRepository extends \Doctrine\ORM\EntityRepository
     {
         $qb = $this->createQueryBuilder('c');
         $qb->orderBy('c.dateProchaineAction', 'ASC');
+            
         return $qb->getQuery()->getResult();
     }
 
     public function ClientsByDateCreation()
     {
         $qb = $this->createQueryBuilder('c');
-        $qb->orderBy('c.dateCreation', 'DESC');
+        $qb->orderBy('c.plan', 'DESC')
+            ->leftJoin('c.plan', 'p')
+            ->addSelect('p');
         return $qb->getQuery()->getResult();
     }
 
@@ -138,6 +141,277 @@ class CustomerRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function ClientsCreeMoisEnCours()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01')))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00').'+1 month'))
+            ;
+        return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeLeMoisDernier()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01').'-1 month'))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00')))
+            ;
+        return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeLeMoisDernierArelancer()
+    {
+        $qb = $this->createQueryBuilder('c')
+        ->where('c.dateCreation BETWEEN :debut AND :fin')
+        ->setParameter('debut', new \dateTime(date(date('Y-m').'-01').'-1 month'))
+        ->setParameter('fin', new \dateTime(date(date('Y-m').'-00')))
+        ->andWhere('c.action = :action')
+        ->setParameter('action', 'Relance')
+        ->andWhere('c.etatDossier = :etat')
+        ->setParameter('etat', 'Prospect')
+        ;
+        return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeLes2MoisDernier()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01').'-2 month'))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00').'-1 month'))
+            ;
+        return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeLes3MoisDernier()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01').'-3 month'))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00').'-2 month'))
+            ;
+        return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeLeMoisVendu()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01')))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00').'+1 month'))
+            ->andWhere('c.etatDossier = :value')
+            ->setParameter('value', 'Vendu')
+            ;
+            return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeLeMoisDernierVendu()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01').'-1 month'))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00')))
+            ->andWhere('c.etatDossier = :value')
+            ->setParameter('value', 'Vendu')
+            ;
+            return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeMoisDernierVenduFige()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01').'-1 month'))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00')))
+            ->andWhere('c.etatDossier = :value')
+            ->setParameter('value', 'Vendu')
+            ->andWhere('c.dateProchaineAction BETWEEN :depart AND :arrive')
+            ->setParameter('depart', new \dateTime(date(date('Y-m').'-01').'-1 month'))
+            ->setParameter('arrive', new \dateTime(date(date('Y-m').'-00')))
+            ;
+            return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeLes2MoisDernierVendu()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01').'-2 month'))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00').'-1 month'))
+            ->andWhere('c.etatDossier = :value')
+            ->setParameter('value', 'Vendu')
+            ;
+            return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeLes3MoisDernierVendu()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01').'-3 month'))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00').'-2 month'))
+            ->andWhere('c.etatDossier = :value')
+            ->setParameter('value', 'Vendu')
+            ;
+            return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeLeMoisPerdu()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01')))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00').'+1 month'))
+            ->andWhere('c.etatDossier = :value')
+            ->setParameter('value', 'Perdu')
+            ;
+            return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeLeMoisDernierPerdu()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01').'-1 month'))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00')))
+            ->andWhere('c.etatDossier = :value')
+            ->setParameter('value', 'Perdu')
+            ;
+            return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeLes2MoisDernierPerdu()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01').'-2 month'))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00').'-1 month'))
+            ->andWhere('c.etatDossier = :value')
+            ->setParameter('value', 'Perdu')
+            ;
+            return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeLes3MoisDernierPerdu()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01').'-3 month'))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00').'-2 month'))
+            ->andWhere('c.etatDossier = :value')
+            ->setParameter('value', 'Perdu')
+            ;
+            return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeLeMoisProspect()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01')))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00').'+1 month'))
+            ->andWhere('c.etatDossier = :value')
+            ->setParameter('value', 'Prospect')
+            ;
+            return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeLeMoisDernierProspect()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01').'-1 month'))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00')))
+            ->andWhere('c.etatDossier = :value')
+            ->setParameter('value', 'Prospect')
+            ;
+            return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeLes2MoisDernierProspect()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01').'-2 month'))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00').'-1 month'))
+            ->andWhere('c.etatDossier = :value')
+            ->setParameter('value', 'Prospect')
+            ;
+            return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeLes3MoisDernierProspect()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01').'-3 month'))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00').'-2 month'))
+            ->andWhere('c.etatDossier = :value')
+            ->setParameter('value', 'Prospect')
+            ;
+            return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeLeMoisDernieArelancer()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01').'-1 month'))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00')))
+            ->andWhere('c.etatDossier = :value')
+            ->setParameter('value', 'Prospect')
+            ->andWhere('c.action = :action')
+            ->setParameter('action', 'Relance')
+            ;
+            return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsCreeMoisDernierRdv()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation BETWEEN :debut AND :fin')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-01').'-1 month'))
+            ->setParameter('fin', new \dateTime(date(date('Y-m').'-00')))
+            ->andWhere('c.etatDossier = :value')
+            ->setParameter('value', 'Prospect')
+            ->andWhere('c.action = :action')
+            ->setParameter('action', 'Retour')
+            ;
+            return $qb->getQuery()->getResult();
+
+    }
+
+    public function ClientsPortefeuilleVenduMoisDernier()
+    {
+         $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation < :debut')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-00').'-1 month'))
+            ->andWhere('c.etatDossier = :value')
+            ->setParameter('value', 'Vendu')
+            ->andWhere('c.dateProchaineAction BETWEEN :depart AND :arrive')
+            ->setParameter('depart', new \dateTime(date(date('Y-m').'-01').'-1 month'))
+            ->setParameter('arrive', new \dateTime(date(date('Y-m').'-00')))
+            ;
+            return $qb->getQuery()->getResult();
+    }
+
+    public function ClientsPortefeuillePerduMoisDernier()
+    {
+         $qb = $this->createQueryBuilder('c')
+            ->where('c.dateCreation < :debut')
+            ->setParameter('debut', new \dateTime(date(date('Y-m').'-00').'-1 month'))
+            ->andWhere('c.etatDossier = :value')
+            ->setParameter('value', 'Perdu')
+            ->andWhere('c.dateProchaineAction BETWEEN :depart AND :arrive')
+            ->setParameter('depart', new \dateTime(date(date('Y-m').'-01').'-1 month'))
+            ->setParameter('arrive', new \dateTime(date(date('Y-m').'-00')))
+            ;
+            return $qb->getQuery()->getResult();
+    }
+
+
     public function MoisEnCours($qb)
     {
     
@@ -148,6 +422,20 @@ class CustomerRepository extends \Doctrine\ORM\EntityRepository
     }
 
 /* récupération des données avant ou après le mois en cours */
+
+    /* mois prochain */
+    public function clientsProspectDuMoisProchain()
+    {
+        $qb = $this->createQueryBuilder('c')
+        ->where('c.etatDossier = :etat')
+        ->setParameter('etat', 'Prospect')
+        ->andWhere('c.dateProchaineAction BETWEEN :debut AND :fin')
+        ->setParameter('debut', new \dateTime(date('Y-m').'-01 +1 month'))
+        ->setParameter('fin', new \dateTime(date('Y-m').'-00 +2 month'))
+        ->orderBy('c.dateProchaineAction', 'ASC')
+        ;
+        return $qb->getQuery()->getResult();
+    }
 
     public function avantMoisEnCours($qb)
     {

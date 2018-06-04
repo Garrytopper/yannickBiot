@@ -120,4 +120,9 @@ class IxinaController extends Controller
                                                                         'nbrPlanif' => $nbrPlanif
                                                                         ));
     }
+
+    public function comAction()
+    {
+        return $this->render('YBIxinaBundle:com:com.html.twig');
+    }
 }

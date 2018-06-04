@@ -35,6 +35,17 @@
             margin-left: 25px;
         }
 
+        #listeNouveauDossier
+        {
+            width: 50px;
+            height: 65px;
+            background-image: url('../images/iconeListeNouveauDossier.png');
+            background-size: 50px 50px;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-left: 25px;
+        }
+
         #dashboardMois
         {
             width: 50px;
@@ -54,8 +65,27 @@
 
     #sectionDashboard
     {
+        
+    }
+
+    #titreSectionDashboard
+    {
+        height: 40px;
         display: flex;
-        height: 375px;
+    }
+
+    #titreSectionDashboard div
+    {
+        margin: auto;
+        color: orange;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    #sectionPrincipal
+    {
+        display: flex;
+        height: 335px;
     }
 
         #sectionG
@@ -110,6 +140,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            padding-top: 15px;
         }
 
             #sectionD1
@@ -151,59 +182,443 @@
                 margin: auto;
             }
 
+    /* copie de sectiondashboard pour sectiondaschboardD */
+   
+    #titreSectionDashboardD
+    {
+        height: 40px;
+        display: flex;
+    }
+
+    #titreSectionDashboardD div
+    {
+        margin: auto;
+        color: orange;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    #sectionPrincipalD
+    {
+        display: flex;
+        height: 335px;
+        justify-content: center;
+    }
+
+        #sectionGD
+        {
+            padding-top: 15px;
+        }
+
+            #listeClientD
+            {
+                width: 100%;
+                height: 95%;
+                overflow: auto;
+            }
+
+                #origineD
+                {
+                    height: 20px;
+                    width: 50px;  
+                }
+
+                #LCNomD
+                {
+                    width: 120px;
+                }
+
+                #LCActionD
+                {
+                    width: 80px;
+                }
+
+                #LCDateActionD
+                {
+                    width: 60px;
+                }
+
+                #LCBudgetD
+                {
+                    width: 90px;
+                    color: red;
+                }
+
+                #listeClientD li 
+                {
+                    display: flex;
+                    line-height: 20px;
+                }
+
+
     /* secion liste Complete */
 
     #sectionListeComplet
     {
-        display: flex;
         height: 375px;
-        justify-content: center;
-        align-items: flex-start ;
+        display: flex;
+        flex-direction: column ;
     }
 
-        #sectionListeCompletContenant
+    .tableau
+    {
+        
+    }
+
+        #SectionListe
         {
-            width: 50%;
-            height: 95%;
+            flex: 1;
             display: flex;
-            flex-direction: column;
         }
 
-            #intituleListeComplet
+            #tableauDesVendu
             {
-                height: 75px;
-                line-height: 75px;
-                font-family: 'messagesregular', arial, impact ;
-                text-align: center;
-                font-size: 1.5em;
+                display: flex;
+                flex-direction: column ;
+                flex: 1;
             }
 
-            #listeComplet
-            {
-                overflow: auto;
-            }
-
-                #rowListeComplet
+                .tableauTitre
                 {
+                    height: 50px;
                     display: flex;
-                    justify-content: center;
-                    height: 30px;
+                    font-size: 1.1em;
+                    font-weight: bold;
                 }
 
+                    .tableauTitre div
+                    {
+                        margin: auto;
+                    }
+
+                .tableauListe
+                {
+                    flex: 1;
+                    overflow: scroll;
+                }
+
+                    .rowListeComplet
+                    {
+                        display: flex;
+                        padding-left: 40px;
+                    }
+
+            #tableauDesProspect
+            {
+                display: flex;
+                flex-direction: column ;
+                flex: 1;
+            }
+
+            #tableauDesProspect .tableauListe
+            {
+                border-left: double;
+                border-right: double;
+            }
+
+            #tableauDesPerdu
+            {
+                display: flex;
+                flex-direction: column ;
+                flex: 1;
+            }
+
+/* liste des nouveaux dossier */
+
+    #sectionListeNouveauxDossier
+    {
+        
+    }
+
+    #corp
+    {
+        margin-top: 15px;
+        display: flex;
+        height: 375px;
+    }
+
+    .vue1
+    {
+
+    }
+
+    .vue2
+    {
+
+    }
+
+    .ligneTableau
+    {
+        display: flex;
+    }
+
+    .ligneTableau div
+    {
+        flex: 1;
+    }
+
+        .listeMois
+        {
+            height: 100%;
+            flex: 1;
+            
+        }
+
+            .titreMois
+            {
+                display: flex;
+                justify-content: center;
+                font-size: 1.5em;
+                font-weight: bold;
+            }
+
+                .lienMoisPrecedent
+                {
+                    height: 25px;
+                    width: 25px;
+                    background-image: url('../images/navigationGaucheLogo.png');
+                    background-size: 100%;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    position: relative ;
+                    right: 60px;
+                }
+
+                .lienMoisSuivant
+                {
+                    height: 25px;
+                    width: 25px;
+                    background-image: url('../images/navigationDroiteLogo.png');
+                    background-size: 100%;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    position: relative ;
+                    left: 60px;
+                }
+
+            .contenuMois
+            {
+                height: 60%;
+                padding-left: 30px;
+                margin-top: 30px;
+                overflow: scroll;
+                border-right: solid;
+                border-left: solid;
+            }
+
+            .bilanMois
+            {
+                margin-top: 30px;
+                height: 50px;
+                border-top: double;
+            }
+
+                .bilanLigne1
+                {
+                    display: flex;
+                    margin-left: 15px;
+                    margin-top: 30px;
+                }
+
+                    .bilanLigne1 div
+                    {
+                        flex: 1;
+                    }
+
+                .bilanLigne2
+                {
+                    display: flex;
+                    margin-left: 15px;
+                }
+
+                    .bilanLigne2 div
+                    {
+                        padding-top: 15px;
+                        margin: auto;
+                    }
+
+        #listeMois
+        {
+            height: 100%;
+            flex: 1;
+            border-left: solid;
+        }
+
+            #titreMois
+            {
+                display: flex;
+                justify-content: center;
+                font-size: 1.5em;
+                font-weight: bold;
+            }
+
+    #portefeuilleMoisPrecedent
+    {
+        display: flex;
+        height: 375px;
+        flex-direction: column;
+    }
+
+        #titreMoisDernier
+        {
+            height: 40px;
+            display: flex;
+        }
+
+            #titreMoisDernier div
+            {
+                margin: auto;
+                color: orange;
+                font-size: 1.5em;
+                font-weight: bold;
+            }
+
+        #section1MoisPrecedent
+        {
+            margin-top: 15px;
+            height: 150px;
+            display: flex;
+        }
+
+            #s1Logo
+            {
+                width: 125px;
+                background-image: url('../images/iconeDossierOuvert.png');
+                background-size: 70%;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            
+            #s1Vente
+            {
+                width: 175px;
+                display: flex;
+                flex-direction: column;
+            }
+
+                .stitre 
+                {
+                    height: 25px;
+                    display: flex;
+                    font-size: 1.2em;
+
+                }
+
+                    .stitre div
+                    {
+                        margin: auto;
+                    }
+
+                .listeColonne
+                {
+                    flex: 1;
+                    overflow: scroll;
+                    margin-bottom: 30px;
+                    margin-top: 15px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                    .listeColonne div
+                {
+                    color: grey;
+
+                }
+
+            #s1Perte
+            {
+                width: 175px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            #s1Espace
+            {
+                flex: 1;
+            }
+
+            #s1RdvPlanifier
+            {
+                width: 175px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            #s1Relance
+            {
+                width: 175px;
+                display: flex;
+                flex-direction: column;
+            }
+
+        #section2MoisPrecedent
+        {
+            height: 150px;
+            display: flex;
+        }
+
+            #s2Logo
+            {
+                width: 125px;
+                width: 125px;
+                background-image: url('../images/iconeArchives.png');
+                background-size: 70%;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            #s2Vente
+            {   
+                width: 175px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            #s2Perte
+            {
+                width: 175px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            #s2Espace
+            {
+                flex:1
+            }
+
+            #s2Bilan
+            {
+               width: 340px;
+               border: 5px solid;
+               display: flex;
+               flex-direction: column;
+               justify-content: space-around;
+               margin-top: 15px;
+               margin-right: 15px;
+            }
+
+                #s2Bilan
+                {
+                    padding-left: 10px;
+                }
+
+/* pied du tableau */
 
     #footBlocTableau
     {   
         display: flex;
         height: 120px;
-        flex-direction: column;
-        justify-content: space-around;
-        padding-left: 50px;
         border-top: 3px solid black;
     }
 
         #foot1
         {
             display: flex;
+            flex-direction: column;
+            justify-content: space-around ;
+            flex: 2;
+            padding-left: 30px;
         }
 
             #nbrProspect
@@ -213,12 +628,85 @@
 
             #portefeuille 
             {
-                padding-left: 100px;
             }
-        #caPotentiel
-        {
 
+            #caPotentiel
+            {
+
+            }
+
+        #bilanMoisDernierFoot
+        {
+            display: none;
+            flex: 2;
+            height: 120px;
+            padding-left: 30px;
         }
+
+                .moisDernierFoot
+                {
+                    display: flex;
+                }
+
+                   .imageFootMoisDernier
+                    {
+                        flex: 1;
+                        height: 120px;
+                    }
+
+                    .texteFootMoisDernier
+                    {
+                        flex: 2;
+                        padding-left: 15px;
+                        height: 120px;
+                        overflow: scroll;  
+                    }
+
+        #bilanMoisProchainFoot
+        {
+            display: none;
+            flex: 2;
+            height: 120px;
+            padding-left: 30px;
+        }
+
+        #sousMenuPortefeuille
+            {
+                height: 50px;
+                display: flex;
+                flex: 1;
+                justify-content: center;
+                padding-top: 10px;
+            }
+            
+                #lienPortefeuilleMoisPrecedent
+                {
+                    height: 40px;
+                    width: 40px;
+                    background-image: url('../images/iconeMoisPrecedent.png');
+                    background-size: 40px 40px;
+                    padding-right: 15;
+                    padding-left: 30px;
+                    background-repeat: no-repeat ;
+                }
+
+                #lienPortefeuilleMoisActuel
+                {
+                    height: 40px;
+                    width: 40px;
+                    background-image: url('../images/iconeMoisActuel.png');
+                    background-size: 40px 40px;
+                    padding-left: 30px;
+                    background-repeat: no-repeat ;
+                }
+
+                #lienPortefeuilleMoisProchain
+                {
+                    height: 40px;
+                    width: 40px;
+                    background-image: url('../images/iconeMoisProchain.png');
+                    background-size: 40px 40px;
+                }
 
 /* partie des icones */
 

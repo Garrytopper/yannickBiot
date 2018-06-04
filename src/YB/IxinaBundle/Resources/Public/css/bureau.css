@@ -1,6 +1,6 @@
 body 
 {
-	background-image: url('../images/fondBody.jpg');
+    background-image: url('../images/fondBody.jpg');
     display: flex;
     margin-top: -10px;
 }
@@ -13,10 +13,10 @@ a
 
 #bureau
 {
-	height: 744px;
+    height: 744px;
     width: 1124px;
     margin-top: -10px;
-	background-image: url('../images/fondBureau.jpg');
+    background-image: url('../images/fondBureau.jpg');
     background-size: 1124px 744px;
     border-left: 7px solid black;
     border-right: 7px solid black;
@@ -34,6 +34,55 @@ a
     justify-content: flex-end;
     align-items: center;
 }
+
+#bulleMenu
+{
+    position: absolute;
+    top: -75px;
+    height: 110px;
+    width: 250px;
+    background-image: url('../images/bulleMenu.png');
+    background-size: 100%;
+    background-position: top;
+    display: flex;
+    justify-content: space-around;
+   
+}
+
+    .iconeBulle
+    {
+        height: 50px;
+        width: 50px;
+        border: solid;
+         margin-top: 10px;
+    }
+
+        #bulleBloc
+        {
+            background-image: url('../images/iconeBulleBloc.png');
+            background-position: center;
+            background-size: 100%;
+        }
+
+        #bulleCom
+        {
+            background-image: url('../images/iconeBulleCom.png');
+            background-position: center;
+            background-size: 100%;
+        }
+
+            #feuilleDeBloc
+            {
+                position: absolute;
+                z-index: 1000;
+                height: 100%;
+                width: 2%;
+                background-image: url('../images/feuilleBloc.png');
+                background-size: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                display: none;
+            }
 
 #blocQuotidien
 {
@@ -289,5 +338,7 @@ a
     background-size: 50px 50px;
     margin-right: 10px;
 }
+
+
 
 
