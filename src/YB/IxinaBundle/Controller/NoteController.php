@@ -15,6 +15,10 @@ use YB\IxinaBundle\Entity\Facturation;
 use YB\IxinaBundle\Form\FacturationType;
 use YB\IxinaBundle\Entity\Prestation;
 use YB\IxinaBundle\Form\PrestationType;
+use YB\IxinaBundle\Entity\TacheParticuliere;
+use YB\IxinaBundle\Form\TacheParticuliereType;
+use YB\IxinaBundle\Entity\DossierMetre;
+use YB\IxinaBundle\Form\DossierMetreType;
 
 class NoteController extends Controller
 {
@@ -200,6 +204,105 @@ class NoteController extends Controller
       $em->remove($prestation);
       $em->flush();
       return $this->redirectToRoute('yb_ixina_listePrestation');
+   }
+
+   public function listeTacheParticuliereAction()
+   {
+    $taches = $this->getDoctrine()->getManager()->getRepository('YBIxinaBundle:TacheParticuliere')->findAll();
+
+    return $this->render('YBIxinaBundle:Note:consultTacheParticuliere.html.twig', array('taches' => $taches));
+   }
+
+   public function newTacheParticuliereAction(Request $Request)
+   {
+    $tache = new TacheParticuliere();
+    $em = $this->getDoctrine()->getManager();
+
+    $form = $this->get('form.factory')->create(TacheParticuliereType::class, $tache);
+    if($Request->isMethod('POST'))
+    {
+      $form->handleRequest($Request);
+      if($form->isValid())
+      {
+        $em->persist($tache);
+        $em->flush();
+        return $this->redirectToRoute('yb_ixina_listeTacheParticuliere');
+      }
+    }
+    return $this->render('YBIxinaBundle:Note:formTacheParticuliere.html.twig', array('form' => $form->createView() ));
+   }
+
+   public function consultTacheParticuliereAction(Request $Request, $id)
+   {
+      $em = $this->getDoctrine()->getManager();
+      $tache = $em->getRepository('YBIxinaBundle:TacheParticuliere')->find($id);
+      $form = $this->get('form.factory')->create(TacheParticuliereType::class, $tache);
+      if ($Request->isMethod('POST')) {
+        $form->handleRequest($Request);
+        if ($form->isValid()) {
+          $em->flush();
+          return $this->redirectToRoute('yb_ixina_listeTacheParticuliere');
+        }
+      }
+      return $this->render('YBIxinaBundle:Note:formTacheParticuliere.html.twig', array('form' => $form->createView(), 'id' => $id ));
+   }
+
+   public function suppTacheParticuliereAction($id)
+   {
+      $em = $this->getDoctrine()->getManager();
+      $tache = $em->getRepository('YBIxinaBundle:TacheParticuliere')->find($id);
+      $em->remove($tache);
+      $em->flush();
+      return $this->redirectToRoute('yb_ixina_listeTacheParticuliere');
+
+   }
+
+   public function listeDossierMetreAction()
+   {
+      $dossiers = $this->getDoctrine()->getManager()->getRepository('YBIxinaBundle:DossierMetre')->findAll();
+      return $this->render('YBIxinaBundle:Note:listeDossierMetre.html.twig', array('dossiers' => $dossiers));
+   }
+
+   public function newDossierMetreAction(Request $request)
+   {
+      $em = $this->getDoctrine()->getManager();
+      $Dossier = new DossierMetre();
+
+      $form = $this->get('form.factory')->create(DossierMetreType::class, $Dossier);
+      if ($request->isMethod('POST')) {
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+          $em->persist($Dossier);
+          $em->flush();
+          return $this->redirectToRoute('yb_ixina_listeDossierMetre');
+        }
+      }
+      return $this->render('YBIxinaBundle:Note:newDossierMetre.html.twig', array('form' => $form->createView()));
+   }
+
+   public function modifDossierMetreAction(Request $request, $id)
+   {
+      $em = $this->getDoctrine()->getManager();
+      $dossier = $em->getRepository('YBIxinaBundle:DossierMetre')->find($id);
+      $form = $this->get('form.factory')->create(DossierMetreType::class, $dossier);
+      if ($request->isMethod('POST')) {
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+          $em->flush();
+          return $this->redirectToRoute('yb_ixina_listeDossierMetre');
+        }
+      }
+      return $this->render('YBIxinaBundle:Note:newDossierMetre.html.twig', array('form' => $form->createView(), 'id' => $id));
+   }
+
+   public function suppDossierMetreAction($id)
+   {
+      $em = $this->getDoctrine()->getManager();
+      $dossier = $em->getRepository('YBIxinaBundle:DossierMetre')->find($id);
+      $em->remove($dossier);
+      $em->flush();
+      return $this->redirectToRoute('yb_ixina_listeDossierMetre');
+
    }
 
 }

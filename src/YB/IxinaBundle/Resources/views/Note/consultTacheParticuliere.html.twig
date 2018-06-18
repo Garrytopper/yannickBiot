@@ -2,7 +2,7 @@
 
 {% block css %}
 {{ parent() }}
-<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/consultFacturation.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/consultTacheParticuliere.css') }}">
 {% endblock %}
 
 {% block barreIcone %}
@@ -15,17 +15,16 @@
     <div id="blocNote">
         <div id="hautpage"></div>
         <div id="contenant">
-            {% for facture in factures %}
-                <div class="row">
-                    <div class="nom">{{ facture.nom }}</div>
-                    <div class="type">{{ facture.typeFacture}}</div>
-                    <a href="{{ path('yb_ixina_suppfacture', {'id': facture.id}) }}"><div id="iconeSupprimer"></div></a>
+              {% for tache in taches %}
+                <div style="margin-top: 10px;">
+                    <a href="{{ path('yb_ixina_consultTacheParticuliere', {'id': tache.id }) }}" style="font-weight: bold; color: orange">{{ tache.intitule }}</a>
+                    <div>{{ tache.details }}</div>
                 </div>
-            {% endfor %}   
+              {% endfor %}
         </div>    
         <div id="baspage">
-            <div id="texte">Liste Factures</div>
-            <a id="iconeNavigation" href="{{ path('yb_ixina_newFacturation') }}"></a>
+            <div id="texte">Liste Tâches</div>
+            <a id="iconeNavigation" href="{{ path('yb_ixina_newTacheParticuliere') }}"></a>
         </div>
     </div>
 {% endblock %}

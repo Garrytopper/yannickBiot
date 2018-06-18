@@ -1,0 +1,19 @@
+{% extends 'YBIxinaBundle::ixinaHome.html.twig' %}
+
+{% block css %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/showroom.css')}}">
+{% endblock %}
+
+{% block body %}  
+    <div id="bureau">
+        <div id="blocPrincipal">
+            
+        </div>
+    </div>
+{% endblock %}
+
+{% block javaScript %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('bundles/ybixina/js/showroom.js') }}"></script>
+{% endblock %}

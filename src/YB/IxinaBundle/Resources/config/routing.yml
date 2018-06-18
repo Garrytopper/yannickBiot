@@ -107,3 +107,48 @@ yb_ixina_com:
     path:    /com 
     defaults:
         _controller: YBIxinaBundle:Ixina:com
+
+yb_ixina_listeTacheParticuliere:
+    path:    /TachesParticulieres
+    defaults:
+        _controller: YBIxinaBundle:Note:listeTacheParticuliere
+
+yb_ixina_newTacheParticuliere:
+    path:    /NewTacheParticuliere 
+    defaults:  
+        _controller: YBIxinaBundle:Note:newTacheParticuliere
+
+yb_ixina_consultTacheParticuliere:
+    path:    /TacheParticuliere/{id}
+    defaults:
+        _controller: YBIxinaBundle:Note:consultTacheParticuliere
+
+yb_ixina_tacheSupp:
+    path:    /SuppTache/{id}
+    defaults:
+        _controller: YBIxinaBundle:Note:suppTacheParticuliere
+
+yb_ixina_listeDossierMetre:
+    path:    /ListeDossierMetre 
+    defaults:
+        _controller: YBIxinaBundle:Note:listeDossierMetre
+
+yb_ixina_newDossierMetre:
+    path:    /NewDossierMetre
+    defaults:  
+        _controller: YBIxinaBundle:Note:newDossierMetre
+
+yb_ixina_modifDossierMetre:
+    path:    /modifDossierMetre /{id}
+    defaults:
+        _controller: YBIxinaBundle:Note:modifDossierMetre
+
+yb_ixina_DossierMetreSupp:
+    path:    /suppDossierMetre/{id}
+    defaults:
+        _controller: YBIxinaBundle:Note:suppDossierMetre
+
+yb_ixina_show:
+    path:    /showroom
+    defaults: 
+        _controller: YBIxinaBundle:Ixina:showroom

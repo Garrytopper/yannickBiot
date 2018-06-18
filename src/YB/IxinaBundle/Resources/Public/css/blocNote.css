@@ -70,3 +70,21 @@
             background-size: 50px 50px;
             margin-left: 10px;
         }
+
+        #iconeMetre
+        {
+            height: 50px;
+            width: 50px;
+            background-image: url('../images/GrdIconeMetre.png');
+            background-size: 50px 50px;
+            margin-right: 10px;
+        }
+
+        #iconeTacheParticuliere
+        {
+            height: 50px;
+            width: 50px;
+            background-image: url('../images/GrdIconeTacheParticuliere.png');
+            background-size: 50px 50px;
+            margin-right: 10px;
+        }

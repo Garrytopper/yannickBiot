@@ -36,7 +36,7 @@
         </div>
         {% block bloc %}
             <div id="bulleMenu">
-                <div class="iconeBulle"></div>
+                <a class="iconeBulle" id="bulleShow" href="{{ path('yb_ixina_show') }}"></a>
                 <a class="iconeBulle" id="bulleCom" href="{{ path('yb_ixina_com')}}"></a>
                 <div class="iconeBulle" id="bulleBloc"></div>
             </div>
@@ -74,6 +74,7 @@
                 </div>
             {% endfor %}
             <div id="blocQuotidien">
+                {% if clientsToday != null or nbrClientsPreparer > 0 or nbrClientDessin > 0 %}
                 <div id="blocRendezVousToday">
                     <div id="today">
                         <div id="texte">today</div>
@@ -96,6 +97,7 @@
                             </a>
                         </div>
                     </div>
+                    
                     <div id="liste">
                         <ul id="liste1">
                             {% for client in clientsToday %}
@@ -121,6 +123,7 @@
                         </ul>
                     </div>
                 </div>
+                {% endif %}
             </div>
             <div id="blocTachesQuotidienne">
                 <div id="ligneTachesQuotidienne1">
@@ -144,6 +147,18 @@
                     {% endif %}
                 </div>
                 <div id="ligneTachesQuotidienne2">
+                    {% if nbrTache > 0 %}
+                        <a href="{{ path('yb_ixina_listeTacheParticuliere') }}">
+                            <div id="iconeTache"></div>
+                            <div> x {{ nbrTache }}</div>
+                        </a>
+                    {% endif %}
+                    {% if nbrDossierMetre > 0 %}
+                        <a href="{{ path('yb_ixina_listeDossierMetre') }}">
+                            <div id="iconeDossierMetre"></div>
+                            <div> x {{ nbrDossierMetre }}</div>
+                        </a>
+                    {% endif %}
                      {% if nbrValidation > 0 %}
                         <a href="{{ path('yb_ixina_listePrestation') }}">
                             <div id="iconeValidation"></div>

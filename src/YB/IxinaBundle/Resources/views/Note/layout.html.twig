@@ -26,9 +26,16 @@
             <div id="ligneMenuIntitule">Facturation</div>
         </div>
         <div class="blocNoteLigneMenu">
+            <a href="{{ path('yb_ixina_listeDossierMetre') }}"><div id="iconeMetre"></div></a>
+            <div id="ligneMenuIntitule">Dossier Métré</div>  
+        </div>
+        <div class="blocNoteLigneMenu">
             <a href="{{ path('yb_ixina_listePrestation') }}"><div id="iconePrestationConsulter"></div></a>
-            <div id="ligneMenuIntitule">Prestation</div>
-            
+            <div id="ligneMenuIntitule">Prestation</div>  
+        </div>
+        <div class="blocNoteLigneMenu">
+            <a href="{{ path('yb_ixina_listeTacheParticuliere') }}"><div id="iconeTacheParticuliere"></div></a>
+            <div id="ligneMenuIntitule">Tache Particulière</div>  
         </div>
     </div>
 {% endblock %}

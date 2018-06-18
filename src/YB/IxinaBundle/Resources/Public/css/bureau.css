@@ -71,6 +71,13 @@ a
             background-size: 100%;
         }
 
+        #bulleShow
+        {
+            background-image: url('../images/iconeBulleShow.png');
+            background-position: center;
+            background-size: 100%;
+        }
+
             #feuilleDeBloc
             {
                 position: absolute;
@@ -220,6 +227,21 @@ a
     }
 
 /* icones */
+#iconeDossierMetre
+{
+    height: 35px;
+    width: 35px;
+    background-image: url('../images/iconeDossierMetre.png');
+    background-size: 35px 35px;
+}
+
+#iconeTache
+{
+    height: 35px;
+    width: 35px;
+    background-image: url('../images/iconeTache.png');
+    background-size: 35px 35px;
+}
 
 #iconePlanif
 {

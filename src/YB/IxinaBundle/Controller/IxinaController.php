@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\Request;
 use YB\IxinaBundle\Form\CustomerType;
 use YB\IxinaBundle\Entity\Customer;
 use YB\IxinaBundle\Entity\Plan;
+use YB\IxinaBundle\Entity\TacheParticuliere;
+use YB\IxinaBundle\Entity\DossierMetre;
 
 class IxinaController extends Controller
 {
@@ -80,6 +82,14 @@ class IxinaController extends Controller
         $factures = $facturesRepository->findAll();
         $nbrFactures = count($factures);
 
+        /* récupération des taches à faire */
+        $taches = $em->getRepository('YBIxinaBundle:TacheParticuliere')->findAll();
+        $nbrTache = count($taches);
+
+        /* récupération des Dossier de métré à faire */
+        $dossiers = $em->getRepository('YBIxinaBundle:DossierMetre')->findAll();
+        $nbrDossierMetre = count($dossiers);
+
         /* récupération des prestations de service et tri en fonction de l'action */
         $twoMonth = $oneDayTstp * 60;
         $twoWeek = $oneDayTstp * 15;
@@ -117,12 +127,19 @@ class IxinaController extends Controller
                                                                         'nbrFactures' => $nbrFactures,
                                                                         'nbrValidation' => $nbrValidation,
                                                                         'nbrRappel' => $nbrRappel,
-                                                                        'nbrPlanif' => $nbrPlanif
+                                                                        'nbrPlanif' => $nbrPlanif,
+                                                                        'nbrTache' => $nbrTache,
+                                                                        'nbrDossierMetre' => $nbrDossierMetre
                                                                         ));
     }
 
     public function comAction()
     {
         return $this->render('YBIxinaBundle:com:com.html.twig');
+    }
+
+    public function showroomAction()
+    {
+        return $this->render('YBIxinaBundle:Showroom:showroom.html.twig');
     }
 }

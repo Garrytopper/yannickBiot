@@ -1,0 +1,41 @@
+{% extends "YBIxinaBundle::ixinaHome.html.twig" %}
+
+{% block css %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/newTacheParticuliere.css') }}">
+{% endblock %}
+
+{% block barreIcone %}
+    <a id="iconeClientAjouter" href="{{ path('yb_ixina_newCustomer', {origine: 'new' }) }}"></a>
+    <a id="iconeTacheFermer" href="{{ path('yb_ixina_homepage') }}"></a>
+    <a id="iconeTableauConsulter" href="{{ path('yb_ixina_tableau') }}"></a>
+{% endblock %}
+
+{% block bloc %}
+    {{ form_start(form) }}
+    <div id="blocNote">
+        <div id="hautpage"></div>
+        <div id="contenant">
+            <div id="nomClient">
+                <div>{{ form_row(form.intitule) }}</div>
+            </div>
+            <div id="detail"> {{ form_widget(form.details) }}</div>
+            <div>
+                {{ form_widget(form.Enregistrer) }}
+            </div>
+            {% if id is defined %}
+                <a href="{{ path('yb_ixina_tacheSupp', {'id': id}) }}">!! Supprimer !!</a>
+            {% endif %}
+            <div style="display: none">{{ form_rest(form) }}</div>  
+        </div>
+        <div id="baspage">
+            <div id="texte"></div>
+            <a id="iconeNavigation" href="{{ path('yb_ixina_listeTacheParticuliere') }}"></a>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block javaScript %}
+{{ parent() }}
+{% endblock %}

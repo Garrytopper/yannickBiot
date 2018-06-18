@@ -2,7 +2,7 @@
 
 {% block css %}
 {{ parent() }}
-<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/consultFacturation.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/ybixina/css/listeDossierMetre.css') }}">
 {% endblock %}
 
 {% block barreIcone %}
@@ -15,17 +15,13 @@
     <div id="blocNote">
         <div id="hautpage"></div>
         <div id="contenant">
-            {% for facture in factures %}
-                <div class="row">
-                    <div class="nom">{{ facture.nom }}</div>
-                    <div class="type">{{ facture.typeFacture}}</div>
-                    <a href="{{ path('yb_ixina_suppfacture', {'id': facture.id}) }}"><div id="iconeSupprimer"></div></a>
-                </div>
-            {% endfor %}   
+              {% for dossier in dossiers %}
+                <a href="{{ path('yb_ixina_modifDossierMetre', {'id': dossier.id }) }}">{{ dossier.nom }}</a>
+              {% endfor %}
         </div>    
         <div id="baspage">
-            <div id="texte">Liste Factures</div>
-            <a id="iconeNavigation" href="{{ path('yb_ixina_newFacturation') }}"></a>
+            <div id="texte">Dossiers Métré à faire</div>
+            <a id="iconeNavigation" href="{{ path('yb_ixina_newDossierMetre') }}"></a>
         </div>
     </div>
 {% endblock %}
